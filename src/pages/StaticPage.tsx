@@ -71,7 +71,7 @@ const ContactPage = () => (
           <div>
             <h3 className="text-xl font-bold text-text-primary mb-2">Email Support</h3>
             <p className="text-text-muted mb-2">Our team typically responds within 24 hours.</p>
-            <a href="mailto:support@smartools.pages.dev" className="font-bold text-text-primary hover:underline">support@smartools.pages.dev</a>
+            <a href="mailto:crystaltechai@gmail.com" className="font-bold text-text-primary hover:underline">crystaltechai@gmail.com</a>
           </div>
         </div>
         
