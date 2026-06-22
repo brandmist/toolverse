@@ -6,13 +6,13 @@ import { ArrowRight, Mail, MessageSquare, HelpCircle, Shield, FileText, Lock, Us
 const AboutPage = () => (
   <div className="space-y-24">
     <Helmet>
-      <title>About Us | ToolVerse - Empowering Creators</title>
-      <meta name="description" content="ToolVerse is a leading platform providing 200+ free online tools for developers, designers, and creators. Learn about our privacy-first mission." />
+      <title>About Us | SmarTools - Empowering Creators</title>
+      <meta name="description" content="SmarTools is a leading platform providing 200+ free online tools for developers, designers, and creators. Learn about our privacy-first mission." />
     </Helmet>
     <section className="text-center max-w-4xl mx-auto pt-12">
       <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">Empowering creators with <br/><span className="text-text-muted">premium tools, for free.</span></h1>
       <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
-        ToolVerse started with a simple mission: to build the most beautiful, reliable, and privacy-focused utility platform on the internet.
+        SmarTools started with a simple mission: to build the most beautiful, reliable, and privacy-focused utility platform on the internet.
       </p>
     </section>
 
@@ -54,8 +54,8 @@ const AboutPage = () => (
 const ContactPage = () => (
   <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 pt-12">
     <Helmet>
-      <title>Contact Us | Support & Community | ToolVerse</title>
-      <meta name="description" content="Get in touch with the ToolVerse team. For support, bug reports, or feature requests, contact us via email or join our community Discord server." />
+      <title>Contact Us | Support & Community | SmarTools</title>
+      <meta name="description" content="Get in touch with the SmarTools team. For support, bug reports, or feature requests, contact us via email or join our community Discord server." />
     </Helmet>
     <div className="lg:w-1/2">
       <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary mb-6 tracking-tight">Get in touch</h1>
@@ -71,7 +71,7 @@ const ContactPage = () => (
           <div>
             <h3 className="text-xl font-bold text-text-primary mb-2">Email Support</h3>
             <p className="text-text-muted mb-2">Our team typically responds within 24 hours.</p>
-            <a href="mailto:support@toolverse.com" className="font-bold text-text-primary hover:underline">support@toolverse.com</a>
+            <a href="mailto:support@smartools.pages.dev" className="font-bold text-text-primary hover:underline">support@smartools.pages.dev</a>
           </div>
         </div>
         
@@ -127,11 +127,11 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
       case 'privacy':
         return {
           title: 'Privacy Policy',
-          description: 'Read our Privacy Policy to understand how ToolVerse handles your data securely.',
+          description: 'Read our Privacy Policy to understand how SmarTools handles your data securely.',
           date: 'October 2023',
           content: (
             <>
-              <p>At ToolVerse, your privacy is our top priority. We've built our tools to run entirely in your browser whenever possible. This means your data remains strictly on your device.</p>
+              <p>At SmarTools, your privacy is our top priority. We've built our tools to run entirely in your browser whenever possible. This means your data remains strictly on your device.</p>
               <h2>1. Information We Collect</h2>
               <p>We do not collect, store, or process your files on our servers for any tool that operates client-side. For AI tools that require server processing, files are immediately and permanently deleted post-processing. We collect minimal analytics to understand traffic patterns.</p>
               <h2>2. Local Storage Usage</h2>
@@ -146,11 +146,11 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
       case 'terms':
         return {
           title: 'Terms of Service',
-          description: 'Read the ToolVerse Terms of Service to understand your rights and responsibilities when using our platform.',
+          description: 'Read the SmarTools Terms of Service to understand your rights and responsibilities when using our platform.',
           date: 'October 2023',
           content: (
             <>
-              <p>Welcome to ToolVerse. By accessing our platform, you agree to these Terms of Service.</p>
+              <p>Welcome to SmarTools. By accessing our platform, you agree to these Terms of Service.</p>
               <h2>1. Acceptance of Terms</h2>
               <p>By accessing or using our tools, you confirm your acceptance of these Terms. If you do not agree to these Terms, you may not use our services.</p>
               <h2>2. Use of Tools</h2>
@@ -158,24 +158,24 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
               <h2>3. Prohibited Conduct</h2>
               <p>You may not use our platform for illegal activities, automated scraping of our tool endpoints, attempting to breach our security systems, or reverse engineering our proprietary code. You may not use our tools to process illegal, explicit, or copyright-infringing material.</p>
               <h2>4. Intellectual Property</h2>
-              <p>The design, code, and branding of ToolVerse are owned by us. The content you generate or process using our tools remains your property. We claim no ownership over your inputs or outputs.</p>
+              <p>The design, code, and branding of SmarTools are owned by us. The content you generate or process using our tools remains your property. We claim no ownership over your inputs or outputs.</p>
               <h2>5. Limitation of Liability</h2>
-              <p>ToolVerse shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our tools.</p>
+              <p>SmarTools shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our tools.</p>
             </>
           )
         };
       case 'cookie':
         return {
           title: 'Cookie Policy',
-          description: 'Learn about how ToolVerse uses cookies and local storage to improve your experience.',
+          description: 'Learn about how SmarTools uses cookies and local storage to improve your experience.',
           date: 'October 2023',
           content: (
             <>
-              <p>This Cookie Policy explains how ToolVerse uses cookies and similar technologies to recognize you when you visit our website.</p>
+              <p>This Cookie Policy explains how SmarTools uses cookies and similar technologies to recognize you when you visit our website.</p>
               <h2>1. What are Cookies?</h2>
               <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work, or work more efficiently, as well as to provide reporting information.</p>
               <h2>2. How We Use Local Storage</h2>
-              <p>ToolVerse primarily uses HTML5 Local Storage instead of traditional cookies. We use local storage to:
+              <p>SmarTools primarily uses HTML5 Local Storage instead of traditional cookies. We use local storage to:
                 <ul>
                   <li>Remember your dark/light theme preference.</li>
                   <li>Store your recently used tools for quick access.</li>
@@ -192,30 +192,30 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
       case 'gdpr':
         return {
           title: 'GDPR Compliance',
-          description: 'Learn how ToolVerse complies with the General Data Protection Regulation (GDPR).',
+          description: 'Learn how SmarTools complies with the General Data Protection Regulation (GDPR).',
           date: 'October 2023',
           content: (
             <>
-              <p>ToolVerse is committed to protecting your privacy and complying with the General Data Protection Regulation (GDPR).</p>
+              <p>SmarTools is committed to protecting your privacy and complying with the General Data Protection Regulation (GDPR).</p>
               <h2>1. Data Minimization</h2>
-              <p>The core principle of ToolVerse is data minimization. By processing your files locally in your browser using WebAssembly, we avoid collecting personal data entirely. What we do not collect, we do not have to protect or process.</p>
+              <p>The core principle of SmarTools is data minimization. By processing your files locally in your browser using WebAssembly, we avoid collecting personal data entirely. What we do not collect, we do not have to protect or process.</p>
               <h2>2. Lawful Basis for Processing</h2>
               <p>For the limited server-side processing we do (e.g., API requests for AI tools), our lawful basis is the provision of the requested service (contractual necessity). All server-side files are ephemeral and deleted immediately after processing.</p>
               <h2>3. Your GDPR Rights</h2>
-              <p>Under GDPR, you have the right to access, rectify, port, and erase your data. Since ToolVerse does not require user accounts or store personal data, these requests are typically not applicable to our platform. However, if you believe we hold any personal data about you, please contact us at privacy@toolverse.com.</p>
+              <p>Under GDPR, you have the right to access, rectify, port, and erase your data. Since SmarTools does not require user accounts or store personal data, these requests are typically not applicable to our platform. However, if you believe we hold any personal data about you, please contact us at privacy@smartools.pages.dev.</p>
               <h2>4. Data Transfers</h2>
-              <p>If you are accessing ToolVerse from the European Economic Area (EEA), please note that server-side requests (if any) may be processed in the United States. We ensure appropriate safeguards are in place for any such transfers.</p>
+              <p>If you are accessing SmarTools from the European Economic Area (EEA), please note that server-side requests (if any) may be processed in the United States. We ensure appropriate safeguards are in place for any such transfers.</p>
             </>
           )
         };
       case 'accessibility':
         return {
           title: 'Accessibility Statement',
-          description: 'ToolVerse is committed to digital accessibility for people with disabilities.',
+          description: 'SmarTools is committed to digital accessibility for people with disabilities.',
           date: 'October 2023',
           content: (
             <>
-              <p>ToolVerse is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+              <p>SmarTools is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
               <h2>1. Conformance Status</h2>
               <p>We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 level AA. These guidelines explain how to make web content more accessible for people with disabilities and more user-friendly for everyone.</p>
               <h2>2. Accessibility Features</h2>
@@ -228,7 +228,7 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
                 </ul>
               </p>
               <h2>3. Feedback</h2>
-              <p>We welcome your feedback on the accessibility of ToolVerse. If you encounter any accessibility barriers on our platform, please contact our support team. We try to respond to feedback within 2 business days.</p>
+              <p>We welcome your feedback on the accessibility of SmarTools. If you encounter any accessibility barriers on our platform, please contact our support team. We try to respond to feedback within 2 business days.</p>
               <h2>4. Ongoing Efforts</h2>
               <p>Accessibility is an ongoing effort. We actively test our platform using automated tools and manual keyboard/screen-reader testing to identify and resolve issues.</p>
             </>
@@ -242,7 +242,7 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
   return (
     <div className="flex flex-col md:flex-row gap-12 pt-12">
       <Helmet>
-        <title>{config.title} | ToolVerse</title>
+        <title>{config.title} | SmarTools</title>
         <meta name="description" content={config.description} />
       </Helmet>
       <div className="md:w-1/4 shrink-0">
@@ -283,11 +283,11 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
 const BlogList = () => (
   <div className="pt-12">
     <Helmet>
-      <title>Blog & Insights | ToolVerse</title>
-      <meta name="description" content="Stay updated with the latest news, tool updates, and tutorials from the ToolVerse team." />
+      <title>Blog & Insights | SmarTools</title>
+      <meta name="description" content="Stay updated with the latest news, tool updates, and tutorials from the SmarTools team." />
     </Helmet>
     <div className="mb-16 text-center max-w-4xl mx-auto">
-      <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">The ToolVerse Blog</h1>
+      <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">The SmarTools Blog</h1>
       <p className="text-xl text-text-muted leading-relaxed">
         Updates, tutorials, and insights from our team.
       </p>
@@ -296,7 +296,7 @@ const BlogList = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         { title: '10 New AI Tools Added to the Platform', cat: 'Product Updates', desc: 'We\'ve just expanded our AI toolkit with incredible new utilities for image generation.', slug: '10-new-ai-tools' },
-        { title: 'How to Build a Design System', cat: 'Engineering', desc: 'A deep dive into how we constructed the Apple-like design system for ToolVerse.', slug: 'building-design-system' },
+        { title: 'How to Build a Design System', cat: 'Engineering', desc: 'A deep dive into how we constructed the Apple-like design system for SmarTools.', slug: 'building-design-system' },
         { title: 'Why Client-Side Processing is the Future', cat: 'Privacy', desc: 'An exploration of WebAssembly and why processing files locally is better for security.', slug: 'client-side-processing' },
         { title: 'Introducing the New PDF Suite', cat: 'Product Updates', desc: 'Merge, split, compress, and organize your PDFs without ever uploading them to a server.', slug: 'new-pdf-suite' },
       ].map((post, i) => (
@@ -322,8 +322,8 @@ const BlogList = () => (
 const CareersPage = () => (
   <div className="pt-12 max-w-4xl mx-auto">
     <Helmet>
-      <title>Careers | Join the ToolVerse Team</title>
-      <meta name="description" content="We're hiring! Explore job opportunities at ToolVerse and help us build the next generation of web tools." />
+      <title>Careers | Join the SmarTools Team</title>
+      <meta name="description" content="We're hiring! Explore job opportunities at SmarTools and help us build the next generation of web tools." />
     </Helmet>
     <div className="text-center mb-16">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight">Join Our Team</h1>
@@ -361,8 +361,8 @@ const CareersPage = () => (
 const PartnersPage = () => (
   <div className="pt-12 max-w-5xl mx-auto">
     <Helmet>
-      <title>Partners | ToolVerse Ecosystem</title>
-      <meta name="description" content="Partner with ToolVerse to integrate our premium web tools into your platform. Let's build together." />
+      <title>Partners | SmarTools Ecosystem</title>
+      <meta name="description" content="Partner with SmarTools to integrate our premium web tools into your platform. Let's build together." />
     </Helmet>
     <div className="text-center mb-16">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight">Partner with Us</h1>
@@ -440,8 +440,8 @@ export function StaticPage() {
   return (
     <>
       <Helmet>
-        <title>{getTitle()} | ToolVerse</title>
-        <meta name="description" content={`${getTitle()} on ToolVerse.`} />
+        <title>{getTitle()} | SmarTools</title>
+        <meta name="description" content={`${getTitle()} on SmarTools.`} />
       </Helmet>
       
       <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen bg-surface">

@@ -3,7 +3,7 @@ import { Button } from './button'
 import { Download } from 'lucide-react'
 
 export function QrGenerator() {
-  const [text, setText] = useState('https://toolverse.app')
+  const [text, setText] = useState('https://smartools.app')
   const qrUrl = text.trim() ? `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(text)}` : ''
 
   return (

@@ -50,7 +50,7 @@ export const TOOLS: Tool[] = [
     rating: 4.9,
     reviews: 1240,
     verified: true,
-    developer: 'ToolVerse Official',
+    developer: 'SmarTools Official',
     features: ['Instant real-time conversion', '6+ formatting options', 'One-click copy to clipboard', '100% client-side privacy'],
     useCases: ['Formatting essay titles', 'Normalizing database strings', 'Generating programming variables (camelCase)'],
     pros: ['Lightning fast', 'No data leaves your browser', 'Zero ads'],

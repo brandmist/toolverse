@@ -37,7 +37,7 @@ export function AllTools() {
   return (
     <>
       <Helmet>
-        <title>All Tools — ToolVerse</title>
+        <title>All Tools — SmarTools</title>
         <meta name="description" content="Browse 200+ free online tools for PDF, image, text, coding, and more. No sign-up. All browser-based." />
       </Helmet>
 

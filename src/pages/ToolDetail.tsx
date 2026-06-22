@@ -274,12 +274,12 @@ export function ToolDetail() {
   return (
     <>
       <Helmet>
-        <title>{tool.name} — Free Online Tool | ToolVerse</title>
+        <title>{tool.name} — Free Online Tool | SmarTools</title>
         <meta name="description" content={`Free online ${tool.name}. ${tool.description} No installation or sign-up required. Secure and fast.`} />
         <meta property="og:title" content={`${tool.name} — Free Online Tool`} />
         <meta property="og:description" content={tool.description} />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href={`https://toolverse.com/tool/${tool.id}`} />
+        <link rel="canonical" href={`https://smartools.pages.dev/tool/${tool.id}`} />
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
@@ -371,7 +371,7 @@ export function ToolDetail() {
                 <div className="flex-1 min-w-[120px]">
                   <div className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-1">Developer</div>
                   <div className="text-[15px] font-semibold text-[#111827] flex items-center gap-1">
-                    {tool.developer || 'ToolVerse Official'}
+                    {tool.developer || 'SmarTools Official'}
                     {tool.verified && <ShieldCheck className="w-4 h-4 text-[#3B82F6]" />}
                   </div>
                 </div>

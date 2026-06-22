@@ -74,7 +74,7 @@ export function OpenGraphGenerator() {
 export function TweetToImage() {
   const [name, setName] = useState('John Doe')
   const [handle, setHandle] = useState('johndoe')
-  const [tweet, setTweet] = useState('Just discovered ToolVerse — the most powerful browser-based tool collection. Absolutely mind-blowing! 🚀 #productivity #tools')
+  const [tweet, setTweet] = useState('Just discovered SmarTools — the most powerful browser-based tool collection. Absolutely mind-blowing! 🚀 #productivity #tools')
   const [likes, setLikes] = useState('1.2K')
   const [retweets, setRetweets] = useState('348')
   const [cardTheme, setCardTheme] = useState<'dark' | 'light'>('light')

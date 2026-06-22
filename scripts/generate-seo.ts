@@ -25,7 +25,7 @@ const STATIC_ROUTES = [
 ];
 
 async function generateSeoFiles() {
-  const domain = 'https://toolverse.com';
+  const domain = 'https://smartools.pages.dev';
   
   // Try to read tools dynamically if possible, but fallback to static routes
   let allUrls = [...STATIC_ROUTES];

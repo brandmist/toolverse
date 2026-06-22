@@ -43,12 +43,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
 
           {/* ── Logo ── */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="ToolVerse Home">
+          <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="SmarTools Home">
             <div className="w-8 h-8 rounded-lg bg-[#111827] flex items-center justify-center">
               <span className="text-white font-bold text-sm tracking-tight">TV</span>
             </div>
             <span className="font-bold text-[15px] text-[#111827] tracking-tight hidden sm:block">
-              ToolVerse
+              SmarTools
             </span>
           </Link>
 

@@ -16,7 +16,7 @@ export function BlogDetail() {
     },
     category: 'Product Updates',
     content: `
-      <p>We are thrilled to announce the launch of 10 brand new AI-powered tools on ToolVerse. These additions mark a significant milestone in our mission to bring enterprise-grade utilities to everyone, for free.</p>
+      <p>We are thrilled to announce the launch of 10 brand new AI-powered tools on SmarTools. These additions mark a significant milestone in our mission to bring enterprise-grade utilities to everyone, for free.</p>
       
       <h2>The Future is AI</h2>
       <p>As the landscape of digital work evolves, so do the needs of our users. You've asked for more intelligent, automated ways to process images, generate content, and analyze data. We've listened.</p>

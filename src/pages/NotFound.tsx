@@ -10,8 +10,8 @@ export function NotFound() {
   return (
     <>
       <Helmet>
-        <title>Page Not Found — ToolVerse</title>
-        <meta name="description" content="The page you're looking for doesn't exist. Browse 200+ free tools on ToolVerse." />
+        <title>Page Not Found — SmarTools</title>
+        <meta name="description" content="The page you're looking for doesn't exist. Browse 200+ free tools on SmarTools." />
       </Helmet>
 
       <div className="min-h-screen bg-white">

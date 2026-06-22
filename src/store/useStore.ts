@@ -30,7 +30,7 @@ export const useStore = create<AppState>()(
       setSearchQuery: (query) => set({ searchQuery: query }),
     }),
     {
-      name: 'toolverse-storage',
+      name: 'smartools-storage',
       partialize: (state) => ({ favorites: state.favorites, recentlyUsed: state.recentlyUsed }),
     }
   )

@@ -245,7 +245,7 @@ export function ImageCompressor() {
 ───────────────────────────────────────────────────────────────────────────── */
 export function ImageWatermark() {
   const [src, setSrc] = useState<string | null>(null)
-  const [text, setText] = useState('© ToolVerse')
+  const [text, setText] = useState('© SmarTools')
   const [fontSize, setFontSize] = useState(36)
   const [opacity, setOpacity] = useState(0.5)
   const [position, setPosition] = useState<'center' | 'br' | 'bl' | 'tr' | 'tl' | 'tile'>('br')

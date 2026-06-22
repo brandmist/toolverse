@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 export function JsonViewer() {
-  const [text, setText] = useState('{\n  "name": "ToolVerse",\n  "awesome": true\n}')
-  const [parsed, setParsed] = useState<any>({ name: 'ToolVerse', awesome: true })
+  const [text, setText] = useState('{\n  "name": "SmarTools",\n  "awesome": true\n}')
+  const [parsed, setParsed] = useState<any>({ name: 'SmarTools', awesome: true })
   const [error, setError] = useState('')
 
   const handleFormat = () => {

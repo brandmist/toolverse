@@ -1730,7 +1730,7 @@ export function PngToEps() {
       const epsContent = `%!PS-Adobe-3.0 EPSF-3.0
 %%BoundingBox: 0 0 ${width} ${height}
 %%Title: ${f.name.replace('.png', '')}
-%%Creator: ToolVerse client conversion
+%%Creator: SmarTools client conversion
 %%Pages: 1
 %%EndComments
 %%BeginProlog

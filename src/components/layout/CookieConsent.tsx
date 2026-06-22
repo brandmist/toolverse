@@ -40,7 +40,7 @@ export function CookieConsent() {
             <h3 className="text-lg font-bold text-text-primary">We value your privacy</h3>
           </div>
           <p className="text-text-muted text-sm leading-relaxed max-w-2xl">
-            We use essential local storage to remember your preferences and ensure the platform runs smoothly. We do not use intrusive third-party tracking cookies. By continuing to use ToolVerse, you agree to our{' '}
+            We use essential local storage to remember your preferences and ensure the platform runs smoothly. We do not use intrusive third-party tracking cookies. By continuing to use SmarTools, you agree to our{' '}
             <Link to="/cookie" className="text-text-primary font-bold hover:underline">
               Cookie Policy
             </Link>

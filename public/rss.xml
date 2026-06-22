@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>ToolVerse Blog</title>
-  <link>https://toolverse.com</link>
-  <description>Latest updates and new tools on ToolVerse</description>
+  <title>SmarTools Blog</title>
+  <link>https://smartools.pages.dev</link>
+  <description>Latest updates and new tools on SmarTools</description>
   <item>
     <title>10 New AI Tools Added to the Platform</title>
-    <link>https://toolverse.com/blog/10-new-ai-tools</link>
+    <link>https://smartools.pages.dev/blog/10-new-ai-tools</link>
     <description>We've just expanded our AI toolkit with incredible new utilities for image generation.</description>
   </item>
 </channel>

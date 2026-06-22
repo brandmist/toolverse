@@ -4,7 +4,7 @@ import { Copy } from 'lucide-react'
 
 // JSON Minifier
 export function JsonMinifier() {
-  const [input, setInput] = useState('{\n  "name": "ToolVerse",\n  "version": "1.0.0",\n  "description": "Browser-based tools collection"\n}')
+  const [input, setInput] = useState('{\n  "name": "SmarTools",\n  "version": "1.0.0",\n  "description": "Browser-based tools collection"\n}')
   const [error, setError] = useState('')
   const [mode, setMode] = useState<'minify' | 'prettify'>('minify')
 

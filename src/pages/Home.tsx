@@ -99,16 +99,16 @@ const FEATURES = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Sarah Chen',      role: 'Frontend Engineer',  company: 'Vercel',   body: 'ToolVerse replaced at least 5 different browser bookmarks for me. The PDF tools alone save me hours every week.' },
+  { name: 'Sarah Chen',      role: 'Frontend Engineer',  company: 'Vercel',   body: 'SmarTools replaced at least 5 different browser bookmarks for me. The PDF tools alone save me hours every week.' },
   { name: 'Marcus Johnson',  role: 'Product Designer',   company: 'Figma',    body: "The image tools are incredibly fast. I use the background remover and resizer daily. Can't believe it's free." },
   { name: 'Priya Nair',      role: 'Content Strategist', company: 'HubSpot',  body: 'Finally a tool suite that respects privacy. Knowing my files never leave my browser is a huge plus.' },
 ]
 
 const FAQS: FAQItem[] = [
-  { q: 'Are all tools completely free?',                a: 'Yes — every tool on ToolVerse is 100% free, with no usage limits, no paywalls, and no hidden fees. We believe powerful utilities should be accessible to everyone.' },
+  { q: 'Are all tools completely free?',                a: 'Yes — every tool on SmarTools is 100% free, with no usage limits, no paywalls, and no hidden fees. We believe powerful utilities should be accessible to everyone.' },
   { q: 'Do you store my files or data?',                a: 'No. The vast majority of our tools run entirely in your browser using JavaScript and WebAssembly. Your files are never uploaded to our servers.' },
   { q: 'Do I need to create an account?',               a: 'Never. You can use every tool without signing up. Favorites are saved locally in your browser.' },
-  { q: 'Can I use ToolVerse on mobile?',                a: 'Absolutely. ToolVerse is fully responsive and optimized for all devices — from 320px phones to 4K desktops.' },
+  { q: 'Can I use SmarTools on mobile?',                a: 'Absolutely. SmarTools is fully responsive and optimized for all devices — from 320px phones to 4K desktops.' },
   { q: 'Can I connect my own AI or MCP server?',        a: 'Yes! We support the Model Context Protocol (MCP). You can connect your local or remote MCP server to unlock powerful agentic workflows right from our dashboard.' },
 ]
 
@@ -400,7 +400,7 @@ export function Home() {
       <section className="py-24 bg-[#FAFAFA] border-b border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Why ToolVerse</p>
+            <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Why SmarTools</p>
             <h2 className="text-[#111827] mb-4">Built for speed and privacy</h2>
             <p className="text-[16px] text-[#6B7280] leading-relaxed">
               No other tool suite processes your data locally, runs instantly, and offers this breadth of utilities — all for free.
@@ -528,7 +528,7 @@ export function Home() {
               Start building faster today.
             </h2>
             <p className="text-[18px] text-[#9CA3AF] leading-relaxed mb-10">
-              Join over 1 million developers and creators who use ToolVerse every day. No account required — just open a tool and go.
+              Join over 1 million developers and creators who use SmarTools every day. No account required — just open a tool and go.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -613,7 +613,7 @@ export function Home() {
           <div className="text-center mb-12">
             <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">FAQ</p>
             <h2 className="text-[#111827] mb-4">Frequently asked questions</h2>
-            <p className="text-[16px] text-[#6B7280]">Everything you need to know about ToolVerse.</p>
+            <p className="text-[16px] text-[#6B7280]">Everything you need to know about SmarTools.</p>
           </div>
 
           <FAQAccordion items={FAQS} />

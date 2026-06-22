@@ -7,7 +7,7 @@ export function Categories() {
   return (
     <>
       <Helmet>
-        <title>Tool Categories — ToolVerse</title>
+        <title>Tool Categories — SmarTools</title>
         <meta name="description" content="Browse 200+ free online tools organized by category: PDF, image, text, coding, color, social and more." />
       </Helmet>
 

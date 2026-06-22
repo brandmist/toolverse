@@ -52,7 +52,7 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-[#111827] flex items-center justify-center">
                 <span className="text-white font-bold text-sm tracking-tight">TV</span>
               </div>
-              <span className="font-bold text-[16px] text-[#111827] tracking-tight">ToolVerse</span>
+              <span className="font-bold text-[16px] text-[#111827] tracking-tight">SmarTools</span>
             </Link>
 
             <p className="text-[14px] text-[#6B7280] leading-relaxed mb-8 max-w-sm">
@@ -178,7 +178,7 @@ export function Footer() {
       <div className="border-t border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[13px] text-[#9CA3AF]">
-            © {new Date().getFullYear()} ToolVerse, Inc. All rights reserved.
+            © {new Date().getFullYear()} SmarTools, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 text-[13px] text-[#9CA3AF] font-medium">
