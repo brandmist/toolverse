@@ -1,0 +1,6 @@
+{
+  "name": "ToolVerse",
+  "description": "A comprehensive directory of free online tools for developers, designers, and creators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
