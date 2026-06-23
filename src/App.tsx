@@ -12,8 +12,10 @@ import { useStore } from './store/useStore';
 import { NativeAd } from './components/ui/NativeAd';
 import { AdBanner } from './components/ui/AdBanner';
 
+// Statically imported pages (critical for LCP and CLS)
+import { Home } from './pages/Home';
+
 // Lazy loaded Pages
-const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
 const Categories = lazy(() => import('./pages/Categories').then(m => ({ default: m.Categories })));
 const CategoryDetail = lazy(() => import('./pages/CategoryDetail').then(m => ({ default: m.CategoryDetail })));
 const Search = lazy(() => import('./pages/Search').then(m => ({ default: m.Search })));

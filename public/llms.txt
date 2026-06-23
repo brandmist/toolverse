@@ -1,0 +1,18 @@
+# SmarTools - Online Tool Directory
+
+Welcome to SmarTools. This site provides over 200+ free online tools for text manipulation, image conversion, PDF editing, CSS generation, and coding utilities.
+
+## Agent Accessibility
+
+This website is fully client-side and browser-based. All tools run securely in the browser without uploading data to external servers, making it fast and private.
+
+## Important Links
+
+- [Home](https://toolverse.app/)
+- [All Tools](https://toolverse.app/tools)
+- [Categories](https://toolverse.app/categories)
+- [Blog](https://toolverse.app/blog)
+
+## How to use
+
+LLMs and Web Crawlers can access the list of tools directly by analyzing the `/src/data/tools.ts` configuration, or by navigating the `All Tools` page. Each tool has a unique route structured as `/tool/:id`.
