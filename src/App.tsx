@@ -48,9 +48,6 @@ export default function App() {
               
               <div className="relative z-10 flex flex-col min-h-screen w-full">
                 <Navbar />
-                
-                {/* Global Native Ad Container (invisible) */}
-                <NativeAd />
 
                 {/* Floating Skyscrapers - Desktop Only */}
                 <div className="hidden xl:block fixed top-1/2 right-4 -translate-y-1/2 z-40">
@@ -82,6 +79,12 @@ export default function App() {
                     </Routes>
                   </Suspense>
                 </main>
+                <div className="w-full bg-[#FAFAFA] border-t border-[#E5E7EB] pt-8">
+                  <div className="max-w-[1280px] mx-auto px-6">
+                    <p className="text-[11px] font-bold text-[#9CA3AF] uppercase tracking-wider mb-2 text-center">Sponsored Content</p>
+                    <NativeAd />
+                  </div>
+                </div>
                 <Footer />
                 <CookieConsent />
               </div>
