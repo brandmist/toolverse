@@ -343,7 +343,13 @@ export function ToolDetail() {
             {/* ── Directory Layout ── */}
         <div className="max-w-[960px] mx-auto px-6 py-10 flex flex-col gap-12">
           
-          <NativeAd />
+          {/* Top Ad Banner */}
+          <div className="flex justify-center w-full">
+            <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+            <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+            <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+          </div>
+
           {/* The Actual Tool Interface */}
           <div className="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <div className="p-6 sm:p-8">
@@ -351,7 +357,9 @@ export function ToolDetail() {
             </div>
           </div>
 
-          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+          <div className="flex justify-center w-full">
+            <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+          </div>
 
           {/* Rich Directory Content: Features & Use Cases */}
           {(tool.features || tool.useCases || tool.pros || tool.cons) ? (
@@ -512,6 +520,17 @@ export function ToolDetail() {
               </div>
             </div>
           )}
+
+          <div className="flex justify-center w-full py-8">
+            <a 
+              href="https://www.effectivecpmnetwork.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#111827] text-white font-bold rounded-xl hover:bg-[#1F2937] transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-0.5"
+            >
+              Unlock Premium Features
+            </a>
+          </div>
         </div>        </div>
       </div>
     </>

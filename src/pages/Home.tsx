@@ -320,12 +320,18 @@ export function Home() {
         </div>
       </section>
 
+      {/* ── Top Ad Banner (Under Stats) ── */}
+      <div className="bg-white border-b border-[#E5E7EB] py-6">
+        <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
+          <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+          <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+          <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        </div>
+      </div>
+
       {/* ══════════════════════════════════════════════
           POPULAR TOOLS
       ══════════════════════════════════════════════ */}
-      <div className="max-w-[1280px] mx-auto px-6 py-4">
-        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex" />
-      </div>
       <section className="py-24 bg-white border-b border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Header */}
@@ -432,6 +438,13 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Mid-page Ad Container ── */}
+      <div className="bg-white border-b border-[#E5E7EB] py-12">
+        <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
+          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+        </div>
+      </div>
 
       {/* ══════════════════════════════════════════════
           FEATURED TOOLS — Bento Showcase
