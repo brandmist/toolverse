@@ -8,6 +8,7 @@ import { useStore } from '../store/useStore'
 
 // Tool Implementations
 import { AdBanner } from '../components/ui/AdBanner'
+import { NativeAd } from '../components/ui/NativeAd'
 import { CaseConverter } from '../components/ui/CaseConverter'
 import { PasswordGenerator } from '../components/ui/PasswordGenerator'
 import { LetterCounter } from '../components/ui/LetterCounter'
@@ -342,6 +343,7 @@ export function ToolDetail() {
             {/* ── Directory Layout ── */}
         <div className="max-w-[960px] mx-auto px-6 py-10 flex flex-col gap-12">
           
+          <NativeAd />
           {/* The Actual Tool Interface */}
           <div className="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <div className="p-6 sm:p-8">

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { CATEGORIES } from '../data/tools'
 import { CategoryCard } from '../components/ui/CategoryCard'
 import { AdBanner } from '../components/ui/AdBanner'
+import { NativeAd } from '../components/ui/NativeAd'
 
 export function Categories() {
   return (
@@ -46,6 +47,10 @@ export function Categories() {
             <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} className="!my-0" />
             <AdBanner adKey="345a35132c9593f18323c0c418bfe582" height={300} width={160} className="!my-0" />
           </div>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-6 py-8">
+          <NativeAd />
         </div>
       </div>
     </>
