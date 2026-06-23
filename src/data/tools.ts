@@ -67,7 +67,7 @@ const unsortedTools: Tool[] = [
 
   // Image Core
   { id: 'image-converter', name: 'Image Converter', description: 'Convert images between JPG, PNG, WEBP and GIF formats.', categoryId: 'image', icon: 'ArrowRightLeft', isNew: true, isPopular: true },
-  { id: 'jpg-to-png', name: 'JPG to PNG Converter', description: 'Convert JPG images to PNG format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
+  { id: 'jpg-to-png', name: 'JPG to PNG Converter', description: 'Convert JPG images to PNG format client-side.', categoryId: 'image', icon: 'ArrowRightLeft', isPopular: true },
   { id: 'jpg-to-webp', name: 'JPG to WEBP Converter', description: 'Convert JPG images to WEBP format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'png-to-webp', name: 'PNG to WEBP Converter', description: 'Convert PNG images to WEBP format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'webp-to-png', name: 'WEBP to PNG Converter', description: 'Convert WEBP images to PNG format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
@@ -131,13 +131,13 @@ const unsortedTools: Tool[] = [
   { id: 'remove-background', name: 'Remove Background', description: 'Automatically isolate subjects and remove image backgrounds.', categoryId: 'image', icon: 'Scissors', isPopular: true },
   { id: 'cleanup-picture', name: 'Cleanup Picture', description: 'Remove objects, dust, people, or text from pictures using AI.', categoryId: 'image', icon: 'Eraser' },
   { id: 'unblur-image', name: 'Unblur / Upscale Image', description: 'Enhance low quality images using AI super-resolution.', categoryId: 'image', icon: 'Activity' },
-  { id: 'image-to-text', name: 'Image To Text (OCR)', description: 'Extract and translate text directly from uploaded images.', categoryId: 'image', icon: 'Languages' },
+  { id: 'image-to-text', name: 'Image To Text (OCR)', description: 'Extract and translate text directly from uploaded images.', categoryId: 'image', icon: 'Languages', isPopular: true },
 
   // PDF Tools
   { id: 'pdf-compress', name: 'PDF Compressor', description: 'Compress PDF files to reduce size while preserving quality.', categoryId: 'pdf', icon: 'FileDown', isPopular: true },
   { id: 'pdf-merge', name: 'PDF Merger', description: 'Merge multiple PDF files into a single document.', categoryId: 'pdf', icon: 'FilePlus2', isPopular: true },
   { id: 'pdf-split', name: 'PDF Splitter', description: 'Split a PDF into individual pages or custom page ranges.', categoryId: 'pdf', icon: 'FileMinus2' },
-  { id: 'pdf-to-jpg', name: 'PDF to JPG', description: 'Extract images from PDF files to high-quality JPGs.', categoryId: 'pdf', icon: 'FileImage' },
+  { id: 'pdf-to-jpg', name: 'PDF to JPG', description: 'Extract images from PDF files to high-quality JPGs.', categoryId: 'pdf', icon: 'FileImage', isPopular: true },
   { id: 'pdf-metadata', name: 'PDF Metadata Editor', description: 'View, edit, or strip metadata from PDF documents.', categoryId: 'pdf', icon: 'ShieldCheck', isNew: true },
   { id: 'extract-pdf-pages', name: 'Extract PDF Pages', description: 'Select specific pages from a PDF and extract them into a new document.', categoryId: 'pdf', icon: 'Copy', isNew: true },
   { id: 'pdf-to-png', name: 'PDF to PNG Converter', description: 'Convert PDF pages to PNG image formats.', categoryId: 'pdf', icon: 'FileImage' },
@@ -161,8 +161,8 @@ const unsortedTools: Tool[] = [
   { id: 'epub-to-pdf', name: 'EPUB to PDF Converter', description: 'Convert EPUB eBooks into printable PDF formatting.', categoryId: 'pdf', icon: 'FileText', isNew: true },
   { id: 'pdf-grayscale', name: 'PDF Grayscale Converter', description: 'Desaturate and convert colored PDFs to black and white layout.', categoryId: 'pdf', icon: 'FileText', isNew: true },
   { id: 'pdf-unlock', name: 'Unlock PDF', description: 'Remove the password from a PDF file (requires the password).', categoryId: 'pdf', icon: 'Unlock', isNew: true },
-  { id: 'pdf-to-word', name: 'PDF to Word Converter', description: 'Convert a PDF into an editable Microsoft Word Document.', categoryId: 'pdf', icon: 'FileText', isNew: true },
-  { id: 'word-to-pdf', name: 'Word to PDF Converter', description: 'Convert a Word Document to PDF format.', categoryId: 'pdf', icon: 'FileText', isNew: true },
+  { id: 'pdf-to-word', name: 'PDF to Word Converter', description: 'Convert a PDF into an editable Microsoft Word Document.', categoryId: 'pdf', icon: 'FileText', isNew: true, isPopular: true },
+  { id: 'word-to-pdf', name: 'Word to PDF Converter', description: 'Convert a Word Document to PDF format.', categoryId: 'pdf', icon: 'FileText', isNew: true, isPopular: true },
   { id: 'pdf-to-powerpoint', name: 'PDF to PowerPoint Converter', description: 'Upload a PDF and convert it to a PowerPoint Presentation.', categoryId: 'pdf', icon: 'Presentation', isNew: true },
   { id: 'pptx-to-pdf', name: 'PowerPoint to PDF Converter', description: 'Upload a PowerPoint presentation and convert it to a PDF.', categoryId: 'pdf', icon: 'FileText', isNew: true },
   { id: 'pdf-crop', name: 'Crop PDF', description: 'Trim page margins and adjust layout boundaries in PDF pages.', categoryId: 'pdf', icon: 'Crop', isNew: true },
@@ -181,7 +181,7 @@ const unsortedTools: Tool[] = [
   { id: 'heic-to-pdf', name: 'HEIC to PDF Converter', description: 'Convert HEIC/HEIF photos to PDF documents.', categoryId: 'pdf', icon: 'FileText', isNew: true },
   { id: 'tiff-to-pdf', name: 'TIFF to PDF Converter', description: 'Convert TIFF image layouts to PDF format.', categoryId: 'pdf', icon: 'FileText', isNew: true },
   { id: 'png-to-pdf', name: 'PNG to PDF Converter', description: 'Convert PNG images to PDF documents.', categoryId: 'pdf', icon: 'FileText', isNew: true },
-  { id: 'jpg-to-pdf', name: 'JPG to PDF Converter', description: 'Convert JPG images to PDF documents.', categoryId: 'pdf', icon: 'FileText', isNew: true },
+  { id: 'jpg-to-pdf', name: 'JPG to PDF Converter', description: 'Convert JPG images to PDF documents.', categoryId: 'pdf', icon: 'FileText', isNew: true, isPopular: true },
   { id: 'url-to-pdf', name: 'URL to PDF Converter', description: 'Enter a website URL link and compile the page layout as a PDF.', categoryId: 'pdf', icon: 'Globe', isNew: true },
   { id: 'pdf-page-deleter', name: 'PDF Page Deleter', description: 'Delete one or more pages visually from your PDF document.', categoryId: 'pdf', icon: 'Layers', isNew: true },
   { id: 'rearrange-pdf', name: 'Rearrange PDF Pages', description: 'Reorder pages of PDF documents visually.', categoryId: 'pdf', icon: 'Layers', isNew: true },
@@ -210,7 +210,7 @@ const unsortedTools: Tool[] = [
   { id: 'diff-checker', name: 'Code Diff Checker', description: 'Compare two code snippets and highlight all differences.', categoryId: 'coding', icon: 'GitCompare', isNew: true },
   { id: 'regex-explainer', name: 'RegEx Explainer', description: 'Visualize and break down regular expressions into logical flow steps.', categoryId: 'coding', icon: 'Code', isNew: true },
   { id: 'html-markdown', name: 'HTML ⇄ Markdown Converter', description: 'Translate formatted strings back and forth.', categoryId: 'coding', icon: 'Code', isNew: true },
-  { id: 'sql-formatter', name: 'SQL Formatter', description: 'Clean and indent database SQL query strings.', categoryId: 'coding', icon: 'Code', isNew: true },
+  { id: 'sql-formatter', name: 'SQL Formatter', description: 'Clean and indent database SQL query strings.', categoryId: 'coding', icon: 'Code', isNew: true, isPopular: true },
 
   // Color
   { id: 'color-palette', name: 'Palette Generator', description: 'Generate cohesive color palettes for your UI.', categoryId: 'color', icon: 'Palette', isPopular: true },
