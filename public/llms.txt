@@ -8,10 +8,10 @@ This website is fully client-side and browser-based. All tools run securely in t
 
 ## Important Links
 
-- [Home](https://toolverse.app/)
-- [All Tools](https://toolverse.app/tools)
-- [Categories](https://toolverse.app/categories)
-- [Blog](https://toolverse.app/blog)
+- [Home](https://smartools.pages.dev/)
+- [All Tools](https://smartools.pages.dev/tools)
+- [Categories](https://smartools.pages.dev/categories)
+- [Blog](https://smartools.pages.dev/blog)
 
 ## How to use
 
