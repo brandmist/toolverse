@@ -1,882 +1,882 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://react-example.com/</loc>
+    <loc>https://smartools.pages.dev/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://react-example.com/categories</loc>
+    <loc>https://smartools.pages.dev/categories</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/search</loc>
+    <loc>https://smartools.pages.dev/search</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/text</loc>
+    <loc>https://smartools.pages.dev/category/text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/image</loc>
+    <loc>https://smartools.pages.dev/category/image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/css</loc>
+    <loc>https://smartools.pages.dev/category/css</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/coding</loc>
+    <loc>https://smartools.pages.dev/category/coding</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/color</loc>
+    <loc>https://smartools.pages.dev/category/color</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/social</loc>
+    <loc>https://smartools.pages.dev/category/social</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/pdf</loc>
+    <loc>https://smartools.pages.dev/category/pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/category/utility</loc>
+    <loc>https://smartools.pages.dev/category/utility</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/case-converter</loc>
+    <loc>https://smartools.pages.dev/tool/case-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/lorem-ipsum</loc>
+    <loc>https://smartools.pages.dev/tool/lorem-ipsum</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/letter-counter</loc>
+    <loc>https://smartools.pages.dev/tool/letter-counter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/whitespace-remover</loc>
+    <loc>https://smartools.pages.dev/tool/whitespace-remover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/bionic-reading</loc>
+    <loc>https://smartools.pages.dev/tool/bionic-reading</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/markdown-to-html</loc>
+    <loc>https://smartools.pages.dev/tool/markdown-to-html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/text-reverser</loc>
+    <loc>https://smartools.pages.dev/tool/text-reverser</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/duplicate-remover</loc>
+    <loc>https://smartools.pages.dev/tool/duplicate-remover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/text-diff</loc>
+    <loc>https://smartools.pages.dev/tool/text-diff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-converter</loc>
+    <loc>https://smartools.pages.dev/tool/image-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-webp</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-webp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/png-to-webp</loc>
+    <loc>https://smartools.pages.dev/tool/png-to-webp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/webp-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/webp-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/webp-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-svg</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-svg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/png-to-svg</loc>
+    <loc>https://smartools.pages.dev/tool/png-to-svg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/tiff-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/tiff-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/tiff-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/tiff-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/tiff-to-svg</loc>
+    <loc>https://smartools.pages.dev/tool/tiff-to-svg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-to-avif</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-to-apng</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-apng</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/webp-to-gif</loc>
+    <loc>https://smartools.pages.dev/tool/webp-to-gif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/heic-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/heic-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/heic-to-avif</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/svg-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/svg-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/png-to-tiff</loc>
+    <loc>https://smartools.pages.dev/tool/png-to-tiff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/png-to-avif</loc>
+    <loc>https://smartools.pages.dev/tool/png-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-avif</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/webp-to-avif</loc>
+    <loc>https://smartools.pages.dev/tool/webp-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-filters</loc>
+    <loc>https://smartools.pages.dev/tool/image-filters</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-cropper</loc>
+    <loc>https://smartools.pages.dev/tool/image-cropper</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-resizer</loc>
+    <loc>https://smartools.pages.dev/tool/image-resizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-compressor</loc>
+    <loc>https://smartools.pages.dev/tool/image-compressor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-watermark</loc>
+    <loc>https://smartools.pages.dev/tool/image-watermark</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/color-extractor</loc>
+    <loc>https://smartools.pages.dev/tool/color-extractor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/svg-blob</loc>
+    <loc>https://smartools.pages.dev/tool/svg-blob</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-to-base64</loc>
+    <loc>https://smartools.pages.dev/tool/image-to-base64</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/favicon-generator</loc>
+    <loc>https://smartools.pages.dev/tool/favicon-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-placeholder</loc>
+    <loc>https://smartools.pages.dev/tool/image-placeholder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/exif-editor</loc>
+    <loc>https://smartools.pages.dev/tool/exif-editor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/svg-optimizer</loc>
+    <loc>https://smartools.pages.dev/tool/svg-optimizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-maker</loc>
+    <loc>https://smartools.pages.dev/tool/gif-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pixel-art</loc>
+    <loc>https://smartools.pages.dev/tool/pixel-art</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/change-photo-background</loc>
+    <loc>https://smartools.pages.dev/tool/change-photo-background</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/profile-photo-maker</loc>
+    <loc>https://smartools.pages.dev/tool/profile-photo-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/make-round-image</loc>
+    <loc>https://smartools.pages.dev/tool/make-round-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/blur-background-tool</loc>
+    <loc>https://smartools.pages.dev/tool/blur-background-tool</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/remove-watermark-image</loc>
+    <loc>https://smartools.pages.dev/tool/remove-watermark-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/remove-person-photo</loc>
+    <loc>https://smartools.pages.dev/tool/remove-person-photo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/combine-images</loc>
+    <loc>https://smartools.pages.dev/tool/combine-images</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/make-background-transparent</loc>
+    <loc>https://smartools.pages.dev/tool/make-background-transparent</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/add-text-to-image</loc>
+    <loc>https://smartools.pages.dev/tool/add-text-to-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-splitter</loc>
+    <loc>https://smartools.pages.dev/tool/image-splitter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/add-border-to-image</loc>
+    <loc>https://smartools.pages.dev/tool/add-border-to-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/translate-image</loc>
+    <loc>https://smartools.pages.dev/tool/translate-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pixelate-image</loc>
+    <loc>https://smartools.pages.dev/tool/pixelate-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/collage-maker</loc>
+    <loc>https://smartools.pages.dev/tool/collage-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/gif-to-mp4</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-mp4</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/chart-maker</loc>
+    <loc>https://smartools.pages.dev/tool/chart-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/font-awesome-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/font-awesome-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-tiff</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-tiff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/webp-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/upscale-image</loc>
+    <loc>https://smartools.pages.dev/tool/upscale-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/colorize-photo</loc>
+    <loc>https://smartools.pages.dev/tool/colorize-photo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/ai-image-generator</loc>
+    <loc>https://smartools.pages.dev/tool/ai-image-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/remove-background</loc>
+    <loc>https://smartools.pages.dev/tool/remove-background</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/cleanup-picture</loc>
+    <loc>https://smartools.pages.dev/tool/cleanup-picture</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/unblur-image</loc>
+    <loc>https://smartools.pages.dev/tool/unblur-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-to-text</loc>
+    <loc>https://smartools.pages.dev/tool/image-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-compress</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-compress</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-merge</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-merge</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-split</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-split</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-metadata</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-metadata</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/extract-pdf-pages</loc>
+    <loc>https://smartools.pages.dev/tool/extract-pdf-pages</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-images</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-images</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsd-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/vsd-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsd-to-docx</loc>
+    <loc>https://smartools.pages.dev/tool/vsd-to-docx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsd-to-pptx</loc>
+    <loc>https://smartools.pages.dev/tool/vsd-to-pptx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsd-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/vsd-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsdx-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsdx-to-docx</loc>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-docx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsdx-to-pptx</loc>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-pptx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/vsdx-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/image-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/image-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-rotate</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-rotate</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-watermark</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-watermark</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-text</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/text-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/text-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/visio-converter</loc>
+    <loc>https://smartools.pages.dev/tool/visio-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-organizer</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-organizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-signer</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-signer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/epub-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/epub-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-grayscale</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-grayscale</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-unlock</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-unlock</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-word</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-word</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/word-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/word-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-powerpoint</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-powerpoint</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pptx-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pptx-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-crop</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-crop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-add-numbers</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-add-numbers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-tiff</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-tiff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-edit</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-edit</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-protect</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-protect</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-extract-images</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-extract-images</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-excel</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-excel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-csv</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-csv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-epub</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-epub</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-translator</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-translator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/mobi-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/mobi-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-to-mobi</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-mobi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/azw3-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/azw3-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/heic-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/tiff-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/tiff-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/png-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/png-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jpg-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/url-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/url-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-page-deleter</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-page-deleter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/rearrange-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/rearrange-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/esign-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/esign-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/pdf-watermark-remover</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-watermark-remover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/create-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/create-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-shadow</loc>
+    <loc>https://smartools.pages.dev/tool/css-shadow</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-gradient</loc>
+    <loc>https://smartools.pages.dev/tool/css-gradient</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-glass</loc>
+    <loc>https://smartools.pages.dev/tool/css-glass</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-loader</loc>
+    <loc>https://smartools.pages.dev/tool/css-loader</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-triangle</loc>
+    <loc>https://smartools.pages.dev/tool/css-triangle</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/css-border-radius</loc>
+    <loc>https://smartools.pages.dev/tool/css-border-radius</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/html-formatter</loc>
+    <loc>https://smartools.pages.dev/tool/html-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/json-viewer</loc>
+    <loc>https://smartools.pages.dev/tool/json-viewer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/json-formatter</loc>
+    <loc>https://smartools.pages.dev/tool/json-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/svg-to-jsx</loc>
+    <loc>https://smartools.pages.dev/tool/svg-to-jsx</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/jwt-decoder</loc>
+    <loc>https://smartools.pages.dev/tool/jwt-decoder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/md5-generator</loc>
+    <loc>https://smartools.pages.dev/tool/md5-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/url-encoder</loc>
+    <loc>https://smartools.pages.dev/tool/url-encoder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/base64-encoder</loc>
+    <loc>https://smartools.pages.dev/tool/base64-encoder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/json-minifier</loc>
+    <loc>https://smartools.pages.dev/tool/json-minifier</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/diff-checker</loc>
+    <loc>https://smartools.pages.dev/tool/diff-checker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/regex-explainer</loc>
+    <loc>https://smartools.pages.dev/tool/regex-explainer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/html-markdown</loc>
+    <loc>https://smartools.pages.dev/tool/html-markdown</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/sql-formatter</loc>
+    <loc>https://smartools.pages.dev/tool/sql-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/color-palette</loc>
+    <loc>https://smartools.pages.dev/tool/color-palette</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/hex-rgba</loc>
+    <loc>https://smartools.pages.dev/tool/hex-rgba</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/color-shades</loc>
+    <loc>https://smartools.pages.dev/tool/color-shades</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/rgb-hex</loc>
+    <loc>https://smartools.pages.dev/tool/rgb-hex</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/color-mixer</loc>
+    <loc>https://smartools.pages.dev/tool/color-mixer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/color-contrast</loc>
+    <loc>https://smartools.pages.dev/tool/color-contrast</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/open-graph</loc>
+    <loc>https://smartools.pages.dev/tool/open-graph</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/tweet-image</loc>
+    <loc>https://smartools.pages.dev/tool/tweet-image</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/youtube-thumb</loc>
+    <loc>https://smartools.pages.dev/tool/youtube-thumb</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/password-generator</loc>
+    <loc>https://smartools.pages.dev/tool/password-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/qr-generator</loc>
+    <loc>https://smartools.pages.dev/tool/qr-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/uuid-generator</loc>
+    <loc>https://smartools.pages.dev/tool/uuid-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/list-randomizer</loc>
+    <loc>https://smartools.pages.dev/tool/list-randomizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/number-base</loc>
+    <loc>https://smartools.pages.dev/tool/number-base</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/regex-tester</loc>
+    <loc>https://smartools.pages.dev/tool/regex-tester</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/word-frequency</loc>
+    <loc>https://smartools.pages.dev/tool/word-frequency</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/json-to-csv</loc>
+    <loc>https://smartools.pages.dev/tool/json-to-csv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/epoch-converter</loc>
+    <loc>https://smartools.pages.dev/tool/epoch-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://react-example.com/tool/csv-json-yaml</loc>
+    <loc>https://smartools.pages.dev/tool/csv-json-yaml</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

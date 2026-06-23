@@ -6,7 +6,7 @@ import { TOOLS, CATEGORIES } from '../src/data/tools.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const BASE_URL = 'https://react-example.com'; // Change back if we had the actual domain, or just use a placeholder. The app domain is https://ais-pre-luti2h7rr6rujotkceikll-573470885589.asia-east1.run.app
+const BASE_URL = 'https://smartools.pages.dev';
 
 function generateSitemap() {
   const urls: string[] = [];
