@@ -37,7 +37,7 @@ export const CATEGORIES: Category[] = [
   { id: 'utility', name: 'Utility Tools', description: 'Calculators, randomizers, and generators', icon: 'Wrench' },
 ];
 
-export const TOOLS: Tool[] = [
+const unsortedTools: Tool[] = [
   // Text
   { 
     id: 'case-converter', 
@@ -238,3 +238,13 @@ export const TOOLS: Tool[] = [
   { id: 'csv-json-yaml', name: 'CSV ⇄ JSON ⇄ YAML Converter', description: 'Translate tabular, object array, and configuration syntax.', categoryId: 'utility', icon: 'FileText', isNew: true },
 ];
 
+export const TOOLS = [...unsortedTools].sort((a, b) => {
+  // 1. Sort by Popularity (most used at top)
+  if (a.isPopular && !b.isPopular) return -1;
+  if (!a.isPopular && b.isPopular) return 1;
+  // 2. Sort by "New" as a secondary metric
+  if (a.isNew && !b.isNew) return -1;
+  if (!a.isNew && b.isNew) return 1;
+  // 3. Fallback to alphabetical
+  return a.name.localeCompare(b.name);
+});
