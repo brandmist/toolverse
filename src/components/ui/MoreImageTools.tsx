@@ -91,24 +91,24 @@ export function ChangePhotoBackground() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to change background</p>
-          <p className="text-text-muted text-xs">Isolates subjects locally in browser and applies custom background styles</p>
+          <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to change background</p>
+          <p className="text-[#6B7280] text-xs">Isolates subjects locally in browser and applies custom background styles</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
              <div className="space-y-4">
                {!removedBgUrl ? (
                  <div className="space-y-2">
-                   <p className="text-xs text-text-muted">Step 1: Isolate subject from original background</p>
-                   <Button onClick={removeBackground} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+                   <p className="text-xs text-[#6B7280]">Step 1: Isolate subject from original background</p>
+                   <Button onClick={removeBackground} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                      <Sparkles className="w-4 h-4 mr-2" /> Isolate Subject (AI)
                    </Button>
                  </div>
@@ -119,21 +119,21 @@ export function ChangePhotoBackground() {
                    </div>
                    
                    <div>
-                     <label className="text-xs text-text-muted font-semibold uppercase tracking-wider mb-2 block">Background Type</label>
+                     <label className="text-xs text-[#6B7280] font-semibold uppercase tracking-wider mb-2 block">Background Type</label>
                      <div className="grid grid-cols-2 gap-2">
-                       <button onClick={() => setBgType('color')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'color' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Color</button>
-                       <button onClick={() => setBgType('image')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'image' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Image</button>
+                       <button onClick={() => setBgType('color')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'color' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Color</button>
+                       <button onClick={() => setBgType('image')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'image' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Image</button>
                      </div>
                    </div>
                    
                    {bgType === 'color' ? (
                      <div>
-                       <label className="text-xs text-text-muted font-semibold uppercase tracking-wider mb-2 block">Fill Color</label>
+                       <label className="text-xs text-[#6B7280] font-semibold uppercase tracking-wider mb-2 block">Fill Color</label>
                        <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
                      </div>
                    ) : (
                      <div>
-                       <label className="text-xs text-text-muted font-semibold uppercase tracking-wider mb-2 block">Background Image</label>
+                       <label className="text-xs text-[#6B7280] font-semibold uppercase tracking-wider mb-2 block">Background Image</label>
                        <input 
                          type="file" 
                          accept="image/*,.svg,.tiff,.tif,.heic,.avif"
@@ -141,7 +141,7 @@ export function ChangePhotoBackground() {
                            const f = e.target.files?.[0]
                            if (f) setBgFileUrl(URL.createObjectURL(f))
                          }}
-                         className="w-full text-xs bg-card border border-border border-white/10 rounded-lg p-2 text-text-muted"
+                         className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#6B7280]"
                        />
                      </div>
                    )}
@@ -151,17 +151,17 @@ export function ChangePhotoBackground() {
              
              <div className="pt-4 space-y-2">
                {removedBgUrl && (
-                 <Button onClick={download} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+                 <Button onClick={download} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                    <Download className="w-4 h-4 mr-2" /> Download Photo
                  </Button>
                )}
-               <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setRemovedBgUrl(null) }}>
+               <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setRemovedBgUrl(null) }}>
                  Reset
                </Button>
              </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px] relative">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
              {removedBgUrl ? (
                <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
              ) : (
@@ -170,8 +170,8 @@ export function ChangePhotoBackground() {
              
              {processing && (
                <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                 <RefreshCw className="w-8 h-8 text-text-primary animate-spin mb-3" />
-                 <p className="text-text-primary font-medium text-sm">{statusText}</p>
+                 <RefreshCw className="w-8 h-8 text-[#111827] animate-spin mb-3" />
+                 <p className="text-[#111827] font-medium text-sm">{statusText}</p>
                </div>
              )}
           </div>

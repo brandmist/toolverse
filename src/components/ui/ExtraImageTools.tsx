@@ -98,49 +98,49 @@ export function ProfilePhotoMaker() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo for Profile Picture</p>
-          <p className="text-text-muted text-xs">Crops to circle, applies gorgeous borders and drop-shadows instantly</p>
+          <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo for Profile Picture</p>
+          <p className="text-[#6B7280] text-xs">Crops to circle, applies gorgeous borders and drop-shadows instantly</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Profile Customizer</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Profile Customizer</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Zoom Scale</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Zoom Scale</label>
                 <input type="range" min="0.5" max="2.0" step="0.05" value={scale} onChange={e => setScale(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Border Width: {borderWidth}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Border Width: {borderWidth}px</label>
                 <input type="range" min="0" max="30" value={borderWidth} onChange={e => setBorderWidth(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Border Color</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Border Color</label>
                 <input type="color" value={borderColor} onChange={e => setBorderColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Shadow Blur: {shadowBlur}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Shadow Blur: {shadowBlur}px</label>
                 <input type="range" min="0" max="40" value={shadowBlur} onChange={e => setShadowBlur(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="space-y-2 pt-4">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm">
                 Download Rounded Image
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
             <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-full shadow-2xl" />
           </div>
         </div>
@@ -226,24 +226,24 @@ export function BlurBackgroundTool() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Blur Background</p>
-          <p className="text-text-muted text-xs">Uses AI client-side WASM to isolate foreground and apply smooth lens blur background</p>
+          <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Blur Background</p>
+          <p className="text-[#6B7280] text-xs">Uses AI client-side WASM to isolate foreground and apply smooth lens blur background</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
               {!removedBgUrl ? (
                 <div className="space-y-2">
-                  <p className="text-xs text-text-muted">Step 1: Isolate subject using AI models</p>
-                  <Button onClick={removeBackground} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+                  <p className="text-xs text-[#6B7280]">Step 1: Isolate subject using AI models</p>
+                  <Button onClick={removeBackground} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                     <Sparkles className="w-4 h-4 mr-2" /> Isolate Subject (AI)
                   </Button>
                 </div>
@@ -253,7 +253,7 @@ export function BlurBackgroundTool() {
                     <CheckCircle className="w-4 h-4" /> Subject isolated!
                   </div>
                   <div>
-                    <label className="text-xs text-text-muted block mb-1">Blur Intensity: {blurAmount}px</label>
+                    <label className="text-xs text-[#6B7280] block mb-1">Blur Intensity: {blurAmount}px</label>
                     <input type="range" min="1" max="40" value={blurAmount} onChange={e => setBlurAmount(parseInt(e.target.value))} className="w-full accent-indigo-500" />
                   </div>
                 </div>
@@ -262,17 +262,17 @@ export function BlurBackgroundTool() {
             
             <div className="pt-4 space-y-2">
               {removedBgUrl && (
-                <Button onClick={download} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+                <Button onClick={download} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                   <Download className="w-4 h-4 mr-2" /> Download Photo
                 </Button>
               )}
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setRemovedBgUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setRemovedBgUrl(null) }}>
                 Reset
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px] relative">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
             {removedBgUrl ? (
               <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
             ) : (
@@ -281,8 +281,8 @@ export function BlurBackgroundTool() {
             
             {processing && (
               <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                <RefreshCw className="w-8 h-8 text-text-primary animate-spin mb-3" />
-                <p className="text-text-primary font-medium text-sm">{statusText}</p>
+                <RefreshCw className="w-8 h-8 text-[#111827] animate-spin mb-3" />
+                <p className="text-[#111827] font-medium text-sm">{statusText}</p>
               </div>
             )}
           </div>
@@ -363,39 +363,39 @@ export function RemoveWatermarkImage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Remove Watermark/Person</p>
-          <p className="text-text-muted text-xs">Draw/brush over text logo watermarks or people to smudge-erase them locally</p>
+          <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Remove Watermark/Person</p>
+          <p className="text-[#6B7280] text-xs">Draw/brush over text logo watermarks or people to smudge-erase them locally</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Object/Watermark Eraser</h4>
-              <p className="text-xs text-text-muted">Click and drag paint over any text watermark or person coordinates in the photo right preview pane.</p>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Object/Watermark Eraser</h4>
+              <p className="text-xs text-[#6B7280]">Click and drag paint over any text watermark or person coordinates in the photo right preview pane.</p>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Brush Size: {brushSize}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Brush Size: {brushSize}px</label>
                 <input type="range" min="5" max="60" value={brushSize} onChange={e => setBrushSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Save & Download Clean Photo
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-card border border-border rounded-xl border border-white/5 overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas 
               ref={canvasRef} 
               onMouseDown={() => setIsDrawing(true)}
@@ -493,27 +493,27 @@ export function CombineImages() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {images.length === 0 ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <LayoutGrid className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload multiple photos to merge/combine</p>
-          <p className="text-text-muted text-xs">Stitches images side-by-side or stacked vertically</p>
+          <LayoutGrid className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload multiple photos to merge/combine</p>
+          <p className="text-[#6B7280] text-xs">Stitches images side-by-side or stacked vertically</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-text-muted uppercase">Merged Images</span>
-                <button onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }} className="text-xs text-text-primary hover:text-text-primary">+ Add More</button>
+                <span className="text-xs font-semibold text-[#6B7280] uppercase">Merged Images</span>
+                <button onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }} className="text-xs text-[#111827] hover:text-[#111827]">+ Add More</button>
               </div>
               <div className="max-h-32 overflow-y-auto space-y-1">
                 {images.map((img, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-card border border-border p-2 rounded text-[10px] text-text-muted">
+                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-2 rounded text-[10px] text-[#6B7280]">
                     <span className="truncate max-w-[150px]">{img.file.name}</span>
                     <button onClick={() => setImages(images.filter((_, i) => i !== idx))} className="text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
                   </div>
@@ -521,35 +521,35 @@ export function CombineImages() {
               </div>
 
               <div>
-                <label className="text-xs text-text-muted block mb-1">Stitching Direction</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Stitching Direction</label>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => setDirection('horizontal')} className={`py-1.5 rounded text-xs font-bold ${direction === 'horizontal' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Horizontal</button>
-                  <button onClick={() => setDirection('vertical')} className={`py-1.5 rounded text-xs font-bold ${direction === 'vertical' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Vertical</button>
+                  <button onClick={() => setDirection('horizontal')} className={`py-1.5 rounded text-xs font-bold ${direction === 'horizontal' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Horizontal</button>
+                  <button onClick={() => setDirection('vertical')} className={`py-1.5 rounded text-xs font-bold ${direction === 'vertical' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Vertical</button>
                 </div>
               </div>
 
               <div>
-                <label className="text-xs text-text-muted block mb-1">Gap spacing: {gap}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Gap spacing: {gap}px</label>
                 <input type="range" min="0" max="100" value={gap} onChange={e => setGap(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
 
               <div>
-                <label className="text-xs text-text-muted block mb-1">Backdrop Fill Color</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Backdrop Fill Color</label>
                 <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Merge & Download
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => setImages([])}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => setImages([])}>
                 Clear
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
             <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
           </div>
         </div>
@@ -625,39 +625,39 @@ export function MakeBackgroundTransparent() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <Scissors className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to remove specific background colors</p>
-          <p className="text-text-muted text-xs">Click on any background pixel in the preview pane to transparency key it out</p>
+          <Scissors className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to remove specific background colors</p>
+          <p className="text-[#6B7280] text-xs">Click on any background pixel in the preview pane to transparency key it out</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Color Key Transparency</h4>
-              <p className="text-xs text-text-muted">Adjust the color matching tolerance slider below, then click any background color on the preview pane image to erase it.</p>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Color Key Transparency</h4>
+              <p className="text-xs text-[#6B7280]">Adjust the color matching tolerance slider below, then click any background color on the preview pane image to erase it.</p>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Tolerance: {tolerance}</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Tolerance: {tolerance}</label>
                 <input type="range" min="0" max="100" value={tolerance} onChange={e => setTolerance(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Save & Download Photo
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-card border border-border rounded-xl border border-white/5 overflow-hidden relative bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
             <canvas 
               ref={canvasRef} 
               onClick={handleColorKey}
@@ -725,54 +725,54 @@ export function AddTextToImage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <Type className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to add Text</p>
-          <p className="text-text-muted text-xs">Easy text overlay with customizable color, size, and dragging coordinate parameters</p>
+          <Type className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to add Text</p>
+          <p className="text-[#6B7280] text-xs">Easy text overlay with customizable color, size, and dragging coordinate parameters</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Text Parameters</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Text Parameters</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">String Text</label>
-                <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-xl px-3 py-1.5 text-text-primary font-mono text-xs" />
+                <label className="text-xs text-[#6B7280] block mb-1">String Text</label>
+                <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-1.5 text-[#111827] font-mono text-xs" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Font Size: {fontSize}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Font Size: {fontSize}px</label>
                 <input type="range" min="10" max="100" value={fontSize} onChange={e => setFontSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Fill Color</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Fill Color</label>
                 <input type="color" value={textColor} onChange={e => setTextColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
               </div>
               <div>
-                <label className="text-xs text-text-muted flex justify-between">X Placement: <span>{pos.x}%</span></label>
+                <label className="text-xs text-[#6B7280] flex justify-between">X Placement: <span>{pos.x}%</span></label>
                 <input type="range" min="0" max="100" value={pos.x} onChange={e => setPos({ ...pos, x: parseInt(e.target.value) })} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted flex justify-between">Y Placement: <span>{pos.y}%</span></label>
+                <label className="text-xs text-[#6B7280] flex justify-between">Y Placement: <span>{pos.y}%</span></label>
                 <input type="range" min="0" max="100" value={pos.y} onChange={e => setPos({ ...pos, y: parseInt(e.target.value) })} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Save & Download Photo
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-card border border-border rounded-xl border border-white/5 overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain rounded-lg shadow-2xl" />
           </div>
         </div>
@@ -835,48 +835,48 @@ export function ImageSplitter() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <LayoutGrid className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Split into Grid blocks</p>
-          <p className="text-text-muted text-xs">Cuts image into rows and columns grid, packaging slices inside a ZIP</p>
+          <LayoutGrid className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Split into Grid blocks</p>
+          <p className="text-[#6B7280] text-xs">Cuts image into rows and columns grid, packaging slices inside a ZIP</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Grid Matrix</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Grid Matrix</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Rows: {rows}</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Rows: {rows}</label>
                 <input type="range" min="1" max="10" value={rows} onChange={e => setRows(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Columns: {cols}</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Columns: {cols}</label>
                 <input type="range" min="1" max="10" value={cols} onChange={e => setCols(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleSplit} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm" disabled={zipping}>
+              <Button onClick={handleSplit} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={zipping}>
                 {zipping ? 'Compressing slices...' : 'Split & Download ZIP'}
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
             {previewUrl && (
-              <div className="relative inline-block border border-white/10 rounded overflow-hidden">
+              <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block opacity-70" />
                 <div className="absolute inset-0 grid" style={{ gridTemplateRows: `repeat(${rows}, 1fr)`, gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
                   {Array.from({ length: rows * cols }).map((_, idx) => (
-                    <div key={idx} className="border border-dashed border-border bg-surface border border-border flex items-center justify-center"><span className="text-[10px] font-bold font-mono text-danger">#{idx+1}</span></div>
+                    <div key={idx} className="border border-dashed border-[#E5E7EB] bg-[#FAFAFA] border border-[#E5E7EB] flex items-center justify-center"><span className="text-[10px] font-bold font-mono text-danger">#{idx+1}</span></div>
                   ))}
                 </div>
               </div>
@@ -931,42 +931,42 @@ export function AddBorderToImage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Add Border</p>
-          <p className="text-text-muted text-xs">Stamps colorful solid frame board borders around your picture dimensions</p>
+          <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Add Border</p>
+          <p className="text-[#6B7280] text-xs">Stamps colorful solid frame board borders around your picture dimensions</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Border Properties</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Border Properties</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Border Thickness: {borderWidth}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Border Thickness: {borderWidth}px</label>
                 <input type="range" min="1" max="100" value={borderWidth} onChange={e => setBorderWidth(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Frame Color</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Frame Color</label>
                 <input type="color" value={borderColor} onChange={e => setBorderColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Apply & Download
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
             <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
           </div>
         </div>
@@ -1058,27 +1058,27 @@ export function TranslateImage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <Languages className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Translate</p>
-          <p className="text-text-muted text-xs">Performs OCR text isolation, translates text, and overlay stamps translation back onto coordinates</p>
+          <Languages className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Translate</p>
+          <p className="text-[#6B7280] text-xs">Performs OCR text isolation, translates text, and overlay stamps translation back onto coordinates</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Image Translator</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Image Translator</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Target Language</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Target Language</label>
                 <select 
                   value={targetLang} 
                   onChange={e => setTargetLang(e.target.value)}
-                  className="w-full bg-card border border-border border-white/10 rounded-xl px-4 py-2 text-text-primary text-xs"
+                  className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] text-xs"
                 >
                   {languages.map(l => (
                     <option key={l.code} value={l.code}>{l.label}</option>
@@ -1088,26 +1088,26 @@ export function TranslateImage() {
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleTranslate} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm" disabled={processing}>
+              <Button onClick={handleTranslate} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={processing}>
                 {processing ? 'Translating...' : 'Translate Image'}
               </Button>
               {file && (
-                <Button onClick={handleDownload} variant="outline" className="w-full border-white/10 text-text-primary text-sm">
+                <Button onClick={handleDownload} variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm">
                   Download Image
                 </Button>
               )}
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-card border border-border rounded-xl border border-white/5 overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain shadow-2xl" />
             {processing && (
               <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                <RefreshCw className="w-8 h-8 text-text-primary animate-spin mb-3" />
-                <p className="text-text-primary font-medium text-sm">{statusText}</p>
+                <RefreshCw className="w-8 h-8 text-[#111827] animate-spin mb-3" />
+                <p className="text-[#111827] font-medium text-sm">{statusText}</p>
               </div>
             )}
           </div>
@@ -1170,38 +1170,38 @@ export function PixelateImage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <Compass className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload photo to Pixelate</p>
-          <p className="text-text-muted text-xs">Converts photo to retro 8-bit grid pixelated layouts</p>
+          <Compass className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload photo to Pixelate</p>
+          <p className="text-[#6B7280] text-xs">Converts photo to retro 8-bit grid pixelated layouts</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Pixelator settings</h4>
+              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Pixelator settings</h4>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Pixel Box Size: {pixelSize}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Pixel Box Size: {pixelSize}px</label>
                 <input type="range" min="2" max="50" value={pixelSize} onChange={e => setPixelSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Download Pixelated Image
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null) }}>
                 Choose New Image
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-card border border-border rounded-xl border border-white/5 overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain shadow-2xl" />
           </div>
         </div>
@@ -1294,55 +1294,55 @@ export function CollageMaker() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {images.length === 0 ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <LayoutGrid className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload up to 4 images to make Collage</p>
-          <p className="text-text-muted text-xs">Packs layouts dynamically inside grid collage models</p>
+          <LayoutGrid className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload up to 4 images to make Collage</p>
+          <p className="text-[#6B7280] text-xs">Packs layouts dynamically inside grid collage models</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-text-muted uppercase">Selected Images ({images.length}/4)</span>
+                <span className="text-xs font-semibold text-[#6B7280] uppercase">Selected Images ({images.length}/4)</span>
                 {images.length < 4 && (
-                  <button onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }} className="text-xs text-text-primary hover:text-text-primary">+ Add</button>
+                  <button onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.multiple = true; i.accept = 'image/*'; i.onchange = handleUpload as any; i.click() }} className="text-xs text-[#111827] hover:text-[#111827]">+ Add</button>
                 )}
               </div>
               <div className="space-y-1">
                 {images.map((img, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-card border border-border p-2 rounded text-[10px] text-text-muted">
+                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-2 rounded text-[10px] text-[#6B7280]">
                     <span className="truncate max-w-[150px]">{img.file.name}</span>
                     <button onClick={() => setImages(images.filter((_, i) => i !== idx))} className="text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
                   </div>
                 ))}
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Grid Padding: {padding}px</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Grid Padding: {padding}px</label>
                 <input type="range" min="0" max="40" value={padding} onChange={e => setPadding(parseInt(e.target.value))} className="w-full accent-indigo-500" />
               </div>
               <div>
-                <label className="text-xs text-text-muted block mb-1">Spacing Color</label>
+                <label className="text-xs text-[#6B7280] block mb-1">Spacing Color</label>
                 <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
               </div>
             </div>
             
             <div className="pt-4 space-y-2">
-              <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+              <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
                 Generate Collage
               </Button>
-              <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm" onClick={() => setImages([])}>
+              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => setImages([])}>
                 Clear All
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
             <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
           </div>
         </div>
@@ -1411,33 +1411,33 @@ export function GifToMp4() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.gif'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
-          <Play className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click to upload animated GIF to convert to MP4</p>
-          <p className="text-text-muted text-xs">Captures canvas frames and bundles them into playable video containers</p>
+          <Play className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click to upload animated GIF to convert to MP4</p>
+          <p className="text-[#6B7280] text-xs">Captures canvas frames and bundles them into playable video containers</p>
         </div>
       ) : (
         <div className="space-y-4 max-w-md mx-auto w-full text-center">
-          <div className="bg-card border border-border border-white/5 rounded-xl p-3 text-text-primary text-xs font-semibold">{file.name}</div>
+          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-semibold">{file.name}</div>
           {recording && (
-            <div className="flex justify-center items-center gap-2 text-text-primary py-4">
-              <RefreshCw className="w-5 h-5 text-text-primary animate-spin" /> Recording frames locally...
+            <div className="flex justify-center items-center gap-2 text-[#111827] py-4">
+              <RefreshCw className="w-5 h-5 text-[#111827] animate-spin" /> Recording frames locally...
             </div>
           )}
           {videoUrl && (
             <div className="space-y-4">
-              <video src={videoUrl} controls loop autoPlay className="w-full max-h-60 rounded-lg border border-white/10" />
+              <video src={videoUrl} controls loop autoPlay className="w-full max-h-60 rounded-lg border border-[#E5E7EB]" />
               <a href={videoUrl} download={`${file.name.replace('.gif', '')}.mp4`}>
-                <Button className="w-full bg-card border border-border hover:bg-card-hover text-text-primary">Download MP4/WebM Video</Button>
+                <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">Download MP4/WebM Video</Button>
               </a>
             </div>
           )}
-          <Button variant="outline" className="w-full border-white/10 text-text-primary text-sm mt-2" onClick={() => { setFile(null); setVideoUrl(null) }}>Choose New GIF</Button>
+          <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm mt-2" onClick={() => { setFile(null); setVideoUrl(null) }}>Choose New GIF</Button>
         </div>
       )}
     </div>
@@ -1565,42 +1565,42 @@ export function ChartMaker() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+        <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
           <div className="space-y-4">
-            <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Chart Configuration</h4>
+            <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Chart Configuration</h4>
             <div>
-              <label className="text-xs text-text-muted block mb-1">Chart Title</label>
-              <input type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-xl px-3 py-1.5 text-text-primary text-xs font-semibold" />
+              <label className="text-xs text-[#6B7280] block mb-1">Chart Title</label>
+              <input type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-1.5 text-[#111827] text-xs font-semibold" />
             </div>
             <div>
-              <label className="text-xs text-text-muted block mb-1">Chart Labels (comma-separated)</label>
-              <input type="text" value={labels} onChange={e => setLabels(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-xl px-3 py-1.5 text-text-primary text-xs font-mono" />
+              <label className="text-xs text-[#6B7280] block mb-1">Chart Labels (comma-separated)</label>
+              <input type="text" value={labels} onChange={e => setLabels(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-1.5 text-[#111827] text-xs font-mono" />
             </div>
             <div>
-              <label className="text-xs text-text-muted block mb-1">Values (comma-separated)</label>
-              <input type="text" value={values} onChange={e => setValues(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-xl px-3 py-1.5 text-text-primary text-xs font-mono" />
+              <label className="text-xs text-[#6B7280] block mb-1">Values (comma-separated)</label>
+              <input type="text" value={values} onChange={e => setValues(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-1.5 text-[#111827] text-xs font-mono" />
             </div>
 
             <div>
-              <label className="text-xs text-text-muted block mb-1">Type Selector</label>
+              <label className="text-xs text-[#6B7280] block mb-1">Type Selector</label>
               <div className="grid grid-cols-3 gap-2">
-                <button onClick={() => setChartType('bar')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'bar' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Bar</button>
-                <button onClick={() => setChartType('line')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'line' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Line</button>
-                <button onClick={() => setChartType('pie')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'pie' ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>Pie</button>
+                <button onClick={() => setChartType('bar')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'bar' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Bar</button>
+                <button onClick={() => setChartType('line')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'line' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Line</button>
+                <button onClick={() => setChartType('pie')} className={`py-1 rounded text-[10px] font-bold ${chartType === 'pie' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Pie</button>
               </div>
             </div>
           </div>
 
           <div className="pt-4 space-y-2">
-            <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+            <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
               Download PNG Image
             </Button>
           </div>
         </div>
 
-        <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px]">
+        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
           <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
         </div>
       </div>
@@ -1662,14 +1662,14 @@ export function FontAwesomeToPng() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+        <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
           <div className="space-y-4">
-            <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider">Icon Config</h4>
+            <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Icon Config</h4>
             <div>
-              <label className="text-xs text-text-muted block mb-1">Select Icon Glyph</label>
-              <select value={selectedIcon} onChange={e => setSelectedIcon(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-xl px-4 py-2 text-text-primary text-xs">
+              <label className="text-xs text-[#6B7280] block mb-1">Select Icon Glyph</label>
+              <select value={selectedIcon} onChange={e => setSelectedIcon(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] text-xs">
                 {icons.map(ic => (
                   <option key={ic} value={ic}>{ic.toUpperCase()}</option>
                 ))}
@@ -1677,33 +1677,33 @@ export function FontAwesomeToPng() {
             </div>
 
             <div>
-              <label className="text-xs text-text-muted block mb-1">Icon Color</label>
+              <label className="text-xs text-[#6B7280] block mb-1">Icon Color</label>
               <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
             </div>
 
             <div>
-              <label className="text-xs text-text-muted block mb-1">Backdrop Color</label>
+              <label className="text-xs text-[#6B7280] block mb-1">Backdrop Color</label>
               <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="w-full h-8 rounded cursor-pointer bg-transparent border-0" />
             </div>
 
             <div>
-              <label className="text-xs text-text-muted block mb-1">Background Shape</label>
+              <label className="text-xs text-[#6B7280] block mb-1">Background Shape</label>
               <div className="grid grid-cols-3 gap-2">
                 {['circle', 'square', 'none'].map(shape => (
-                  <button key={shape} onClick={() => setBgType(shape as any)} className={`py-1 rounded text-[10px] font-bold uppercase ${bgType === shape ? 'bg-card border border-border text-text-primary' : 'bg-card border border-border text-text-muted'}`}>{shape}</button>
+                  <button key={shape} onClick={() => setBgType(shape as any)} className={`py-1 rounded text-[10px] font-bold uppercase ${bgType === shape ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>{shape}</button>
                 ))}
               </div>
             </div>
           </div>
 
           <div className="pt-4 space-y-2">
-            <Button onClick={handleDownload} className="w-full bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm">
+            <Button onClick={handleDownload} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
               Download PNG Icon
             </Button>
           </div>
         </div>
 
-        <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
           <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
         </div>
       </div>
@@ -1765,20 +1765,20 @@ showpage
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.png'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
-        <FileCode className="w-12 h-12 text-text-primary mb-4" />
-        <p className="text-text-primary font-medium mb-1">Click to upload PNG to convert to EPS</p>
-        <p className="text-text-muted text-xs">Wraps visual raster image inside PostScript vector format envelope</p>
+        <FileCode className="w-12 h-12 text-[#111827] mb-4" />
+        <p className="text-[#111827] font-medium mb-1">Click to upload PNG to convert to EPS</p>
+        <p className="text-[#6B7280] text-xs">Wraps visual raster image inside PostScript vector format envelope</p>
       </div>
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
-          <RefreshCw className="w-10 h-10 text-text-primary animate-spin mb-3" />
-          <p className="text-text-primary font-medium">Encoding PostScript file...</p>
+          <RefreshCw className="w-10 h-10 text-[#111827] animate-spin mb-3" />
+          <p className="text-[#111827] font-medium">Encoding PostScript file...</p>
         </div>
       )}
     </div>
@@ -1818,20 +1818,20 @@ export function JpgToTiff() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.jpg,.jpeg'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
-        <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-        <p className="text-text-primary font-medium mb-1">Click to upload JPG to convert to TIFF</p>
-        <p className="text-text-muted text-xs">Packs JPG pixels into a standard uncompressed TIFF image container format</p>
+        <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+        <p className="text-[#111827] font-medium mb-1">Click to upload JPG to convert to TIFF</p>
+        <p className="text-[#6B7280] text-xs">Packs JPG pixels into a standard uncompressed TIFF image container format</p>
       </div>
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
-          <RefreshCw className="w-10 h-10 text-text-primary animate-spin mb-3" />
-          <p className="text-text-primary font-medium">Encoding TIFF image...</p>
+          <RefreshCw className="w-10 h-10 text-[#111827] animate-spin mb-3" />
+          <p className="text-[#111827] font-medium">Encoding TIFF image...</p>
         </div>
       )}
     </div>
@@ -1868,20 +1868,20 @@ export function WebpToJpg() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.webp'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
-        <ImageIcon className="w-12 h-12 text-text-primary mb-4" />
-        <p className="text-text-primary font-medium mb-1">Click to upload WebP to convert to JPG</p>
-        <p className="text-text-muted text-xs">Convert static WebP image layouts to standard JPG format client-side</p>
+        <ImageIcon className="w-12 h-12 text-[#111827] mb-4" />
+        <p className="text-[#111827] font-medium mb-1">Click to upload WebP to convert to JPG</p>
+        <p className="text-[#6B7280] text-xs">Convert static WebP image layouts to standard JPG format client-side</p>
       </div>
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
-          <RefreshCw className="w-10 h-10 text-text-primary animate-spin mb-3" />
-          <p className="text-text-primary font-medium">Converting WebP...</p>
+          <RefreshCw className="w-10 h-10 text-[#111827] animate-spin mb-3" />
+          <p className="text-[#111827] font-medium">Converting WebP...</p>
         </div>
       )}
     </div>

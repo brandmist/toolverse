@@ -56,47 +56,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/case-converter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/lorem-ipsum</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/letter-counter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/whitespace-remover</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/bionic-reading</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/markdown-to-html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/text-reverser</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/duplicate-remover</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/text-diff</loc>
+    <loc>https://smartools.pages.dev/tool/image-compressor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -106,297 +66,12 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-webp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/png-to-webp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/webp-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-svg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/png-to-svg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/tiff-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/tiff-to-jpg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/tiff-to-svg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-to-jpg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-to-avif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-to-apng</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/webp-to-gif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/heic-to-jpg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/heic-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/heic-to-avif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/svg-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/png-to-tiff</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/png-to-avif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-avif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/webp-to-avif</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-filters</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-cropper</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-resizer</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-compressor</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-watermark</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/color-extractor</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/svg-blob</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-to-base64</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/favicon-generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-placeholder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/exif-editor</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/svg-optimizer</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-maker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pixel-art</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/change-photo-background</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/profile-photo-maker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/make-round-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/blur-background-tool</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/remove-watermark-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/remove-person-photo</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/combine-images</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/make-background-transparent</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/add-text-to-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/image-splitter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/add-border-to-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/translate-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pixelate-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/collage-maker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/gif-to-mp4</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/chart-maker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/font-awesome-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-tiff</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/upscale-image</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/colorize-photo</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/ai-image-generator</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-word</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -406,17 +81,67 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/cleanup-picture</loc>
+    <loc>https://smartools.pages.dev/tool/sql-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/unblur-image</loc>
+    <loc>https://smartools.pages.dev/tool/word-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/ai-image-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/case-converter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/color-extractor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/css-shadow</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/image-to-base64</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://smartools.pages.dev/tool/image-to-text</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/jpg-to-png</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/json-viewer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/letter-counter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/color-palette</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/password-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -431,17 +156,127 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-split</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://smartools.pages.dev/tool/pdf-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-metadata</loc>
+    <loc>https://smartools.pages.dev/tool/qr-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/add-border-to-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-add-numbers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/add-text-to-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/azw3-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/bionic-reading</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/blur-background-tool</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/change-photo-background</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/chart-maker</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/diff-checker</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/collage-maker</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/color-mixer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/colorize-photo</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/combine-images</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/create-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-crop</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/css-border-radius</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/css-glass</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/csv-json-yaml</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-edit</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/epub-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/esign-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/exif-editor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-extract-images</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -451,52 +286,42 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-png</loc>
+    <loc>https://smartools.pages.dev/tool/favicon-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-images</loc>
+    <loc>https://smartools.pages.dev/tool/font-awesome-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsd-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/gif-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsd-to-docx</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-mp4</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsd-to-pptx</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsd-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/html-markdown</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsdx-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/image-splitter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/vsdx-to-docx</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/vsdx-to-pptx</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/vsdx-to-jpg</loc>
+    <loc>https://smartools.pages.dev/tool/image-watermark</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -506,27 +331,62 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-rotate</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-tiff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-watermark</loc>
+    <loc>https://smartools.pages.dev/tool/json-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-text</loc>
+    <loc>https://smartools.pages.dev/tool/json-minifier</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/text-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/json-to-csv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/visio-converter</loc>
+    <loc>https://smartools.pages.dev/tool/make-background-transparent</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/make-round-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/markdown-to-html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/mobi-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/number-base</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-grayscale</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-metadata</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-page-deleter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -541,76 +401,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/epub-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-grayscale</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-unlock</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-word</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/word-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-powerpoint</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pptx-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-crop</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-add-numbers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-tiff</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-edit</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-protect</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-extract-images</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-to-excel</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://smartools.pages.dev/tool/pdf-to-csv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -621,12 +411,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/pdf-translator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/mobi-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-excel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -636,47 +421,22 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/azw3-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-powerpoint</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/heic-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/tiff-to-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-tiff</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/png-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/jpg-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/url-to-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/pdf-page-deleter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/rearrange-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/esign-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-translator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -686,22 +446,162 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/create-pdf</loc>
+    <loc>https://smartools.pages.dev/tool/pixel-art</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/css-shadow</loc>
+    <loc>https://smartools.pages.dev/tool/pixelate-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/image-placeholder</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/png-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pptx-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/profile-photo-maker</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-protect</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/rearrange-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/regex-explainer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/regex-tester</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/remove-person-photo</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/remove-watermark-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/rgb-hex</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/svg-optimizer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/svg-to-jsx</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/text-diff</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/text-reverser</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/text-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/tiff-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/translate-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/epoch-converter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-unlock</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/upscale-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/url-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/visio-converter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/color-contrast</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/word-frequency</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/base64-encoder</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/cleanup-picture</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/color-shades</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://smartools.pages.dev/tool/css-gradient</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/css-glass</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -716,77 +616,42 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/css-border-radius</loc>
+    <loc>https://smartools.pages.dev/tool/duplicate-remover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/html-formatter</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-apng</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/json-viewer</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/json-formatter</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/svg-to-jsx</loc>
+    <loc>https://smartools.pages.dev/tool/gif-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/jwt-decoder</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/md5-generator</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/url-encoder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/base64-encoder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/json-minifier</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/diff-checker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/regex-explainer</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/html-markdown</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/sql-formatter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/color-palette</loc>
+    <loc>https://smartools.pages.dev/tool/heic-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -796,52 +661,42 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/color-shades</loc>
+    <loc>https://smartools.pages.dev/tool/html-formatter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/rgb-hex</loc>
+    <loc>https://smartools.pages.dev/tool/image-cropper</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/color-mixer</loc>
+    <loc>https://smartools.pages.dev/tool/image-filters</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/color-contrast</loc>
+    <loc>https://smartools.pages.dev/tool/image-resizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/open-graph</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-avif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/tweet-image</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-svg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/youtube-thumb</loc>
+    <loc>https://smartools.pages.dev/tool/jpg-to-webp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/password-generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/qr-generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartools.pages.dev/tool/uuid-generator</loc>
+    <loc>https://smartools.pages.dev/tool/jwt-decoder</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -851,32 +706,177 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/number-base</loc>
+    <loc>https://smartools.pages.dev/tool/md5-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/regex-tester</loc>
+    <loc>https://smartools.pages.dev/tool/open-graph</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/word-frequency</loc>
+    <loc>https://smartools.pages.dev/tool/lorem-ipsum</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/json-to-csv</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-rotate</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/epoch-converter</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-split</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartools.pages.dev/tool/csv-json-yaml</loc>
+    <loc>https://smartools.pages.dev/tool/pdf-to-images</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-to-png</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/pdf-watermark</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/png-to-avif</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/png-to-svg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/png-to-tiff</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/png-to-webp</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/svg-blob</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/svg-to-png</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/tiff-to-jpg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/tiff-to-png</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/tiff-to-svg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/tweet-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/unblur-image</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/url-encoder</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/uuid-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsd-to-docx</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsd-to-jpg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsd-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsd-to-pptx</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-docx</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-jpg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/vsdx-to-pptx</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/webp-to-avif</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/webp-to-gif</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/webp-to-jpg</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/webp-to-png</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/whitespace-remover</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://smartools.pages.dev/tool/youtube-thumb</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

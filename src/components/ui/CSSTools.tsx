@@ -229,7 +229,7 @@ export function CssGlassmorphism() {
 
           {/* Glass Card */}
           <div 
-            className="relative w-64 h-64 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] z-10 flex flex-col p-6 border border-white/20 transition-all duration-300"
+            className="relative w-64 h-64 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] z-10 flex flex-col p-6 border border-[#E5E7EB] transition-all duration-300"
             style={{ background: bg, backdropFilter: `blur(${blur}px)`, WebkitBackdropFilter: `blur(${blur}px)`, borderColor: border }}
           >
             <div className="w-12 h-12 rounded-full bg-white/20 mb-4 flex items-center justify-center">
@@ -443,7 +443,7 @@ export function CssLoaderGenerator() {
 }`
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 space-y-4">
         {[
           { label: 'Size (px)', val: size, set: setSize, min: 20, max: 200 },
@@ -452,25 +452,25 @@ export function CssLoaderGenerator() {
         ].map(ctrl => (
           <div key={ctrl.label}>
              <div className="flex justify-between mb-1">
-               <span className="text-sm text-text-primary">{ctrl.label}</span>
-               <span className="text-sm text-text-muted">{ctrl.val}</span>
+               <span className="text-sm text-[#111827]">{ctrl.label}</span>
+               <span className="text-sm text-[#6B7280]">{ctrl.val}</span>
              </div>
              <input type="range" min={ctrl.min} max={ctrl.max} step={ctrl.step || 1} value={ctrl.val} onChange={e => ctrl.set(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
           </div>
         ))}
         <div>
-          <label className="text-sm text-text-primary block mb-1">Loader Color</label>
+          <label className="text-sm text-[#111827] block mb-1">Loader Color</label>
           <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
         </div>
       </div>
       <div className="flex-1 flex flex-col items-center">
-        <div className="flex-1 w-full bg-surface border border-border rounded-xl mb-4 flex items-center justify-center border border-white/5 min-h-[200px]">
+        <div className="flex-1 w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl mb-4 flex items-center justify-center border border-[#E5E7EB] min-h-[200px]">
           <style>{css}</style>
           <div className="loader"></div>
         </div>
         <div className="w-full">
-           <span className="text-xs text-text-muted mb-2 block font-semibold uppercase">CSS Code</span>
-           <pre className="p-4 bg-surface border border-border border-white/10 rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer max-h-40 overflow-auto" onClick={() => navigator.clipboard.writeText(css)}>
+           <span className="text-xs text-[#6B7280] mb-2 block font-semibold uppercase">CSS Code</span>
+           <pre className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer max-h-40 overflow-auto" onClick={() => navigator.clipboard.writeText(css)}>
              {css}
            </pre>
         </div>
@@ -500,23 +500,23 @@ export function CssTriangleGenerator() {
 }`
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 space-y-6">
         <div>
            <div className="flex justify-between mb-1">
-             <span className="text-sm text-text-primary">Size</span>
-             <span className="text-sm text-text-muted">{size}px</span>
+             <span className="text-sm text-[#111827]">Size</span>
+             <span className="text-sm text-[#6B7280]">{size}px</span>
            </div>
            <input type="range" min="10" max="250" value={size} onChange={e => setSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
         </div>
         <div>
-          <label className="text-sm text-text-primary block mb-2">Direction</label>
+          <label className="text-sm text-[#111827] block mb-2">Direction</label>
           <div className="grid grid-cols-2 gap-2">
             {['top', 'bottom', 'left', 'right'].map(dir => (
               <button 
                 key={dir} 
                 onClick={() => setDirection(dir as any)} 
-                className={`w-full py-2 capitalize rounded-lg border transition-colors ${direction === dir ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted hover:text-text-primary'}`}
+                className={`w-full py-2 capitalize rounded-lg border transition-colors ${direction === dir ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
               >
                 {dir}
               </button>
@@ -524,18 +524,18 @@ export function CssTriangleGenerator() {
           </div>
         </div>
         <div>
-          <label className="text-sm text-text-primary block mb-1">Triangle Color</label>
+          <label className="text-sm text-[#111827] block mb-1">Triangle Color</label>
           <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
         </div>
       </div>
       <div className="flex-1 flex flex-col pt-4 items-center justify-center">
-         <div className="w-full flex-1 flex items-center justify-center bg-surface border border-border rounded-xl mb-4 p-8 border border-white/5 overflow-hidden min-h-[250px]">
+         <div className="w-full flex-1 flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl mb-4 p-8 border border-[#E5E7EB] overflow-hidden min-h-[250px]">
            <style>{css}</style>
            <div className="triangle"></div>
          </div>
          <div className="w-full">
-           <span className="text-xs text-text-muted mb-2 block font-semibold uppercase">CSS Code</span>
-           <pre className="p-4 bg-surface border border-border border-white/10 rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer" onClick={() => navigator.clipboard.writeText(css)}>
+           <span className="text-xs text-[#6B7280] mb-2 block font-semibold uppercase">CSS Code</span>
+           <pre className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer" onClick={() => navigator.clipboard.writeText(css)}>
              {css}
            </pre>
         </div>

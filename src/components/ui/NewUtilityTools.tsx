@@ -25,23 +25,23 @@ export function NumberBaseConverter() {
   const result = useMemo(() => convert(input, fromBase), [input, fromBase])
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-grow">
-          <label className="text-sm text-text-primary block mb-2">Input Value</label>
+          <label className="text-sm text-[#111827] block mb-2">Input Value</label>
           <input
             type="text"
             value={input}
             onChange={e => setInput(e.target.value)}
-            className="w-full bg-card border border-border border-white/10 rounded-xl px-4 py-3 text-text-primary font-mono text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] font-mono text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             placeholder="Enter a number..."
           />
         </div>
         <div>
-          <label className="text-sm text-text-primary block mb-2">Input Base</label>
+          <label className="text-sm text-[#111827] block mb-2">Input Base</label>
           <div className="flex gap-2">
             {[{ label: 'BIN', base: 2 }, { label: 'OCT', base: 8 }, { label: 'DEC', base: 10 }, { label: 'HEX', base: 16 }].map(({ label, base }) => (
-              <button key={base} onClick={() => setFromBase(base)} className={`px-4 py-3 rounded-xl text-sm font-bold border transition-colors ${fromBase === base ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted hover:text-text-primary'}`}>{label}</button>
+              <button key={base} onClick={() => setFromBase(base)} className={`px-4 py-3 rounded-xl text-sm font-bold border transition-colors ${fromBase === base ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{label}</button>
             ))}
           </div>
         </div>
@@ -55,10 +55,10 @@ export function NumberBaseConverter() {
             { label: 'Decimal (Base 10)', value: result.decimal, prefix: '' },
             { label: 'Hexadecimal (Base 16)', value: result.hex, prefix: '0x' },
           ].map(({ label, value, prefix }) => (
-            <div key={label} className="bg-card border border-border border-white/5 rounded-xl p-5 group cursor-pointer hover:border-border transition-colors" onClick={() => navigator.clipboard.writeText(value)}>
-              <div className="text-xs text-text-muted uppercase tracking-wider mb-2">{label}</div>
+            <div key={label} className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5 group cursor-pointer hover:border-[#E5E7EB] transition-colors" onClick={() => navigator.clipboard.writeText(value)}>
+              <div className="text-xs text-[#6B7280] uppercase tracking-wider mb-2">{label}</div>
               <div className="font-mono text-success text-xl font-bold break-all">{prefix}{value}</div>
-              <div className="text-xs text-text-primary mt-2 group-hover:text-text-muted transition-colors flex items-center gap-1"><Copy className="w-3 h-3" /> Click to copy</div>
+              <div className="text-xs text-[#111827] mt-2 group-hover:text-[#6B7280] transition-colors flex items-center gap-1"><Copy className="w-3 h-3" /> Click to copy</div>
             </div>
           ))}
         </div>
@@ -103,7 +103,7 @@ export function RegexTester() {
       for (const match of allMatches) {
         const matchIndex = match.index ?? 0
         highlighted += testString.slice(lastIndex, matchIndex).replace(/</g, '&lt;')
-        highlighted += `<mark class="bg-surface border border-border text-warning rounded px-0.5">${match[0].replace(/</g, '&lt;')}</mark>`
+        highlighted += `<mark class="bg-[#FAFAFA] border border-[#E5E7EB] text-warning rounded px-0.5">${match[0].replace(/</g, '&lt;')}</mark>`
         lastIndex = matchIndex + match[0].length
       }
       highlighted += testString.slice(lastIndex).replace(/</g, '&lt;')
@@ -116,20 +116,20 @@ export function RegexTester() {
   }, [pattern, flags, testString])
 
   return (
-    <div className="flex flex-col gap-4 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col gap-4 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex gap-2 items-end">
         <div className="flex-grow">
-          <label className="text-sm text-text-primary block mb-2">Regular Expression</label>
-          <div className="flex items-center bg-card border border-border border-white/10 rounded-xl px-4 py-3 gap-2 focus-within:border-border transition-colors">
-            <span className="text-text-muted font-mono">/</span>
+          <label className="text-sm text-[#111827] block mb-2">Regular Expression</label>
+          <div className="flex items-center bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 gap-2 focus-within:border-[#E5E7EB] transition-colors">
+            <span className="text-[#6B7280] font-mono">/</span>
             <input
               type="text"
               value={pattern}
               onChange={e => setPattern(e.target.value)}
-              className="flex-grow bg-transparent text-text-primary font-mono focus:outline-none"
+              className="flex-grow bg-transparent text-[#111827] font-mono focus:outline-none"
               placeholder="pattern..."
             />
-            <span className="text-text-muted font-mono">/</span>
+            <span className="text-[#6B7280] font-mono">/</span>
             <input
               type="text"
               value={flags}
@@ -140,44 +140,44 @@ export function RegexTester() {
           </div>
         </div>
         {result.count > 0 && !error && (
-          <div className="px-4 py-3 bg-surface border border-border border-border rounded-xl text-success text-sm font-medium whitespace-nowrap">
+          <div className="px-4 py-3 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success text-sm font-medium whitespace-nowrap">
             {result.count} match{result.count !== 1 ? 'es' : ''}
           </div>
         )}
         {error && (
-          <div className="px-4 py-3 bg-surface border border-border border-border rounded-xl text-danger text-xs max-w-xs truncate">
+          <div className="px-4 py-3 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-danger text-xs max-w-xs truncate">
             {error}
           </div>
         )}
       </div>
 
       <div>
-        <label className="text-sm text-text-primary block mb-2">Test String</label>
+        <label className="text-sm text-[#111827] block mb-2">Test String</label>
         <textarea
           value={testString}
           onChange={e => setTestString(e.target.value)}
           rows={4}
-          className="w-full bg-card border border-border border-white/10 rounded-xl p-4 text-text-primary font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+          className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
         />
       </div>
 
       <div>
-        <label className="text-sm text-text-primary block mb-2">Highlighted Matches</label>
+        <label className="text-sm text-[#111827] block mb-2">Highlighted Matches</label>
         <div
-          className="w-full bg-card border border-border border-white/10 rounded-xl p-4 text-text-primary font-mono text-sm min-h-[80px] whitespace-pre-wrap break-words"
+          className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm min-h-[80px] whitespace-pre-wrap break-words"
           dangerouslySetInnerHTML={{ __html: result.highlighted }}
         />
       </div>
 
       {result.matches.length > 0 && (
         <div>
-          <label className="text-sm text-text-primary block mb-2">Match Details</label>
+          <label className="text-sm text-[#111827] block mb-2">Match Details</label>
           <div className="space-y-1 max-h-36 overflow-auto">
             {result.matches.map((m, i) => (
-              <div key={i} className="flex gap-3 items-center text-xs bg-card border border-border border-white/5 rounded-lg px-3 py-2">
-                <span className="text-text-muted w-5 text-center font-bold">{i + 1}</span>
+              <div key={i} className="flex gap-3 items-center text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2">
+                <span className="text-[#6B7280] w-5 text-center font-bold">{i + 1}</span>
                 <span className="font-mono text-warning font-bold">{m.match || '(empty)'}</span>
-                <span className="text-text-muted">at index {m.index}</span>
+                <span className="text-[#6B7280]">at index {m.index}</span>
                 {m.groups.filter(Boolean).length > 0 && (
                   <span className="text-success">groups: [{m.groups.join(', ')}]</span>
                 )}
@@ -208,60 +208,60 @@ export function WordFrequency() {
   }, [text, caseSensitive, minLength])
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 flex flex-col gap-4">
         <div>
-          <label className="text-sm text-text-primary block mb-2">Input Text</label>
+          <label className="text-sm text-[#111827] block mb-2">Input Text</label>
           <textarea
-            className="w-full h-56 p-4 bg-card border border-border border-white/10 rounded-xl resize-none text-text-primary focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="w-full h-56 p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             placeholder="Paste your text here to analyze word frequency..."
             value={text}
             onChange={e => setText(e.target.value)}
           />
         </div>
         <div className="flex gap-4 flex-wrap">
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-text-primary">
-            <input type="checkbox" checked={caseSensitive} onChange={e => setCaseSensitive(e.target.checked)} className="w-4 h-4 rounded bg-card border border-border accent-indigo-500" />
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#111827]">
+            <input type="checkbox" checked={caseSensitive} onChange={e => setCaseSensitive(e.target.checked)} className="w-4 h-4 rounded bg-white border border-[#E5E7EB] accent-indigo-500" />
             Case Sensitive
           </label>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-text-primary">Min length:</span>
-            <input type="number" min="1" max="10" value={minLength} onChange={e => setMinLength(parseInt(e.target.value) || 1)} className="w-16 bg-card border border-border border-white/10 rounded-lg px-2 py-1 text-text-primary text-sm" />
+            <span className="text-sm text-[#111827]">Min length:</span>
+            <input type="number" min="1" max="10" value={minLength} onChange={e => setMinLength(parseInt(e.target.value) || 1)} className="w-16 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-2 py-1 text-[#111827] text-sm" />
           </div>
         </div>
         {text && (
           <div className="grid grid-cols-2 gap-3">
-            <div className="bg-card border border-border border-white/5 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-text-primary">{stats.totalWords}</div>
-              <div className="text-xs text-text-muted mt-1">Total Words</div>
+            <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-center">
+              <div className="text-2xl font-bold text-[#111827]">{stats.totalWords}</div>
+              <div className="text-xs text-[#6B7280] mt-1">Total Words</div>
             </div>
-            <div className="bg-card border border-border border-white/5 rounded-xl p-4 text-center">
+            <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-center">
               <div className="text-2xl font-bold text-success">{stats.uniqueWords}</div>
-              <div className="text-xs text-text-muted mt-1">Unique Words</div>
+              <div className="text-xs text-[#6B7280] mt-1">Unique Words</div>
             </div>
           </div>
         )}
       </div>
       <div className="flex-1 flex flex-col">
-        <label className="text-sm text-text-primary block mb-2">Word Frequency (Top 50)</label>
-        <div className="flex-grow bg-card border border-border border-white/10 rounded-xl overflow-auto max-h-[500px]">
+        <label className="text-sm text-[#111827] block mb-2">Word Frequency (Top 50)</label>
+        <div className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-auto max-h-[500px]">
           {stats.words.length > 0 ? (
             <div className="p-3 space-y-1">
               {stats.words.map(([word, count], i) => (
-                <div key={word} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
-                  <span className="text-text-primary text-xs w-6 text-right">{i + 1}</span>
-                  <span className="flex-grow text-text-primary font-medium">{word}</span>
+                <div key={word} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white transition-colors">
+                  <span className="text-[#111827] text-xs w-6 text-right">{i + 1}</span>
+                  <span className="flex-grow text-[#111827] font-medium">{word}</span>
                   <div className="flex items-center gap-2">
-                    <div className="h-1.5 bg-surface border border-border rounded-full overflow-hidden w-24">
-                      <div className="h-full bg-card border border-border rounded-full" style={{ width: `${(count / stats.words[0][1]) * 100}%` }} />
+                    <div className="h-1.5 bg-[#FAFAFA] border border-[#E5E7EB] rounded-full overflow-hidden w-24">
+                      <div className="h-full bg-white border border-[#E5E7EB] rounded-full" style={{ width: `${(count / stats.words[0][1]) * 100}%` }} />
                     </div>
-                    <span className="text-text-primary text-sm font-bold w-8 text-right">{count}</span>
+                    <span className="text-[#111827] text-sm font-bold w-8 text-right">{count}</span>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="flex items-center justify-center h-full text-text-muted text-sm">
+            <div className="flex items-center justify-center h-full text-[#6B7280] text-sm">
               {text ? 'No words found with minimum length ' + minLength : 'Paste some text to see word frequency'}
             </div>
           )}
@@ -312,12 +312,12 @@ export function JsonToCsv() {
   }
 
   return (
-    <div className="flex flex-col gap-4 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col gap-4 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow min-h-[350px]">
         <div className="flex flex-col">
-          <label className="text-sm text-text-primary mb-2">JSON Input (Array of Objects)</label>
+          <label className="text-sm text-[#111827] mb-2">JSON Input (Array of Objects)</label>
           <textarea
-            className="flex-grow p-4 bg-card border border-border border-white/10 rounded-xl resize-none text-text-primary font-mono text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="flex-grow p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] font-mono text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             value={input}
             onChange={e => setInput(e.target.value)}
             placeholder='[{"key": "value"}]'
@@ -326,21 +326,21 @@ export function JsonToCsv() {
         </div>
         <div className="flex flex-col">
           <div className="flex justify-between items-center mb-2">
-            <label className="text-sm text-text-primary">CSV Output</label>
+            <label className="text-sm text-[#111827]">CSV Output</label>
             <div className="flex gap-2">
-              {output && <button onClick={() => navigator.clipboard.writeText(output)} className="text-xs text-text-muted hover:text-text-primary flex items-center gap-1"><Copy className="w-3 h-3" /> Copy</button>}
+              {output && <button onClick={() => navigator.clipboard.writeText(output)} className="text-xs text-[#6B7280] hover:text-[#111827] flex items-center gap-1"><Copy className="w-3 h-3" /> Copy</button>}
             </div>
           </div>
           <textarea
             readOnly
-            className="flex-grow p-4 bg-card border border-border border-white/10 rounded-xl resize-none text-success font-mono text-sm"
+            className="flex-grow p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-success font-mono text-sm"
             value={output}
             placeholder="CSV output will appear here..."
           />
         </div>
       </div>
       <div className="flex gap-3">
-        <Button className="bg-card border border-border hover:bg-card-hover text-text-primary" onClick={downloadCsv} disabled={!output}>
+        <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={downloadCsv} disabled={!output}>
           Download CSV
         </Button>
       </div>

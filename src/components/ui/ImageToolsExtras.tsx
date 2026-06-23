@@ -305,17 +305,17 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
   const activeExt = file?.name.split('.').pop()?.toUpperCase() || ''
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       {!previewUrl ? (
         <div 
           onClick={() => fileInputRef.current?.click()}
           onDragOver={e => e.preventDefault()}
           onDrop={e => { e.preventDefault(); if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]) }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 hover:border-white/30 rounded-2xl p-14 cursor-pointer transition-all bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer transition-all bg-white/2"
         >
-          <Upload className="w-12 h-12 text-text-primary mb-4" />
-          <p className="text-text-primary font-medium mb-1">Click or drag & drop image file</p>
-          <p className="text-text-muted text-xs text-center max-w-md mt-1 leading-relaxed">
+          <Upload className="w-12 h-12 text-[#111827] mb-4" />
+          <p className="text-[#111827] font-medium mb-1">Click or drag & drop image file</p>
+          <p className="text-[#6B7280] text-xs text-center max-w-md mt-1 leading-relaxed">
             Supports PNG, JPG, WEBP, GIF, SVG, TIFF, HEIC, AVIF, APNG
           </p>
           <input 
@@ -328,24 +328,24 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
              <div className="space-y-4">
                <div>
-                  <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Source Format</h4>
-                  <div className="bg-card border border-border border-white/5 rounded-lg px-3 py-2 text-sm text-text-primary flex items-center justify-between">
-                    <span className="font-bold text-text-primary">{activeExt}</span>
-                    <span className="text-xs text-text-muted">{file ? (file.size > 1024 * 1024 ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : `${(file.size / 1024).toFixed(1)} KB`) : ''}</span>
+                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Source Format</h4>
+                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
+                    <span className="font-bold text-[#111827]">{activeExt}</span>
+                    <span className="text-xs text-[#6B7280]">{file ? (file.size > 1024 * 1024 ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : `${(file.size / 1024).toFixed(1)} KB`) : ''}</span>
                   </div>
                </div>
                
                <div>
-                  <h4 className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Target Format</h4>
+                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Target Format</h4>
                   <div className="grid grid-cols-3 gap-2">
                     {outputFormats.map(fmt => (
                       <button
                         key={fmt.value}
                         onClick={() => setOutputFormat(fmt.value)}
-                        className={`py-2 rounded-lg text-xs font-bold transition-colors ${outputFormat === fmt.value ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted hover:text-text-primary hover:border-white/20'}`}
+                        className={`py-2 rounded-lg text-xs font-bold transition-colors ${outputFormat === fmt.value ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]'}`}
                       >
                         {fmt.label}
                       </button>
@@ -356,8 +356,8 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
                {(outputFormat === 'jpeg' || outputFormat === 'webp' || outputFormat === 'avif') && (
                  <div className="pt-2">
                    <div className="flex justify-between mb-1">
-                     <label className="text-sm text-text-primary">Quality</label>
-                     <span className="text-sm text-text-primary font-bold">{Math.round(quality * 100)}%</span>
+                     <label className="text-sm text-[#111827]">Quality</label>
+                     <span className="text-sm text-[#111827] font-bold">{Math.round(quality * 100)}%</span>
                    </div>
                    <input type="range" min="0.1" max="1" step="0.05" value={quality} onChange={e => setQuality(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
                  </div>
@@ -365,26 +365,26 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
              </div>
 
              <div className="pt-4 space-y-2">
-               {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-lg p-3">{error}</div>}
+               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
                <div className="flex gap-2">
-                 <Button className="flex-grow bg-card border border-border hover:bg-card-hover text-text-primary font-semibold text-sm" onClick={handleDownload} disabled={isProcessing}>
+                 <Button className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" onClick={handleDownload} disabled={isProcessing}>
                    <Download className="w-4 h-4 mr-2" /> Save as {outputFormat.toUpperCase()}
                  </Button>
-                 <Button variant="outline" className="border-white/10 hover:bg-white/10 text-text-primary" onClick={clear}>
+                 <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={clear}>
                    Clear
                  </Button>
                </div>
              </div>
           </div>
           
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[350px] relative">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
              <img src={previewUrl} alt="Preview" className="max-w-full max-h-[400px] object-contain block rounded-lg shadow-2xl bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]" />
              <canvas ref={canvasRef} className="hidden" />
              
              {isProcessing && (
                <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
-                 <RefreshCw className="w-8 h-8 text-text-primary animate-spin mb-3" />
-                 <p className="text-text-primary font-medium text-sm">{statusText || 'Processing image...'}</p>
+                 <RefreshCw className="w-8 h-8 text-[#111827] animate-spin mb-3" />
+                 <p className="text-[#111827] font-medium text-sm">{statusText || 'Processing image...'}</p>
                </div>
              )}
           </div>
@@ -468,34 +468,34 @@ export function ImageFilters() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-white/5 max-w-[300px]">
-             <h3 className="font-semibold text-text-primary mb-4">Filters & Transforms</h3>
+          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[300px]">
+             <h3 className="font-semibold text-[#111827] mb-4">Filters & Transforms</h3>
 
              <div>
-                <label className="text-sm text-text-primary block mb-2">Flip</label>
+                <label className="text-sm text-[#111827] block mb-2">Flip</label>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => setFlipH(!flipH)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipH ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted'}`}>Flip H</button>
-                  <button onClick={() => setFlipV(!flipV)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipV ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted'}`}>Flip V</button>
+                  <button onClick={() => setFlipH(!flipH)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipH ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip H</button>
+                  <button onClick={() => setFlipV(!flipV)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipV ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip V</button>
                 </div>
              </div>
 
              <div>
-                <label className="text-sm text-text-primary block mb-2">Rotate</label>
+                <label className="text-sm text-[#111827] block mb-2">Rotate</label>
                 <div className="grid grid-cols-4 gap-1">
                   {[0, 90, 180, 270].map(r => (
-                    <button key={r} onClick={() => setRotation(r)} className={`py-1.5 rounded-lg text-xs border font-medium transition-colors ${rotation === r ? 'bg-card border border-border border-border text-text-primary' : 'bg-card border border-border border-white/10 text-text-muted'}`}>{r}°</button>
+                    <button key={r} onClick={() => setRotation(r)} className={`py-1.5 rounded-lg text-xs border font-medium transition-colors ${rotation === r ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>{r}°</button>
                   ))}
                 </div>
              </div>
 
              <div className="pt-2">
-                <label className="text-sm text-text-primary block mb-2">Color Filter</label>
-                <select value={filter} onChange={e => setFilter(e.target.value)} className="w-full bg-card border border-border border-white/10 rounded-lg px-3 py-2 text-text-primary">
+                <label className="text-sm text-[#111827] block mb-2">Color Filter</label>
+                <select value={filter} onChange={e => setFilter(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827]">
                   <option value="none">Normal</option>
                   <option value="grayscale(100%)">Black & White</option>
                   <option value="sepia(100%)">Sepia</option>
@@ -508,15 +508,15 @@ export function ImageFilters() {
              </div>
 
              <div className="pt-4 flex gap-2">
-              <Button className="flex-1 bg-card border border-border hover:bg-card-hover text-text-primary" onClick={handleDownload}>
+              <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
                 <Download className="w-4 h-4 mr-2" /> Save Image
               </Button>
-              <Button variant="outline" className="border-white/10 hover:bg-white/10 text-text-primary" onClick={() => { clearImage(); setFilter('none'); setFlipH(false); setFlipV(false); setRotation(0); }}>
+              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => { clearImage(); setFilter('none'); setFlipH(false); setFlipV(false); setRotation(0); }}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-card border border-border rounded-xl border border-white/5 min-h-[300px] overflow-hidden">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
              {/* Canvas renders the actual filtered output */}
              <canvas
                ref={canvasRef}
@@ -534,22 +534,22 @@ export function ImageFilters() {
 // AI Feature Placeholder Tool (Handles background removal, upscaling, etc)
 export function AIToolPlaceholder({ name, description }: { name: string, description: string }) {
   return (
-    <div className="flex flex-col h-full bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md shadow-lg shadow-black/10 items-center justify-center text-center">
+    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-8  shadow-lg shadow-sm items-center justify-center text-center">
        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-indigo-500/20">
-         <Wand2 className="w-8 h-8 text-text-primary" />
+         <Wand2 className="w-8 h-8 text-[#111827]" />
        </div>
-       <h2 className="text-2xl font-bold text-text-primary mb-2">{name}</h2>
-       <p className="text-text-muted mb-8 max-w-md">{description}</p>
+       <h2 className="text-2xl font-bold text-[#111827] mb-2">{name}</h2>
+       <p className="text-[#6B7280] mb-8 max-w-md">{description}</p>
        
-       <div className="bg-card border border-border border-white/10 rounded-xl p-6 text-left max-w-lg w-full">
+       <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-6 text-left max-w-lg w-full">
          <h4 className="font-semibold text-danger flex items-center gap-2 mb-3">
             API Key Required
          </h4>
-         <p className="text-sm text-text-primary mb-4">
+         <p className="text-sm text-[#111827] mb-4">
            This is an advanced AI tool requiring an external API connection (e.g. Google Gemini, Stability AI, or Remove.bg). In a production environment, you would configure the necessary server-side secrets to enable this feature.
          </p>
          <div className="flex gap-4 opacity-50 pointer-events-none grayscale">
-            <Button className="w-full bg-card border border-border text-text-primary">
+            <Button className="w-full bg-white border border-[#E5E7EB] text-[#111827]">
                Upload Image
             </Button>
          </div>

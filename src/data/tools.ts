@@ -38,6 +38,9 @@ export const CATEGORIES: Category[] = [
 ];
 
 const unsortedTools: Tool[] = [
+  // ⭐ Featured Top Tools
+  { id: 'image-compressor', name: 'Image Compressor', description: 'Compress and optimize images to reduce file size without quality loss.', categoryId: 'image', icon: 'PackageOpen', isPopular: true, isNew: true },
+  { id: 'remove-background', name: 'Remove Background', description: 'Automatically isolate subjects and remove image backgrounds.', categoryId: 'image', icon: 'Scissors', isPopular: true, isNew: true },
   // Text
   { 
     id: 'case-converter', 
@@ -93,7 +96,7 @@ const unsortedTools: Tool[] = [
   { id: 'image-filters', name: 'Image Filters / Flips', description: 'Apply black and white, sepia, blur, flip, and rotate transformations.', categoryId: 'image', icon: 'ImagePlus' },
   { id: 'image-cropper', name: 'Image Cropper', description: 'Crop images to exact dimensions or aspect ratios.', categoryId: 'image', icon: 'Crop' },
   { id: 'image-resizer', name: 'Image Resizer', description: 'Resize images by pixels or percentage.', categoryId: 'image', icon: 'Maximize' },
-  { id: 'image-compressor', name: 'Image Compressor', description: 'Compress and optimize images to reduce file size without quality loss.', categoryId: 'image', icon: 'PackageOpen', isPopular: true, isNew: true },
+
   { id: 'image-watermark', name: 'Image Watermark', description: 'Add custom text or image watermarks to your photos.', categoryId: 'image', icon: 'Stamp', isNew: true },
   { id: 'color-extractor', name: 'Color Extractor', description: 'Extract dominant colors from any image.', categoryId: 'image', icon: 'Droplet', isPopular: true },
   { id: 'svg-blob', name: 'SVG Blob Generator', description: 'Generate random, organic SVG shapes for backgrounds.', categoryId: 'image', icon: 'Hexagon' },
@@ -128,7 +131,7 @@ const unsortedTools: Tool[] = [
 
   // Image AI
   { id: 'ai-image-generator', name: 'AI Image Generator', description: 'Generate images from text prompts using advanced AI models.', categoryId: 'image', icon: 'Sparkles', isPopular: true },
-  { id: 'remove-background', name: 'Remove Background', description: 'Automatically isolate subjects and remove image backgrounds.', categoryId: 'image', icon: 'Scissors', isPopular: true },
+
   { id: 'cleanup-picture', name: 'Cleanup Picture', description: 'Remove objects, dust, people, or text from pictures using AI.', categoryId: 'image', icon: 'Eraser' },
   { id: 'unblur-image', name: 'Unblur / Upscale Image', description: 'Enhance low quality images using AI super-resolution.', categoryId: 'image', icon: 'Activity' },
   { id: 'image-to-text', name: 'Image To Text (OCR)', description: 'Extract and translate text directly from uploaded images.', categoryId: 'image', icon: 'Languages', isPopular: true },

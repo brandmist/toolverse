@@ -26,7 +26,7 @@ export function CategoryMegaMenu({ title, categoryId }: { title: string, categor
 
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link to={`/category/${categoryId}`} className="flex items-center gap-1 text-text-muted hover:text-text-primary transition-colors px-2 xl:px-3 py-2 rounded-md font-medium text-sm">
+      <Link to={`/category/${categoryId}`} className="flex items-center gap-1 text-[#6B7280] hover:text-[#111827] transition-colors px-2 xl:px-3 py-2 rounded-md font-medium text-sm">
         {title} <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </Link>
 

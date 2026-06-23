@@ -18,16 +18,16 @@ export function JsonViewer() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
+    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <textarea
-        className="w-full flex-grow min-h-[250px] p-4 bg-card border border-border border-white/10 rounded-xl mb-4 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-text-primary font-mono text-sm leading-relaxed"
+        className="w-full flex-grow min-h-[250px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-[#111827] font-mono text-sm leading-relaxed"
         placeholder="Paste JSON here..."
         value={text}
         onChange={(e) => { setText(e.target.value); setError(''); }}
         onBlur={handleFormat}
       />
-      {error && <div className="text-danger text-sm px-4 py-3 bg-surface border border-border rounded-xl border border-border font-medium">{error}</div>}
-      {!error && parsed && <div className="text-success text-sm px-4 py-3 bg-surface border border-border rounded-xl border border-border font-medium">Valid JSON</div>}
+      {error && <div className="text-danger text-sm px-4 py-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] font-medium">{error}</div>}
+      {!error && parsed && <div className="text-success text-sm px-4 py-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] font-medium">Valid JSON</div>}
     </div>
   )
 }

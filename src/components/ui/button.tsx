@@ -9,12 +9,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-button-primary text-button-primary-text hover:opacity-90 active:scale-95 transition-transform",
-        destructive: "bg-danger text-text-primary hover:opacity-90 active:scale-95 transition-transform",
-        outline: "border border-border bg-transparent hover:bg-surface text-text-primary active:scale-95 transition-all",
-        secondary: "bg-button-secondary text-button-secondary-text border border-border hover:bg-surface active:scale-95 transition-all",
-        ghost: "hover:bg-surface text-text-primary active:scale-95 transition-all",
-        link: "text-text-primary underline-offset-4 hover:underline",
-        glass: "bg-surface/50 border border-border text-text-primary hover:bg-surface active:scale-95 transition-all",
+        destructive: "bg-danger text-[#111827] hover:opacity-90 active:scale-95 transition-transform",
+        outline: "border border-[#E5E7EB] bg-transparent hover:bg-[#FAFAFA] text-[#111827] active:scale-95 transition-all",
+        secondary: "bg-button-secondary text-button-secondary-text border border-[#E5E7EB] hover:bg-[#FAFAFA] active:scale-95 transition-all",
+        ghost: "hover:bg-[#FAFAFA] text-[#111827] active:scale-95 transition-all",
+        link: "text-[#111827] underline-offset-4 hover:underline",
+        glass: "bg-[#FAFAFA]/50 border border-[#E5E7EB] text-[#111827] hover:bg-[#FAFAFA] active:scale-95 transition-all",
       },
       size: {
         default: "h-10 px-4 py-2",
