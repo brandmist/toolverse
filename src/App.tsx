@@ -9,6 +9,8 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { ImageToolProvider } from './context/ImageToolContext';
 import { McpProvider } from './features/mcp/context/McpContext';
 import { useStore } from './store/useStore';
+import { NativeAd } from './components/ui/NativeAd';
+import { AdBanner } from './components/ui/AdBanner';
 
 // Lazy loaded Pages
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
@@ -46,6 +48,35 @@ export default function App() {
               
               <div className="relative z-10 flex flex-col min-h-screen w-full">
                 <Navbar />
+                
+                {/* Global Ads Container as requested */}
+                <NativeAd />
+                <div className="flex flex-wrap justify-center items-center gap-4 py-2 w-full max-w-[1280px] mx-auto px-4">
+                  <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} />
+                  <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} />
+                  <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} />
+                  <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+                </div>
+
+                <div className="flex justify-center w-full py-2">
+                  <a 
+                    href="https://www.effectivecpmnetwork.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-[#111827] text-white font-semibold rounded-xl hover:bg-[#1F2937] transition-colors shadow-lg animate-pulse"
+                  >
+                    Click Here to Continue & View Special Offers
+                  </a>
+                </div>
+
+                {/* Floating Skyscrapers */}
+                <div className="hidden xl:block fixed top-1/2 right-4 -translate-y-1/2 z-40">
+                  <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} />
+                </div>
+                <div className="hidden xl:block fixed top-1/2 left-4 -translate-y-1/2 z-40">
+                  <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} />
+                </div>
+
                 <main className="flex-grow">
                   <Suspense fallback={<PageLoader />}>
                     <Routes>
