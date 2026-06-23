@@ -1,109 +1,263 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { Layers, Copy, Check, Plus, Trash2, RotateCcw, Shuffle } from 'lucide-react';
 
 export function CssShadowGenerator() {
-  const [hOffset, setHOffset] = useState(10)
-  const [vOffset, setVOffset] = useState(10)
-  const [blur, setBlur] = useState(15)
-  const [spread, setSpread] = useState(0)
-  const [color, setColor] = useState('#000000')
-  const [opacity, setOpacity] = useState(50)
+  const [shadows, setShadows] = useState([
+    { hOffset: 0, vOffset: 10, blur: 15, spread: -3, color: '#000000', opacity: 10, inset: false },
+    { hOffset: 0, vOffset: 4, blur: 6, spread: -2, color: '#000000', opacity: 5, inset: false }
+  ]);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [copied, setCopied] = useState(false);
 
-  const getRgba = () => {
-    const hex = color.replace('#', '')
-    const r = parseInt(hex.substring(0, 2), 16)
-    const g = parseInt(hex.substring(2, 4), 16)
-    const b = parseInt(hex.substring(4, 6), 16)
-    return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`
-  }
+  const activeShadow = shadows[activeIdx];
 
-  const boxShadow = `${hOffset}px ${vOffset}px ${blur}px ${spread}px ${getRgba()}`
+  const updateShadow = (field: string, val: any) => {
+    const newShadows = [...shadows];
+    newShadows[activeIdx] = { ...newShadows[activeIdx], [field]: val };
+    setShadows(newShadows);
+  };
+
+  const addShadow = () => {
+    if (shadows.length >= 6) return;
+    setShadows([...shadows, { hOffset: 0, vOffset: 0, blur: 10, spread: 0, color: '#000000', opacity: 20, inset: false }]);
+    setActiveIdx(shadows.length);
+  };
+
+  const removeShadow = (e: React.MouseEvent, idx: number) => {
+    e.stopPropagation();
+    if (shadows.length <= 1) return;
+    const newShadows = shadows.filter((_, i) => i !== idx);
+    setShadows(newShadows);
+    if (activeIdx >= newShadows.length) setActiveIdx(newShadows.length - 1);
+  };
+
+  const hexToRgba = (hex: string, opacity: number) => {
+    hex = hex.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16) || 0;
+    const g = parseInt(hex.substring(2, 4), 16) || 0;
+    const b = parseInt(hex.substring(4, 6), 16) || 0;
+    return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`;
+  };
+
+  const generateBoxShadow = () => {
+    return shadows.map(s => 
+      `${s.inset ? 'inset ' : ''}${s.hOffset}px ${s.vOffset}px ${s.blur}px ${s.spread}px ${hexToRgba(s.color, s.opacity)}`
+    ).join(',\n  ');
+  };
+
+  const css = `box-shadow:\n  ${generateBoxShadow()};`;
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(css);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
-      <div className="flex-1 space-y-4">
-        {[
-          { label: 'Horizontal Offset', val: hOffset, set: setHOffset, min: -100, max: 100 },
-          { label: 'Vertical Offset', val: vOffset, set: setVOffset, min: -100, max: 100 },
-          { label: 'Blur Radius', val: blur, set: setBlur, min: 0, max: 100 },
-          { label: 'Spread Radius', val: spread, set: setSpread, min: -100, max: 100 },
-          { label: 'Opacity', val: opacity, set: setOpacity, min: 0, max: 100 }
-        ].map(ctrl => (
-          <div key={ctrl.label}>
-             <div className="flex justify-between mb-1">
-               <span className="text-sm text-text-primary">{ctrl.label}</span>
-               <span className="text-sm text-text-muted">{ctrl.val}</span>
-             </div>
-             <input type="range" min={ctrl.min} max={ctrl.max} value={ctrl.val} onChange={e => ctrl.set(parseInt(e.target.value))} className="w-full accent-indigo-500" />
+    <div className="flex flex-col md:flex-row gap-8 h-full">
+      {/* Controls */}
+      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm max-h-[800px] overflow-y-auto">
+        <h3 className="text-lg font-bold text-[#111827] mb-2">Shadow Layers</h3>
+        
+        {/* Layer list */}
+        <div className="flex flex-col gap-2">
+          {shadows.map((s, idx) => (
+            <div 
+              key={idx} 
+              onClick={() => setActiveIdx(idx)}
+              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-[#F9FAFB] border-[#111827] shadow-sm' : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB]'}`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-md shadow-sm border border-[#E5E7EB]" style={{ background: hexToRgba(s.color, s.opacity) }}></div>
+                <span className="text-sm font-medium text-[#374151]">Layer {idx + 1}</span>
+                {s.inset && <span className="text-[10px] bg-[#E5E7EB] text-[#4B5563] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wide">Inset</span>}
+              </div>
+              <button onClick={(e) => removeShadow(e, idx)} disabled={shadows.length <= 1} className={`p-1.5 rounded-md ${shadows.length <= 1 ? 'text-[#D1D5DB]' : 'text-[#EF4444] hover:bg-[#FEE2E2]'}`}>
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </div>
+          ))}
+          {shadows.length < 6 && (
+            <button onClick={addShadow} className="flex items-center justify-center gap-2 w-full p-3 mt-1 border border-dashed border-[#D1D5DB] rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#111827] transition-colors">
+              <Plus className="w-4 h-4" /> Add Layer
+            </button>
+          )}
+        </div>
+
+        <div className="h-px bg-[#E5E7EB] my-2"></div>
+
+        {/* Active Layer Controls */}
+        <div className="space-y-5">
+          <div className="flex items-center justify-between">
+            <h4 className="text-[14px] font-bold text-[#111827]">Edit Layer {activeIdx + 1}</h4>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" checked={activeShadow.inset} onChange={e => updateShadow('inset', e.target.checked)} className="rounded text-[#111827] focus:ring-[#111827]" />
+              <span className="text-[13px] font-medium text-[#374151]">Inset</span>
+            </label>
           </div>
-        ))}
-        <div>
-           <div className="flex justify-between mb-1">
-             <span className="text-sm text-text-primary">Shadow Color</span>
-             <span className="text-sm text-text-muted">{color}</span>
-           </div>
-           <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
+
+          {[
+            { label: 'Horizontal Offset', key: 'hOffset', min: -100, max: 100 },
+            { label: 'Vertical Offset', key: 'vOffset', min: -100, max: 100 },
+            { label: 'Blur Radius', key: 'blur', min: 0, max: 100 },
+            { label: 'Spread Radius', key: 'spread', min: -100, max: 100 },
+            { label: 'Opacity (%)', key: 'opacity', min: 0, max: 100 }
+          ].map(ctrl => (
+            <div key={ctrl.key}>
+              <div className="flex justify-between mb-1">
+                <span className="text-[13px] font-semibold text-[#374151]">{ctrl.label}</span>
+                <span className="text-[13px] font-medium text-[#6B7280]">{(activeShadow as any)[ctrl.key]}</span>
+              </div>
+              <input type="range" min={ctrl.min} max={ctrl.max} value={(activeShadow as any)[ctrl.key]} onChange={e => updateShadow(ctrl.key, parseInt(e.target.value))} className="w-full accent-[#111827]" />
+            </div>
+          ))}
+
+          <div>
+            <span className="text-[13px] font-semibold text-[#374151] block mb-2">Color</span>
+            <div className="flex items-center gap-3 bg-[#F9FAFB] p-2 rounded-lg border border-[#E5E7EB]">
+              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
+                <input type="color" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="absolute -top-2 -left-2 w-16 h-16 cursor-pointer" />
+              </div>
+              <input type="text" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Preview & Code */}
+      <div className="flex-[1] flex flex-col gap-6">
+        <div className="flex-1 bg-[#FAFAFA] rounded-2xl border border-[#E5E7EB] min-h-[350px] flex items-center justify-center p-8 overflow-hidden relative radial-bg">
+          {/* Subtle dotted background pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+          
+          {/* Box Preview */}
+          <div 
+            className="w-48 h-48 bg-white rounded-2xl z-10 flex items-center justify-center border border-[#F3F4F6] transition-shadow duration-200"
+            style={{ boxShadow: generateBoxShadow() }}
+          >
+            <span className="text-[#9CA3AF] font-medium text-sm">Preview</span>
+          </div>
+        </div>
+
+        <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group">
+           <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
+           <code className="text-[#A7F3D0] font-mono text-[13px] whitespace-pre block pr-12">
+             {css}
+           </code>
+           <button 
+             onClick={copyToClipboard}
+             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+             title="Copy CSS"
+           >
+             {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
+           </button>
         </div>
       </div>
-      <div className="flex-1 flex flex-col pt-4 items-center">
-        <div className="w-48 h-48 bg-white rounded-xl mb-8 transition-shadow flex items-center justify-center font-bold text-text-primary" style={{ boxShadow }}>
-          Preview Box
-        </div>
-        <div className="w-full">
-           <span className="text-xs text-text-muted mb-2 block font-semibold uppercase">CSS Code</span>
-           <div className="p-4 bg-surface border border-border border-white/10 rounded-xl text-success font-mono text-sm break-all font-medium cursor-pointer hover:bg-card border border-border transition-colors" onClick={() => navigator.clipboard.writeText(`box-shadow: ${boxShadow};`)}>
-             box-shadow: {boxShadow};
-           </div>
-        </div>
-      </div>
+
     </div>
   )
 }
 
 export function CssGlassmorphism() {
-  const [blur, setBlur] = useState(10)
-  const [opacity, setOpacity] = useState(10)
+  const [blur, setBlur] = useState(12)
+  const [transparency, setTransparency] = useState(25)
+  const [tint, setTint] = useState('#ffffff')
+  const [outline, setOutline] = useState(20)
+  const [copied, setCopied] = useState(false)
 
-  const bg = `rgba(255, 255, 255, ${opacity / 100})`
-  const css = `background: ${bg};\nbackdrop-filter: blur(${blur}px);\n-webkit-backdrop-filter: blur(${blur}px);\nborder: 1px solid rgba(255, 255, 255, 0.18);`
+  const hexToRgba = (hex: string, opacity: number) => {
+    hex = hex.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16) || 255;
+    const g = parseInt(hex.substring(2, 4), 16) || 255;
+    const b = parseInt(hex.substring(4, 6), 16) || 255;
+    return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`;
+  };
+
+  const bg = hexToRgba(tint, transparency);
+  const border = hexToRgba('#ffffff', outline);
+
+  const css = `background: ${bg};\nbackdrop-filter: blur(${blur}px);\n-webkit-backdrop-filter: blur(${blur}px);\nborder: 1px solid ${border};\nborder-radius: 16px;`;
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(css);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-lg shadow-black/10">
-      <div className="flex-1 space-y-6">
-        <div>
-           <div className="flex justify-between mb-1">
-             <span className="text-sm text-text-primary">Blur Value</span>
-             <span className="text-sm text-text-muted">{blur}px</span>
-           </div>
-           <input type="range" min="0" max="50" value={blur} onChange={e => setBlur(parseInt(e.target.value))} className="w-full accent-indigo-500" />
+    <div className="flex flex-col md:flex-row gap-8 h-full">
+      {/* Controls */}
+      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-[#111827] mb-2">Glass Settings</h3>
+        
+        <div className="space-y-5">
+          {[
+            { label: 'Blur Radius', val: blur, set: setBlur, min: 0, max: 50 },
+            { label: 'Transparency (%)', val: transparency, set: setTransparency, min: 0, max: 100 },
+            { label: 'Outline Opacity (%)', val: outline, set: setOutline, min: 0, max: 100 }
+          ].map(ctrl => (
+            <div key={ctrl.label}>
+              <div className="flex justify-between mb-1">
+                <span className="text-[13px] font-semibold text-[#374151]">{ctrl.label}</span>
+                <span className="text-[13px] font-medium text-[#6B7280]">{ctrl.val}</span>
+              </div>
+              <input type="range" min={ctrl.min} max={ctrl.max} value={ctrl.val} onChange={e => ctrl.set(parseInt(e.target.value))} className="w-full accent-[#111827]" />
+            </div>
+          ))}
+
+          <div>
+            <span className="text-[13px] font-semibold text-[#374151] block mb-2">Tint Color</span>
+            <div className="flex items-center gap-3 bg-[#F9FAFB] p-2 rounded-lg border border-[#E5E7EB]">
+              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
+                <input type="color" value={tint} onChange={e => setTint(e.target.value)} className="absolute -top-2 -left-2 w-16 h-16 cursor-pointer" />
+              </div>
+              <input type="text" value={tint} onChange={e => setTint(e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
+            </div>
+          </div>
         </div>
-        <div>
-           <div className="flex justify-between mb-1">
-             <span className="text-sm text-text-primary">Transparency</span>
-             <span className="text-sm text-text-muted">{opacity}%</span>
-           </div>
-           <input type="range" min="0" max="100" value={opacity} onChange={e => setOpacity(parseInt(e.target.value))} className="w-full accent-indigo-500" />
+
+      </div>
+
+      {/* Preview */}
+      <div className="flex-[1] flex flex-col gap-6">
+        <div className="flex-1 rounded-2xl min-h-[350px] relative overflow-hidden bg-gradient-to-br from-[#8B5CF6] via-[#EC4899] to-[#EF4444] p-8 flex flex-col items-center justify-center">
+          {/* Animated background blobs */}
+          <div className="absolute top-0 left-0 w-48 h-48 bg-[#3B82F6] rounded-full mix-blend-multiply opacity-50 filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-48 h-48 bg-[#F59E0B] rounded-full mix-blend-multiply opacity-50 filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-48 h-48 bg-[#10B981] rounded-full mix-blend-multiply opacity-50 filter blur-3xl animate-blob animation-delay-4000"></div>
+
+          {/* Glass Card */}
+          <div 
+            className="relative w-64 h-64 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] z-10 flex flex-col p-6 border border-white/20 transition-all duration-300"
+            style={{ background: bg, backdropFilter: `blur(${blur}px)`, WebkitBackdropFilter: `blur(${blur}px)`, borderColor: border }}
+          >
+            <div className="w-12 h-12 rounded-full bg-white/20 mb-4 flex items-center justify-center">
+               <Layers className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 text-white">Glass Card</h3>
+            <p className="text-sm text-white/90">Modern frosted glass effect generated entirely via CSS.</p>
+          </div>
         </div>
-        <div className="w-full mt-8">
-           <span className="text-xs text-text-muted mb-2 block font-semibold uppercase">CSS Code</span>
-           <pre className="p-4 bg-surface border border-border border-white/10 rounded-xl text-success font-mono text-sm break-all whitespace-pre-wrap cursor-pointer" onClick={() => navigator.clipboard.writeText(css)}>
+
+        <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group">
+           <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
+           <code className="text-[#A7F3D0] font-mono text-[13px] whitespace-pre block pr-12">
              {css}
-           </pre>
+           </code>
+           <button 
+             onClick={copyToClipboard}
+             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+             title="Copy CSS"
+           >
+             {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
+           </button>
         </div>
       </div>
-      <div className="flex-1 p-8 rounded-xl flex items-center justify-center relative overflow-hidden">
-         <div className="absolute top-10 left-10 w-24 h-24 bg-card border border-border rounded-full mix-blend-multiply opacity-70 filter blur-xl animate-pulse"></div>
-         <div className="absolute bottom-10 right-10 w-32 h-32 bg-card border border-border rounded-full mix-blend-multiply opacity-70 filter blur-xl animate-pulse delay-700"></div>
-         
-         <div className="w-64 h-64 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] z-10 flex flex-col p-6 text-text-primary border border-white/20" style={{ background: bg, backdropFilter: `blur(${blur}px)`, WebkitBackdropFilter: `blur(${blur}px)` }}>
-            <h3 className="text-xl font-bold mb-2 text-text-primary">Glass Card</h3>
-            <p className="text-sm text-text-primary">Beautiful modern glass effect generated entirely via CSS properties.</p>
-         </div>
-      </div>
+
     </div>
   )
 }
-
-import { RotateCcw, Shuffle, Plus, Trash2, Copy, Check } from 'lucide-react';
 
 export function CssGradientGenerator() {
   const [type, setType] = useState<'linear' | 'radial'>('linear')
