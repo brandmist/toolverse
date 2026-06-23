@@ -3,6 +3,8 @@ import { Twitter, Github, Linkedin, Mail, ArrowRight, Shield, Zap, Lock } from '
 import { CATEGORIES, TOOLS } from '../../data/tools'
 import React, { useState } from 'react'
 
+import { AdBanner } from '../ui/AdBanner'
+
 export function Footer() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
@@ -41,6 +43,12 @@ export function Footer() {
   return (
     <footer className="bg-[#FAFAFA] border-t border-[#E5E7EB]" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
+
+      {/* ── Ads ── */}
+      <div className="max-w-[1280px] mx-auto px-6 pt-8 flex justify-center flex-col items-center">
+        <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+        <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="md:hidden" />
+      </div>
 
       {/* ── Top grid ── */}
       <div className="max-w-[1280px] mx-auto px-6 pt-16 pb-16">

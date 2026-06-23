@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { Helmet } from 'react-helmet-async'
 import { CATEGORIES } from '../data/tools'
 import { CategoryCard } from '../components/ui/CategoryCard'
+import { AdBanner } from '../components/ui/AdBanner'
 
 export function Categories() {
   return (
@@ -23,20 +24,28 @@ export function Categories() {
           </div>
         </div>
 
-        {/* ── Grid ── */}
-        <div className="max-w-[1280px] mx-auto px-6 py-16">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
-          >
-            {CATEGORIES.map((category, index) => (
-              <div key={category.id} className="min-h-[180px]">
-                <CategoryCard category={category} index={index} />
-              </div>
-            ))}
-          </motion.div>
+        {/* ── Grid & Sidebar ── */}
+        <div className="max-w-[1280px] mx-auto px-6 py-16 flex flex-col md:flex-row gap-8">
+          <div className="flex-1">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+            >
+              {CATEGORIES.map((category, index) => (
+                <div key={category.id} className="min-h-[180px]">
+                  <CategoryCard category={category} index={index} />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Sidebar Ads */}
+          <div className="hidden lg:flex flex-col gap-6 shrink-0 w-[160px]">
+            <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} className="!my-0" />
+            <AdBanner adKey="345a35132c9593f18323c0c418bfe582" height={300} width={160} className="!my-0" />
+          </div>
         </div>
       </div>
     </>

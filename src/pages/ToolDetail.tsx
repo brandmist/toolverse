@@ -7,6 +7,7 @@ import { Icon } from '../components/ui/icon'
 import { useStore } from '../store/useStore'
 
 // Tool Implementations
+import { AdBanner } from '../components/ui/AdBanner'
 import { CaseConverter } from '../components/ui/CaseConverter'
 import { PasswordGenerator } from '../components/ui/PasswordGenerator'
 import { LetterCounter } from '../components/ui/LetterCounter'
@@ -347,6 +348,8 @@ export function ToolDetail() {
               {renderToolInterface()}
             </div>
           </div>
+
+          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
 
           {/* Rich Directory Content: Features & Use Cases */}
           {(tool.features || tool.useCases || tool.pros || tool.cons) ? (

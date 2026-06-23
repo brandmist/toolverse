@@ -8,6 +8,8 @@ import {
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { TOOLS, CATEGORIES } from '../data/tools'
+import { NativeAd } from '../components/ui/NativeAd'
+import { AdBanner } from '../components/ui/AdBanner'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface FAQItem { q: string; a: string }
@@ -321,6 +323,9 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           POPULAR TOOLS
       ══════════════════════════════════════════════ */}
+      <div className="max-w-[1280px] mx-auto px-6 py-4">
+        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex" />
+      </div>
       <section className="py-24 bg-white border-b border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Header */}
@@ -566,6 +571,9 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           TESTIMONIALS
       ══════════════════════════════════════════════ */}
+      <div className="max-w-[1280px] mx-auto px-6 py-8">
+        <NativeAd />
+      </div>
       <section className="py-24 bg-[#FAFAFA] border-b border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center mb-16">
