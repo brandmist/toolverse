@@ -1,63 +1,154 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { Share2, Heart, CheckCircle2, HelpCircle, Star, Check, X, ShieldCheck } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-import { useEffect } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
+import { toast } from 'sonner'
 import { TOOLS, CATEGORIES } from '../data/tools'
-import { Icon } from '../components/ui/icon'
+const Icon = lazy(() => import('../components/ui/icon').then(m => ({ default: m.Icon })))
 import { useStore } from '../store/useStore'
 
 // Tool Implementations
-import { AdBanner } from '../components/ui/AdBanner'
-import { NativeAd } from '../components/ui/NativeAd'
-import { CaseConverter } from '../components/ui/CaseConverter'
-import { PasswordGenerator } from '../components/ui/PasswordGenerator'
-import { LetterCounter } from '../components/ui/LetterCounter'
-import { WhitespaceRemover } from '../components/ui/WhitespaceRemover'
-import { UrlEncoder } from '../components/ui/UrlEncoder'
-import { ColorPaletteGenerator } from '../components/ui/ColorPaletteGenerator'
-import { QrGenerator } from '../components/ui/QrGenerator'
-import { JsonViewer } from '../components/ui/JsonViewer'
-import { LoremIpsum, BionicReading, Base64Encoder, Md5Generator, UUIDGenerator, GenericPlaceholder, JsonFormatter, SvgToJsx, MarkdownToHtml } from '../components/ui/MiscTools'
-import { ListRandomizer } from '../components/ui/UtilityTools'
-import { CssShadowGenerator, CssGlassmorphism, CssGradientGenerator, CssLoaderGenerator, CssTriangleGenerator } from '../components/ui/CSSTools'
-import { ImageToBase64, SvgBlobGenerator, ImageResizer, ColorExtractor, ImageCropper } from '../components/ui/ImageTools'
-import { ImageConverter, ImageFilters } from '../components/ui/ImageToolsExtras'
-import { AIImageGenerator, RemoveBackground, CleanupPicture, UnblurImage, ImageToText } from '../components/ui/AITools'
-import { HtmlFormatter, JwtDecoder } from '../components/ui/CodingTools'
-import { HexRgba, ColorShades } from '../components/ui/ColorTools'
-import { OpenGraphGenerator, TweetToImage, YoutubeThumbnail } from '../components/ui/SocialTools'
-import { TextReverser, DuplicateRemover, TextDiff } from '../components/ui/TextTools'
-import { RgbHex, ColorMixer } from '../components/ui/NewColorTools'
-import { NumberBaseConverter, RegexTester, WordFrequency, JsonToCsv } from '../components/ui/NewUtilityTools'
-import { JsonMinifier, DiffChecker, CssBorderRadius } from '../components/ui/NewCodingTools'
-import { ImageCompressor, ImageWatermark, FaviconGenerator, ImagePlaceholder } from '../components/ui/ImageToolsNew'
-import { PdfCompressor, PdfMerger, PdfSplitter, PdfToImage, ImagesToPdf, PdfRotate, PdfWatermark, PdfToText, TextToPdf } from '../components/ui/PdfTools'
-import { VisioConverter } from '../components/ui/VisioConverter'
-import { PdfOrganizer, PdfSigner, EpubToPdf, PdfGrayscale, PdfMetadataEditor, ExtractPdfPages } from '../components/ui/NewPdfTools'
-import { ExifEditor, SvgOptimizer, GifMaker, PixelArtCreator } from '../components/ui/NewImageTools'
-import { RegExExplainer, HtmlMarkdown, SqlFormatter, ColorContrast, EpochConverter, CsvJsonYaml } from '../components/ui/NewDeveloperTools'
-import { PdfUnlock, PdfToWord, PdfToPptx, DocxToPdf, PdfExtractImages, PdfCrop, PdfAddNumbers, PdfToTiff, PdfEdit, PdfProtect } from '../components/ui/MorePdfTools'
-import { ChangePhotoBackground } from '../components/ui/MoreImageTools'
-import { PdfToExcel, PdfToCsv, PdfToEpub, PdfTranslator, MobiToPdf, PdfToMobi, Azw3ToPdf, PptxToPdf, UrlToPdf, PdfWatermarkRemover, CreatePdf, ImageSpecificToPdf } from '../components/ui/ExtraPdfTools'
-import {
-  ProfilePhotoMaker,
-  BlurBackgroundTool,
-  RemoveWatermarkImage,
-  CombineImages,
-  MakeBackgroundTransparent,
-  AddTextToImage,
-  ImageSplitter,
-  AddBorderToImage,
-  TranslateImage,
-  PixelateImage,
-  CollageMaker,
-  GifToMp4,
-  ChartMaker,
-  FontAwesomeToPng,
-  PngToEps,
-  JpgToTiff,
-  WebpToJpg
-} from '../components/ui/ExtraImageTools'
+const AdBanner = lazy(() => import('../components/ui/AdBanner').then(m => ({ default: m.AdBanner })))
+const NativeAd = lazy(() => import('../components/ui/NativeAd').then(m => ({ default: m.NativeAd })))
+const CaseConverter = lazy(() => import('../components/ui/CaseConverter').then(m => ({ default: m.CaseConverter })))
+const PasswordGenerator = lazy(() => import('../components/ui/PasswordGenerator').then(m => ({ default: m.PasswordGenerator })))
+const LetterCounter = lazy(() => import('../components/ui/LetterCounter').then(m => ({ default: m.LetterCounter })))
+const WhitespaceRemover = lazy(() => import('../components/ui/WhitespaceRemover').then(m => ({ default: m.WhitespaceRemover })))
+const UrlEncoder = lazy(() => import('../components/ui/UrlEncoder').then(m => ({ default: m.UrlEncoder })))
+const ColorPaletteGenerator = lazy(() => import('../components/ui/ColorPaletteGenerator').then(m => ({ default: m.ColorPaletteGenerator })))
+const QrGenerator = lazy(() => import('../components/ui/QrGenerator').then(m => ({ default: m.QrGenerator })))
+const JsonViewer = lazy(() => import('../components/ui/JsonViewer').then(m => ({ default: m.JsonViewer })))
+const LoremIpsum = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.LoremIpsum })))
+const BionicReading = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.BionicReading })))
+const Base64Encoder = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.Base64Encoder })))
+const Md5Generator = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.Md5Generator })))
+const UUIDGenerator = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.UUIDGenerator })))
+const GenericPlaceholder = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.GenericPlaceholder })))
+const JsonFormatter = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.JsonFormatter })))
+const SvgToJsx = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.SvgToJsx })))
+const MarkdownToHtml = lazy(() => import('../components/ui/MiscTools').then(m => ({ default: m.MarkdownToHtml })))
+const ListRandomizer = lazy(() => import('../components/ui/UtilityTools').then(m => ({ default: m.ListRandomizer })))
+const CssShadowGenerator = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssShadowGenerator })))
+const CssGlassmorphism = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssGlassmorphism })))
+const CssGradientGenerator = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssGradientGenerator })))
+const CssLoaderGenerator = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssLoaderGenerator })))
+const CssTriangleGenerator = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssTriangleGenerator })))
+const ImageToBase64 = lazy(() => import('../components/ui/ImageTools').then(m => ({ default: m.ImageToBase64 })))
+const SvgBlobGenerator = lazy(() => import('../components/ui/ImageTools').then(m => ({ default: m.SvgBlobGenerator })))
+const ImageResizer = lazy(() => import('../components/ui/ImageTools').then(m => ({ default: m.ImageResizer })))
+const ColorExtractor = lazy(() => import('../components/ui/ImageTools').then(m => ({ default: m.ColorExtractor })))
+const ImageCropper = lazy(() => import('../components/ui/ImageTools').then(m => ({ default: m.ImageCropper })))
+const ImageConverter = lazy(() => import('../components/ui/ImageToolsExtras').then(m => ({ default: m.ImageConverter })))
+const ImageFilters = lazy(() => import('../components/ui/ImageToolsExtras').then(m => ({ default: m.ImageFilters })))
+const AIImageGenerator = lazy(() => import('../components/ui/AITools').then(m => ({ default: m.AIImageGenerator })))
+const RemoveBackground = lazy(() => import('../components/ui/AITools').then(m => ({ default: m.RemoveBackground })))
+const CleanupPicture = lazy(() => import('../components/ui/AITools').then(m => ({ default: m.CleanupPicture })))
+const UnblurImage = lazy(() => import('../components/ui/AITools').then(m => ({ default: m.UnblurImage })))
+const ImageToText = lazy(() => import('../components/ui/AITools').then(m => ({ default: m.ImageToText })))
+const HtmlFormatter = lazy(() => import('../components/ui/CodingTools').then(m => ({ default: m.HtmlFormatter })))
+const JwtDecoder = lazy(() => import('../components/ui/CodingTools').then(m => ({ default: m.JwtDecoder })))
+const HexRgba = lazy(() => import('../components/ui/ColorTools').then(m => ({ default: m.HexRgba })))
+const ColorShades = lazy(() => import('../components/ui/ColorTools').then(m => ({ default: m.ColorShades })))
+const OpenGraphGenerator = lazy(() => import('../components/ui/SocialTools').then(m => ({ default: m.OpenGraphGenerator })))
+const TweetToImage = lazy(() => import('../components/ui/SocialTools').then(m => ({ default: m.TweetToImage })))
+const YoutubeThumbnail = lazy(() => import('../components/ui/SocialTools').then(m => ({ default: m.YoutubeThumbnail })))
+const TextReverser = lazy(() => import('../components/ui/TextTools').then(m => ({ default: m.TextReverser })))
+const DuplicateRemover = lazy(() => import('../components/ui/TextTools').then(m => ({ default: m.DuplicateRemover })))
+const TextDiff = lazy(() => import('../components/ui/TextTools').then(m => ({ default: m.TextDiff })))
+const RgbHex = lazy(() => import('../components/ui/NewColorTools').then(m => ({ default: m.RgbHex })))
+const ColorMixer = lazy(() => import('../components/ui/NewColorTools').then(m => ({ default: m.ColorMixer })))
+const NumberBaseConverter = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.NumberBaseConverter })))
+const RegexTester = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.RegexTester })))
+const WordFrequency = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.WordFrequency })))
+const JsonToCsv = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.JsonToCsv })))
+const JsonMinifier = lazy(() => import('../components/ui/NewCodingTools').then(m => ({ default: m.JsonMinifier })))
+const DiffChecker = lazy(() => import('../components/ui/NewCodingTools').then(m => ({ default: m.DiffChecker })))
+const JsonToTs = lazy(() => import('../components/ui/NewCodingTools').then(m => ({ default: m.JsonToTs })))
+const CsvJsonConverter = lazy(() => import('../components/ui/NewCodingTools').then(m => ({ default: m.CsvJsonConverter })))
+const BcryptGenerator = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.BcryptGenerator })))
+const RobotsTxtGenerator = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.RobotsTxtGenerator })))
+const SitemapGenerator = lazy(() => import('../components/ui/NewUtilityTools').then(m => ({ default: m.SitemapGenerator })))
+const CssAnimationGenerator = lazy(() => import('../components/ui/CSSTools').then(m => ({ default: m.CssAnimationGenerator })))
+const MetaTagGenerator = lazy(() => import('../components/ui/SocialTools').then(m => ({ default: m.MetaTagGenerator })))
+const CssBorderRadius = lazy(() => import('../components/ui/NewCodingTools').then(m => ({ default: m.CssBorderRadius })))
+const ImageCompressor = lazy(() => import('../components/ui/ImageToolsNew').then(m => ({ default: m.ImageCompressor })))
+const ImageWatermark = lazy(() => import('../components/ui/ImageToolsNew').then(m => ({ default: m.ImageWatermark })))
+const FaviconGenerator = lazy(() => import('../components/ui/ImageToolsNew').then(m => ({ default: m.FaviconGenerator })))
+const ImagePlaceholder = lazy(() => import('../components/ui/ImageToolsNew').then(m => ({ default: m.ImagePlaceholder })))
+const PdfCompressor = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfCompressor })))
+const PdfMerger = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfMerger })))
+const PdfSplitter = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfSplitter })))
+const PdfToImage = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfToImage })))
+const ImagesToPdf = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.ImagesToPdf })))
+const PdfRotate = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfRotate })))
+const PdfWatermark = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfWatermark })))
+const PdfToText = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.PdfToText })))
+const TextToPdf = lazy(() => import('../components/ui/PdfTools').then(m => ({ default: m.TextToPdf })))
+const VisioConverter = lazy(() => import('../components/ui/VisioConverter').then(m => ({ default: m.VisioConverter })))
+const PdfOrganizer = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.PdfOrganizer })))
+const PdfSigner = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.PdfSigner })))
+const EpubToPdf = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.EpubToPdf })))
+const PdfGrayscale = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.PdfGrayscale })))
+const PdfMetadataEditor = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.PdfMetadataEditor })))
+const ExtractPdfPages = lazy(() => import('../components/ui/NewPdfTools').then(m => ({ default: m.ExtractPdfPages })))
+const ExifEditor = lazy(() => import('../components/ui/NewImageTools').then(m => ({ default: m.ExifEditor })))
+const SvgOptimizer = lazy(() => import('../components/ui/NewImageTools').then(m => ({ default: m.SvgOptimizer })))
+const GifMaker = lazy(() => import('../components/ui/NewImageTools').then(m => ({ default: m.GifMaker })))
+const PixelArtCreator = lazy(() => import('../components/ui/NewImageTools').then(m => ({ default: m.PixelArtCreator })))
+const RegExExplainer = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.RegExExplainer })))
+const HtmlMarkdown = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.HtmlMarkdown })))
+const SqlFormatter = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.SqlFormatter })))
+const ColorContrast = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.ColorContrast })))
+const EpochConverter = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.EpochConverter })))
+const CsvJsonYaml = lazy(() => import('../components/ui/NewDeveloperTools').then(m => ({ default: m.CsvJsonYaml })))
+const PercentageCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.PercentageCalculator })))
+const BmiCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.BmiCalculator })))
+const AgeCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.AgeCalculator })))
+const SimpleInterestCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.SimpleInterestCalculator })))
+const CompoundInterestCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.CompoundInterestCalculator })))
+const LoanCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.LoanCalculator })))
+const SipCalculator = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.SipCalculator })))
+const CurrencyConverter = lazy(() => import('../components/ui/MathTools').then(m => ({ default: m.CurrencyConverter })))
+const PdfUnlock = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfUnlock })))
+const PdfToWord = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfToWord })))
+const PdfToPptx = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfToPptx })))
+const DocxToPdf = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.DocxToPdf })))
+const PdfExtractImages = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfExtractImages })))
+const PdfCrop = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfCrop })))
+const PdfAddNumbers = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfAddNumbers })))
+const PdfToTiff = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfToTiff })))
+const PdfEdit = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfEdit })))
+const PdfProtect = lazy(() => import('../components/ui/MorePdfTools').then(m => ({ default: m.PdfProtect })))
+const ChangePhotoBackground = lazy(() => import('../components/ui/MoreImageTools').then(m => ({ default: m.ChangePhotoBackground })))
+const PdfToExcel = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfToExcel })))
+const PdfToCsv = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfToCsv })))
+const PdfToEpub = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfToEpub })))
+const PdfTranslator = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfTranslator })))
+const MobiToPdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.MobiToPdf })))
+const PdfToMobi = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfToMobi })))
+const Azw3ToPdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.Azw3ToPdf })))
+const PptxToPdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PptxToPdf })))
+const UrlToPdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.UrlToPdf })))
+const PdfWatermarkRemover = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.PdfWatermarkRemover })))
+const CreatePdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.CreatePdf })))
+const ImageSpecificToPdf = lazy(() => import('../components/ui/ExtraPdfTools').then(m => ({ default: m.ImageSpecificToPdf })))
+const ProfilePhotoMaker = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.ProfilePhotoMaker })))
+const BlurBackgroundTool = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.BlurBackgroundTool })))
+const RemoveWatermarkImage = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.RemoveWatermarkImage })))
+const CombineImages = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.CombineImages })))
+const MakeBackgroundTransparent = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.MakeBackgroundTransparent })))
+const AddTextToImage = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.AddTextToImage })))
+const ImageSplitter = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.ImageSplitter })))
+const AddBorderToImage = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.AddBorderToImage })))
+const TranslateImage = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.TranslateImage })))
+const PixelateImage = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.PixelateImage })))
+const CollageMaker = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.CollageMaker })))
+const GifToMp4 = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.GifToMp4 })))
+const ChartMaker = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.ChartMaker })))
+const FontAwesomeToPng = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.FontAwesomeToPng })))
+const PngToEps = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.PngToEps })))
+const JpgToTiff = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.JpgToTiff })))
+const WebpToJpg = lazy(() => import('../components/ui/ExtraImageTools').then(m => ({ default: m.WebpToJpg })))
 
 export function ToolDetail() {
   const { id } = useParams()
@@ -97,7 +188,38 @@ export function ToolDetail() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    }
+    },
+    ...(tool.rating && tool.reviews ? {
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": tool.rating.toString(),
+        "ratingCount": tool.reviews.toString()
+      }
+    } : {})
+  };
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `How to use ${tool.name}`,
+    "description": `Step by step guide on how to use the free ${tool.name} tool.`,
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Step 1: Access the Tool",
+        "text": `Open the ${tool.name} interface on SmarTools.`
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 2: Provide Input",
+        "text": "Upload your file or paste your text/data into the designated input area."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Step 3: Process and Download",
+        "text": "Click the process button or let the tool automatically convert your data, then copy or download the result."
+      }
+    ]
   };
 
   const renderToolInterface = () => {
@@ -168,6 +290,13 @@ export function ToolDetail() {
       case 'jwt-decoder': return <JwtDecoder />
       case 'json-minifier': return <JsonMinifier />
       case 'diff-checker': return <DiffChecker />
+      case 'json-to-ts': return <JsonToTs />
+      case 'csv-json-converter': return <CsvJsonConverter />
+      case 'bcrypt-generator': return <BcryptGenerator />
+      case 'robots-txt-generator': return <RobotsTxtGenerator />
+      case 'sitemap-generator': return <SitemapGenerator />
+      case 'css-animation-generator': return <CssAnimationGenerator />
+      case 'meta-tag-generator': return <MetaTagGenerator />
       case 'hex-rgba': return <HexRgba />
       case 'color-shades': return <ColorShades />
       case 'rgb-hex': return <RgbHex />
@@ -176,6 +305,14 @@ export function ToolDetail() {
       case 'tweet-image': return <TweetToImage />
       case 'youtube-thumb': return <YoutubeThumbnail />
       case 'number-base': return <NumberBaseConverter />
+      case 'percentage-calculator': return <PercentageCalculator />
+      case 'bmi-calculator': return <BmiCalculator />
+      case 'age-calculator': return <AgeCalculator />
+      case 'simple-interest-calculator': return <SimpleInterestCalculator />
+      case 'compound-interest-calculator': return <CompoundInterestCalculator />
+      case 'loan-calculator': return <LoanCalculator />
+      case 'sip-calculator': return <SipCalculator />
+      case 'currency-converter': return <CurrencyConverter />
       case 'regex-tester': return <RegexTester />
       case 'word-frequency': return <WordFrequency />
       case 'json-to-csv': return <JsonToCsv />
@@ -285,6 +422,9 @@ export function ToolDetail() {
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify(howToSchema)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-white">
@@ -292,7 +432,7 @@ export function ToolDetail() {
         <div className="bg-white border-b border-[#E5E7EB] pt-20 pb-8">
           <div className="max-w-[960px] mx-auto px-6">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#9CA3AF] mb-6">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-[13px] text-[#9CA3AF] mb-6">
               <Link to="/" className="hover:text-[#111827] transition-colors">Home</Link>
               <span>/</span>
               {category && <Link to={`/category/${category.id}`} className="hover:text-[#111827] transition-colors">{category.name}</Link>}
@@ -307,7 +447,7 @@ export function ToolDetail() {
                   <Icon name={tool.icon} className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-3 mb-2">
                     <h1 className="text-[28px] font-bold text-[#111827] tracking-tight leading-tight">{tool.name}</h1>
                     {tool.isPopular && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#111827] text-white rounded-md">Popular</span>}
                     {tool.isNew && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#F3F4F6] text-[#374151] border border-[#E5E7EB] rounded-md">New</span>}
@@ -316,12 +456,17 @@ export function ToolDetail() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-3 shrink-0">
                 <button
-                  onClick={() => toggleFavorite(tool.id)}
+                  onClick={() => {
+                    toggleFavorite(tool.id);
+                    if (!isFavorite) {
+                      toast.success(`Added ${tool.name} to favorites`);
+                    }
+                  }}
                   aria-label={isFavorite ? `Remove ${tool.name} from favorites` : `Add ${tool.name} to favorites`}
                   aria-pressed={isFavorite}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-[13px] font-semibold transition-all ${
+                  className={`flex items-center gap-3 px-4 py-2 rounded-lg border text-[13px] font-semibold transition-all ${
                     isFavorite
                       ? 'bg-[#FEF2F2] text-[#EF4444] border-[#FECACA]'
                       : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827]'
@@ -331,9 +476,22 @@ export function ToolDetail() {
                   {isFavorite ? 'Saved' : 'Save'}
                 </button>
                 <button
-                  onClick={() => { navigator.clipboard.writeText(window.location.href); }}
-                  aria-label="Copy link to clipboard"
-                  className="flex items-center gap-2 px-4 py-2 bg-white text-[#6B7280] border border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827] rounded-lg text-[13px] font-semibold transition-all"
+                  onClick={async () => { 
+                    const url = window.location.href;
+                    const title = `${tool.name} - SmarTools`;
+                    if (navigator.share) {
+                      try {
+                        await navigator.share({ title, url });
+                      } catch (err) {
+                        console.error('Share failed:', err);
+                      }
+                    } else {
+                      navigator.clipboard.writeText(url); 
+                      toast.success("Link copied to clipboard!");
+                    }
+                  }}
+                  aria-label="Share tool"
+                  className="flex items-center gap-3 px-4 py-2 bg-white text-[#6B7280] border border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827] rounded-lg text-[13px] font-semibold transition-all"
                 >
                   <Share2 className="w-4 h-4" /> Share
                 </button>
@@ -351,10 +509,10 @@ export function ToolDetail() {
           </div>
 
           {/* The Actual Tool Interface */}
-          <div className="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-            <div className="p-6 sm:p-8">
+          <div className="w-full">
+            <Suspense fallback={<div className="flex items-center justify-center p-12 bg-white border border-[#E5E7EB] rounded-2xl shadow-sm"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
               {renderToolInterface()}
-            </div>
+            </Suspense>
           </div>
 
           <div className="flex justify-center w-full">
@@ -399,7 +557,7 @@ export function ToolDetail() {
                   <h2 className="text-2xl font-bold text-[#111827] mb-6">Key Features</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {tool.features.map((feature, i) => (
-                      <div key={i} className="flex items-start gap-3 p-5 bg-white border border-[#E5E7EB] rounded-xl shadow-sm">
+                      <div key={i} className="flex items-start gap-3 p-5 bg-white border border-[#E5E7EB] rounded-2xl shadow-sm">
                         <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
                         <span className="text-[15px] font-medium text-[#374151]">{feature}</span>
                       </div>
@@ -463,7 +621,7 @@ export function ToolDetail() {
             /* Fallback Content for tools not yet enriched */
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl p-6 sm:p-8">
-                <h2 className="text-[18px] font-semibold text-[#111827] mb-5 flex items-center gap-2.5">
+                <h2 className="text-[18px] font-semibold text-[#111827] mb-5 flex items-center gap-3">
                   <HelpCircle className="w-5 h-5 text-[#6B7280]" /> How to use
                 </h2>
                 <p className="text-[15px] text-[#4B5563] leading-relaxed mb-6">
@@ -479,7 +637,7 @@ export function ToolDetail() {
                 </ol>
               </div>
               <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl p-6 sm:p-8">
-                <h2 className="text-[18px] font-semibold text-[#111827] mb-6 flex items-center gap-2.5">
+                <h2 className="text-[18px] font-semibold text-[#111827] mb-6 flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#6B7280]" /> Why use {tool.name}?
                 </h2>
                 <div className="space-y-5">

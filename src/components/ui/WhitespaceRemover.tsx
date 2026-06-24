@@ -7,7 +7,7 @@ export function WhitespaceRemover() {
   return (
     <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <textarea
-        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-[#111827]"
+        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827]"
         placeholder="Type or paste your text here to remove whitespace..."
         value={text}
         onChange={(e) => setText(e.target.value)}

@@ -38,6 +38,8 @@ export function Footer() {
     { label: 'Cookie Policy', to: '/cookie' },
     { label: 'GDPR Compliance', to: '/gdpr' },
     { label: 'Accessibility', to: '/accessibility' },
+    { label: 'Disclaimer', to: '/disclaimer' },
+    { label: 'DMCA', to: '/dmca' },
   ]
 
   return (
@@ -52,7 +54,7 @@ export function Footer() {
 
       {/* ── Top grid ── */}
       <div className="max-w-[1280px] mx-auto px-6 pt-16 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12">
 
           {/* Brand & Newsletter column */}
           <div className="lg:col-span-2 pr-0 lg:pr-12 flex flex-col">
@@ -122,9 +124,23 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Tools Categories */}
+          {/* Top Searches (Top Tools) */}
           <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Categories</h3>
+            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Top Tools</h3>
+            <ul className="space-y-3">
+              {topSearchLinks.map(link => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tools Categories (Resources) */}
+          <div>
+            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Resources</h3>
             <ul className="space-y-3">
               {toolLinks.map(link => (
                 <li key={link.to}>
@@ -141,21 +157,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Top Searches */}
-          <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Top Searches</h3>
-            <ul className="space-y-3">
-              {topSearchLinks.map(link => (
-                <li key={link.to}>
-                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company & Legal */}
+          {/* Company */}
           <div>
             <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Company</h3>
             <ul className="space-y-3 mb-8">
@@ -167,7 +169,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
 
+          {/* Legal */}
+          <div>
             <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Legal</h3>
             <ul className="space-y-3">
               {legalLinks.map(link => (

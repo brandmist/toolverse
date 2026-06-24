@@ -27,20 +27,101 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
-  { id: 'text', name: 'Text Tools', description: 'Format, align, and manipulate text', icon: 'Type' },
-  { id: 'image', name: 'Image Tools', description: 'Edit, convert, and optimize images', icon: 'Image' },
-  { id: 'css', name: 'CSS Tools', description: 'Generators for shadows, gradients, and shapes', icon: 'Paintbrush' },
-  { id: 'coding', name: 'Coding Tools', description: 'Minifiers, formatters, and utilities', icon: 'Code' },
-  { id: 'color', name: 'Color Tools', description: 'Palettes, converters, and extractors', icon: 'Palette' },
-  { id: 'social', name: 'Social Media', description: 'Generators for posts, tweets, and more', icon: 'Share2' },
   { id: 'pdf', name: 'PDF Tools', description: 'Merge, split, and convert PDF files', icon: 'FileText' },
+  { id: 'image', name: 'Image Tools', description: 'Edit, convert, and optimize images', icon: 'Image' },
+  { id: 'coding', name: 'Dev Tools', description: 'Minifiers, formatters, and utilities', icon: 'Code' },
+  { id: 'text', name: 'Text Tools', description: 'Format, align, and manipulate text', icon: 'Type' },
+  { id: 'seo', name: 'SEO Tools', description: 'Meta tags, robots.txt, and sitemaps', icon: 'Search' },
+  { id: 'math', name: 'Math Tools', description: 'Calculators and mathematical utilities', icon: 'Calculator' },
+  { id: 'security', name: 'Security Tools', description: 'Passwords, hashes, and encryption', icon: 'ShieldCheck' },
+  { id: 'video', name: 'Video Tools', description: 'Convert and edit video files', icon: 'Video' },
+  { id: 'ai', name: 'AI Tools', description: 'AI-powered generation and editing', icon: 'Sparkles' },
+  { id: 'social', name: 'Social Media', description: 'Generators for posts, tweets, and more', icon: 'Share2' },
+  { id: 'color', name: 'Color Tools', description: 'Palettes, converters, and extractors', icon: 'Palette' },
+  { id: 'css', name: 'CSS Tools', description: 'Generators for shadows, gradients, and shapes', icon: 'Paintbrush' },
   { id: 'utility', name: 'Utility Tools', description: 'Calculators, randomizers, and generators', icon: 'Wrench' },
 ];
 
 const unsortedTools: Tool[] = [
   // ⭐ Featured Top Tools
-  { id: 'image-compressor', name: 'Image Compressor', description: 'Compress and optimize images to reduce file size without quality loss.', categoryId: 'image', icon: 'PackageOpen', isPopular: true, isNew: true },
-  { id: 'remove-background', name: 'Remove Background', description: 'Automatically isolate subjects and remove image backgrounds.', categoryId: 'image', icon: 'Scissors', isPopular: true, isNew: true },
+  { 
+    id: 'image-compressor', 
+    name: 'Image Compressor', 
+    description: 'Compress and optimize images to reduce file size without quality loss.', 
+    categoryId: 'image', 
+    icon: 'PackageOpen', 
+    isPopular: true, 
+    isNew: true,
+    pricing: 'Free',
+    rating: 4.8,
+    reviews: 845,
+    verified: true,
+    developer: 'SmarTools Official',
+    features: ['Lossless compression algorithm', 'Batch processing up to 50 images', 'Preserves EXIF data option', 'WebAssembly powered client-side processing'],
+    useCases: ['Optimizing website images for faster loading (SEO)', 'Reducing file size for email attachments', 'Saving disk space without losing visual quality'],
+    pros: ['Works offline after load', 'Zero server uploads', 'Fastest WebAssembly compression'],
+    cons: ['Very large images (100MB+) may crash browser tabs']
+  },
+  { 
+    id: 'remove-background', 
+    name: 'Remove Background', 
+    description: 'Automatically isolate subjects and remove image backgrounds.', 
+    categoryId: 'image', 
+    icon: 'Scissors', 
+    isPopular: true, 
+    isNew: true,
+    pricing: 'Free',
+    rating: 4.9,
+    reviews: 1530,
+    verified: true,
+    developer: 'SmarTools Official',
+    features: ['AI-powered subject isolation', 'Transparent PNG export', 'Edge smoothing and feathering', 'Works completely in your browser via Transformers.js'],
+    useCases: ['Creating e-commerce product photos', 'Making YouTube thumbnail cutouts', 'Creating transparent logos and graphics'],
+    pros: ['No API key needed', '100% private', 'Incredibly accurate on humans and products'],
+    cons: ['Requires downloading a 40MB AI model on first run', 'Complex backgrounds might need manual touchup']
+  },
+  // API-Free New Tools
+  { 
+    id: 'json-to-ts', 
+    name: 'JSON to TypeScript', 
+    description: 'Convert JSON data into TypeScript interfaces instantly.', 
+    categoryId: 'coding', 
+    icon: 'Code2', 
+    isNew: true, 
+    isPopular: true,
+    pricing: 'Free',
+    rating: 4.7,
+    reviews: 620,
+    verified: true,
+    developer: 'SmarTools Official',
+    features: ['Automatic nested interface generation', 'Type inference from JSON values', 'Optional property detection', 'Custom root interface naming'],
+    useCases: ['Creating API response types', 'Typing complex configuration files', 'Migrating JavaScript objects to TypeScript'],
+    pros: ['Saves hours of manual typing', '100% client-side security for sensitive data', 'Instant conversion'],
+    cons: ['Cannot infer union types perfectly from a single payload']
+  },
+  { id: 'csv-json-converter', name: 'CSV to JSON Converter', description: 'Bi-directional conversion between CSV and JSON data.', categoryId: 'coding', icon: 'FileJson', isNew: true },
+  { 
+    id: 'password-generator', 
+    name: 'Password Generator', 
+    description: 'Generate strong, secure passwords with custom requirements.', 
+    categoryId: 'security', 
+    icon: 'Key', 
+    isPopular: true,
+    pricing: 'Free',
+    rating: 4.9,
+    reviews: 2100,
+    verified: true,
+    developer: 'SmarTools Official',
+    features: ['Cryptographically secure generation', 'Custom length and character types', 'Pronounceable password option', 'Zero tracking or logging'],
+    useCases: ['Creating secure master passwords', 'Generating unique passwords for new accounts', 'Fulfilling strict enterprise password policies'],
+    pros: ['Never sent to any server', 'Instant generation', 'Highly customizable'],
+    cons: ['Does not store passwords (use a password manager)']
+  },
+  { id: 'bcrypt-generator', name: 'Bcrypt Hash Generator', description: 'Generate secure bcrypt password hashes with adjustable salt rounds.', categoryId: 'security', icon: 'Key', isNew: true },
+  { id: 'css-animation-generator', name: 'CSS Animation Generator', description: 'Visual builder for complex CSS keyframe animations.', categoryId: 'css', icon: 'PlaySquare', isNew: true },
+  { id: 'meta-tag-generator', name: 'Meta Tag Generator', description: 'Generate SEO and OpenGraph meta tags for your website.', categoryId: 'seo', icon: 'Globe', isNew: true },
+  { id: 'robots-txt-generator', name: 'Robots.txt Generator', description: 'Generate allow and disallow rules for web crawlers.', categoryId: 'seo', icon: 'Bot', isNew: true },
+  { id: 'sitemap-generator', name: 'XML Sitemap Generator', description: 'Create an XML sitemap for your website for Google, Bing, and other search engines.', categoryId: 'seo', icon: 'Map', isNew: true },
   // Text
   { 
     id: 'case-converter', 
@@ -74,7 +155,6 @@ const unsortedTools: Tool[] = [
   { id: 'jpg-to-webp', name: 'JPG to WEBP Converter', description: 'Convert JPG images to WEBP format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'png-to-webp', name: 'PNG to WEBP Converter', description: 'Convert PNG images to WEBP format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'webp-to-png', name: 'WEBP to PNG Converter', description: 'Convert WEBP images to PNG format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
-  { id: 'webp-to-jpg', name: 'WEBP to JPG Converter', description: 'Convert WEBP images to JPG format client-side.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'jpg-to-svg', name: 'JPG to SVG Converter', description: 'Convert JPG images to vector SVG formats.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'png-to-svg', name: 'PNG to SVG Converter', description: 'Convert PNG images to vector SVG formats.', categoryId: 'image', icon: 'ArrowRightLeft' },
   { id: 'tiff-to-png', name: 'TIFF to PNG Converter', description: 'Convert TIFF files to standard PNG format.', categoryId: 'image', icon: 'ArrowRightLeft' },
@@ -98,7 +178,7 @@ const unsortedTools: Tool[] = [
   { id: 'image-resizer', name: 'Image Resizer', description: 'Resize images by pixels or percentage.', categoryId: 'image', icon: 'Maximize' },
 
   { id: 'image-watermark', name: 'Image Watermark', description: 'Add custom text or image watermarks to your photos.', categoryId: 'image', icon: 'Stamp', isNew: true },
-  { id: 'color-extractor', name: 'Color Extractor', description: 'Extract dominant colors from any image.', categoryId: 'image', icon: 'Droplet', isPopular: true },
+  { id: 'color-extractor', name: 'Color Extractor', description: 'Extract dominant colors from any image.', categoryId: 'color', icon: 'Droplet', isPopular: true },
   { id: 'svg-blob', name: 'SVG Blob Generator', description: 'Generate random, organic SVG shapes for backgrounds.', categoryId: 'image', icon: 'Hexagon' },
   { id: 'image-to-base64', name: 'Image To Base64', description: 'Convert image files to Base64 encoded strings.', categoryId: 'image', icon: 'Code', isPopular: true },
   { id: 'favicon-generator', name: 'Favicon Generator', description: 'Generate favicon.ico files in multiple sizes from any image.', categoryId: 'image', icon: 'Bookmark', isNew: true },
@@ -121,7 +201,7 @@ const unsortedTools: Tool[] = [
   { id: 'translate-image', name: 'Translate Image', description: 'Perform OCR and translate text blocks in-place on the image.', categoryId: 'image', icon: 'Languages', isNew: true },
   { id: 'pixelate-image', name: 'Pixelate Image', description: 'Convert pictures into retro pixelated graphics.', categoryId: 'image', icon: 'Grid', isNew: true },
   { id: 'collage-maker', name: 'Collage Maker', description: 'Combine up to 4 images inside collage template grids.', categoryId: 'image', icon: 'LayoutTemplate', isNew: true },
-  { id: 'gif-to-mp4', name: 'GIF to MP4 Converter', description: 'Convert animated GIF files into MP4/WebM video frames.', categoryId: 'image', icon: 'Play', isNew: true },
+  { id: 'gif-to-mp4', name: 'GIF to MP4 Converter', description: 'Convert animated GIF files into MP4/WebM video frames.', categoryId: 'video', icon: 'Play', isNew: true },
   { id: 'chart-maker', name: 'Chart Maker', description: 'Create Bar, Line, or Pie charts and download them as images.', categoryId: 'image', icon: 'BarChart2', isNew: true },
   { id: 'font-awesome-to-png', name: 'Font Awesome to Png', description: 'Render popular vector icons as customizable PNG templates.', categoryId: 'image', icon: 'Sparkles', isNew: true },
   { id: 'jpg-to-tiff', name: 'JPG to TIFF Converter', description: 'Convert JPEG images to TIFF format.', categoryId: 'image', icon: 'FileImage', isNew: true },
@@ -130,11 +210,11 @@ const unsortedTools: Tool[] = [
   { id: 'colorize-photo', name: 'Colorize Photo', description: 'Add beautiful color adjustments and custom color fills to black-and-white photos.', categoryId: 'image', icon: 'Palette', isNew: true },
 
   // Image AI
-  { id: 'ai-image-generator', name: 'AI Image Generator', description: 'Generate images from text prompts using advanced AI models.', categoryId: 'image', icon: 'Sparkles', isPopular: true },
+  { id: 'ai-image-generator', name: 'AI Image Generator', description: 'Generate images from text prompts using advanced AI models.', categoryId: 'ai', icon: 'Sparkles', isPopular: true },
 
-  { id: 'cleanup-picture', name: 'Cleanup Picture', description: 'Remove objects, dust, people, or text from pictures using AI.', categoryId: 'image', icon: 'Eraser' },
-  { id: 'unblur-image', name: 'Unblur / Upscale Image', description: 'Enhance low quality images using AI super-resolution.', categoryId: 'image', icon: 'Activity' },
-  { id: 'image-to-text', name: 'Image To Text (OCR)', description: 'Extract and translate text directly from uploaded images.', categoryId: 'image', icon: 'Languages', isPopular: true },
+  { id: 'cleanup-picture', name: 'Cleanup Picture', description: 'Remove objects, dust, people, or text from pictures using AI.', categoryId: 'ai', icon: 'Eraser' },
+  { id: 'unblur-image', name: 'Unblur / Upscale Image', description: 'Enhance low quality images using AI super-resolution.', categoryId: 'ai', icon: 'Activity' },
+  { id: 'image-to-text', name: 'Image To Text (OCR)', description: 'Extract and translate text directly from uploaded images.', categoryId: 'ai', icon: 'Languages', isPopular: true },
 
   // PDF Tools
   { id: 'pdf-compress', name: 'PDF Compressor', description: 'Compress PDF files to reduce size while preserving quality.', categoryId: 'pdf', icon: 'FileDown', isPopular: true },
@@ -206,7 +286,7 @@ const unsortedTools: Tool[] = [
   { id: 'json-formatter', name: 'JSON Formatter & Validator', description: 'Validate and beautifully format messy JSON data with syntax highlighting.', categoryId: 'coding', icon: 'Code', isNew: true },
   { id: 'svg-to-jsx', name: 'SVG to React JSX', description: 'Convert raw SVG code into a fully functional React component.', categoryId: 'coding', icon: 'Sparkles', isNew: true },
   { id: 'jwt-decoder', name: 'JWT Decoder', description: 'Decode JSON Web Tokens (JWT) safely in the browser.', categoryId: 'coding', icon: 'KeySquare' },
-  { id: 'md5-generator', name: 'MD5 Generator', description: 'Generate MD5 hashes from text strings quickly.', categoryId: 'coding', icon: 'Lock' },
+  { id: 'md5-generator', name: 'MD5 Generator', description: 'Generate MD5 hashes from text strings quickly.', categoryId: 'security', icon: 'Lock' },
   { id: 'url-encoder', name: 'URL Encoder Decoder', description: 'Encode or decode strings to URL-friendly formats.', categoryId: 'coding', icon: 'Link' },
   { id: 'base64-encoder', name: 'Base64 Encoder', description: 'Encode or decode text to/from Base64 format.', categoryId: 'coding', icon: 'Binary' },
   { id: 'json-minifier', name: 'JSON Minifier', description: 'Minify JSON data to reduce file size for production use.', categoryId: 'coding', icon: 'Minimize2', isNew: true },
@@ -229,25 +309,39 @@ const unsortedTools: Tool[] = [
   { id: 'youtube-thumb', name: 'YouTube Thumbnail Grabber', description: 'Download high-quality thumbnails from YouTube videos.', categoryId: 'social', icon: 'Youtube' },
 
   // Utilities
-  { id: 'password-generator', name: 'Password Generator', description: 'Generate strong, secure, random passwords.', categoryId: 'utility', icon: 'Key', isPopular: true },
   { id: 'qr-generator', name: 'QR Code Generator', description: 'Create QR codes for text, URLs, and more.', categoryId: 'utility', icon: 'QrCode', isPopular: true },
   { id: 'uuid-generator', name: 'UUID Generator', description: 'Generate random version 4 UUIDs instantly.', categoryId: 'utility', icon: 'Fingerprint' },
   { id: 'list-randomizer', name: 'List Randomizer', description: 'Shuffle lists of items into a random order.', categoryId: 'utility', icon: 'Shuffle' },
-  { id: 'number-base', name: 'Number Base Converter', description: 'Convert numbers between binary, octal, decimal, and hexadecimal.', categoryId: 'utility', icon: 'Binary', isNew: true },
+  { id: 'number-base', name: 'Number Base Converter', description: 'Convert numbers between binary, octal, decimal, and hexadecimal.', categoryId: 'math', icon: 'Binary', isNew: true },
+  { id: 'percentage-calculator', name: 'Percentage Calculator', description: 'Quickly calculate percentages, discounts, and markup values.', categoryId: 'math', icon: 'Percent', isNew: true },
+  { id: 'bmi-calculator', name: 'BMI Calculator', description: 'Calculate your Body Mass Index (BMI) and healthy weight range.', categoryId: 'math', icon: 'Activity', isNew: true },
+  { id: 'age-calculator', name: 'Age Calculator', description: 'Calculate exact age in years, months, and days from date of birth.', categoryId: 'math', icon: 'Calendar', isNew: true },
+  { id: 'simple-interest-calculator', name: 'Simple Interest Calculator', description: 'Calculate simple interest, principal, rate, or time.', categoryId: 'math', icon: 'Banknote', isNew: true },
+  { id: 'compound-interest-calculator', name: 'Compound Interest Calculator', description: 'Calculate compound interest and future value of your investments.', categoryId: 'math', icon: 'TrendingUp', isNew: true },
+  { id: 'loan-calculator', name: 'Loan EMI Calculator', description: 'Calculate your monthly EMI, total interest, and payment for loans.', categoryId: 'math', icon: 'CreditCard', isNew: true },
+  { id: 'sip-calculator', name: 'SIP Calculator', description: 'Calculate mutual fund returns and future value for SIP investments.', categoryId: 'math', icon: 'PieChart', isNew: true },
+  { id: 'currency-converter', name: 'Currency Converter', description: 'Convert between different fiat currencies with live exchange rates.', categoryId: 'math', icon: 'DollarSign', isNew: true },
   { id: 'regex-tester', name: 'Regex Tester', description: 'Test and debug regular expressions with live match highlighting.', categoryId: 'utility', icon: 'SearchCode', isNew: true },
   { id: 'word-frequency', name: 'Word Frequency Counter', description: 'Analyze text and count how often each word appears.', categoryId: 'utility', icon: 'BarChart2', isNew: true },
-  { id: 'json-to-csv', name: 'JSON to CSV Converter', description: 'Convert JSON arrays to CSV spreadsheet format.', categoryId: 'utility', icon: 'Table', isNew: true },
+  { id: 'json-to-csv', name: 'JSON to CSV Converter', description: 'Convert JSON arrays to CSV spreadsheet format.', categoryId: 'coding', icon: 'Table', isNew: true },
   { id: 'epoch-converter', name: 'Unix Epoch Converter', description: 'Translate seconds timestamps to standard calendar dates.', categoryId: 'utility', icon: 'Clock', isNew: true },
-  { id: 'csv-json-yaml', name: 'CSV ⇄ JSON ⇄ YAML Converter', description: 'Translate tabular, object array, and configuration syntax.', categoryId: 'utility', icon: 'FileText', isNew: true },
+  { id: 'csv-json-yaml', name: 'CSV ⇄ JSON ⇄ YAML Converter', description: 'Translate tabular, object array, and configuration syntax.', categoryId: 'coding', icon: 'FileText', isNew: true },
+
+  // New Tools Added via AI
+  { id: 'cron-parser', name: 'Cron Job Parser', description: 'Translate cron expressions into readable text schedules.', categoryId: 'coding', icon: 'Clock', isNew: true },
+  { id: 'css-grid-generator', name: 'CSS Grid Generator', description: 'Visually build and generate CSS grid layouts.', categoryId: 'css', icon: 'LayoutGrid', isNew: true },
+  { id: 'url-parser', name: 'URL Parser', description: 'Break down URLs into protocol, host, path, and query parameters.', categoryId: 'coding', icon: 'Link', isNew: true },
+  { id: 'aspect-ratio', name: 'Aspect Ratio Calculator', description: 'Calculate exact width and height based on common aspect ratios.', categoryId: 'image', icon: 'Monitor', isNew: true },
+  { id: 'word-counter-pro', name: 'Word Counter Pro', description: 'Advanced text analysis with keyword density and readability scores.', categoryId: 'text', icon: 'BarChart2', isNew: true },
 ];
 
 export const TOOLS = [...unsortedTools].sort((a, b) => {
-  // 1. Sort by Popularity (most used at top)
+  // 1. Sort by Category
+  const catCompare = a.categoryId.localeCompare(b.categoryId);
+  if (catCompare !== 0) return catCompare;
+  // 2. Sort by Popularity (most used at top)
   if (a.isPopular && !b.isPopular) return -1;
   if (!a.isPopular && b.isPopular) return 1;
-  // 2. Sort by "New" as a secondary metric
-  if (a.isNew && !b.isNew) return -1;
-  if (!a.isNew && b.isNew) return 1;
   // 3. Fallback to alphabetical
   return a.name.localeCompare(b.name);
 });

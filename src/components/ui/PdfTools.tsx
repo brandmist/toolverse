@@ -220,14 +220,14 @@ export function PdfSplitter() {
 
           <div className="flex gap-2">
             {[{id:'all', label:'All Pages'},{id:'select',label:'Pick Pages'},{id:'range',label:'Page Range'}].map(m => (
-              <button key={m.id} onClick={() => setMode(m.id as any)} className={`px-4 py-2 rounded-lg text-sm border font-medium transition-colors ${mode === m.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{m.label}</button>
+              <button key={m.id} onClick={() => setMode(m.id as any)} className={`px-4 py-2 rounded-xl text-sm border font-medium transition-colors ${mode === m.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{m.label}</button>
             ))}
           </div>
 
           {mode === 'select' && (
-            <div className="flex flex-wrap gap-2 max-h-40 overflow-auto">
+            <div className="flex flex-wrap gap-3 max-h-40 overflow-auto">
               {Array.from({length: pageCount}, (_, i) => i+1).map(n => (
-                <button key={n} onClick={() => togglePage(n)} className={`w-10 h-10 rounded-lg text-sm font-bold border transition-colors ${selected.has(n) ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{n}</button>
+                <button key={n} onClick={() => togglePage(n)} className={`w-10 h-10 rounded-xl text-sm font-bold border transition-colors ${selected.has(n) ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{n}</button>
               ))}
             </div>
           )}
@@ -321,7 +321,7 @@ export function ImagesToPdf() {
               <div key={i} className="relative group rounded-xl overflow-hidden border border-[#E5E7EB] bg-white border border-[#E5E7EB]">
                 <img src={img.url} alt={img.name} className="w-full h-24 object-cover" />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button onClick={() => remove(i)} className="p-2 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-white border border-[#E5E7EB] text-[#111827]"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => remove(i)} className="p-3 rounded-xl bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-white border border-[#E5E7EB] text-[#111827]"><Trash2 className="w-4 h-4" /></button>
                 </div>
                 <div className="p-2">
                   <p className="text-xs text-[#6B7280] truncate">{img.name}</p>
@@ -334,7 +334,7 @@ export function ImagesToPdf() {
               <label className="text-sm text-[#111827] block mb-2">Page Size</label>
               <div className="flex gap-2">
                 {(['A4', 'Letter', 'fit'] as const).map(s => (
-                  <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-lg text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s === 'fit' ? 'Fit' : s}</button>
+                  <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s === 'fit' ? 'Fit' : s}</button>
                 ))}
               </div>
             </div>
@@ -448,7 +448,7 @@ export function PdfToImage({ defaultFormat }: { defaultFormat?: 'png' | 'jpeg' |
                   <button
                     key={fmt}
                     onClick={() => setFormat(fmt)}
-                    className={`py-2 rounded-lg text-xs font-semibold uppercase border transition-colors ${format === fmt ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                    className={`py-2 rounded-xl text-xs font-semibold uppercase border transition-colors ${format === fmt ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
                   >
                     {fmt === 'jpeg' ? 'JPG' : fmt}
                   </button>
@@ -473,7 +473,7 @@ export function PdfToImage({ defaultFormat }: { defaultFormat?: 'png' | 'jpeg' |
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-h-[500px] overflow-auto">
             {images.map((img, i) => (
-              <div key={i} className="flex flex-col gap-2 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden">
+              <div key={i} className="flex flex-col gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden">
                 <img src={img} alt={`Page ${i+1}`} className="w-full object-contain bg-white" />
                 <div className="flex items-center justify-between p-3 pt-0">
                   <span className="text-xs text-[#6B7280]">Page {i+1}</span>
@@ -639,12 +639,12 @@ export function PdfRotate() {
             <span className="text-sm text-[#111827]">Apply to all pages:</span>
             <div className="flex gap-2">
               {[90, 180, 270].map(d => (
-                <button key={d} onClick={() => setGlobalRot(d)} className={`px-3 py-1.5 rounded-lg text-sm border font-medium transition-colors ${globalRot === d ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{d}°</button>
+                <button key={d} onClick={() => setGlobalRot(d)} className={`px-3 py-1.5 rounded-xl text-sm border font-medium transition-colors ${globalRot === d ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{d}°</button>
               ))}
             </div>
             <Button className="bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-[#FAFAFA] border border-[#E5E7EB] text-danger border border-[#E5E7EB] text-sm" onClick={applyAll}>Apply to All</Button>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 max-h-56 overflow-auto">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 max-h-56 overflow-auto">
             {Array.from({length: pageCount}, (_, i) => i+1).map(n => (
               <div key={n} className="flex flex-col items-center gap-1 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">
                 <span className="text-xs text-[#6B7280] font-bold">P{n}</span>
@@ -903,7 +903,7 @@ export function TextToPdf() {
             <label className="text-sm text-[#111827] block mb-2">Page Size</label>
             <div className="flex gap-2">
               {(['A4', 'Letter'] as const).map(s => (
-                <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-lg text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s}</button>
+                <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s}</button>
               ))}
             </div>
           </div>

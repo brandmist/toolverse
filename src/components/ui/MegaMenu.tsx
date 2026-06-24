@@ -39,7 +39,7 @@ export function CategoryMegaMenu({ title, categoryId }: { title: string, categor
             transition={{ duration: 0.2 }}
             className="absolute top-full left-1/2 -translate-x-1/2 w-[450px] pt-2 z-50"
           >
-            <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden p-6 shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+            <div className="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden p-6 shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
               <h3 className="text-[11px] font-bold text-[#6B7280] mb-4 uppercase tracking-wider flex items-center justify-between">
                 <span>Top {title} Tools</span>
                 <Link to={`/category/${categoryId}`} className="text-[#111827] hover:underline normal-case text-[12px] font-semibold">View all &rarr;</Link>
@@ -49,10 +49,10 @@ export function CategoryMegaMenu({ title, categoryId }: { title: string, categor
                   <Link
                     key={tool.id}
                     to={`/tool/${tool.id}`}
-                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#FAFAFA] transition-colors group"
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#FAFAFA] transition-colors group"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] flex items-center justify-center group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-[#FAFAFA] border border-[#E5E7EB] text-[#374151] flex items-center justify-center group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all shrink-0">
                       <Icon name={tool.icon} className="w-4 h-4" />
                     </div>
                     <div className="truncate">

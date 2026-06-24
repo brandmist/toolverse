@@ -1,16 +1,29 @@
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 import { CATEGORIES } from '../data/tools'
 import { CategoryCard } from '../components/ui/CategoryCard'
 import { AdBanner } from '../components/ui/AdBanner'
 import { NativeAd } from '../components/ui/NativeAd'
 
 export function Categories() {
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Tool Categories - SmarTools",
+    "description": "Browse our collection of 200+ free online tools by category. Find the perfect utility for your workflow.",
+    "url": "https://smartools.pages.dev/categories"
+  };
+
   return (
     <>
       <Helmet>
         <title>Tool Categories — SmarTools</title>
         <meta name="description" content="Browse 200+ free online tools organized by category: PDF, image, text, coding, color, social and more." />
+        <script type="application/ld+json">
+          {JSON.stringify(collectionSchema)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-white">

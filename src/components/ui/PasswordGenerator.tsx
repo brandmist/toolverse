@@ -68,7 +68,7 @@ export function PasswordGenerator() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
            {Object.entries(options).map(([key, value]) => (
-               <label key={key} className="flex items-center space-x-3 cursor-pointer text-[#374151] select-none hover:bg-[#F9FAFB] p-2 -ml-2 rounded-lg transition-colors">
+               <label key={key} className="flex items-center space-x-3 cursor-pointer text-[#374151] select-none hover:bg-[#FAFAFA] p-3 -ml-2 rounded-xl transition-colors">
                  <input 
                    type="checkbox" 
                    checked={value}

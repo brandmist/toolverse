@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 import {
-  Search, ArrowRight, FileText, ImageIcon, FileCode2, Share2,
-  Zap, Shield, Lock, Clock, Star, CheckCircle2, ChevronDown, ChevronUp
+  Search, ArrowRight, Shield, Zap, Lock, Clock, Star, CheckCircle2, ChevronDown, ChevronUp
 } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { TOOLS, CATEGORIES } from '../data/tools'
@@ -54,7 +54,7 @@ const SHOWCASE_TOOLS = [
     name: 'JSON Tree Viewer',
     tagline: 'Explore any JSON structure',
     desc: 'Paste JSON and instantly get a collapsible tree view. Search, expand, collapse, and copy any node.',
-    category: 'Coding Tools',
+    category: 'Dev Tools',
     icon: 'Braces',
     badge: 'Popular',
     bgColor: '#F5F3FF',
@@ -76,7 +76,7 @@ const SHOWCASE_TOOLS = [
     name: 'Password Generator',
     tagline: 'Create unbreakable passwords',
     desc: 'Generate cryptographically strong passwords with custom length, symbols, numbers, and case rules. 100% client-side.',
-    category: 'Utility Tools',
+    category: 'Security Tools',
     icon: 'Key',
     badge: 'Popular',
     bgColor: '#ECFDF5',
@@ -85,13 +85,16 @@ const SHOWCASE_TOOLS = [
 ]
 
 // ── Data ───────────────────────────────────────────────────────────────────
-const CATEGORIES_HERO = [
-  { id: 'pdf',     name: 'PDF Tools',   count: '55+', icon: FileText,  desc: 'Merge, split, compress, convert, sign and edit PDFs' },
-  { id: 'image',   name: 'Image Tools', count: '60+', icon: ImageIcon, desc: 'Convert, resize, compress, remove bg and apply AI edits' },
-  { id: 'coding',  name: 'Dev Tools',   count: '11+', icon: FileCode2, desc: 'JSON viewer, formatter, diff checker, regex tools' },
-  { id: 'text',    name: 'Text Tools',  count: '8+',  icon: FileText,  desc: 'Case converter, bionic reading, diff checker & more' },
-  { id: 'utility', name: 'Utilities',   count: '10+', icon: Share2,    desc: 'Password gen, QR codes, UUID, converters and more' },
-]
+const CATEGORIES_HERO = CATEGORIES.map(cat => {
+  const count = TOOLS.filter(t => t.categoryId === cat.id).length;
+  return {
+    id: cat.id,
+    name: cat.name,
+    count: `${count} tools`,
+    icon: cat.icon,
+    desc: cat.description
+  };
+});
 
 const FEATURES = [
   { icon: Shield,    title: 'Privacy First',      desc: 'All processing happens in your browser. Your files never touch our servers.' },
@@ -176,8 +179,59 @@ export function Home() {
     else navigate('/search')
   }
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SmarTools",
+    "url": "https://smartools.pages.dev",
+    "logo": "https://smartools.pages.dev/favicon.svg",
+    "description": `${TOOLS.length} free online tools for developers, designers, and creators.`,
+    "sameAs": [
+      "https://twitter.com/smartools",
+      "https://github.com/smartools",
+      "https://linkedin.com/company/smartools"
+    ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SmarTools",
+    "url": "https://smartools.pages.dev",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://smartools.pages.dev/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+
   return (
-    <div className="bg-white">
+    <>
+      <Helmet>
+        <title>SmarTools - Free Online PDF, Image & Dev Tools</title>
+        <meta name="description" content={`${TOOLS.length} powerful, free online tools for developers, designers, and creators. Convert PDFs, edit images, format code, and more. 100% client-side privacy.`} />
+        <link rel="canonical" href="https://smartools.pages.dev" />
+        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+      <div className="bg-white">
 
       {/* ══════════════════════════════════════════════
           HERO
@@ -192,9 +246,9 @@ export function Home() {
             transition={{ duration: 0.4 }}
             className="flex justify-center mb-8"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F3F4F6] border border-[#E5E7EB] rounded-full text-[13px] font-medium text-[#374151]">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#F3F4F6] border border-[#E5E7EB] rounded-full text-[13px] font-medium text-[#374151]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-              200+ free tools — no sign-up required
+              {TOOLS.length} free tools — no sign-up required
             </div>
           </motion.div>
 
@@ -206,14 +260,14 @@ export function Home() {
             className="text-center max-w-4xl mx-auto mb-8"
           >
             <h1 className="font-extrabold text-[#111827] mb-6 leading-tight">
-              Every tool you need,<br />
+              Free Online PDF,<br />
               <span className="relative inline-block">
-                completely free
+                Image & Dev Tools
                 <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-[#111827] rounded-full"></span>
               </span>
             </h1>
             <p className="text-[18px] text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
-              200+ powerful utilities for developers, designers, and creators.
+              {TOOLS.length} powerful utilities for developers, designers, and creators.
               All browser-based, private, and instant — no account needed.
             </p>
           </motion.div>
@@ -234,8 +288,8 @@ export function Home() {
                 type="search"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Search 200+ tools — PDF, image, text, code…"
-                className="w-full pl-12 pr-36 py-4 bg-white border border-[#E5E7EB] rounded-xl text-[15px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 shadow-sm transition-all"
+                placeholder={`Search ${TOOLS.length} tools — PDF, image, text, code…`}
+                className="w-full pl-12 pr-36 py-4 bg-white border border-[#E5E7EB] rounded-2xl text-[15px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 shadow-sm transition-all"
               />
               <button
                 type="submit"
@@ -244,6 +298,11 @@ export function Home() {
                 Search
               </button>
             </div>
+            <div className="flex justify-center mt-3">
+              <Link to="/categories" className="text-sm font-semibold text-[#6B7280] hover:text-[#111827] flex items-center gap-1 transition-colors">
+                Or browse all categories <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </motion.form>
 
           {/* Quick tags */}
@@ -251,7 +310,7 @@ export function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="flex flex-wrap items-center justify-center gap-2 mb-16 text-[13px]"
+            className="flex flex-wrap items-center justify-center gap-3 mb-16 text-[13px]"
           >
             <span className="text-[#9CA3AF]">Popular:</span>
             {TOOLS.filter(t => t.isPopular).slice(0, 5).map(t => (
@@ -270,7 +329,7 @@ export function Home() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
           >
             {CATEGORIES_HERO.map(cat => (
               <Link
@@ -279,8 +338,8 @@ export function Home() {
                 className="group bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-5 hover:bg-white hover:border-[#D1D5DB] hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] transition-all duration-200 flex flex-col gap-3"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 bg-white border border-[#E5E7EB] rounded-lg flex items-center justify-center text-[#374151] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-200">
-                    <cat.icon className="w-4 h-4" />
+                  <div className="w-9 h-9 bg-white border border-[#E5E7EB] rounded-2xl flex items-center justify-center text-[#374151] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-200">
+                    <Icon name={cat.icon as any} className="w-4 h-4" />
                   </div>
                   <span className="text-[11px] font-bold text-[#9CA3AF] bg-white border border-[#E5E7EB] rounded-full px-2.5 py-1">
                     {cat.count}
@@ -306,7 +365,7 @@ export function Home() {
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: '200+', label: 'Free Tools' },
+              { value: `${TOOLS.length}`, label: 'Free Tools' },
               { value: '1M+',  label: 'Monthly Users' },
               { value: '10M+', label: 'Files Processed' },
               { value: '100%', label: 'Browser-Based' },
@@ -346,11 +405,11 @@ export function Home() {
           </div>
 
           {/* Filter pills — only show categories with ≥1 popular tool */}
-          <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-2.5 mb-10 hide-scrollbar" role="group" aria-label="Filter by category">
+          <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-3 mb-10 hide-scrollbar" role="group" aria-label="Filter by category">
             <button
               onClick={() => setActiveFilter('all')}
               aria-pressed={activeFilter === 'all'}
-              className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
+              className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                 activeFilter === 'all'
                   ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
                   : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
@@ -363,7 +422,7 @@ export function Home() {
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
                 aria-pressed={activeFilter === cat.id}
-                className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
+                className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   activeFilter === cat.id
                     ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
                     : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
@@ -397,9 +456,9 @@ export function Home() {
           <div className="text-center">
             <Link
               to="/tools"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#E5E7EB] text-[#374151] text-[14px] font-semibold rounded-xl hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:shadow-sm transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-[#E5E7EB] text-[#374151] text-[14px] font-semibold rounded-xl hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:shadow-sm transition-all"
             >
-              Browse all 200+ tools <ArrowRight className="w-4 h-4" />
+              Browse all {TOOLS.length} tools <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -426,7 +485,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-200"
+                className="bg-white border border-[#E5E7EB] rounded-2xl p-6 hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-200"
               >
                 <div className="w-10 h-10 bg-[#111827] rounded-lg flex items-center justify-center text-white mb-5">
                   <f.icon className="w-5 h-5" />
@@ -525,7 +584,7 @@ export function Home() {
                     </h3>
                     <p className="text-[13px] font-medium text-[#374151] mb-3">{tool.tagline}</p>
                     <p className="text-[13px] text-[#6B7280] leading-relaxed mb-5 flex-1">{tool.desc}</p>
-                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-[#111827] mt-auto group-hover:gap-2.5 transition-all">
+                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-[#111827] mt-auto group-hover:gap-3 transition-all">
                       Open tool <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -551,16 +610,24 @@ export function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/tools"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#111827] text-[15px] font-bold rounded-xl hover:bg-[#F9FAFB] transition-colors shadow-lg"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#111827] text-[15px] font-bold rounded-xl hover:bg-[#F9FAFB] transition-colors shadow-lg"
               >
                 Browse all tools <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/search"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-white border border-white/20 text-[15px] font-semibold rounded-xl hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent text-white border border-white/20 text-[15px] font-semibold rounded-xl hover:bg-white/10 transition-colors"
               >
                 <Search className="w-4 h-4" /> Search tools
               </Link>
+              <a 
+                href="https://www.effectivecpmnetwork.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 border border-amber-500 text-amber-950 font-bold rounded-xl hover:from-amber-500 hover:to-amber-600 hover:shadow-lg transition-all text-[14px]"
+              >
+                <Star className="w-4 h-4" /> Unlock Premium Features
+              </a>
             </div>
 
             {/* Trust indicators */}
@@ -602,7 +669,7 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-white border border-[#E5E7EB] rounded-xl p-6"
+                className="bg-white border border-[#E5E7EB] rounded-2xl p-6"
               >
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
@@ -648,5 +715,6 @@ export function Home() {
         </div>
       </section>
     </div>
+    </>
   )
 }

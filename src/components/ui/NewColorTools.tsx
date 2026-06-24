@@ -21,14 +21,14 @@ export function RgbHex() {
               <span className="text-sm text-[#6B7280] font-mono">{val}</span>
             </div>
             <input type="range" min="0" max="255" value={val} onChange={e => set(parseInt(e.target.value))} className="w-full accent-indigo-500" />
-            <input type="number" min="0" max="255" value={val} onChange={e => set(parseInt(e.target.value) || 0)} className="mt-2 w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm" />
+            <input type="number" min="0" max="255" value={val} onChange={e => set(parseInt(e.target.value) || 0)} className="mt-2 w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
           </div>
         ))}
       </div>
       <div className="flex-1 flex flex-col items-center justify-center gap-6">
         <div className="w-48 h-48 rounded-2xl shadow-2xl border border-[#E5E7EB] transition-all" style={{ backgroundColor: hex }} />
         <div className="text-center space-y-3 w-full max-w-xs">
-          <div className="flex items-center gap-2 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-5 py-3 justify-between">
+          <div className="flex items-center gap-3 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-5 py-3 justify-between">
             <span className="font-mono text-2xl font-bold text-success tracking-wider">{hex}</span>
             <button onClick={() => navigator.clipboard.writeText(hex)} className="text-[#6B7280] hover:text-[#111827] transition-colors"><Copy className="w-5 h-5" /></button>
           </div>
@@ -70,9 +70,9 @@ export function ColorMixer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-full h-32 rounded-xl shadow-lg border border-[#E5E7EB]" style={{ backgroundColor: color1 }} />
-          <div className="flex items-center gap-2 w-full">
+          <div className="flex items-center gap-3 w-full">
             <input type="color" value={color1} onChange={e => setColor1(e.target.value)} className="w-10 h-10 rounded cursor-pointer bg-transparent border-0 flex-shrink-0" />
-            <input type="text" value={color1} onChange={e => setColor1(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm uppercase font-mono" />
+            <input type="text" value={color1} onChange={e => setColor1(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm uppercase font-mono" />
           </div>
         </div>
 
@@ -92,16 +92,16 @@ export function ColorMixer() {
             </div>
             <input type="range" min="0" max="100" value={ratio} onChange={e => setRatio(parseInt(e.target.value))} className="w-full accent-indigo-500" />
           </div>
-          <button onClick={() => navigator.clipboard.writeText(mixed)} className="flex items-center gap-2 text-sm text-[#6B7280] hover:text-[#111827] transition-colors">
+          <button onClick={() => navigator.clipboard.writeText(mixed)} className="flex items-center gap-3 text-sm text-[#6B7280] hover:text-[#111827] transition-colors">
             <Copy className="w-4 h-4" /> Copy {mixed.toUpperCase()}
           </button>
         </div>
 
         <div className="flex flex-col items-center gap-3">
           <div className="w-full h-32 rounded-xl shadow-lg border border-[#E5E7EB]" style={{ backgroundColor: color2 }} />
-          <div className="flex items-center gap-2 w-full">
+          <div className="flex items-center gap-3 w-full">
             <input type="color" value={color2} onChange={e => setColor2(e.target.value)} className="w-10 h-10 rounded cursor-pointer bg-transparent border-0 flex-shrink-0" />
-            <input type="text" value={color2} onChange={e => setColor2(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm uppercase font-mono" />
+            <input type="text" value={color2} onChange={e => setColor2(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm uppercase font-mono" />
           </div>
         </div>
       </div>

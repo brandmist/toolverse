@@ -114,15 +114,15 @@ export function ChangePhotoBackground() {
                  </div>
                ) : (
                  <div className="space-y-4">
-                   <div className="flex items-center gap-2 text-success text-xs font-semibold">
+                   <div className="flex items-center gap-3 text-success text-xs font-semibold">
                      <CheckCircle className="w-4 h-4" /> Subject isolated successfully!
                    </div>
                    
                    <div>
                      <label className="text-xs text-[#6B7280] font-semibold uppercase tracking-wider mb-2 block">Background Type</label>
                      <div className="grid grid-cols-2 gap-2">
-                       <button onClick={() => setBgType('color')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'color' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Color</button>
-                       <button onClick={() => setBgType('image')} className={`py-1.5 rounded-lg text-xs font-bold ${bgType === 'image' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Image</button>
+                       <button onClick={() => setBgType('color')} className={`py-1.5 rounded-xl text-xs font-bold ${bgType === 'color' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Color</button>
+                       <button onClick={() => setBgType('image')} className={`py-1.5 rounded-xl text-xs font-bold ${bgType === 'image' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Image</button>
                      </div>
                    </div>
                    
@@ -141,7 +141,7 @@ export function ChangePhotoBackground() {
                            const f = e.target.files?.[0]
                            if (f) setBgFileUrl(URL.createObjectURL(f))
                          }}
-                         className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#6B7280]"
+                         className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#6B7280]"
                        />
                      </div>
                    )}
@@ -161,11 +161,11 @@ export function ChangePhotoBackground() {
              </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
              {removedBgUrl ? (
-               <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+               <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
              ) : (
-               previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-lg opacity-60" />
+               previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-xl opacity-60" />
              )}
              
              {processing && (

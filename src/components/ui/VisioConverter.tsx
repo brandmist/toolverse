@@ -301,7 +301,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
              <div className="space-y-4">
                <div>
                   <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Visio Source</h4>
-                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
+                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
                     <span className="font-bold text-danger truncate max-w-[150px]">{file.name}</span>
                     <span className="text-xs text-[#6B7280]">{(file.size / 1024).toFixed(1)} KB</span>
                   </div>
@@ -319,7 +319,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
                       <button
                         key={fmt.id}
                         onClick={() => setTargetFormat(fmt.id)}
-                        className={`py-2 px-1 rounded-lg text-xs font-bold transition-colors ${targetFormat === fmt.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                        className={`py-2 px-1 rounded-xl text-xs font-bold transition-colors ${targetFormat === fmt.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
                       >
                         {fmt.label}
                       </button>
@@ -329,7 +329,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
              </div>
 
              <div className="pt-4 space-y-2">
-               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
                <div className="flex gap-2">
                  <Button className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" onClick={handleConvert} disabled={isProcessing}>
                    Convert & Download
@@ -341,7 +341,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
              </div>
           </div>
           
-          <div className="flex-[2] flex flex-col p-6 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex flex-col p-6 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
              <div className="flex items-center gap-3 mb-4 text-success text-sm font-semibold">
                 <CheckCircle className="w-5 h-5 shrink-0" />
                 <span>{success || 'Visio document loaded successfully'}</span>

@@ -396,11 +396,13 @@
   }
 
   /* ── All textarea elements inside the tool interface ── */
-  textarea {
+  textarea:not(.bg-transparent) {
     background-color: var(--input) !important;
     border: 1px solid var(--border) !important;
     border-radius: 10px !important;
     color: var(--text-primary) !important;
+  }
+  textarea {
     font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.6;
@@ -421,7 +423,7 @@
     --tw-ring-shadow: 0 0 0 3px var(--tw-ring-color) !important;
   }
   /* Read-only output textareas */
-  textarea[readonly] {
+  textarea[readonly]:not(.bg-transparent) {
     background-color: var(--surface) !important;
     border-color: var(--border) !important;
     color: var(--text-secondary) !important;

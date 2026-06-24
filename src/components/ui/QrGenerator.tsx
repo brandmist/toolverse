@@ -11,7 +11,7 @@ export function QrGenerator() {
       <div className="flex-1 flex flex-col justify-center">
          <label className="text-sm font-medium text-[#111827] mb-2">QR Code Content</label>
          <textarea
-            className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50 text-[#111827]"
+            className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827]"
             placeholder="Enter text, URL, WiFi credentials..."
             value={text}
             onChange={(e) => setText(e.target.value)}

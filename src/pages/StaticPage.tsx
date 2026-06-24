@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Mail, MessageSquare, HelpCircle, Shield, FileText, Lock, Users, Zap, Globe } from 'lucide-react';
+import { BLOGS } from '../data/blogs';
 
 const AboutPage = () => (
   <div className="space-y-24">
@@ -119,7 +120,7 @@ const ContactPage = () => (
   </div>
 );
 
-type LegalPageType = 'privacy' | 'terms' | 'cookie' | 'gdpr' | 'accessibility';
+type LegalPageType = 'privacy' | 'terms' | 'cookie' | 'gdpr' | 'accessibility' | 'disclaimer' | 'dmca';
 
 const LegalPage = ({ type }: { type: LegalPageType }) => {
   const getPageConfig = (type: LegalPageType) => {
@@ -234,6 +235,48 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
             </>
           )
         };
+      case 'disclaimer':
+        return {
+          title: 'Disclaimer',
+          description: 'Legal disclaimer for the use of SmarTools platform and generated content.',
+          date: 'October 2023',
+          content: (
+            <>
+              <p>The information and tools provided by SmarTools are for general informational and utility purposes only.</p>
+              <h2>1. No Warranty</h2>
+              <p>All tools and content on this website are provided "as is" and "as available" without any warranty of any kind, either express or implied. SmarTools makes no representations or warranties in relation to the accuracy, completeness, or reliability of the tools or the output they generate.</p>
+              <h2>2. Professional Advice</h2>
+              <p>The tools and information provided on this platform do not constitute professional, legal, or financial advice. Any reliance you place on such information or tool outputs is strictly at your own risk.</p>
+              <h2>3. External Links</h2>
+              <p>SmarTools may contain links to external websites that are not provided or maintained by or in any way affiliated with us. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
+            </>
+          )
+        };
+      case 'dmca':
+        return {
+          title: 'DMCA Policy',
+          description: 'Digital Millennium Copyright Act (DMCA) policy for SmarTools.',
+          date: 'October 2023',
+          content: (
+            <>
+              <p>SmarTools respects the intellectual property rights of others and expects its users to do the same. In accordance with the Digital Millennium Copyright Act of 1998, we will respond expeditiously to claims of copyright infringement committed using our service.</p>
+              <h2>1. Filing a DMCA Notice</h2>
+              <p>If you are a copyright owner or an agent thereof, and you believe that any content hosted on SmarTools infringes your copyrights, you may submit a notification pursuant to the DMCA by providing our Designated Copyright Agent with the following information in writing:</p>
+              <ul>
+                <li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
+                <li>Identification of the copyrighted work claimed to have been infringed.</li>
+                <li>Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled.</li>
+                <li>Information reasonably sufficient to permit us to contact you, such as an address, telephone number, and, if available, an electronic mail.</li>
+                <li>A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li>
+                <li>A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
+              </ul>
+              <h2>2. Counter-Notice</h2>
+              <p>If you believe that your content that was removed (or to which access was disabled) is not infringing, you may send a counter-notice to our Copyright Agent. If a counter-notice is received, SmarTools may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed content or cease disabling it in 10 business days.</p>
+              <h2>3. Designated Agent Contact</h2>
+              <p>You can send your DMCA notice to: crystaltechai@gmail.com</p>
+            </>
+          )
+        };
     }
   };
 
@@ -262,6 +305,12 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
           <Link to="/accessibility" className={`block px-4 py-3 rounded-xl font-bold transition-colors ${type === 'accessibility' ? 'bg-button-primary text-button-primary-text' : 'text-text-muted hover:text-text-primary hover:bg-card border border-transparent hover:border-border'}`}>
             Accessibility
           </Link>
+          <Link to="/disclaimer" className={`block px-4 py-3 rounded-xl font-bold transition-colors ${type === 'disclaimer' ? 'bg-button-primary text-button-primary-text' : 'text-text-muted hover:text-text-primary hover:bg-card border border-transparent hover:border-border'}`}>
+            Disclaimer
+          </Link>
+          <Link to="/dmca" className={`block px-4 py-3 rounded-xl font-bold transition-colors ${type === 'dmca' ? 'bg-button-primary text-button-primary-text' : 'text-text-muted hover:text-text-primary hover:bg-card border border-transparent hover:border-border'}`}>
+            DMCA
+          </Link>
         </div>
       </div>
       <div className="md:w-3/4">
@@ -269,7 +318,15 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
           <h1 className="text-4xl md:text-5xl font-extrabold text-text-primary mb-4 tracking-tight">
             {config.title}
           </h1>
-          <p className="text-text-muted mb-12 font-medium">Last updated: {config.date}</p>
+          <div className="flex items-center gap-4 mb-12">
+            <div className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center font-bold text-text-primary">
+              AR
+            </div>
+            <div>
+              <p className="text-text-primary font-bold text-sm">Alex Rivera</p>
+              <p className="text-text-muted text-xs font-medium">Last updated: {config.date}</p>
+            </div>
+          </div>
           
           <div className="prose prose-lg max-w-none text-text-muted prose-headings:font-extrabold prose-headings:text-text-primary prose-headings:tracking-tight prose-p:leading-relaxed prose-li:leading-relaxed prose-ul:my-4">
             {config.content}
@@ -284,33 +341,30 @@ const BlogList = () => (
   <div className="pt-12">
     <Helmet>
       <title>Blog & Insights | SmarTools</title>
-      <meta name="description" content="Stay updated with the latest news, tool updates, and tutorials from the SmarTools team." />
+      <meta name="description" content="Expert guides on image compression, PDF tools, technical SEO, developer tools, color theory, and web privacy. Actionable tutorials with free browser-based tools." />
     </Helmet>
     <div className="mb-16 text-center max-w-4xl mx-auto">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">The SmarTools Blog</h1>
       <p className="text-xl text-text-muted leading-relaxed">
-        Updates, tutorials, and insights from our team.
+        In-depth guides, tutorials, and expert insights to help you work smarter.
       </p>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[
-        { title: '10 New AI Tools Added to the Platform', cat: 'Product Updates', desc: 'We\'ve just expanded our AI toolkit with incredible new utilities for image generation.', slug: '10-new-ai-tools' },
-        { title: 'How to Build a Design System', cat: 'Engineering', desc: 'A deep dive into how we constructed the Apple-like design system for SmarTools.', slug: 'building-design-system' },
-        { title: 'Why Client-Side Processing is the Future', cat: 'Privacy', desc: 'An exploration of WebAssembly and why processing files locally is better for security.', slug: 'client-side-processing' },
-        { title: 'Introducing the New PDF Suite', cat: 'Product Updates', desc: 'Merge, split, compress, and organize your PDFs without ever uploading them to a server.', slug: 'new-pdf-suite' },
-      ].map((post, i) => (
-        <Link to={`/blog/${post.slug}`} key={i} className="group flex flex-col h-full bg-card border border-border rounded-3xl overflow-hidden hover:shadow-md hover:border-text-primary transition-all duration-300">
+      {BLOGS.map((post) => (
+        <Link to={`/blog/${post.id}`} key={post.id} className="group flex flex-col h-full bg-card border border-border rounded-3xl overflow-hidden hover:shadow-md hover:border-text-primary transition-all duration-300">
           <div className="h-48 bg-surface border-b border-border w-full flex items-center justify-center">
-             {/* Placeholder for cover image */}
              <FileText className="w-12 h-12 text-border group-hover:text-text-muted transition-colors" />
           </div>
           <div className="p-8 flex flex-col flex-grow">
-            <span className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">{post.cat}</span>
-            <h3 className="text-2xl font-bold text-text-primary mb-3 leading-tight">{post.title}</h3>
-            <p className="text-text-muted mb-6 flex-grow">{post.desc}</p>
-            <div className="flex items-center text-sm font-bold text-text-primary group-hover:underline mt-auto">
-              Read article <ArrowRight className="w-4 h-4 ml-1" />
+            <span className="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">{post.category}</span>
+            <h3 className="text-xl font-bold text-text-primary mb-3 leading-tight">{post.title}</h3>
+            <p className="text-text-muted mb-4 flex-grow text-sm line-clamp-3">{post.metaDescription || post.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...'}</p>
+            <div className="flex items-center justify-between mt-auto">
+              <span className="text-xs text-text-muted">{post.date} · {post.readTime}</span>
+              <div className="flex items-center text-sm font-bold text-text-primary group-hover:underline">
+                Read <ArrowRight className="w-4 h-4 ml-1" />
+              </div>
             </div>
           </div>
         </Link>
@@ -404,6 +458,8 @@ export function StaticPage() {
       case 'gdpr': return <LegalPage type="gdpr" />;
       case 'terms': return <LegalPage type="terms" />;
       case 'accessibility': return <LegalPage type="accessibility" />;
+      case 'disclaimer': return <LegalPage type="disclaimer" />;
+      case 'dmca': return <LegalPage type="dmca" />;
       case 'blog': return <BlogList />;
       case 'careers': return <CareersPage />;
       case 'partners': return <PartnersPage />;
@@ -430,6 +486,8 @@ export function StaticPage() {
       case 'cookie': return 'Cookie Policy';
       case 'gdpr': return 'GDPR Compliance';
       case 'accessibility': return 'Accessibility';
+      case 'disclaimer': return 'Disclaimer';
+      case 'dmca': return 'DMCA Policy';
       case 'blog': return 'Blog';
       case 'careers': return 'Careers';
       case 'partners': return 'Partners';

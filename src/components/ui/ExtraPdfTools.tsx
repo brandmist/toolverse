@@ -130,7 +130,7 @@ function PdfDataConverter({ defaultFormat }: { defaultFormat: 'xlsx' | 'csv' }) 
             </div>
           </div>
 
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
           {preview.length > 0 && (
             <div className="space-y-2">
@@ -314,7 +314,7 @@ export function PdfTranslator() {
             </select>
           </div>
 
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
           <div className="flex gap-2">
             <Button onClick={handleTranslate} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={processing}>
@@ -466,7 +466,7 @@ export function PdfToEpub() {
         <p className="text-[#6B7280] text-xs">Packs structural page contents into fully compliant reflowable .epub format</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -604,7 +604,7 @@ export function MobiToPdf() {
         <p className="text-[#6B7280] text-xs">Unpacks Mobipocket eBooks and renders textual streams to PDF format</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -680,7 +680,7 @@ export function PdfToMobi() {
         <p className="text-[#6B7280] text-xs">Packs page textual layouts into a standard Mobipocket eBook wrapper</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -807,7 +807,7 @@ export function Azw3ToPdf() {
         <p className="text-[#6B7280] text-xs">Decodes Kindle KF8 layout structures and layouts text nodes to PDF</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -962,7 +962,7 @@ export function PptxToPdf() {
         <p className="text-[#6B7280] text-xs">Unzips presentations and lays out text placeholders to landscape PDF sheets</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -1107,7 +1107,7 @@ export function UrlToPdf() {
           </Button>
         </div>
 
-        {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3 text-center">{error}</div>}
+        {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center">{error}</div>}
       </form>
 
       {processing && (
@@ -1228,19 +1228,19 @@ export function PdfWatermarkRemover() {
               <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Watermark Stripper</h4>
               <div>
                 <label className="text-xs text-[#6B7280] block mb-1">Watermark Keyword Target</label>
-                <input type="text" value={matchText} onChange={e => setMatchText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827] text-xs font-mono" />
+                <input type="text" value={matchText} onChange={e => setMatchText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-mono" />
               </div>
 
               <div className="space-y-1">
                 <button 
                   onClick={() => setWhiteAreas([...whiteAreas, { x: 25, y: 25, w: 50, h: 10 }])}
-                  className="w-full py-1.5 bg-white border border-[#E5E7EB] hover:bg-slate-950 text-[#111827] border border-[#E5E7EB] rounded-lg text-xs font-semibold"
+                  className="w-full py-1.5 bg-white border border-[#E5E7EB] hover:bg-slate-950 text-[#111827] border border-[#E5E7EB] rounded-xl text-xs font-semibold"
                 >
                   + Add Custom Eraser Box
                 </button>
                 <div className="max-h-24 overflow-y-auto space-y-1 pt-2">
                   {whiteAreas.map((area, idx) => (
-                    <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-2 rounded text-[10px] text-[#6B7280]">
+                    <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-3 rounded text-[10px] text-[#6B7280]">
                       <span>Area {idx + 1} (x: {area.x}%, y: {area.y}%)</span>
                       <button onClick={() => setWhiteAreas(whiteAreas.filter((_, i) => i !== idx))} className="text-danger">Remove</button>
                     </div>
@@ -1259,7 +1259,7 @@ export function PdfWatermarkRemover() {
             </div>
           </div>
 
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] relative min-h-[350px]">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] relative min-h-[350px]">
             {previewUrl && (
               <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block" />
@@ -1399,8 +1399,8 @@ export function CreatePdf() {
           <div>
             <label className="text-xs text-[#6B7280] block mb-1">Page Sheet Configuration</label>
             <div className="flex gap-2">
-              <button onClick={() => setPageSize('A4')} className={`px-4 py-1.5 rounded-lg text-xs font-bold ${pageSize === 'A4' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>A4 Size</button>
-              <button onClick={() => setPageSize('Letter')} className={`px-4 py-1.5 rounded-lg text-xs font-bold ${pageSize === 'Letter' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Letter</button>
+              <button onClick={() => setPageSize('A4')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'A4' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>A4 Size</button>
+              <button onClick={() => setPageSize('Letter')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'Letter' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Letter</button>
             </div>
           </div>
           <Button onClick={handleCreate} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm px-6 h-10" disabled={processing}>
@@ -1486,7 +1486,7 @@ export function ImageSpecificToPdf({ targetType }: { targetType: 'heic' | 'tiff'
         <p className="text-[#6B7280] text-xs">Instantly formats and renders your image into a standard page-compatible PDF</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">

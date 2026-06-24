@@ -332,7 +332,7 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
              <div className="space-y-4">
                <div>
                   <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Source Format</h4>
-                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
+                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
                     <span className="font-bold text-[#111827]">{activeExt}</span>
                     <span className="text-xs text-[#6B7280]">{file ? (file.size > 1024 * 1024 ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : `${(file.size / 1024).toFixed(1)} KB`) : ''}</span>
                   </div>
@@ -345,7 +345,7 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
                       <button
                         key={fmt.value}
                         onClick={() => setOutputFormat(fmt.value)}
-                        className={`py-2 rounded-lg text-xs font-bold transition-colors ${outputFormat === fmt.value ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]'}`}
+                        className={`py-2 rounded-xl text-xs font-bold transition-colors ${outputFormat === fmt.value ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]'}`}
                       >
                         {fmt.label}
                       </button>
@@ -365,7 +365,7 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
              </div>
 
              <div className="pt-4 space-y-2">
-               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
                <div className="flex gap-2">
                  <Button className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" onClick={handleDownload} disabled={isProcessing}>
                    <Download className="w-4 h-4 mr-2" /> Save as {outputFormat.toUpperCase()}
@@ -377,8 +377,8 @@ export function ImageConverter({ defaultTarget }: { defaultTarget?: string }) {
              </div>
           </div>
           
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
-             <img src={previewUrl} alt="Preview" className="max-w-full max-h-[400px] object-contain block rounded-lg shadow-2xl bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]" />
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
+             <img src={previewUrl} alt="Preview" className="max-w-full max-h-[400px] object-contain block rounded-xl shadow-2xl bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]" />
              <canvas ref={canvasRef} className="hidden" />
              
              {isProcessing && (
@@ -479,8 +479,8 @@ export function ImageFilters() {
              <div>
                 <label className="text-sm text-[#111827] block mb-2">Flip</label>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => setFlipH(!flipH)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipH ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip H</button>
-                  <button onClick={() => setFlipV(!flipV)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${flipV ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip V</button>
+                  <button onClick={() => setFlipH(!flipH)} className={`py-2 rounded-xl text-sm border font-medium transition-colors ${flipH ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip H</button>
+                  <button onClick={() => setFlipV(!flipV)} className={`py-2 rounded-xl text-sm border font-medium transition-colors ${flipV ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>Flip V</button>
                 </div>
              </div>
 
@@ -488,14 +488,14 @@ export function ImageFilters() {
                 <label className="text-sm text-[#111827] block mb-2">Rotate</label>
                 <div className="grid grid-cols-4 gap-1">
                   {[0, 90, 180, 270].map(r => (
-                    <button key={r} onClick={() => setRotation(r)} className={`py-1.5 rounded-lg text-xs border font-medium transition-colors ${rotation === r ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>{r}°</button>
+                    <button key={r} onClick={() => setRotation(r)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${rotation === r ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280]'}`}>{r}°</button>
                   ))}
                 </div>
              </div>
 
              <div className="pt-2">
                 <label className="text-sm text-[#111827] block mb-2">Color Filter</label>
-                <select value={filter} onChange={e => setFilter(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827]">
+                <select value={filter} onChange={e => setFilter(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827]">
                   <option value="none">Normal</option>
                   <option value="grayscale(100%)">Black & White</option>
                   <option value="sepia(100%)">Sepia</option>
@@ -516,11 +516,11 @@ export function ImageFilters() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
              {/* Canvas renders the actual filtered output */}
              <canvas
                ref={canvasRef}
-               className="max-w-full max-h-[400px] object-contain block rounded-lg shadow-2xl bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]"
+               className="max-w-full max-h-[400px] object-contain block rounded-xl shadow-2xl bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]"
              />
           </div>
         </div>
@@ -542,7 +542,7 @@ export function AIToolPlaceholder({ name, description }: { name: string, descrip
        <p className="text-[#6B7280] mb-8 max-w-md">{description}</p>
        
        <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-6 text-left max-w-lg w-full">
-         <h4 className="font-semibold text-danger flex items-center gap-2 mb-3">
+         <h4 className="font-semibold text-danger flex items-center gap-3 mb-3">
             API Key Required
          </h4>
          <p className="text-sm text-[#111827] mb-4">

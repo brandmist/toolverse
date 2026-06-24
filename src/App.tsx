@@ -1,9 +1,12 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'sonner';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/layout/ScrollToTop';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { CommandPalette } from './components/ui/CommandPalette';
+import { BackToTop } from './components/ui/BackToTop';
 import { CookieConsent } from './components/layout/CookieConsent';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { ImageToolProvider } from './context/ImageToolContext';
@@ -11,6 +14,7 @@ import { McpProvider } from './features/mcp/context/McpContext';
 import { useStore } from './store/useStore';
 import { NativeAd } from './components/ui/NativeAd';
 import { AdBanner } from './components/ui/AdBanner';
+import { PopunderManager } from './components/ui/PopunderManager';
 
 // Statically imported pages (critical for LCP and CLS)
 import { Home } from './pages/Home';
@@ -43,6 +47,10 @@ export default function App() {
           <McpProvider>
             <Router>
               <ScrollToTop />
+              <Toaster position="bottom-right" />
+              <CommandPalette />
+              <BackToTop />
+              <PopunderManager />
             <div className="min-h-screen flex flex-col relative overflow-x-hidden">
               {/* Subtle mesh gradients that adapt to light/dark themes via opacity and color vars */}
               <div className="fixed top-[-100px] right-[-100px] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>

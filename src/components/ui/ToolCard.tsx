@@ -27,12 +27,12 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
         
         {/* Header: Icon + Title */}
         <div className="flex items-start gap-4 mb-3">
-          <div className="w-12 h-12 rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] flex items-center justify-center text-[#374151] shrink-0 group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-300">
+          <div className="w-12 h-12 rounded-xl bg-[#FAFAFA] border border-[#E5E7EB] flex items-center justify-center text-[#374151] shrink-0 group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-300">
             <Icon name={tool.icon} className="w-6 h-6" />
           </div>
           <div className="flex-1 pt-0.5 min-w-0">
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <h3 className="text-[16px] font-bold text-[#111827] group-hover:text-black leading-tight line-clamp-2 pr-1">
+            <div className="flex items-start justify-between gap-3 mb-1">
+              <h3 className="text-[16px] font-bold text-[#111827] group-hover:text-black leading-tight line-clamp-3 pr-1">
                 {tool.name}
               </h3>
               {/* Badges */}
@@ -46,7 +46,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
         </div>
 
         {/* Description */}
-        <p className="text-[14px] text-[#4B5563] leading-relaxed line-clamp-2 mb-5 flex-1">
+        <p className="text-[14px] text-[#4B5563] leading-relaxed line-clamp-3 mb-5 flex-1">
           {tool.description}
         </p>
 
@@ -66,12 +66,12 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
           <div className="flex items-center gap-2">
             <button
               onClick={e => { e.preventDefault(); toggleFavorite(tool.id) }}
-              className="p-2 rounded-lg text-[#D1D5DB] hover:text-[#EF4444] hover:bg-[#FEF2F2] transition-colors relative z-20"
+              className="p-3 rounded-xl text-[#D1D5DB] hover:text-[#EF4444] hover:bg-[#FEF2F2] transition-colors relative z-20"
               aria-label="Toggle Favorite"
             >
               <Heart className="w-4 h-4" fill={isFavorite ? '#EF4444' : 'none'} stroke={isFavorite ? '#EF4444' : 'currentColor'} />
             </button>
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all">
+            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-[#FAFAFA] border border-[#E5E7EB] text-[#374151] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all">
               <ArrowRight className="w-4 h-4" />
             </div>
           </div>

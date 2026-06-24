@@ -31,10 +31,10 @@ export function ImageToBase64() {
         )}
         {base64 && (
           <div className="relative">
-            <div className="bg-white border border-[#E5E7EB] p-2 rounded-xl flex items-center justify-center max-h-[300px] overflow-hidden border border-[#E5E7EB]">
-              <img src={base64} alt="Preview" className="max-w-full max-h-[280px] object-contain rounded-lg" />
+            <div className="bg-white border border-[#E5E7EB] p-3 rounded-xl flex items-center justify-center max-h-[300px] overflow-hidden border border-[#E5E7EB]">
+              <img src={base64} alt="Preview" className="max-w-full max-h-[280px] object-contain rounded-xl" />
             </div>
-            <Button variant="outline" size="sm" className="absolute top-2 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
+            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
               Clear
             </Button>
           </div>
@@ -136,7 +136,7 @@ export function SvgBlobGenerator() {
              className="w-full h-28 p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-success font-mono text-xs break-all"
              value={blob}
            />
-           <div className="grid grid-cols-2 gap-2 mt-2">
+           <div className="grid grid-cols-2 gap-3 mt-2">
              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => navigator.clipboard.writeText(blob)}>
                Copy SVG Code
              </Button>
@@ -206,11 +206,11 @@ export function ImageResizer() {
             <h3 className="font-semibold text-[#111827] mb-4">Resize Settings</h3>
             <div>
               <label className="text-sm text-[#111827] block mb-1">Width (px)</label>
-              <input type="number" value={width} onChange={e => handleWidthChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827]" />
+              <input type="number" value={width} onChange={e => handleWidthChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827]" />
             </div>
             <div>
               <label className="text-sm text-[#111827] block mb-1">Height (px)</label>
-              <input type="number" value={height} onChange={e => handleHeightChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827]" />
+              <input type="number" value={height} onChange={e => handleHeightChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827]" />
             </div>
             <label className="flex items-center space-x-2 text-[#111827] cursor-pointer pt-2">
               <input type="checkbox" checked={maintainAspect} onChange={(e) => setMaintainAspect(e.target.checked)} className="w-4 h-4 rounded border-[#E5E7EB] bg-white border border-[#E5E7EB]" />
@@ -225,7 +225,7 @@ export function ImageResizer() {
               </Button>
             </div>
           </div>
-          <div className="flex-[1.5] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
+          <div className="flex-[1.5] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
             <img src={imageSrc} alt="Original" className="max-w-full max-h-[400px] object-contain opacity-50" />
             <canvas ref={canvasRef} className="hidden" />
           </div>
@@ -287,7 +287,7 @@ export function ColorExtractor() {
         ) : (
           <div className="relative">
             <img src={imageSrc} alt="Preview" className="w-full rounded-xl object-contain bg-white border border-[#E5E7EB] max-h-[400px]" />
-            <Button variant="outline" size="sm" className="absolute top-2 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
+            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
               Clear
             </Button>
           </div>
@@ -380,7 +380,7 @@ export function ImageCropper() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px]">
              <div className="relative inline-block max-w-full max-h-[400px]">
                 <img src={imageSrc} alt="Preview" className="max-w-full max-h-[400px] object-contain opacity-50 block" />
                 <div 

@@ -140,7 +140,7 @@ export function ProfilePhotoMaker() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
             <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-full shadow-2xl" />
           </div>
         </div>
@@ -249,7 +249,7 @@ export function BlurBackgroundTool() {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-success text-xs font-semibold">
+                  <div className="flex items-center gap-3 text-success text-xs font-semibold">
                     <CheckCircle className="w-4 h-4" /> Subject isolated!
                   </div>
                   <div>
@@ -272,11 +272,11 @@ export function BlurBackgroundTool() {
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
             {removedBgUrl ? (
-              <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+              <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
             ) : (
-              previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-lg opacity-60" />
+              previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-xl opacity-60" />
             )}
             
             {processing && (
@@ -395,7 +395,7 @@ export function RemoveWatermarkImage() {
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas 
               ref={canvasRef} 
               onMouseDown={() => setIsDrawing(true)}
@@ -513,7 +513,7 @@ export function CombineImages() {
               </div>
               <div className="max-h-32 overflow-y-auto space-y-1">
                 {images.map((img, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-2 rounded text-[10px] text-[#6B7280]">
+                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-3 rounded text-[10px] text-[#6B7280]">
                     <span className="truncate max-w-[150px]">{img.file.name}</span>
                     <button onClick={() => setImages(images.filter((_, i) => i !== idx))} className="text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
                   </div>
@@ -549,8 +549,8 @@ export function CombineImages() {
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
-            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
+            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -657,7 +657,7 @@ export function MakeBackgroundTransparent() {
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden relative bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
             <canvas 
               ref={canvasRef} 
               onClick={handleColorKey}
@@ -772,8 +772,8 @@ export function AddTextToImage() {
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
-            <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain rounded-lg shadow-2xl" />
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden relative">
+            <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -870,7 +870,7 @@ export function ImageSplitter() {
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
             {previewUrl && (
               <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block opacity-70" />
@@ -966,8 +966,8 @@ export function AddBorderToImage() {
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
-            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
+            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -1102,7 +1102,7 @@ export function TranslateImage() {
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain shadow-2xl" />
             {processing && (
               <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
@@ -1201,7 +1201,7 @@ export function PixelateImage() {
             </div>
           </div>
           
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden relative">
             <canvas ref={canvasRef} className="max-w-full max-h-[480px] object-contain shadow-2xl" />
           </div>
         </div>
@@ -1316,7 +1316,7 @@ export function CollageMaker() {
               </div>
               <div className="space-y-1">
                 {images.map((img, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-2 rounded text-[10px] text-[#6B7280]">
+                  <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-3 rounded text-[10px] text-[#6B7280]">
                     <span className="truncate max-w-[150px]">{img.file.name}</span>
                     <button onClick={() => setImages(images.filter((_, i) => i !== idx))} className="text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
                   </div>
@@ -1342,8 +1342,8 @@ export function CollageMaker() {
             </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
-            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
+            <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -1425,13 +1425,13 @@ export function GifToMp4() {
         <div className="space-y-4 max-w-md mx-auto w-full text-center">
           <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-semibold">{file.name}</div>
           {recording && (
-            <div className="flex justify-center items-center gap-2 text-[#111827] py-4">
+            <div className="flex justify-center items-center gap-3 text-[#111827] py-4">
               <RefreshCw className="w-5 h-5 text-[#111827] animate-spin" /> Recording frames locally...
             </div>
           )}
           {videoUrl && (
             <div className="space-y-4">
-              <video src={videoUrl} controls loop autoPlay className="w-full max-h-60 rounded-lg border border-[#E5E7EB]" />
+              <video src={videoUrl} controls loop autoPlay className="w-full max-h-60 rounded-xl border border-[#E5E7EB]" />
               <a href={videoUrl} download={`${file.name.replace('.gif', '')}.mp4`}>
                 <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">Download MP4/WebM Video</Button>
               </a>
@@ -1600,8 +1600,8 @@ export function ChartMaker() {
           </div>
         </div>
 
-        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
-          <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
+          <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
         </div>
       </div>
     </div>
@@ -1703,8 +1703,8 @@ export function FontAwesomeToPng() {
           </div>
         </div>
 
-        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
-          <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />
+        <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+          <canvas ref={canvasRef} className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />
         </div>
       </div>
     </div>

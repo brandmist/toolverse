@@ -30,14 +30,14 @@ export function NotFound() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#111827] text-white text-[14px] font-semibold rounded-xl hover:bg-[#1F2937] transition-colors"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#111827] text-white text-[14px] font-semibold rounded-xl hover:bg-[#1F2937] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back to Home
               </Link>
               <Link
                 to="/search"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#374151] border border-[#E5E7EB] text-[14px] font-semibold rounded-xl hover:border-[#D1D5DB] hover:bg-[#FAFAFA] transition-all"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-[#374151] border border-[#E5E7EB] text-[14px] font-semibold rounded-xl hover:border-[#D1D5DB] hover:bg-[#FAFAFA] transition-all"
               >
                 <Search className="w-4 h-4" />
                 Search Tools

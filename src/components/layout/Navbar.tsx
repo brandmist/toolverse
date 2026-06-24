@@ -79,24 +79,24 @@ export function Navbar() {
           {/* ── Right Actions ── */}
           <div className="flex items-center gap-2">
             {/* Search button — desktop */}
-            <Link
-              to="/search"
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
               aria-label="Search tools"
               className="hidden md:flex items-center gap-2 px-3 py-2 text-sm text-[#6B7280] bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg hover:border-[#D1D5DB] hover:bg-white transition-all w-48"
             >
               <Search className="w-4 h-4 shrink-0" />
-              <span className="flex-1">Search tools…</span>
+              <span className="flex-1 text-left">Search tools…</span>
               <kbd className="text-[10px] font-mono bg-white border border-[#E5E7EB] rounded px-1.5 py-0.5 text-[#9CA3AF]">⌘K</kbd>
-            </Link>
+            </button>
 
             {/* Search icon — mobile */}
-            <Link
-              to="/search"
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
               aria-label="Search"
               className="md:hidden p-2 text-[#6B7280] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors"
             >
               <Search className="w-5 h-5" />
-            </Link>
+            </button>
 
             {/* Favorites */}
             <Link

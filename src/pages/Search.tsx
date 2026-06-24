@@ -6,6 +6,7 @@ import { TOOLS, CATEGORIES } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Input } from '../components/ui/input'
 import { Badge } from '../components/ui/badge'
+import { AdBanner } from '../components/ui/AdBanner'
 
 export function Search() {
   const [query, setQuery] = useState('')
@@ -52,7 +53,7 @@ export function Search() {
             <SlidersHorizontal className="w-3.5 h-3.5" /> Filters
           </div>
           <button 
-            className={`px-4 py-1.5 rounded-lg text-[13px] font-semibold transition-colors border ${selectedCategory === null ? 'bg-[#111827] text-white border-[#111827]' : 'bg-white border-[#E5E7EB] text-[#6B7280] hover:border-[#D1D5DB] hover:text-[#111827]'}`}
+            className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === null ? 'bg-[#111827] text-white border-[#111827]' : 'bg-white border-[#E5E7EB] text-[#6B7280] hover:border-[#D1D5DB] hover:text-[#111827]'}`}
             onClick={() => setSelectedCategory(null)}
           >
             All
@@ -60,13 +61,19 @@ export function Search() {
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
-              className={`px-4 py-1.5 rounded-lg text-[13px] font-semibold transition-colors border ${selectedCategory === cat.id ? 'bg-[#111827] text-white border-[#111827]' : 'bg-white border-[#E5E7EB] text-[#6B7280] hover:border-[#D1D5DB] hover:text-[#111827]'}`}
+              className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === cat.id ? 'bg-[#111827] text-white border-[#111827]' : 'bg-white border-[#E5E7EB] text-[#6B7280] hover:border-[#D1D5DB] hover:text-[#111827]'}`}
               onClick={() => setSelectedCategory(cat.id)}
             >
               {cat.name}
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="flex justify-center w-full mt-8 mb-4">
+        <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+        <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
       </div>
 
       <div className="mt-8 border-t border-[#E5E7EB] pt-10">
@@ -83,7 +90,7 @@ export function Search() {
             ))
           ) : (
             <div className="col-span-full py-24 text-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl">
-              <div className="w-16 h-16 bg-white border border-[#E5E7EB] rounded-xl flex items-center justify-center mb-6 mx-auto shadow-sm">
+              <div className="w-16 h-16 bg-white border border-[#E5E7EB] rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-sm">
                 <SearchIcon className="w-8 h-8 text-[#9CA3AF]" />
               </div>
               <p className="text-xl font-bold text-[#111827] mb-2">No tools found matching your criteria</p>
@@ -96,6 +103,9 @@ export function Search() {
               </button>
             </div>
           )}
+        </div>
+        <div className="flex justify-center w-full mt-12">
+          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
         </div>
       </div>
     </div>

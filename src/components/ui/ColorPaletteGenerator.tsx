@@ -21,7 +21,7 @@ export function ColorPaletteGenerator() {
             <div key={i} className="flex-1 flex flex-col items-center justify-end p-4 transition-all duration-300 hover:flex-[1.5] cursor-pointer group" style={{backgroundColor: color}}>
                <button 
                  onClick={() => { navigator.clipboard.writeText(color); alert(`Copied ${color}`); }}
-                 className="bg-black/40 backdrop-blur-sm text-[#111827] px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-black/60 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0"
+                 className="bg-black/40 backdrop-blur-sm text-[#111827] px-3 py-1.5 rounded-xl text-sm font-mono hover:bg-black/60 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0"
                >
                  {color} <Copy className="w-3 h-3" />
                </button>

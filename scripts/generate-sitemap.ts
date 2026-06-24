@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { TOOLS, CATEGORIES } from '../src/data/tools.js';
+import { BLOGS } from '../src/data/blogs.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +23,12 @@ function generateSitemap() {
   addUrl('/', '1.0', 'daily');
   addUrl('/categories', '0.9', 'weekly');
   addUrl('/search', '0.8', 'monthly');
+  addUrl('/tools', '0.9', 'daily');
+  addUrl('/blog', '0.9', 'daily');
+
+  // Static Pages
+  const staticPages = ['/about', '/contact', '/privacy', '/terms', '/cookie', '/dmca', '/accessibility', '/disclaimer'];
+  staticPages.forEach(page => addUrl(page, '0.5', 'monthly'));
 
   // Categories
   CATEGORIES.forEach(category => {
@@ -31,6 +38,11 @@ function generateSitemap() {
   // Tools
   TOOLS.forEach(tool => {
     addUrl(`/tool/${tool.id}`, '0.9', 'weekly');
+  });
+
+  // Blogs
+  BLOGS.forEach(blog => {
+    addUrl(`/blog/${blog.id}`, '0.7', 'monthly');
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

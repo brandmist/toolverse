@@ -99,7 +99,7 @@ export function AIImageGenerator() {
           </Button>
         </div>
 
-        <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[400px]">
+        <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[400px]">
           {isGenerating ? (
             <div className="flex flex-col items-center gap-4 text-[#6B7280]">
               <Loader2 className="w-12 h-12 animate-spin text-[#111827]" />
@@ -107,8 +107,8 @@ export function AIImageGenerator() {
             </div>
           ) : generatedImgUrl ? (
             <div className="relative group w-full h-full flex items-center justify-center">
-              <img src={generatedImgUrl} alt="Generated UI" className="max-w-full max-h-[500px] object-contain rounded-lg shadow-2xl" />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center gap-4">
+              <img src={generatedImgUrl} alt="Generated UI" className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl" />
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center gap-4">
                 <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
                   <Download className="w-4 h-4 mr-2" /> Download
                 </Button>
@@ -205,11 +205,11 @@ export function RemoveBackground() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
             <img 
               src={processedUrl || imageSrc} 
               alt="Preview" 
-              className={`max-w-full max-h-[400px] object-contain rounded-lg shadow-2xl transition-all duration-500 ${isProcessing ? 'opacity-50 blur-sm' : ''}`} 
+              className={`max-w-full max-h-[400px] object-contain rounded-xl shadow-2xl transition-all duration-500 ${isProcessing ? 'opacity-50 blur-sm' : ''}`} 
             />
           </div>
         </div>
@@ -270,8 +270,8 @@ export function ImageToText() {
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-[1] flex flex-col gap-4">
-             <div className="bg-white border border-[#E5E7EB] p-2 rounded-xl flex items-center justify-center overflow-hidden border border-[#E5E7EB] h-[300px]">
-               <img src={imageSrc} alt="Preview" className="max-w-full max-h-full object-contain rounded-lg" />
+             <div className="bg-white border border-[#E5E7EB] p-3 rounded-xl flex items-center justify-center overflow-hidden border border-[#E5E7EB] h-[300px]">
+               <img src={imageSrc} alt="Preview" className="max-w-full max-h-full object-contain rounded-xl" />
              </div>
              
              {!text && !isProcessing && (
@@ -318,51 +318,63 @@ export function ImageToText() {
 
 // 4. Unblur Image (Sharpen Filter)
 export function UnblurImage() {
-  const { imageSrc, imageElement, clearImage, renderToCanvas, downloadImage } = useImageTool();
+  const { imageSrc, imageElement, clearImage, downloadImage } = useImageTool();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [intensity, setIntensity] = useState(1);
+  const [scale, setScale] = useState(1);
   const [processed, setProcessed] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const applySharpen = () => {
     if (!imageElement || !canvasRef.current) return;
     
-    renderToCanvas(imageElement, canvasRef.current, (ctx, w, h) => {
+    setIsProcessing(true);
+    
+    setTimeout(() => {
+      const canvas = canvasRef.current!;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      if (!ctx) return;
+      
+      const w = Math.floor(imageElement.width * scale);
+      const h = Math.floor(imageElement.height * scale);
+      canvas.width = w;
+      canvas.height = h;
+      
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(imageElement, 0, 0, w, h);
       
-      if (intensity === 0) {
-        setProcessed(true);
-        return;
-      }
-      
-      const imageData = ctx.getImageData(0, 0, w, h);
-      const data = imageData.data;
-      const copy = new Uint8ClampedArray(data);
-      
-      // Sharpen Kernel
-      const wA = -intensity;
-      const wB = 1 + 4 * intensity;
-      
-      for (let y = 1; y < h - 1; y++) {
-        for (let x = 1; x < w - 1; x++) {
-          const i = (y * w + x) * 4;
-          for (let c = 0; c < 3; c++) {
-            const val = 
-              wB * copy[i + c] +
-              wA * (copy[i - 4 + c] + copy[i + 4 + c] + copy[i - w * 4 + c] + copy[i + w * 4 + c]);
-            data[i + c] = Math.min(255, Math.max(0, val));
+      if (intensity > 0) {
+        const imageData = ctx.getImageData(0, 0, w, h);
+        const data = imageData.data;
+        const copy = new Uint8ClampedArray(data);
+        
+        const wA = -intensity;
+        const wB = 1 + 4 * intensity;
+        
+        for (let y = 1; y < h - 1; y++) {
+          for (let x = 1; x < w - 1; x++) {
+            const i = (y * w + x) * 4;
+            for (let c = 0; c < 3; c++) {
+              const val = 
+                wB * copy[i + c] +
+                wA * (copy[i - 4 + c] + copy[i + 4 + c] + copy[i - w * 4 + c] + copy[i + w * 4 + c]);
+              data[i + c] = Math.min(255, Math.max(0, val));
+            }
           }
         }
+        ctx.putImageData(imageData, 0, 0);
       }
-      ctx.putImageData(imageData, 0, 0);
       setProcessed(true);
-    });
+      setIsProcessing(false);
+    }, 50);
   };
 
   useEffect(() => {
     if (imageElement) {
        applySharpen();
     }
-  }, [imageElement, intensity]);
+  }, [imageElement, intensity, scale]);
 
   const handleDownload = () => {
     downloadImage(canvasRef.current, 'image/png', undefined, 'sharpened-image');
@@ -380,19 +392,37 @@ export function UnblurImage() {
               Sharpen / Unblur
             </h3>
             
-            <div className="pt-2">
-               <div className="flex justify-between mb-1">
-                 <label className="text-sm text-[#111827]">Sharpen Intensity</label>
-                 <span className="text-sm text-[#6B7280]">{intensity}x</span>
+            <div className="pt-2 flex flex-col gap-4">
+               <div>
+                 <div className="flex justify-between mb-1">
+                   <label className="text-sm text-[#111827]">Upscale (Resolution)</label>
+                   <span className="text-sm text-[#6B7280]">{scale}x</span>
+                 </div>
+                 <select 
+                   value={scale} 
+                   onChange={(e) => setScale(parseFloat(e.target.value))}
+                   className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg p-2 text-sm"
+                 >
+                   <option value="1">1x (Original)</option>
+                   <option value="1.5">1.5x</option>
+                   <option value="2">2x (HD)</option>
+                   <option value="4">4x (Ultra HD)</option>
+                 </select>
                </div>
-               <input 
-                 type="range" 
-                 min="0" max="3" step="0.1" 
-                 value={intensity} 
-                 onChange={(e) => setIntensity(parseFloat(e.target.value))} 
-                 className="w-full accent-indigo-500" 
-               />
-               <p className="text-xs text-[#6B7280] mt-2">Increase to add edge contrast.</p>
+               <div>
+                 <div className="flex justify-between mb-1">
+                   <label className="text-sm text-[#111827]">Sharpen Intensity</label>
+                   <span className="text-sm text-[#6B7280]">{intensity}x</span>
+                 </div>
+                 <input 
+                   type="range" 
+                   min="0" max="3" step="0.1" 
+                   value={intensity} 
+                   onChange={(e) => setIntensity(parseFloat(e.target.value))} 
+                   className="w-full accent-indigo-500" 
+                 />
+                 <p className="text-xs text-[#6B7280] mt-2">Increase to add edge contrast.</p>
+               </div>
             </div>
             
             <div className="pt-4 flex flex-col gap-3">
@@ -404,8 +434,8 @@ export function UnblurImage() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
-            <canvas ref={canvasRef} className="max-w-full max-h-[400px] object-contain rounded-lg shadow-2xl" />
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
+            <canvas ref={canvasRef} className="max-w-full max-h-[400px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -430,7 +460,7 @@ export function CleanupPicture() {
     if (!isDrawing || !canvasRef.current || !imageElement) return;
     
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
@@ -448,55 +478,24 @@ export function CleanupPicture() {
 
     const x = (clientX - rect.left) * scaleX;
     const y = (clientY - rect.top) * scaleY;
-
-    // Apply a simple localized blur/smudge effect directly where clicked based on the surrounding pixels
-    // To simulate basic inpainting/cleanup
     const radius = brushSize * scaleX;
+
+    // Fast Hardware-Accelerated Smudge/Blur
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.clip();
+
+    ctx.globalAlpha = 0.15;
     
-    // Grab pixels around the brush area
-    const sX = Math.max(0, x - radius * 2);
-    const sY = Math.max(0, y - radius * 2);
-    const sW = Math.min(canvas.width - sX, radius * 4);
-    const sH = Math.min(canvas.height - sY, radius * 4);
-    
-    if (sW <= 0 || sH <= 0) return;
-    
-    const imgData = ctx.getImageData(sX, sY, sW, sH);
-    const output = ctx.getImageData(sX, sY, sW, sH);
-    const data = imgData.data;
-    const outData = output.data;
-    
-    // Very naive box blur / averaging
-    const blurRadius = 5;
-    for (let cy = 0; cy < sH; cy++) {
-      for (let cx = 0; cx < sW; cx++) {
-         const dx = (cx + sX - x);
-         const dy = (cy + sY - y);
-         if (dx*dx + dy*dy <= radius*radius) {
-            let r=0, g=0, b=0, count=0;
-            // sample edges of the brush stroke to blur inwards
-            for(let ky = -blurRadius; ky <= blurRadius; ky++) {
-              for(let kx = -blurRadius; kx <= blurRadius; kx++) {
-                const px = cx + kx;
-                const py = cy + ky;
-                if(px >= 0 && px < sW && py >= 0 && py < sH) {
-                  const pIdx = (py * sW + px) * 4;
-                  r += data[pIdx];
-                  g += data[pIdx+1];
-                  b += data[pIdx+2];
-                  count++;
-                }
-              }
-            }
-            const i = (cy * sW + cx) * 4;
-            outData[i] = r / count;
-            outData[i+1] = g / count;
-            outData[i+2] = b / count;
-         }
-      }
+    // Draw the canvas onto itself with slight random offsets to simulate smudging/blurring
+    for (let i = 0; i < 3; i++) {
+      const offsetX = (Math.random() - 0.5) * radius * 1.5;
+      const offsetY = (Math.random() - 0.5) * radius * 1.5;
+      ctx.drawImage(canvas, offsetX, offsetY);
     }
     
-    ctx.putImageData(output, sX, sY);
+    ctx.restore();
   };
 
   const handleDownload = () => {
@@ -551,7 +550,7 @@ export function CleanupPicture() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] overflow-hidden touch-none relative">
+          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden touch-none relative">
             <canvas 
               ref={canvasRef} 
               onMouseDown={() => setIsDrawing(true)}

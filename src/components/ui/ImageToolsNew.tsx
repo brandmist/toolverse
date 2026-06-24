@@ -148,7 +148,7 @@ export function ImageCompressor() {
                 <label className="text-sm text-[#111827] block mb-2">Output Format</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(['image/jpeg', 'image/webp'] as const).map(f => (
-                    <button key={f} onClick={() => setFormat(f)} className={`py-2 rounded-lg text-sm border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
+                    <button key={f} onClick={() => setFormat(f)} className={`py-2 rounded-xl text-sm border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
                       {f === 'image/jpeg' ? 'JPG' : 'WEBP'}
                     </button>
                   ))}
@@ -189,7 +189,7 @@ export function ImageCompressor() {
                 )}
               </div>
 
-              <div className="flex flex-col gap-2 pt-2">
+              <div className="flex flex-col gap-3 pt-2">
                 <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={downloadZip} disabled={!allDone || isZipping}>
                   {isZipping ? <span className="flex items-center gap-2">Zipping...</span> : <><Archive className="w-4 h-4 mr-2" /> Download All (ZIP)</>}
                 </Button>
@@ -206,8 +206,8 @@ export function ImageCompressor() {
               {images.map(img => {
                 const savings = img.compressed ? Math.max(0, Math.round((1 - img.compressed.size / img.origSize) * 100)) : 0
                 return (
-                  <div key={img.id} className="flex items-center gap-4 bg-white border border-[#E5E7EB] rounded-xl p-3 shadow-sm border-[#E5E7EB]">
-                    <img src={img.src} alt="Preview" className="w-16 h-16 object-cover rounded-lg border border-[#E5E7EB]" />
+                  <div key={img.id} className="flex items-center gap-4 bg-white border border-[#E5E7EB] rounded-2xl p-3 shadow-sm border-[#E5E7EB]">
+                    <img src={img.src} alt="Preview" className="w-16 h-16 object-cover rounded-xl border border-[#E5E7EB]" />
                     <div className="flex-1 min-w-0">
                        <div className="text-sm font-medium text-[#111827] truncate">{img.file.name}</div>
                        <div className="text-xs text-[#6B7280] mt-1">
@@ -222,7 +222,7 @@ export function ImageCompressor() {
                          <>
                            <span className={`text-xs font-bold ${savings > 0 ? 'text-success' : 'text-warning'}`}>-{savings}%</span>
                            <a href={img.compressed.url} download={`${img.file.name.replace(/\.[^/.]+$/, "")}-compressed.${format === 'image/jpeg' ? 'jpg' : 'webp'}`}>
-                             <Button size="sm" variant="outline" className="p-2 border-[#E5E7EB] hover:bg-white/10 text-[#111827]">
+                             <Button size="sm" variant="outline" className="p-3 border-[#E5E7EB] hover:bg-white/10 text-[#111827]">
                                <Download className="w-4 h-4" />
                              </Button>
                            </a>
@@ -329,7 +329,7 @@ export function ImageWatermark() {
             <h3 className="font-semibold text-[#111827]">Watermark Settings</h3>
             <div>
               <label className="text-sm text-[#111827] block mb-1">Watermark Text</label>
-              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm" />
+              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
             </div>
             <div>
               <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Font Size</label><span className="text-sm text-[#6B7280]">{fontSize}px</span></div>
@@ -347,17 +347,17 @@ export function ImageWatermark() {
               <label className="text-sm text-[#111827] block mb-2">Position</label>
               <div className="grid grid-cols-3 gap-1">
                 {positions.map(p => (
-                  <button key={p.id} onClick={() => setPosition(p.id as any)} className={`py-1.5 rounded-lg text-xs border font-medium transition-colors ${position === p.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{p.label}</button>
+                  <button key={p.id} onClick={() => setPosition(p.id as any)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${position === p.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{p.label}</button>
                 ))}
               </div>
             </div>
-            <div className="flex gap-2 pt-2">
+            <div className="flex gap-3 pt-2">
               <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={download}><Download className="w-4 h-4 mr-2" /> Save</Button>
               <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => setSrc(null)}>Clear</Button>
             </div>
           </div>
           <div className="flex-grow flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden p-4">
-            <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-lg shadow-2xl" />
+            <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
       )}
@@ -414,7 +414,7 @@ export function FaviconGenerator() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {previews.map(p => (
               <div key={p.size} className="flex flex-col items-center gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 hover:border-[#E5E7EB] transition-colors">
-                <div className="w-20 h-20 flex items-center justify-center bg-white border border-[#E5E7EB] rounded-lg border border-[#E5E7EB]">
+                <div className="w-20 h-20 flex items-center justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB]">
                   <img src={p.url} alt={`${p.size}px`} style={{ width: p.size, height: p.size, imageRendering: 'pixelated' }} />
                 </div>
                 <span className="text-xs text-[#6B7280] font-mono">{p.size}×{p.size}</span>
@@ -514,7 +514,7 @@ export function ImagePlaceholder() {
           <label className="text-sm text-[#111827] block mb-2">Quick Presets</label>
           <div className="grid grid-cols-2 gap-1">
             {presets.map(p => (
-              <button key={p.label} onClick={() => { setWidth(p.w); setHeight(p.h) }} className="py-1.5 px-2 rounded-lg text-xs border font-medium transition-colors bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]">
+              <button key={p.label} onClick={() => { setWidth(p.w); setHeight(p.h) }} className="py-1.5 px-2 rounded-xl text-xs border font-medium transition-colors bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]">
                 {p.label}<br /><span className="text-[#6B7280]">{p.w}×{p.h}</span>
               </button>
             ))}
@@ -523,11 +523,11 @@ export function ImagePlaceholder() {
         <div className="grid grid-cols-2 gap-2">
           <div>
             <label className="text-xs text-[#6B7280] block mb-1">Width (px)</label>
-            <input type="number" value={width} onChange={e => setWidth(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm" />
+            <input type="number" value={width} onChange={e => setWidth(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
           </div>
           <div>
             <label className="text-xs text-[#6B7280] block mb-1">Height (px)</label>
-            <input type="number" value={height} onChange={e => setHeight(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm" />
+            <input type="number" value={height} onChange={e => setHeight(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -536,13 +536,13 @@ export function ImagePlaceholder() {
         </div>
         <div>
           <label className="text-sm text-[#111827] block mb-1">Custom Label</label>
-          <input type="text" value={label} onChange={e => setLabel(e.target.value)} placeholder={`${width} × ${height}`} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm" />
+          <input type="text" value={label} onChange={e => setLabel(e.target.value)} placeholder={`${width} × ${height}`} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
         </div>
         <div>
           <label className="text-sm text-[#111827] block mb-2">Format</label>
           <div className="grid grid-cols-3 gap-1">
             {(['image/png', 'image/jpeg', 'image/webp'] as const).map(f => (
-              <button key={f} onClick={() => setFormat(f)} className={`py-1.5 rounded-lg text-xs border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
+              <button key={f} onClick={() => setFormat(f)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
                 {f.split('/')[1].toUpperCase()}
               </button>
             ))}
@@ -553,7 +553,7 @@ export function ImagePlaceholder() {
         </Button>
       </div>
       <div className="flex-grow flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden p-4">
-        <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-lg shadow-2xl border border-[#E5E7EB]" />
+        <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl border border-[#E5E7EB]" />
       </div>
     </div>
   )

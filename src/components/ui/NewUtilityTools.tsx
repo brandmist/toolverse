@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Button } from './button'
-import { Copy } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 
 // Number Base Converter
 export function NumberBaseConverter() {
@@ -33,7 +33,7 @@ export function NumberBaseConverter() {
             type="text"
             value={input}
             onChange={e => setInput(e.target.value)}
-            className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] font-mono text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] font-mono text-lg focus:outline-none focus:ring-1 focus:ring-text-primary"
             placeholder="Enter a number..."
           />
         </div>
@@ -117,10 +117,10 @@ export function RegexTester() {
 
   return (
     <div className="flex flex-col gap-4 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
-      <div className="flex gap-2 items-end">
+      <div className="flex gap-3 items-end">
         <div className="flex-grow">
           <label className="text-sm text-[#111827] block mb-2">Regular Expression</label>
-          <div className="flex items-center bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 gap-2 focus-within:border-[#E5E7EB] transition-colors">
+          <div className="flex items-center bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 gap-3 focus-within:border-[#E5E7EB] transition-colors">
             <span className="text-[#6B7280] font-mono">/</span>
             <input
               type="text"
@@ -157,7 +157,7 @@ export function RegexTester() {
           value={testString}
           onChange={e => setTestString(e.target.value)}
           rows={4}
-          className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+          className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm resize-none focus:outline-none focus:ring-1 focus:ring-text-primary"
         />
       </div>
 
@@ -174,7 +174,7 @@ export function RegexTester() {
           <label className="text-sm text-[#111827] block mb-2">Match Details</label>
           <div className="space-y-1 max-h-36 overflow-auto">
             {result.matches.map((m, i) => (
-              <div key={i} className="flex gap-3 items-center text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2">
+              <div key={i} className="flex gap-3 items-center text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2">
                 <span className="text-[#6B7280] w-5 text-center font-bold">{i + 1}</span>
                 <span className="font-mono text-warning font-bold">{m.match || '(empty)'}</span>
                 <span className="text-[#6B7280]">at index {m.index}</span>
@@ -213,20 +213,20 @@ export function WordFrequency() {
         <div>
           <label className="text-sm text-[#111827] block mb-2">Input Text</label>
           <textarea
-            className="w-full h-56 p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="w-full h-56 p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary"
             placeholder="Paste your text here to analyze word frequency..."
             value={text}
             onChange={e => setText(e.target.value)}
           />
         </div>
         <div className="flex gap-4 flex-wrap">
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#111827]">
+          <label className="flex items-center gap-3 cursor-pointer text-sm text-[#111827]">
             <input type="checkbox" checked={caseSensitive} onChange={e => setCaseSensitive(e.target.checked)} className="w-4 h-4 rounded bg-white border border-[#E5E7EB] accent-indigo-500" />
             Case Sensitive
           </label>
           <div className="flex items-center gap-2">
             <span className="text-sm text-[#111827]">Min length:</span>
-            <input type="number" min="1" max="10" value={minLength} onChange={e => setMinLength(parseInt(e.target.value) || 1)} className="w-16 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-2 py-1 text-[#111827] text-sm" />
+            <input type="number" min="1" max="10" value={minLength} onChange={e => setMinLength(parseInt(e.target.value) || 1)} className="w-16 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-2 py-1 text-[#111827] text-sm" />
           </div>
         </div>
         {text && (
@@ -248,7 +248,7 @@ export function WordFrequency() {
           {stats.words.length > 0 ? (
             <div className="p-3 space-y-1">
               {stats.words.map(([word, count], i) => (
-                <div key={word} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white transition-colors">
+                <div key={word} className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white transition-colors">
                   <span className="text-[#111827] text-xs w-6 text-right">{i + 1}</span>
                   <span className="flex-grow text-[#111827] font-medium">{word}</span>
                   <div className="flex items-center gap-2">
@@ -317,7 +317,7 @@ export function JsonToCsv() {
         <div className="flex flex-col">
           <label className="text-sm text-[#111827] mb-2">JSON Input (Array of Objects)</label>
           <textarea
-            className="flex-grow p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] font-mono text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+            className="flex-grow p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] font-mono text-sm focus:outline-none focus:ring-1 focus:ring-text-primary"
             value={input}
             onChange={e => setInput(e.target.value)}
             placeholder='[{"key": "value"}]'
@@ -346,4 +346,486 @@ export function JsonToCsv() {
       </div>
     </div>
   )
+}
+
+
+import * as bcrypt from 'bcryptjs';
+
+// Bcrypt Hash Generator
+export function BcryptGenerator() {
+  const [input, setInput] = useState('');
+  const [rounds, setRounds] = useState(10);
+  const [hash, setHash] = useState('');
+  const [isHashing, setIsHashing] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const generateHash = () => {
+    if (!input) return;
+    setIsHashing(true);
+    // Use setTimeout to allow UI to update loading state
+    setTimeout(() => {
+      try {
+        const salt = bcrypt.genSaltSync(rounds);
+        const generatedHash = bcrypt.hashSync(input, salt);
+        setHash(generatedHash);
+      } catch (e) {
+        setHash('Error generating hash');
+      }
+      setIsHashing(false);
+    }, 100);
+  };
+
+  const copy = () => {
+    navigator.clipboard.writeText(hash);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm max-w-2xl mx-auto w-full">
+      <div className="flex flex-col gap-4">
+        <div>
+          <label className="text-sm font-semibold text-[#111827] mb-2 block">String to Hash</label>
+          <input
+            type="text"
+            className="w-full p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[#111827] focus:outline-none focus:ring-2 focus:ring-primary/50"
+            placeholder="my_super_secret_password"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+        </div>
+        <div>
+          <div className="flex justify-between items-center mb-2">
+            <label className="text-sm font-semibold text-[#111827]">Salt Rounds: {rounds}</label>
+            <span className="text-xs text-[#6B7280]">Higher = Slower/More Secure</span>
+          </div>
+          <input
+            type="range"
+            min="4"
+            max="15"
+            value={rounds}
+            onChange={(e) => setRounds(parseInt(e.target.value))}
+            className="w-full accent-primary"
+          />
+        </div>
+        <button
+          onClick={generateHash}
+          disabled={!input || isHashing}
+          className="w-full bg-[#111827] text-white py-3 rounded-xl font-bold hover:bg-[#374151] transition-colors disabled:opacity-50"
+        >
+          {isHashing ? 'Hashing...' : 'Generate Bcrypt Hash'}
+        </button>
+      </div>
+
+      {hash && (
+        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 relative group">
+          <label className="text-[11px] font-bold text-[#6B7280] uppercase tracking-wider mb-2 block">Generated Hash</label>
+          <code className="text-[#111827] font-mono text-sm break-all">{hash}</code>
+          <button 
+            onClick={copy}
+            className="absolute top-4 right-4 p-3 bg-white border border-[#E5E7EB] rounded-2xl shadow-sm hover:bg-[#F3F4F6] transition-colors"
+          >
+            {copied ? <Check className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4 text-[#6B7280]" />}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Robots.txt Generator
+export function RobotsTxtGenerator() {
+  const [userAgent, setUserAgent] = useState('*');
+  const [allow, setAllow] = useState('/');
+  const [disallow, setDisallow] = useState('');
+  const [sitemap, setSitemap] = useState('https://example.com/sitemap.xml');
+  const [delay, setDelay] = useState('');
+  
+  const [reqPreset, setReqPreset] = useState('');
+  const [projPreset, setProjPreset] = useState('');
+  
+  const [bots, setBots] = useState({
+    'GPTBot': false,
+    'ChatGPT-User': false,
+    'Google-Extended': false,
+    'PerplexityBot': false,
+    'Amazonbot': false,
+    'ClaudeBot': false,
+    'Omgilibot': false,
+    'FacebookBot': false,
+    'Applebot': false,
+    'anthropic-ai': false,
+    'Bytespider': false,
+    'Claude-Web': false,
+    'Diffbot': false,
+    'ImagesiftBot': false,
+    'Omgili': false,
+    'YouBot': false
+  });
+  
+  const [blockAllBots, setBlockAllBots] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Requirements Presets
+  const applyReqPreset = (preset: string) => {
+    setReqPreset(preset);
+    setProjPreset(''); // reset project
+    switch(preset) {
+      case 'allow-all':
+        setUserAgent('*'); setAllow('/'); setDisallow(''); break;
+      case 'block-all':
+        setUserAgent('*'); setAllow(''); setDisallow('/'); break;
+      case 'block-dir':
+        setUserAgent('*'); setAllow(''); setDisallow('/private-dir/'); break;
+      case 'block-file':
+        setUserAgent('*'); setAllow(''); setDisallow('/private-file.html'); break;
+      case 'allow-google-only':
+        setUserAgent('Googlebot'); setAllow('/'); setDisallow(''); break; // In generation, we will append User-agent: * Disallow: /
+      case 'block-params':
+        setUserAgent('*'); setAllow(''); setDisallow('/*?*'); break;
+      case 'allow-dir-only':
+        setUserAgent('*'); setAllow('/public-dir/'); setDisallow('/'); break;
+      case 'block-images':
+        setUserAgent('Googlebot-Image'); setAllow(''); setDisallow('/images/'); break;
+      case 'block-css-js':
+        setUserAgent('*'); setAllow(''); setDisallow('/*.css$, /*.js$'); break;
+    }
+  };
+
+  // Project Presets
+  const applyProjPreset = (preset: string) => {
+    setProjPreset(preset);
+    setReqPreset('');
+    setUserAgent('*');
+    setAllow('');
+    
+    switch(preset) {
+      case 'default':
+        setDisallow('/cgi-bin/, /private/, /tmp/');
+        break;
+      case 'wordpress':
+        setDisallow('/wp-admin/, /wp-includes/');
+        setAllow('/wp-admin/admin-ajax.php');
+        break;
+      case 'shopify':
+        setDisallow('/admin/, /cart/, /orders/, /checkout/, /account/');
+        break;
+      case 'magento':
+        setDisallow('/index.php/, /catalog/product_compare/, /catalog/category/view/, /catalog/product/view/, /catalogsearch/, /checkout/, /control/, /contacts/, /customer/, /customize/, /newsletter/, /poll/, /review/, /sendfriend/, /tag/, /wishlist/');
+        break;
+      case 'drupal':
+        setDisallow('/core/, /profiles/, /README.txt, /web.config, /admin/, /comment/reply/, /filter/tips/, /node/add/, /search/, /user/register/, /user/password/, /user/login/, /user/logout/');
+        break;
+      case 'joomla':
+        setDisallow('/administrator/, /bin/, /cache/, /cli/, /components/, /includes/, /installation/, /language/, /layouts/, /libraries/, /logs/, /modules/, /plugins/, /tmp/');
+        break;
+      case 'prestashop':
+        setDisallow('/classes/, /config/, /download/, /mails/, /modules/, /translations/, /tools/');
+        break;
+      case 'wix':
+        setDisallow('/_api/, /_partials/');
+        break;
+      case 'bigcommerce':
+        setDisallow('/account.php, /cart.php, /checkout.php, /finishorder.php, /login.php, /orderstatus.php, /postreview.php, /productimage.php, /productupdates.php, /remote.php, /search.php, /viewfile.php, /wishlist.php, /admin/');
+        break;
+      case 'squarespace':
+        setDisallow('/config/, /api/');
+        break;
+      case 'weebly':
+        setDisallow('/ajax/');
+        break;
+      case 'blogger':
+        setDisallow('/search');
+        break;
+    }
+  };
+
+  const handleBotChange = (bot: string, checked: boolean) => {
+    setBots(prev => ({ ...prev, [bot]: checked }));
+    if (!checked) setBlockAllBots(false);
+  };
+
+  const handleBlockAllBots = (checked: boolean) => {
+    setBlockAllBots(checked);
+    const newBots = { ...bots };
+    for (const key in newBots) {
+      newBots[key as keyof typeof bots] = checked;
+    }
+    setBots(newBots);
+  };
+
+  const generateRobots = () => {
+    let output = '';
+
+    // Handle special multi-agent presets first
+    if (reqPreset === 'allow-google-only') {
+      output += `User-agent: Googlebot\nAllow: /\n\nUser-agent: *\nDisallow: /\n\n`;
+    } else if (reqPreset === 'block-css-js') {
+      output += `User-agent: *\nDisallow: /*.css$\nDisallow: /*.js$\n\n`;
+    } else {
+      // Normal flow
+      output += `User-agent: ${userAgent}\n`;
+      
+      if (delay) output += `Crawl-delay: ${delay}\n`;
+      
+      const disallowRules = disallow.split(',').map(r => r.trim()).filter(Boolean);
+      disallowRules.forEach(r => output += `Disallow: ${r}\n`);
+      
+      const allowRules = allow.split(',').map(r => r.trim()).filter(Boolean);
+      allowRules.forEach(r => output += `Allow: ${r}\n`);
+      
+      output += '\n';
+    }
+
+    // AI Bots
+    const blockedBots = Object.entries(bots).filter(([_, checked]) => checked).map(([bot]) => bot);
+    if (blockedBots.length > 0) {
+      blockedBots.forEach(bot => {
+        output += `User-agent: ${bot}\nDisallow: /\n\n`;
+      });
+    }
+
+    // Sitemap
+    if (sitemap) {
+      output += `Sitemap: ${sitemap}\n`;
+    }
+    
+    return output.trim();
+  };
+
+  const output = generateRobots();
+
+  const copy = () => {
+    navigator.clipboard.writeText(output);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+      <div className="flex-[1.5] flex flex-col gap-6 max-h-[800px] overflow-y-auto pr-2">
+        
+        {/* Presets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Based on requirements</label>
+            <select value={reqPreset} onChange={(e) => applyReqPreset(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none text-[#111827]">
+              <option value="">Select a requirement...</option>
+              <option value="allow-all">Allow all robots to access entire site</option>
+              <option value="block-all">Block all robots from entire site</option>
+              <option value="block-dir">Block a specific directory</option>
+              <option value="block-file">Block a specific file</option>
+              <option value="allow-google-only">Allow Googlebot, block all others</option>
+              <option value="block-params">Block specific URL parameters</option>
+              <option value="allow-dir-only">Allow specific directory, block rest</option>
+              <option value="block-images">Block images from specific directory</option>
+              <option value="block-css-js">Block access to CSS and JS files</option>
+            </select>
+          </div>
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Based on project</label>
+            <select value={projPreset} onChange={(e) => applyProjPreset(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none text-[#111827]">
+              <option value="">Select a project...</option>
+              <option value="default">Default / Custom Website</option>
+              <option value="wordpress">WordPress</option>
+              <option value="shopify">Shopify</option>
+              <option value="magento">Magento</option>
+              <option value="drupal">Drupal</option>
+              <option value="joomla">Joomla</option>
+              <option value="prestashop">PrestaShop</option>
+              <option value="wix">Wix</option>
+              <option value="bigcommerce">BigCommerce</option>
+              <option value="squarespace">Squarespace</option>
+              <option value="weebly">Weebly</option>
+              <option value="blogger">Blogger</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Custom Rules */}
+        <div className="p-4 rounded-xl border border-[#E5E7EB] bg-white space-y-4">
+           <h4 className="text-[13px] font-bold text-[#111827]">Custom Rules</h4>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <div>
+               <label className="text-[12px] font-semibold text-[#6B7280] mb-1 block">User Agent</label>
+               <input type="text" className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px]" value={userAgent} onChange={e => setUserAgent(e.target.value)} />
+             </div>
+             <div>
+               <label className="text-[12px] font-semibold text-[#6B7280] mb-1 block">Crawl Delay (Secs)</label>
+               <input type="number" className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px]" value={delay} onChange={e => setDelay(e.target.value)} placeholder="e.g. 10" />
+             </div>
+           </div>
+           <div>
+             <label className="text-[12px] font-semibold text-[#6B7280] mb-1 block">Disallow (Comma separated)</label>
+             <input type="text" className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px]" value={disallow} onChange={e => setDisallow(e.target.value)} />
+           </div>
+           <div>
+             <label className="text-[12px] font-semibold text-[#6B7280] mb-1 block">Allow (Comma separated)</label>
+             <input type="text" className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px]" value={allow} onChange={e => setAllow(e.target.value)} />
+           </div>
+           <div>
+             <label className="text-[12px] font-semibold text-[#6B7280] mb-1 block">Sitemap URL</label>
+             <input type="text" className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px]" value={sitemap} onChange={e => setSitemap(e.target.value)} />
+           </div>
+        </div>
+
+        {/* AI Bots Blocking */}
+        <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA]">
+          <div className="flex justify-between items-center mb-4">
+            <h4 className="text-[13px] font-bold text-[#111827]">Block AI Bots</h4>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" checked={blockAllBots} onChange={(e) => handleBlockAllBots(e.target.checked)} className="rounded text-[#111827] focus:ring-[#111827]" />
+              <span className="text-[13px] font-semibold text-[#DC2626]">Block All Bots</span>
+            </label>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {Object.keys(bots).map(bot => (
+              <label key={bot} className="flex items-center gap-3 cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  checked={bots[bot as keyof typeof bots]} 
+                  onChange={(e) => handleBotChange(bot, e.target.checked)} 
+                  className="rounded border-[#D1D5DB] text-[#111827] focus:ring-[#111827]"
+                />
+                <span className="text-[12px] font-medium text-[#374151] truncate" title={bot}>{bot}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <div className="flex-1 bg-[#111827] rounded-xl p-4 shadow-sm relative group flex flex-col min-h-[400px]">
+         <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">robots.txt Output</span>
+         <textarea
+           readOnly
+           value={output}
+           className="flex-1 bg-transparent text-[#A7F3D0] font-mono text-[13px] resize-none outline-none border-none p-0"
+         />
+         <button 
+           onClick={copy}
+           className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm"
+           title="Copy"
+         >
+           {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
+         </button>
+      </div>
+    </div>
+  );
+}
+
+export function SitemapGenerator() {
+  const [baseUrl, setBaseUrl] = useState('https://example.com');
+  const [modifiedDate, setModifiedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [changeFreq, setChangeFreq] = useState('daily');
+  const [priority, setPriority] = useState('0.8');
+  const [additionalUrls, setAdditionalUrls] = useState('');
+  const [output, setOutput] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  useMemo(() => {
+    const urls = [baseUrl, ...additionalUrls.split('\n').map(u => u.trim()).filter(Boolean)];
+    const xml = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...urls.map(url => {
+        let entry = '  <url>\n';
+        entry += `    <loc>${url}</loc>\n`;
+        if (modifiedDate) entry += `    <lastmod>${modifiedDate}</lastmod>\n`;
+        if (changeFreq) entry += `    <changefreq>${changeFreq}</changefreq>\n`;
+        if (priority) entry += `    <priority>${priority}</priority>\n`;
+        entry += '  </url>';
+        return entry;
+      }),
+      '</urlset>'
+    ].join('\n');
+    setOutput(xml);
+  }, [baseUrl, modifiedDate, changeFreq, priority, additionalUrls]);
+
+  const copy = () => {
+    navigator.clipboard.writeText(output);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+      <div className="flex-[1.5] flex flex-col gap-6 max-h-[800px] overflow-y-auto pr-2">
+        <div>
+          <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Base URL</label>
+          <input
+            type="url"
+            value={baseUrl}
+            onChange={e => setBaseUrl(e.target.value)}
+            className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary text-[14px]"
+            placeholder="https://example.com"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Last Modified</label>
+            <input
+              type="date"
+              value={modifiedDate}
+              onChange={e => setModifiedDate(e.target.value)}
+              className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary text-[14px]"
+            />
+          </div>
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Change Frequency</label>
+            <select
+              value={changeFreq}
+              onChange={e => setChangeFreq(e.target.value)}
+              className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary text-[14px] appearance-none cursor-pointer"
+            >
+              <option value="">None</option>
+              <option value="always">Always</option>
+              <option value="hourly">Hourly</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+              <option value="never">Never</option>
+            </select>
+          </div>
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Priority (0.0 - 1.0)</label>
+            <input
+              type="number"
+              min="0.0"
+              max="1.0"
+              step="0.1"
+              value={priority}
+              onChange={e => setPriority(e.target.value)}
+              className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary text-[14px]"
+            />
+          </div>
+        </div>
+        <div>
+          <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Additional URLs (One per line)</label>
+          <textarea
+            value={additionalUrls}
+            onChange={e => setAdditionalUrls(e.target.value)}
+            className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-text-primary min-h-[150px] text-[14px] resize-none"
+            placeholder={`https://example.com/about\nhttps://example.com/contact`}
+          />
+        </div>
+      </div>
+      <div className="flex-[0.8] bg-[#111827] rounded-2xl p-6 shadow-inner relative group flex flex-col">
+         <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">sitemap.xml Output</span>
+         <textarea
+           readOnly
+           value={output}
+           className="flex-1 bg-transparent text-[#A7F3D0] font-mono text-[13px] resize-none outline-none border-none p-0"
+         />
+         <button 
+           onClick={copy}
+           className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+           title="Copy"
+         >
+           {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
+         </button>
+      </div>
+    </div>
+  );
 }

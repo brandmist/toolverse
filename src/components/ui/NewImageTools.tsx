@@ -101,8 +101,8 @@ export function ExifEditor() {
              </div>
           </div>
           
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px]">
-             {previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-lg shadow-2xl" />}
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px]">
+             {previewUrl && <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain rounded-xl shadow-2xl" />}
           </div>
         </div>
       )}
@@ -187,7 +187,7 @@ export function SvgOptimizer() {
           </div>
           
           {saving > 0 && (
-            <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] text-success rounded-lg p-3 text-center text-sm font-bold">
+            <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] text-success rounded-xl p-3 text-center text-sm font-bold">
               ✓ Saved {saving}% storage size!
             </div>
           )}
@@ -269,7 +269,7 @@ export function GifMaker() {
              <div className="space-y-4">
                <div>
                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Frames Info</h4>
-                 <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
+                 <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
                    <span className="font-bold text-[#111827]">{frames.length} Uploaded</span>
                    <button onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.multiple = true; i.onchange = e => { handleUpload((e.target as any).files) }; i.click() }} className="text-xs text-[#6B7280] hover:text-[#111827] flex items-center gap-1"><Plus className="w-3 h-3" /> Add</button>
                  </div>
@@ -300,14 +300,14 @@ export function GifMaker() {
           
           <div className="flex-[2] space-y-4">
              {gifUrl ? (
-               <div className="flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px]">
+               <div className="flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px]">
                  <label className="text-xs text-[#6B7280] uppercase font-bold mb-2">Output Preview</label>
-                 <img src={gifUrl} alt="GIF Output" className="max-w-full max-h-[320px] object-contain rounded-lg shadow-2xl" />
+                 <img src={gifUrl} alt="GIF Output" className="max-w-full max-h-[320px] object-contain rounded-xl shadow-2xl" />
                </div>
              ) : (
-               <div className="grid grid-cols-3 gap-2 overflow-auto max-h-[350px] p-2 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+               <div className="grid grid-cols-3 gap-3 overflow-auto max-h-[350px] p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
                  {frames.map((f, i) => (
-                   <div key={f.id} className="relative group rounded-lg overflow-hidden border border-[#E5E7EB] bg-slate-950/20">
+                   <div key={f.id} className="relative group rounded-xl overflow-hidden border border-[#E5E7EB] bg-slate-950/20">
                      <img src={f.url} alt={`Frame ${i + 1}`} className="w-full h-24 object-cover" />
                      <button onClick={() => setFrames(prev => prev.filter(x => x.id !== f.id))} className="absolute top-1 right-1 p-1 bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-white border border-[#E5E7EB] rounded text-[#111827]"><Trash2 className="w-3 h-3" /></button>
                    </div>
@@ -424,7 +424,7 @@ export function PixelArtCreator() {
            onMouseDown={() => setIsDrawing(true)}
            onMouseUp={() => setIsDrawing(false)}
            onMouseLeave={() => setIsDrawing(false)}
-           className="grid gap-[1px] bg-slate-950 p-2 rounded-xl border border-[#E5E7EB] select-none shadow-2xl"
+           className="grid gap-[1px] bg-slate-950 p-3 rounded-xl border border-[#E5E7EB] select-none shadow-2xl"
            style={{
              gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
              width: 'min(90vw, 360px)',

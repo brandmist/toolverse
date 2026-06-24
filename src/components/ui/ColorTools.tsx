@@ -25,7 +25,7 @@ export function HexRgba() {
           <label className="text-sm text-[#111827] block mb-1">HEX Color</label>
           <div className="flex items-center gap-2">
             <input type="color" value={hex.length === 7 ? hex : '#000000'} onChange={e => setHex(e.target.value)} className="w-12 h-12 rounded cursor-pointer bg-transparent border-0" />
-            <input type="text" value={hex} onChange={e => setHex(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-4 py-3 text-[#111827] text-lg font-mono uppercase" />
+            <input type="text" value={hex} onChange={e => setHex(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] text-lg font-mono uppercase" />
           </div>
         </div>
         <div>
@@ -91,9 +91,9 @@ export function ColorShades() {
     <div className="flex flex-col h-full gap-6 bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
       <div>
         <label className="text-sm text-[#111827] block mb-1">Base Color</label>
-        <div className="flex items-center gap-2 max-w-sm">
+        <div className="flex items-center gap-3 max-w-sm">
           <input type="color" value={base.length === 7 ? base : '#000000'} onChange={e => setBase(e.target.value)} className="w-12 h-12 rounded cursor-pointer bg-transparent border-0" />
-          <input type="text" value={base} onChange={e => setBase(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg px-4 py-3 text-[#111827] text-lg font-mono uppercase" />
+          <input type="text" value={base} onChange={e => setBase(e.target.value)} className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] text-lg font-mono uppercase" />
         </div>
       </div>
       
@@ -101,7 +101,7 @@ export function ColorShades() {
         {shades.length > 0 ? shades.map((hex, i) => (
           <div 
             key={i} 
-            className="flex-1 min-h-[50px] group flex flex-col md:justify-end p-2 md:p-4 transition-all hover:flex-[1.5] cursor-pointer"
+            className="flex-1 min-h-[50px] group flex flex-col md:justify-end p-3 md:p-4 transition-all hover:flex-[1.5] cursor-pointer"
             style={{ backgroundColor: hex }}
             onClick={() => { navigator.clipboard.writeText(hex); }}
           >

@@ -134,14 +134,14 @@ export function PdfOrganizer() {
             </div>
           </div>
           
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-2 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
             {pages.map((p, idx) => (
               <div key={p.id} className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden flex flex-col relative group">
                 <img src={p.dataUrl} alt={`Page ${idx + 1}`} className="w-full h-40 object-contain bg-white" />
-                <div className="absolute top-2 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
-                <div className="flex items-center justify-between p-2 pt-1 border-t border-[#E5E7EB] bg-slate-950/20">
+                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
+                <div className="flex items-center justify-between p-3 pt-1 border-t border-[#E5E7EB] bg-slate-950/20">
                   <div className="flex gap-0.5">
                     <button onClick={() => moveLeft(idx)} className="p-1 hover:bg-white/10 rounded text-[#6B7280] hover:text-[#111827]" disabled={idx === 0}>←</button>
                     <button onClick={() => moveRight(idx)} className="p-1 hover:bg-white/10 rounded text-[#6B7280] hover:text-[#111827]" disabled={idx === pages.length - 1}>→</button>
@@ -339,8 +339,8 @@ export function PdfSigner() {
               <div>
                 <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Signature Mode</h4>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => { setSignatureMode('draw'); setSignatureImg(null) }} className={`py-1.5 rounded-lg text-xs font-bold ${signatureMode === 'draw' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Draw</button>
-                  <button onClick={() => { setSignatureMode('upload'); setSignatureImg(null) }} className={`py-1.5 rounded-lg text-xs font-bold ${signatureMode === 'upload' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Upload</button>
+                  <button onClick={() => { setSignatureMode('draw'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'draw' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Draw</button>
+                  <button onClick={() => { setSignatureMode('upload'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'upload' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Upload</button>
                 </div>
               </div>
               
@@ -358,7 +358,7 @@ export function PdfSigner() {
                     onTouchStart={startDrawing}
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
-                    className="w-full bg-white border border-[#E5E7EB] rounded-lg cursor-crosshair"
+                    className="w-full bg-white border border-[#E5E7EB] rounded-2xl cursor-crosshair"
                   />
                   <button onClick={clearCanvas} className="text-xs text-[#6B7280] hover:text-[#111827] mt-1">Clear Canvas</button>
                 </div>
@@ -376,7 +376,7 @@ export function PdfSigner() {
                         reader.readAsDataURL(f)
                       }
                     }}
-                    className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#6B7280]"
+                    className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#6B7280]"
                   />
                 </div>
               )}
@@ -411,7 +411,7 @@ export function PdfSigner() {
           </div>
           
           {/* Preview Panel */}
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
             <div className="flex justify-between items-center w-full mb-3">
               <span className="text-xs text-[#6B7280]">Page {pageIndex + 1} of {totalPages}</span>
               <div className="flex gap-2">
@@ -603,7 +603,7 @@ export function EpubToPdf() {
         <p className="text-[#6B7280] text-xs">Converts ebooks to clean formatted standard PDF layout</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -690,7 +690,7 @@ export function PdfGrayscale() {
         <p className="text-[#6B7280] text-xs">Converts all colored sections and images into high-contrast grayscale</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -792,7 +792,7 @@ export function PdfMetadataEditor() {
                   type="text" 
                   value={metadata[key]}
                   onChange={e => setMetadata(prev => ({ ...prev, [key]: e.target.value }))}
-                  className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg p-2 text-[#111827] focus:outline-none focus:ring-1 focus:ring-danger"
+                  className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-danger"
                 />
               </div>
             ))}
@@ -805,7 +805,7 @@ export function PdfMetadataEditor() {
         </div>
       )}
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -914,9 +914,9 @@ export function ExtractPdfPages() {
             </div>
           </div>
           
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-2 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
             {pages.map((p, idx) => (
               <div 
                 key={p.id} 
@@ -924,7 +924,7 @@ export function ExtractPdfPages() {
                 className={`cursor-pointer border-2 rounded-xl overflow-hidden flex flex-col relative group transition-colors ${p.selected ? 'border-danger' : 'border-[#E5E7EB] hover:border-[#E5E7EB]'}`}
               >
                 <img src={p.dataUrl} alt={`Page ${p.pageIndex + 1}`} className={`w-full h-40 object-contain bg-white ${p.selected ? 'opacity-100' : 'opacity-70'}`} />
-                <div className="absolute top-2 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
+                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
                 {p.selected && (
                   <div className="absolute inset-0 bg-danger/20 flex items-center justify-center">
                     <CheckCircle className="w-10 h-10 text-danger bg-black/50 rounded-full" />

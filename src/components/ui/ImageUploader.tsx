@@ -75,7 +75,7 @@ export function ImageUploader({
 
       {/* FileErrorToast */}
       <div 
-        className={`absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] text-danger rounded-lg shadow-xl shadow-rose-500/10 transition-all duration-300 ease-out pointer-events-auto
+        className={`absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] text-danger rounded-xl shadow-xl shadow-rose-500/10 transition-all duration-300 ease-out pointer-events-auto
           ${showToast ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}`}
       >
         <AlertCircle className="w-5 h-5 shrink-0" />

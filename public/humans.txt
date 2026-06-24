@@ -1,0 +1,10 @@
+/* TEAM */
+  Developer: SmarTools Team
+  Site: https://smartools.pages.dev
+  Contact: hello@smartools.pages.dev
+
+/* SITE */
+  Last update: 2026
+  Standards: HTML5, CSS3, ES6
+  Components: React, Vite, TailwindCSS
+  Software: VSCode

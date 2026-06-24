@@ -5,14 +5,18 @@ import { CATEGORIES, TOOLS, Tool } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { useState, useMemo } from 'react'
+import { AdBanner } from '../components/ui/AdBanner'
+import { NativeAd } from '../components/ui/NativeAd'
 
 const getToolType = (tool: Tool) => {
   const n = tool.name.toLowerCase()
   const id = tool.id.toLowerCase()
   
   if (n.includes(' to ') || n.includes('converter') || id.includes('-to-')) return 'converters'
-  if (n.includes('generator') || n.includes('maker') || n.includes('creator') || n.includes('extract') || n.includes('extract')) return 'generators'
-  if (n.includes('remove') || n.includes('compress') || n.includes('watermark') || n.includes('filter') || n.includes('edit') || n.includes('resize') || n.includes('crop') || n.includes('format')) return 'editors'
+  
+  if (n.includes('generator') || n.includes('maker') || n.includes('creator') || n.includes('extract') || n.includes('builder') || n.includes('generate') || n.includes('parser') || n.includes('calculator')) return 'generators'
+  
+  if (n.includes('remove') || n.includes('compress') || n.includes('watermark') || n.includes('filter') || n.includes('edit') || n.includes('resize') || n.includes('crop') || n.includes('format') || n.includes('clean') || n.includes('unblur') || n.includes('optimizer') || n.includes('split') || n.includes('merge') || n.includes('combine')) return 'editors'
   
   return 'others'
 }
@@ -55,7 +59,7 @@ export function CategoryDetail() {
           </Link>
 
           <div className="flex flex-col md:flex-row md:items-center gap-5">
-            <div className="w-14 h-14 bg-white border border-[#E5E7EB] rounded-xl flex items-center justify-center shadow-sm shrink-0">
+            <div className="w-14 h-14 bg-white border border-[#E5E7EB] rounded-2xl flex items-center justify-center shadow-sm shrink-0">
               <Icon name={category.icon} className="w-7 h-7 text-[#111827]" />
             </div>
             <div>
@@ -75,13 +79,13 @@ export function CategoryDetail() {
         <div className="max-w-[1280px] mx-auto px-6">
           
           {/* ── Sub-category Filter Bar ── */}
-          <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-2.5 mb-10 hide-scrollbar" role="group" aria-label="Filter tools">
+          <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-3 mb-10 hide-scrollbar" role="group" aria-label="Filter tools">
             {FILTER_OPTIONS.map(opt => (
               <button
                 key={opt.id}
                 onClick={() => setActiveFilter(opt.id)}
                 aria-pressed={activeFilter === opt.id}
-                className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
+                className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   activeFilter === opt.id
                     ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
                     : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
@@ -99,6 +103,13 @@ export function CategoryDetail() {
             </h2>
           </div>
 
+          {/* Top Banner Ad */}
+          <div className="w-full flex flex-col items-center justify-center my-6">
+            <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+            <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+            <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+          </div>
+
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {categoryTools.length > 0 ? (
               categoryTools.map((tool, index) => (
@@ -112,13 +123,18 @@ export function CategoryDetail() {
                 <p className="text-[14px] text-[#6B7280]">We don't have any tools of this type in this category yet.</p>
                 <button
                   onClick={() => setActiveFilter('all')}
-                  className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
+                  className="mt-6 inline-flex items-center gap-3 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
                 >
                   View all {category.name}
                 </button>
               </div>
             )}
           </motion.div>
+
+          {/* Bottom Native Ad */}
+          <div className="mt-12">
+            <NativeAd />
+          </div>
         </div>
       </div>
     </div>

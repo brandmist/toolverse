@@ -6,18 +6,26 @@ import { TOOLS, CATEGORIES, Tool } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { useStore } from '../store/useStore'
+import { AdBanner } from '../components/ui/AdBanner'
+import { NativeAd } from '../components/ui/NativeAd'
 
 export function AllTools() {
   const [query, setQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [filterType, setFilterType] = useState<'all' | 'popular' | 'new' | 'favorites'>('all')
-  const [sortBy, setSortBy] = useState<'a-z' | 'popularity' | 'newest'>('popularity')
+  const [sortBy, setSortBy] = useState<'a-z' | 'popularity' | 'newest' | 'category'>('popularity')
   const { favorites } = useStore()
 
   const filteredTools = useMemo(() => {
     return TOOLS.filter((tool: Tool) => {
-      const matchesQuery = !query || tool.name.toLowerCase().includes(query.toLowerCase()) ||
-        tool.description.toLowerCase().includes(query.toLowerCase())
+      const lowerQuery = query.toLowerCase()
+      const matchesQuery = !query || 
+        tool.name.toLowerCase().includes(lowerQuery) ||
+        tool.description.toLowerCase().includes(lowerQuery) ||
+        (tool.features && tool.features.some(f => f.toLowerCase().includes(lowerQuery))) ||
+        (tool.useCases && tool.useCases.some(u => u.toLowerCase().includes(lowerQuery))) ||
+        (tool.developer && tool.developer.toLowerCase().includes(lowerQuery))
+        
       const matchesCategory = !selectedCategory || tool.categoryId === selectedCategory
       let matchesType = true
       if (filterType === 'popular') matchesType = !!tool.isPopular
@@ -27,6 +35,10 @@ export function AllTools() {
     }).sort((a, b) => {
       if (sortBy === 'a-z') return a.name.localeCompare(b.name)
       if (sortBy === 'newest') return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0)
+      if (sortBy === 'category') {
+        const catCompare = a.categoryId.localeCompare(b.categoryId)
+        return catCompare !== 0 ? catCompare : a.name.localeCompare(b.name)
+      }
       return (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0)
     })
   }, [query, selectedCategory, filterType, sortBy, favorites])
@@ -69,7 +81,7 @@ export function AllTools() {
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Search tools by name or category…"
-                className="w-full pl-10 pr-10 py-3 bg-white border border-[#E5E7EB] rounded-xl text-[14px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 transition-all"
+                className="w-full pl-10 pr-10 py-3 bg-white border border-[#E5E7EB] rounded-2xl text-[14px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 transition-all"
               />
               {query && (
                 <button
@@ -85,7 +97,7 @@ export function AllTools() {
             {/* Filters row */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               {/* Type filters */}
-              <div className="flex items-center gap-2 flex-wrap" role="group" aria-label="Filter by type">
+              <div className="flex items-center gap-3 flex-wrap" role="group" aria-label="Filter by type">
                 <span className="flex items-center gap-1.5 text-[12px] font-semibold text-[#9CA3AF] uppercase tracking-wider">
                   <SlidersHorizontal className="w-3.5 h-3.5" /> Filter
                 </span>
@@ -118,15 +130,16 @@ export function AllTools() {
                   <option value="popularity">Sort: Popular</option>
                   <option value="newest">Sort: Newest</option>
                   <option value="a-z">Sort: A–Z</option>
+                  <option value="category">Sort: Category</option>
                 </select>
               </div>
             </div>
 
             {/* Category pills */}
-            <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-2.5 hide-scrollbar" role="group" aria-label="Filter by category">
+            <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:pb-0 sm:flex-wrap gap-3 hide-scrollbar" role="group" aria-label="Filter by category">
               <button
                 onClick={() => setSelectedCategory(null)}
-                className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
+                className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   !selectedCategory
                     ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
                     : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
@@ -138,7 +151,7 @@ export function AllTools() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
+                  className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                     selectedCategory === cat.id
                       ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
                       : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
@@ -164,6 +177,13 @@ export function AllTools() {
             )}
           </div>
 
+          {/* Top Banner Ad */}
+          <div className="w-full flex flex-col items-center justify-center my-6">
+            <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+            <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+            <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+          </div>
+
           {/* ── Tools Grid ── */}
           {filteredTools.length > 0 ? (
             <motion.div
@@ -182,12 +202,17 @@ export function AllTools() {
               <p className="text-[14px] text-[#6B7280] mb-6">Try adjusting your search or clearing the filters.</p>
               <button
                 onClick={clearAll}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
+                className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
               >
                 <X className="w-4 h-4" /> Clear all filters
               </button>
             </div>
           )}
+
+          {/* Bottom Native Ad */}
+          <div className="mt-12">
+            <NativeAd />
+          </div>
         </div>
       </div>
     </>

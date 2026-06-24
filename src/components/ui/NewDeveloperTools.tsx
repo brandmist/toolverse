@@ -73,7 +73,7 @@ export function RegExExplainer() {
           <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">RegEx Breakdown</h4>
           <div className="space-y-2 max-h-[300px] overflow-auto pr-1">
             {explanation.map((item, idx) => (
-              <div key={idx} className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2.5 flex flex-col gap-1">
+              <div key={idx} className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 flex flex-col gap-1">
                 <span className="font-mono text-xs text-[#111827] font-bold bg-[#FAFAFA] border border-[#E5E7EB] px-2 py-0.5 rounded w-max">{item.token}</span>
                 <span className="text-xs text-[#111827]">{item.desc}</span>
               </div>
@@ -122,8 +122,8 @@ export function HtmlMarkdown() {
   return (
     <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div className="flex gap-2">
-        <button onClick={() => { setMode('h2m'); setInput('<h1>Hello World</h1>\n<p>This is a <strong>rich text paragraph</strong>.</p>') }} className={`py-1.5 px-4 rounded-lg text-xs font-bold ${mode === 'h2m' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>HTML → Markdown</button>
-        <button onClick={() => { setMode('m2h'); setInput('# Hello World\n\nThis is a **rich text paragraph**.') }} className={`py-1.5 px-4 rounded-lg text-xs font-bold ${mode === 'm2h' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Markdown → HTML</button>
+        <button onClick={() => { setMode('h2m'); setInput('<h1>Hello World</h1>\n<p>This is a <strong>rich text paragraph</strong>.</p>') }} className={`py-1.5 px-4 rounded-xl text-xs font-bold ${mode === 'h2m' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>HTML → Markdown</button>
+        <button onClick={() => { setMode('m2h'); setInput('# Hello World\n\nThis is a **rich text paragraph**.') }} className={`py-1.5 px-4 rounded-xl text-xs font-bold ${mode === 'm2h' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Markdown → HTML</button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -238,15 +238,15 @@ export function ColorContrast() {
           <div className="pt-2">
             <h4 className="text-sm font-semibold text-[#111827]">WCAG 2.0 Compliance:</h4>
             <div className="space-y-2 mt-2 text-xs">
-              <div className="flex justify-between p-2 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
+              <div className="flex justify-between p-3 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
                 <span>Normal Text AA (Contrast 4.5:1)</span>
                 <span className={`font-bold ${ratio >= 4.5 ? 'text-success' : 'text-danger'}`}>{ratio >= 4.5 ? 'PASS' : 'FAIL'}</span>
               </div>
-              <div className="flex justify-between p-2 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
+              <div className="flex justify-between p-3 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
                 <span>Large Text AA (Contrast 3.0:1)</span>
                 <span className={`font-bold ${ratio >= 3.0 ? 'text-success' : 'text-danger'}`}>{ratio >= 3.0 ? 'PASS' : 'FAIL'}</span>
               </div>
-              <div className="flex justify-between p-2 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
+              <div className="flex justify-between p-3 rounded bg-white border border-[#E5E7EB] border-[#E5E7EB]">
                 <span>Normal Text AAA (Contrast 7.0:1)</span>
                 <span className={`font-bold ${ratio >= 7.0 ? 'text-success' : 'text-danger'}`}>{ratio >= 7.0 ? 'PASS' : 'FAIL'}</span>
               </div>
@@ -307,7 +307,7 @@ export function EpochConverter() {
             <label className="text-xs text-[#6B7280] block mb-1">Enter Timestamp (seconds)</label>
             <input type="text" value={epoch} onChange={e => setEpoch(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm" />
           </div>
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] p-3 rounded-lg text-xs font-mono text-[#111827] flex items-center gap-2">
+          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] p-3 rounded-xl text-xs font-mono text-[#111827] flex items-center gap-2">
             <Info className="w-4 h-4 text-[#6B7280] shrink-0" />
             <span>UTC Date: {humanDate}</span>
           </div>
@@ -320,7 +320,7 @@ export function EpochConverter() {
             <label className="text-xs text-[#6B7280] block mb-1">Enter ISO/GMT Format Date</label>
             <input type="text" value={calendarInput} placeholder="e.g. 2026-06-20T12:00:00" onChange={e => setCalendarInput(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm" />
           </div>
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] p-3 rounded-lg text-xs font-mono text-success flex items-center gap-2">
+          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] p-3 rounded-xl text-xs font-mono text-success flex items-center gap-2">
             <Info className="w-4 h-4 text-[#6B7280] shrink-0" />
             <span>Epoch Value: {convertedEpoch}</span>
           </div>
@@ -399,9 +399,9 @@ export function CsvJsonYaml() {
   return (
     <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
       <div className="flex gap-2">
-        <button onClick={() => setOutputFormat('csv')} className={`py-1.5 px-4 rounded-lg text-xs font-bold ${outputFormat === 'csv' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to CSV</button>
-        <button onClick={() => setOutputFormat('json')} className={`py-1.5 px-4 rounded-lg text-xs font-bold ${outputFormat === 'json' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to JSON</button>
-        <button onClick={() => setOutputFormat('yaml')} className={`py-1.5 px-4 rounded-lg text-xs font-bold ${outputFormat === 'yaml' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to YAML</button>
+        <button onClick={() => setOutputFormat('csv')} className={`py-1.5 px-4 rounded-xl text-xs font-bold ${outputFormat === 'csv' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to CSV</button>
+        <button onClick={() => setOutputFormat('json')} className={`py-1.5 px-4 rounded-xl text-xs font-bold ${outputFormat === 'json' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to JSON</button>
+        <button onClick={() => setOutputFormat('yaml')} className={`py-1.5 px-4 rounded-xl text-xs font-bold ${outputFormat === 'yaml' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Export to YAML</button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>

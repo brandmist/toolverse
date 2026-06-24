@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Layers, Copy, Check, Plus, Trash2, RotateCcw, Shuffle } from 'lucide-react';
 
 export function CssShadowGenerator() {
@@ -65,7 +65,7 @@ export function CssShadowGenerator() {
             <div 
               key={idx} 
               onClick={() => setActiveIdx(idx)}
-              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-[#F9FAFB] border-[#111827] shadow-sm' : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB]'}`}
+              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-[#FAFAFA] border-[#111827] shadow-sm' : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB]'}`}
             >
               <div className="flex items-center gap-3">
                 <div className="w-6 h-6 rounded-md shadow-sm border border-[#E5E7EB]" style={{ background: hexToRgba(s.color, s.opacity) }}></div>
@@ -78,7 +78,7 @@ export function CssShadowGenerator() {
             </div>
           ))}
           {shadows.length < 6 && (
-            <button onClick={addShadow} className="flex items-center justify-center gap-2 w-full p-3 mt-1 border border-dashed border-[#D1D5DB] rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#111827] transition-colors">
+            <button onClick={addShadow} className="flex items-center justify-center gap-3 w-full p-3 mt-1 border border-dashed border-[#D1D5DB] rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#FAFAFA] hover:text-[#111827] transition-colors">
               <Plus className="w-4 h-4" /> Add Layer
             </button>
           )}
@@ -90,7 +90,7 @@ export function CssShadowGenerator() {
         <div className="space-y-5">
           <div className="flex items-center justify-between">
             <h4 className="text-[14px] font-bold text-[#111827]">Edit Layer {activeIdx + 1}</h4>
-            <label className="flex items-center gap-2 cursor-pointer">
+            <label className="flex items-center gap-3 cursor-pointer">
               <input type="checkbox" checked={activeShadow.inset} onChange={e => updateShadow('inset', e.target.checked)} className="rounded text-[#111827] focus:ring-[#111827]" />
               <span className="text-[13px] font-medium text-[#374151]">Inset</span>
             </label>
@@ -114,9 +114,9 @@ export function CssShadowGenerator() {
 
           <div>
             <span className="text-[13px] font-semibold text-[#374151] block mb-2">Color</span>
-            <div className="flex items-center gap-3 bg-[#F9FAFB] p-2 rounded-lg border border-[#E5E7EB]">
+            <div className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
               <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
-                <input type="color" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="absolute -top-2 -left-2 w-16 h-16 cursor-pointer" />
+                <input type="color" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
               </div>
               <input type="text" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
             </div>
@@ -147,7 +147,7 @@ export function CssShadowGenerator() {
            </code>
            <button 
              onClick={copyToClipboard}
-             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+             className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm"
              title="Copy CSS"
            >
              {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
@@ -208,9 +208,9 @@ export function CssGlassmorphism() {
 
           <div>
             <span className="text-[13px] font-semibold text-[#374151] block mb-2">Tint Color</span>
-            <div className="flex items-center gap-3 bg-[#F9FAFB] p-2 rounded-lg border border-[#E5E7EB]">
+            <div className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
               <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
-                <input type="color" value={tint} onChange={e => setTint(e.target.value)} className="absolute -top-2 -left-2 w-16 h-16 cursor-pointer" />
+                <input type="color" value={tint} onChange={e => setTint(e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
               </div>
               <input type="text" value={tint} onChange={e => setTint(e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
             </div>
@@ -247,7 +247,7 @@ export function CssGlassmorphism() {
            </code>
            <button 
              onClick={copyToClipboard}
-             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+             className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm"
              title="Copy CSS"
            >
              {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
@@ -318,14 +318,14 @@ export function CssGradientGenerator() {
         
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-[#111827]">Gradient Settings</h3>
-          <button onClick={generateRandom} className="p-2 text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6] rounded-lg transition-colors" title="Randomize">
+          <button onClick={generateRandom} className="p-3 text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6] rounded-xl transition-colors" title="Randomize">
             <Shuffle className="w-5 h-5" />
           </button>
         </div>
 
         <div>
           <label className="text-[13px] font-semibold text-[#374151] block mb-2">Type</label>
-          <div className="flex bg-[#F3F4F6] p-1 rounded-lg">
+          <div className="flex bg-[#F3F4F6] p-1 rounded-xl">
             <button onClick={() => setType('linear')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'linear' ? 'bg-white text-[#111827] shadow-sm' : 'text-[#6B7280] hover:text-[#374151]'}`}>Linear</button>
             <button onClick={() => setType('radial')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'radial' ? 'bg-white text-[#111827] shadow-sm' : 'text-[#6B7280] hover:text-[#374151]'}`}>Radial</button>
           </div>
@@ -343,14 +343,14 @@ export function CssGradientGenerator() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-[13px] font-semibold text-[#374151] block mb-2">Shape</label>
-              <select value={radialShape} onChange={e => setRadialShape(e.target.value as any)} className="w-full bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
+              <select value={radialShape} onChange={e => setRadialShape(e.target.value as any)} className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
                 <option value="circle">Circle</option>
                 <option value="ellipse">Ellipse</option>
               </select>
             </div>
             <div>
               <label className="text-[13px] font-semibold text-[#374151] block mb-2">Position</label>
-              <select value={radialPos} onChange={e => setRadialPos(e.target.value)} className="w-full bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
+              <select value={radialPos} onChange={e => setRadialPos(e.target.value)} className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
                 <option value="center">Center</option>
                 <option value="top left">Top Left</option>
                 <option value="top">Top</option>
@@ -377,9 +377,9 @@ export function CssGradientGenerator() {
           
           <div className="space-y-3">
             {colors.map((color, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-[#F9FAFB] p-2 rounded-lg border border-[#E5E7EB]">
+              <div key={idx} className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
                 <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
-                  <input type="color" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="absolute -top-2 -left-2 w-16 h-16 cursor-pointer" />
+                  <input type="color" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
                 </div>
                 <input type="text" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="w-20 bg-white border border-[#E5E7EB] rounded-md px-2 py-1 text-[#111827] text-xs uppercase focus:outline-none focus:border-[#111827]" />
                 <div className="flex-1 flex items-center gap-2">
@@ -409,7 +409,7 @@ export function CssGradientGenerator() {
            </code>
            <button 
              onClick={copyToClipboard}
-             className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors backdrop-blur-sm"
+             className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm"
              title="Copy CSS"
            >
              {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
@@ -516,7 +516,7 @@ export function CssTriangleGenerator() {
               <button 
                 key={dir} 
                 onClick={() => setDirection(dir as any)} 
-                className={`w-full py-2 capitalize rounded-lg border transition-colors ${direction === dir ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                className={`w-full py-2 capitalize rounded-xl border transition-colors ${direction === dir ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
               >
                 {dir}
               </button>
@@ -542,4 +542,135 @@ export function CssTriangleGenerator() {
       </div>
     </div>
   )
+}
+
+
+// CSS Animation Generator
+export function CssAnimationGenerator() {
+  const [animationType, setAnimationType] = useState('bounce');
+  const [duration, setDuration] = useState(1);
+  const [delay, setDelay] = useState(0);
+  const [iteration, setIteration] = useState('infinite');
+  const [timing, setTiming] = useState('ease-in-out');
+  const [copied, setCopied] = useState(false);
+
+  const animations = {
+    bounce: `@keyframes bounce {
+  0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+  50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); }
+}`,
+    pulse: `@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.05); }
+}`,
+    spin: `@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}`,
+    ping: `@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}`,
+    shake: `@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}`
+  };
+
+  const cssClass = `.animate-${animationType} {
+  animation: ${animationType} ${duration}s ${timing} ${delay}s ${iteration};
+}`;
+
+  const fullCss = `${animations[animationType as keyof typeof animations]}\n\n${cssClass}`;
+
+  // We inject the keyframes dynamically into the document head so the preview works
+  useEffect(() => {
+    const styleId = 'custom-animation-style';
+    let styleEl = document.getElementById(styleId) as HTMLStyleElement;
+    if (!styleEl) {
+      styleEl = document.createElement('style');
+      styleEl.id = styleId;
+      document.head.appendChild(styleEl);
+    }
+    styleEl.innerHTML = fullCss;
+  }, [fullCss]);
+
+  const copy = () => {
+    navigator.clipboard.writeText(fullCss);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-5">
+          <div>
+            <label className="text-[13px] font-semibold text-[#374151] mb-2 block">Animation Type</label>
+            <div className="grid grid-cols-3 gap-2">
+              {Object.keys(animations).map(type => (
+                <button
+                  key={type}
+                  onClick={() => setAnimationType(type)}
+                  className={`py-2 rounded-xl text-[13px] font-semibold capitalize transition-all ${animationType === type ? 'bg-[#111827] text-white shadow-sm' : 'bg-[#F3F4F6] text-[#6B7280] hover:text-[#111827]'}`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Duration ({duration}s)</label>
+              <input type="range" min="0.1" max="5" step="0.1" value={duration} onChange={e => setDuration(parseFloat(e.target.value))} className="w-full accent-[#111827]" />
+            </div>
+            <div>
+              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Delay ({delay}s)</label>
+              <input type="range" min="0" max="5" step="0.1" value={delay} onChange={e => setDelay(parseFloat(e.target.value))} className="w-full accent-[#111827]" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Iterations</label>
+              <select value={iteration} onChange={e => setIteration(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none">
+                <option value="infinite">Infinite</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Timing</label>
+              <select value={timing} onChange={e => setTiming(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none">
+                <option value="ease">ease</option>
+                <option value="linear">linear</option>
+                <option value="ease-in">ease-in</option>
+                <option value="ease-out">ease-out</option>
+                <option value="ease-in-out">ease-in-out</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <div className="flex-1 bg-gradient-to-br from-[#10B981] to-[#3B82F6] rounded-2xl flex items-center justify-center p-8 min-h-[250px] relative overflow-hidden">
+             {/* Dotted pattern */}
+             <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+             
+             <div className={`w-24 h-24 bg-white rounded-xl shadow-2xl animate-${animationType}`}></div>
+          </div>
+          
+          <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group min-h-[140px]">
+             <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Code</span>
+             <textarea readOnly value={fullCss} className="w-full h-[120px] bg-transparent text-[#A7F3D0] font-mono text-[13px] resize-none outline-none border-none p-0 pr-8" />
+             <button onClick={copy} className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm" title="Copy">
+               {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}
+             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

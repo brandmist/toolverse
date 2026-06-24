@@ -65,8 +65,8 @@ export function PdfUnlock() {
             <label className="text-xs text-[#6B7280] block mb-1">Document Password</label>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter PDF password" className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm" />
           </div>
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
-          {success && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">✓ PDF unlocked and downloaded successfully!</div>}
+          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+          {success && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">✓ PDF unlocked and downloaded successfully!</div>}
           <div className="flex gap-2">
             <Button onClick={handleUnlock} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" disabled={processing || !password}>
               {processing ? 'Decrypting...' : 'Remove Password Protection'}
@@ -144,7 +144,7 @@ export function PdfToWord() {
         <p className="text-[#6B7280] text-xs">Runs locally, preserving all page layouts and textual margins</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -218,7 +218,7 @@ export function PdfToPptx() {
         <p className="text-[#6B7280] text-xs">Stitches page graphics onto individual widescreen presentation slides</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -324,7 +324,7 @@ export function DocxToPdf() {
         <p className="text-[#6B7280] text-xs">Extracts structural text elements and wraps into clean formatted PDF sheets</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -463,19 +463,19 @@ export function PdfCrop() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-xs text-[#6B7280]">Top</label>
-                  <input type="number" value={margins.top} onChange={e => setMargins({...margins, top: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827]" />
+                  <input type="number" value={margins.top} onChange={e => setMargins({...margins, top: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
                 </div>
                 <div>
                   <label className="text-xs text-[#6B7280]">Bottom</label>
-                  <input type="number" value={margins.bottom} onChange={e => setMargins({...margins, bottom: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827]" />
+                  <input type="number" value={margins.bottom} onChange={e => setMargins({...margins, bottom: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
                 </div>
                 <div>
                   <label className="text-xs text-[#6B7280]">Left</label>
-                  <input type="number" value={margins.left} onChange={e => setMargins({...margins, left: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827]" />
+                  <input type="number" value={margins.left} onChange={e => setMargins({...margins, left: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
                 </div>
                 <div>
                   <label className="text-xs text-[#6B7280]">Right</label>
-                  <input type="number" value={margins.right} onChange={e => setMargins({...margins, right: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827]" />
+                  <input type="number" value={margins.right} onChange={e => setMargins({...margins, right: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
                 </div>
               </div>
             </div>
@@ -489,7 +489,7 @@ export function PdfCrop() {
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex flex-col justify-center items-center p-6 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+          <div className="flex-[2] flex flex-col justify-center items-center p-6 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB]">
              <FileText className="w-16 h-16 text-[#111827] mb-2" />
              <span className="text-xs text-[#6B7280]">Page Borders Crop Preview</span>
              <div className="mt-4 border-2 border-dashed border-[#E5E7EB] p-4 bg-slate-950/40 text-center text-xs text-[#6B7280]">
@@ -709,7 +709,7 @@ export function PdfEdit() {
           <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
               <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Annotation Text</h4>
-              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-2 text-[#111827] text-xs font-mono" />
+              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-mono" />
               
               <div>
                 <label className="text-xs text-[#6B7280] flex justify-between">X Placement: <span>{pos.x}%</span></label>
@@ -735,7 +735,7 @@ export function PdfEdit() {
             </div>
           </div>
           
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] relative min-h-[350px]">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] relative min-h-[350px]">
             {previewUrl && (
               <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block" />
@@ -835,7 +835,7 @@ export function PdfProtect() {
             <label className="text-xs text-[#6B7280] block mb-1">Set Password Protection</label>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Type encryption password" className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm text-center" />
           </div>
-          {isDone && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-lg p-3 text-center">✓ Protected HTML-PDF wrapper downloaded successfully!</div>}
+          {isDone && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center">✓ Protected HTML-PDF wrapper downloaded successfully!</div>}
           <div className="flex gap-2">
             <Button onClick={handleProtect} className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={!password}>
               Generate Protected Wrapper
