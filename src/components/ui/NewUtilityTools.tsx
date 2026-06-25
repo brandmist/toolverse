@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Button } from './button'
 import { Copy, Check } from 'lucide-react'
+import DOMPurify from 'dompurify'
 
 // Number Base Converter
 export function NumberBaseConverter() {
@@ -165,7 +166,7 @@ export function RegexTester() {
         <label className="text-sm text-[#111827] block mb-2">Highlighted Matches</label>
         <div
           className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm min-h-[80px] whitespace-pre-wrap break-words"
-          dangerouslySetInnerHTML={{ __html: result.highlighted }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(result.highlighted) }}
         />
       </div>
 

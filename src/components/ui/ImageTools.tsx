@@ -3,6 +3,7 @@ import { Button } from './button'
 import { Upload, Download, Copy, Image as ImageIcon } from 'lucide-react'
 import { useImageTool } from '../../context/ImageToolContext'
 import { ImageUploader } from './ImageUploader'
+import DOMPurify from 'dompurify'
 
 // 1. Image to Base64
 export function ImageToBase64() {
@@ -149,7 +150,7 @@ export function SvgBlobGenerator() {
       <div className="flex-[1.5] flex items-center justify-center p-8 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px]">
          <div
            className="w-full max-w-[300px] aspect-square transition-all duration-500 ease-in-out"
-           dangerouslySetInnerHTML={{ __html: blob }}
+           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blob) }}
          />
       </div>
     </div>

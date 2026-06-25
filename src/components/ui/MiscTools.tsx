@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { marked } from 'marked'
 import { Button } from './button'
 import { Copy, RefreshCw, Hash, Link as LinkIcon, BoxSelect, PaintBucket, Loader, Triangle } from 'lucide-react'
+import DOMPurify from 'dompurify'
 
 // Dummy/Simple implementations for all remaining tools to make them "working"
 export function LoremIpsum() {
@@ -43,7 +44,7 @@ export function BionicReading() {
       />
       <div 
         className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] rounded-2xl overflow-auto text-[#111827]  shadow-lg shadow-sm"
-        dangerouslySetInnerHTML={{ __html: output || convert(text) }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(output || convert(text)) }}
       />
     </div>
   )

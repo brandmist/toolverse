@@ -3,6 +3,7 @@ import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Facebook, Tag } 
 import { Helmet } from 'react-helmet-async'
 import { BLOGS } from '../data/blogs'
 import { AdBanner } from '../components/ui/AdBanner'
+import DOMPurify from 'dompurify'
 
 export function BlogDetail() {
   const { slug } = useParams()
@@ -160,7 +161,7 @@ export function BlogDetail() {
 
           <div 
             className="prose prose-lg max-w-none text-text-muted prose-headings:font-extrabold prose-headings:text-text-primary prose-headings:tracking-tight prose-a:text-button-primary prose-a:font-bold hover:prose-a:underline prose-strong:text-text-primary prose-blockquote:border-l-4 prose-blockquote:border-text-primary prose-blockquote:bg-card prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-text-primary prose-blockquote:shadow-sm prose-table:border-collapse prose-td:border prose-td:border-border prose-th:border prose-th:border-border prose-th:bg-surface prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-[#111827] prose-pre:text-[#A7F3D0] prose-pre:rounded-xl prose-pre:shadow-inner"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
           />
 
           {/* Tags */}
