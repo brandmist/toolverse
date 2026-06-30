@@ -33,8 +33,15 @@ const McpDashboard = lazy(() => import('./features/mcp/components/McpDashboard')
 
 // Loading Fallback
 const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-[60vh]">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+  <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6" aria-live="polite" aria-busy="true">
+    <div className="relative flex items-center justify-center w-16 h-16">
+      <div className="absolute inset-0 rounded-full border-[3px] border-border"></div>
+      <div className="absolute inset-0 rounded-full border-[3px] border-primary border-t-transparent animate-spin"></div>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="h-2 w-24 bg-border rounded-full animate-pulse"></div>
+      <div className="h-1.5 w-16 bg-surface-hover rounded-full animate-pulse delay-75"></div>
+    </div>
   </div>
 );
 

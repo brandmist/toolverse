@@ -60,7 +60,7 @@ export function Search() {
             <SlidersHorizontal className="w-3.5 h-3.5" /> Filters
           </div>
           <button 
-            className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === null ? 'bg-primary text-white border-[#111827]' : 'bg-white border-border text-muted hover:border-border-hover hover:text-primary'}`}
+            className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === null ? 'bg-primary text-white border-primary' : 'bg-white border-border text-muted hover:border-border-hover hover:text-primary'}`}
             onClick={() => setSelectedCategory(null)}
           >
             All
@@ -68,7 +68,7 @@ export function Search() {
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
-              className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === cat.id ? 'bg-primary text-white border-[#111827]' : 'bg-white border-border text-muted hover:border-border-hover hover:text-primary'}`}
+              className={`px-4 py-1.5 rounded-xl text-[13px] font-semibold transition-colors border ${selectedCategory === cat.id ? 'bg-primary text-white border-primary' : 'bg-white border-border text-muted hover:border-border-hover hover:text-primary'}`}
               onClick={() => setSelectedCategory(cat.id)}
             >
               {cat.name}

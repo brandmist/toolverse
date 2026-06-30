@@ -101,7 +101,7 @@ export function CategoryDetail() {
                 aria-pressed={activeFilter === opt.id}
                 className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   activeFilter === opt.id
-                    ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                    ? 'bg-primary text-white border-primary shadow-md shadow-black/10'
                     : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                 }`}
               >

@@ -65,7 +65,7 @@ export function CssShadowGenerator() {
             <div 
               key={idx} 
               onClick={() => setActiveIdx(idx)}
-              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-surface border-[#111827] shadow-sm' : 'bg-white border-border hover:border-border-hover'}`}
+              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-surface border-primary shadow-sm' : 'bg-white border-border hover:border-border-hover'}`}
             >
               <div className="flex items-center gap-3">
                 <div className="w-6 h-6 rounded-md shadow-sm border border-border" style={{ background: hexToRgba(s.color, s.opacity) }}></div>

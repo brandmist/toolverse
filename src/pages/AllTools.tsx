@@ -108,7 +108,7 @@ export function AllTools() {
                     onClick={() => setFilterType(type)}
                     className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-[13px] font-semibold border transition-all ${
                       filterType === type
-                        ? 'bg-primary text-white border-[#111827]'
+                        ? 'bg-primary text-white border-primary'
                         : 'bg-white text-muted border-border hover:border-border-hover hover:text-primary'
                     }`}
                   >
@@ -142,7 +142,7 @@ export function AllTools() {
                 onClick={() => setSelectedCategory(null)}
                 className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   !selectedCategory
-                    ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                    ? 'bg-primary text-white border-primary shadow-md shadow-black/10'
                     : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                 }`}
               >
@@ -154,7 +154,7 @@ export function AllTools() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                     selectedCategory === cat.id
-                      ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                      ? 'bg-primary text-white border-primary shadow-md shadow-black/10'
                       : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                   }`}
                 >
