@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/ui/SEO';
 import { ArrowRight, Mail, MessageSquare, HelpCircle, Shield, FileText, Lock, Users, Zap, Globe } from 'lucide-react';
 import { BLOGS } from '../data/blogs';
 import { AdBanner } from '../components/ui/AdBanner';
@@ -8,10 +9,11 @@ import { NativeAd } from '../components/ui/NativeAd';
 
 const AboutPage = () => (
   <div className="space-y-24">
-    <Helmet>
-      <title>About Us | SmarTools - Empowering Creators</title>
-      <meta name="description" content="SmarTools is a leading platform providing 200+ free online tools for developers, designers, and creators. Learn about our privacy-first mission." />
-    </Helmet>
+    <SEO 
+      title="About Us | SmarTools - Empowering Creators"
+      description="SmarTools is a leading platform providing 200+ free online tools for developers, designers, and creators. Learn about our privacy-first mission."
+      url="https://smartools.pages.dev/about"
+    />
     <section className="text-center max-w-4xl mx-auto pt-12">
       <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">Empowering creators with <br/><span className="text-text-muted">premium tools, for free.</span></h1>
       <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
@@ -56,10 +58,11 @@ const AboutPage = () => (
 
 const ContactPage = () => (
   <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 pt-12">
-    <Helmet>
-      <title>Contact Us | Support & Community | SmarTools</title>
-      <meta name="description" content="Get in touch with the SmarTools team. For support, bug reports, or feature requests, contact us via email or join our community Discord server." />
-    </Helmet>
+    <SEO 
+      title="Contact Us | Support & Community | SmarTools"
+      description="Get in touch with the SmarTools team. For support, bug reports, or feature requests, contact us via email or join our community Discord server."
+      url="https://smartools.pages.dev/contact"
+    />
     <div className="lg:w-1/2">
       <h1 className="text-5xl lg:text-6xl font-extrabold text-text-primary mb-6 tracking-tight">Get in touch</h1>
       <p className="text-xl text-text-muted leading-relaxed mb-12">
@@ -286,10 +289,11 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
 
   return (
     <div className="flex flex-col md:flex-row gap-12 pt-12">
-      <Helmet>
-        <title>{config.title} | SmarTools</title>
-        <meta name="description" content={config.description} />
-      </Helmet>
+      <SEO 
+        title={`${config.title} | SmarTools`}
+        description={config.description}
+        url={`https://smartools.pages.dev/${type}`}
+      />
       <div className="md:w-1/4 shrink-0">
         <div className="sticky top-32 space-y-2">
           <Link to="/privacy" className={`block px-4 py-3 rounded-xl font-bold transition-colors ${type === 'privacy' ? 'bg-button-primary text-button-primary-text' : 'text-text-muted hover:text-text-primary hover:bg-card border border-transparent hover:border-border'}`}>
@@ -341,10 +345,11 @@ const LegalPage = ({ type }: { type: LegalPageType }) => {
 
 const BlogList = () => (
   <div className="pt-12">
-    <Helmet>
-      <title>Blog & Insights | SmarTools</title>
-      <meta name="description" content="Expert guides on image compression, PDF tools, technical SEO, developer tools, color theory, and web privacy. Actionable tutorials with free browser-based tools." />
-    </Helmet>
+    <SEO 
+      title="Blog & Insights | SmarTools"
+      description="Expert guides on image compression, PDF tools, technical SEO, developer tools, color theory, and web privacy. Actionable tutorials with free browser-based tools."
+      url="https://smartools.pages.dev/blog"
+    />
     <div className="mb-16 text-center max-w-4xl mx-auto">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight">The SmarTools Blog</h1>
       <p className="text-xl text-text-muted leading-relaxed">
@@ -377,10 +382,11 @@ const BlogList = () => (
 
 const CareersPage = () => (
   <div className="pt-12 max-w-4xl mx-auto">
-    <Helmet>
-      <title>Careers | Join the SmarTools Team</title>
-      <meta name="description" content="We're hiring! Explore job opportunities at SmarTools and help us build the next generation of web tools." />
-    </Helmet>
+    <SEO 
+      title="Careers | Join the SmarTools Team"
+      description="We're hiring! Explore job opportunities at SmarTools and help us build the next generation of web tools."
+      url="https://smartools.pages.dev/careers"
+    />
     <div className="text-center mb-16">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight">Join Our Team</h1>
       <p className="text-xl text-text-muted leading-relaxed">
@@ -416,10 +422,11 @@ const CareersPage = () => (
 
 const PartnersPage = () => (
   <div className="pt-12 max-w-5xl mx-auto">
-    <Helmet>
-      <title>Partners | SmarTools Ecosystem</title>
-      <meta name="description" content="Partner with SmarTools to integrate our premium web tools into your platform. Let's build together." />
-    </Helmet>
+    <SEO 
+      title="Partners | SmarTools Ecosystem"
+      description="Partner with SmarTools to integrate our premium web tools into your platform. Let's build together."
+      url="https://smartools.pages.dev/partners"
+    />
     <div className="text-center mb-16">
       <h1 className="text-5xl lg:text-7xl font-extrabold text-text-primary mb-6 tracking-tight">Partner with Us</h1>
       <p className="text-xl text-text-muted leading-relaxed">
@@ -499,10 +506,10 @@ export function StaticPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{getTitle()} | SmarTools</title>
-        <meta name="description" content={`${getTitle()} on SmarTools.`} />
-      </Helmet>
+      <SEO 
+        title={`${getTitle()} | SmarTools`}
+        description={`${getTitle()} on SmarTools.`}
+      />
       
       <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen bg-surface">
         <div className="flex justify-center w-full mb-8">

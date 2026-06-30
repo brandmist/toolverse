@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Search, ArrowLeft, ArrowRight } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { TOOLS } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 
@@ -9,10 +9,10 @@ export function NotFound() {
 
   return (
     <>
-      <Helmet>
-        <title>Page Not Found — SmarTools</title>
-        <meta name="description" content="The page you're looking for doesn't exist. Browse 200+ free tools on SmarTools." />
-      </Helmet>
+      <SEO 
+        title="Page Not Found — SmarTools"
+        description="The page you're looking for doesn't exist. Browse 200+ free tools on SmarTools."
+      />
 
       <div className="min-h-screen bg-white">
         {/* ── 404 Hero ── */}

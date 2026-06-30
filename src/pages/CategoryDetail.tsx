@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
+import { SEO } from '../components/ui/SEO'
 import { motion } from 'motion/react'
 import { ArrowLeft, SlidersHorizontal, ArrowRightLeft, Settings2, Sparkles, LayoutGrid } from 'lucide-react'
 import { CATEGORIES, TOOLS, Tool } from '../data/tools'
@@ -46,7 +47,20 @@ export function CategoryDetail() {
   ]
 
   return (
-    <div className="bg-white min-h-screen">
+    <>
+      <SEO 
+        title={`${category.name} Tools — SmarTools`}
+        description={category.description}
+        url={`https://smartools.pages.dev/category/${category.id}`}
+        schemas={[{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": `${category.name} Tools`,
+          "description": category.description,
+          "url": `https://smartools.pages.dev/category/${category.id}`
+        }]}
+      />
+      <div className="bg-white min-h-screen">
       {/* Clean Enterprise Header */}
       <div className="pt-24 pb-12 border-b border-[#E5E7EB] bg-[#FAFAFA]">
         <div className="max-w-[1280px] mx-auto px-6">
@@ -138,5 +152,6 @@ export function CategoryDetail() {
         </div>
       </div>
     </div>
+    </>
   )
 }

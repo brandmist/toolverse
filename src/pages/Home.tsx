@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import {
   Search, ArrowRight, Shield, Zap, Lock, Clock, Star, CheckCircle2, ChevronDown, ChevronUp
 } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { TOOLS, CATEGORIES } from '../data/tools'
@@ -223,14 +223,12 @@ export function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>SmarTools - Free Online PDF, Image & Dev Tools</title>
-        <meta name="description" content={`${TOOLS.length} powerful, free online tools for developers, designers, and creators. Convert PDFs, edit images, format code, and more. 100% client-side privacy.`} />
-        <link rel="canonical" href="https://smartools.pages.dev" />
-        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <SEO 
+        title="SmarTools - Free Online PDF, Image & Dev Tools"
+        description={`${TOOLS.length} powerful, free online tools for developers, designers, and creators. Convert PDFs, edit images, format code, and more. 100% client-side privacy.`}
+        url="https://smartools.pages.dev"
+        schemas={[orgSchema, websiteSchema, faqSchema]}
+      />
       <div className="bg-white">
 
       {/* ══════════════════════════════════════════════

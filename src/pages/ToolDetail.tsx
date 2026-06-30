@@ -1,6 +1,6 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { Share2, Heart, CheckCircle2, HelpCircle, Star, Check, X, ShieldCheck } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { useEffect, Suspense, lazy } from 'react'
 import { toast } from 'sonner'
 import { TOOLS, CATEGORIES } from '../data/tools'
@@ -412,20 +412,12 @@ export function ToolDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{tool.name} — Free Online Tool | SmarTools</title>
-        <meta name="description" content={`Free online ${tool.name}. ${tool.description} No installation or sign-up required. Secure and fast.`} />
-        <meta property="og:title" content={`${tool.name} — Free Online Tool`} />
-        <meta property="og:description" content={tool.description} />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href={`https://smartools.pages.dev/tool/${tool.id}`} />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(howToSchema)}
-        </script>
-      </Helmet>
+      <SEO 
+        title={`${tool.name} — Free Online Tool | SmarTools`}
+        description={`Free online ${tool.name}. ${tool.description} No installation or sign-up required. Secure and fast.`}
+        url={`https://smartools.pages.dev/tool/${tool.id}`}
+        schemas={[schemaOrgJSONLD, howToSchema]}
+      />
 
       <div className="min-h-screen bg-white">
         {/* ── Page header ── */}

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { motion } from 'motion/react'
 import { Search, X, SlidersHorizontal, ArrowUpDown, Heart } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { TOOLS, CATEGORIES, Tool } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
@@ -48,10 +48,11 @@ export function AllTools() {
 
   return (
     <>
-      <Helmet>
-        <title>All Tools — SmarTools</title>
-        <meta name="description" content="Browse 200+ free online tools for PDF, image, text, coding, and more. No sign-up. All browser-based." />
-      </Helmet>
+      <SEO 
+        title="All Tools — SmarTools"
+        description="Browse 200+ free online tools for PDF, image, text, coding, and more. No sign-up. All browser-based."
+        url="https://smartools.pages.dev/tools"
+      />
 
       <div className="min-h-screen bg-white">
         {/* ── Page Header ── */}

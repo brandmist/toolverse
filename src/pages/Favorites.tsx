@@ -1,3 +1,4 @@
+import { SEO } from '../components/ui/SEO'
 import { useStore } from '../store/useStore'
 import { TOOLS } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
@@ -15,8 +16,14 @@ export function Favorites() {
   const recommendedTools = TOOLS.filter(t => t.isPopular).slice(0, 4)
 
   return (
-    <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen relative z-10 bg-surface">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+    <>
+      <SEO 
+        title="Your Favorites — SmarTools"
+        description="Access your saved favorite tools for quick access. Stored securely on your device."
+        url="https://smartools.pages.dev/favorites"
+      />
+      <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen relative z-10 bg-surface">
+        <div className="text-center max-w-3xl mx-auto mb-16">
         <h1 className="font-sans text-4xl md:text-5xl font-extrabold mb-4 text-text-primary tracking-tight">Your Favorites</h1>
         <p className="text-xl text-text-muted leading-relaxed">
           Tools you've saved for quick access. Stored securely on your device.
@@ -69,5 +76,6 @@ export function Favorites() {
         <NativeAd />
       </div>
     </div>
+    </>
   )
 }

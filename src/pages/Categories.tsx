@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { Link } from 'react-router-dom'
 import { CATEGORIES } from '../data/tools'
 import { CategoryCard } from '../components/ui/CategoryCard'
@@ -18,13 +18,12 @@ export function Categories() {
 
   return (
     <>
-      <Helmet>
-        <title>Tool Categories — SmarTools</title>
-        <meta name="description" content="Browse 200+ free online tools organized by category: PDF, image, text, coding, color, social and more." />
-        <script type="application/ld+json">
-          {JSON.stringify(collectionSchema)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Tool Categories — SmarTools"
+        description="Browse 200+ free online tools organized by category: PDF, image, text, coding, color, social and more."
+        url="https://smartools.pages.dev/categories"
+        schemas={[collectionSchema]}
+      />
 
       <div className="min-h-screen bg-white">
         {/* ── Page Header ── */}

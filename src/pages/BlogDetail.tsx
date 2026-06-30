@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Facebook, Tag } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/SEO'
 import { BLOGS } from '../data/blogs'
 import { AdBanner } from '../components/ui/AdBanner'
 import DOMPurify from 'dompurify'
@@ -87,33 +87,13 @@ export function BlogDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} | SmarTools Blog</title>
-        <meta name="description" content={post.metaDescription || post.title} />
-        <link rel="canonical" href={pageUrl} />
-        {/* Open Graph */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.metaDescription || post.title} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:site_name" content="SmarTools" />
-        <meta property="article:published_time" content={new Date(post.date).toISOString()} />
-        <meta property="article:author" content={post.author.name} />
-        {post.tags?.map(tag => (
-          <meta key={tag} property="article:tag" content={tag} />
-        ))}
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.metaDescription || post.title} />
-        {/* Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(articleSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEO 
+        title={`${post.title} | SmarTools Blog`}
+        description={post.metaDescription || post.title}
+        url={pageUrl}
+        type="article"
+        schemas={[articleSchema, breadcrumbSchema]}
+      />
 
       <div className="pt-24 pb-20 min-h-screen bg-surface">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

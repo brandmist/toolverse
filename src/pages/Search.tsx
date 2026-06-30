@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { SEO } from '../components/ui/SEO'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { SearchIcon, X, SlidersHorizontal } from 'lucide-react'
@@ -22,7 +23,13 @@ export function Search() {
   }, [query, selectedCategory])
 
   return (
-    <div className="pt-24 pb-20 max-w-[1280px] mx-auto px-6 min-h-screen bg-white">
+    <>
+      <SEO 
+        title="Search Tools — SmarTools"
+        description="Search through our curated directory of 200+ premium free tools."
+        url="https://smartools.pages.dev/search"
+      />
+      <div className="pt-24 pb-20 max-w-[1280px] mx-auto px-6 min-h-screen bg-white">
       <div className="mb-12 text-center max-w-3xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#111827] tracking-tight leading-tight">Find the perfect tool</h1>
         <p className="text-[16px] text-[#6B7280] mb-8">Search through our curated directory of 200+ premium tools.</p>
@@ -109,5 +116,6 @@ export function Search() {
         </div>
       </div>
     </div>
+    </>
   )
 }
