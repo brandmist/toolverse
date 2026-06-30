@@ -11,7 +11,12 @@
   --color-card:             var(--card);
   --color-card-hover:       var(--card-hover);
   --color-border:           var(--border);
+  --color-border-hover:     var(--border-strong);
   --color-border-strong:    var(--border-strong);
+
+  --color-primary:          var(--text-primary);
+  --color-secondary:        var(--text-secondary);
+  --color-muted:            var(--text-muted);
 
   --color-text-primary:     var(--text-primary);
   --color-text-secondary:   var(--text-secondary);
@@ -516,22 +521,6 @@
   .font-mono {
     font-family: var(--font-mono), monospace;
   }
-
-  /* ── Success/result text should be visible on white ── */
-  .text-success { color: #059669 !important; }
-  .text-warning  { color: #D97706 !important; }
-  .text-danger   { color: #DC2626 !important; }
-  .bg-success    { background-color: #ECFDF5 !important; }
-  .bg-warning    { background-color: #FFFBEB !important; }
-  .bg-danger     { background-color: #FEF2F2 !important; }
-
-  /* ── Tool button variants — override old glass buttons ── */
-  .bg-card { background-color: var(--card) !important; }
-  .text-text-primary   { color: var(--text-primary) !important; }
-  .text-text-secondary { color: var(--text-secondary) !important; }
-  .text-text-muted     { color: var(--text-muted) !important; }
-  .bg-surface { background-color: var(--surface) !important; }
-  .border-border { border-color: var(--border) !important; }
 
   /* ── Upload / drop zones ── */
   [class*="border-dashed"] {

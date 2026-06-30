@@ -37,7 +37,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
               </h3>
               {/* Badges */}
               <div className="flex flex-wrap justify-end shrink-0 gap-1.5 mt-0.5">
-                {tool.isPopular && <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-warning/10 text-warning rounded-md">Hot</span>}
+                {tool.isPopular && <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-[#F59E0B]/10 text-warning rounded-md">Hot</span>}
                 {tool.isNew && <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 bg-[#3B82F6]/10 text-[#3B82F6] rounded-md">New</span>}
               </div>
             </div>
@@ -51,14 +51,14 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
         </p>
 
         {/* Footer */}
-        <div className="pt-4 border-t border-border flex items-center justify-between mt-auto">
+        <div className="pt-4 border-t border-[#F3F4F6] flex items-center justify-between mt-auto">
           <div className="flex items-center gap-1.5">
             <div className="flex -space-x-1">
-               <Star className="w-4 h-4 fill-warning text-warning" />
-               <Star className="w-4 h-4 fill-warning text-warning" />
-               <Star className="w-4 h-4 fill-warning text-warning" />
-               <Star className="w-4 h-4 fill-warning text-warning" />
-               <Star className="w-4 h-4 fill-warning text-warning" />
+               <Star className="w-4 h-4 fill-[#F59E0B] text-warning" />
+               <Star className="w-4 h-4 fill-[#F59E0B] text-warning" />
+               <Star className="w-4 h-4 fill-[#F59E0B] text-warning" />
+               <Star className="w-4 h-4 fill-[#F59E0B] text-warning" />
+               <Star className="w-4 h-4 fill-[#F59E0B] text-warning" />
             </div>
             <span className="text-[13px] font-semibold text-muted ml-1">{tool.rating || '4.9'}</span>
           </div>
@@ -66,10 +66,10 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, index = 0 }) => {
           <div className="flex items-center gap-2">
             <button
               onClick={e => { e.preventDefault(); toggleFavorite(tool.id) }}
-              className="p-3 rounded-xl text-border-strong hover:text-danger hover:bg-danger/10 transition-colors relative z-20"
+              className="p-3 rounded-xl text-[#D1D5DB] hover:text-danger hover:bg-[#FEF2F2] transition-colors relative z-20"
               aria-label="Toggle Favorite"
             >
-              <Heart className="w-4 h-4" fill={isFavorite ? 'currentColor' : 'none'} stroke="currentColor" />
+              <Heart className="w-4 h-4" fill={isFavorite ? '#EF4444' : 'none'} stroke={isFavorite ? '#EF4444' : 'currentColor'} />
             </button>
             <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-surface border border-border text-secondary group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
               <ArrowRight className="w-4 h-4" />

@@ -85,7 +85,7 @@ export function Footer() {
                   <span className="text-sm text-success font-medium">You're subscribed!</span>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
+                <form onSubmit={handleSubscribe} className="flex gap-2">
                   <label htmlFor="footer-email" className="sr-only">Email address</label>
                   <input
                     id="footer-email"
@@ -94,11 +94,11 @@ export function Footer() {
                     onChange={e => setEmail(e.target.value)}
                     placeholder="you@example.com"
                     required
-                    className="w-full h-10 px-3 text-sm bg-surface border border-border rounded-lg text-primary placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                    className="flex-1 h-10 px-3 text-sm bg-surface border border-border rounded-lg text-primary placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   />
                   <button
                     type="submit"
-                    className="w-full h-10 px-4 bg-primary text-white text-[13px] font-semibold rounded-lg hover:bg-primary-hover transition-colors flex items-center justify-center"
+                    className="h-10 px-4 bg-primary text-white text-[13px] font-semibold rounded-lg hover:bg-primary-hover transition-colors whitespace-nowrap flex items-center justify-center"
                   >
                     Subscribe
                   </button>
