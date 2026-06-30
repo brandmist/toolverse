@@ -38,7 +38,8 @@ export default defineConfig(() => {
           ]
         },
         workbox: {
-          maximumFileSizeToCacheInBytes: 30000000 // 30MB to cache WASM binaries
+          maximumFileSizeToCacheInBytes: 30000000, // 30MB to cache WASM binaries
+          navigateFallbackDenylist: [/^\/sitemap\.xml$/, /^\/robots\.txt$/, /^\/rss\.xml$/]
         }
       })
     ],
