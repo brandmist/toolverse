@@ -57,6 +57,7 @@ export default function App() {
               <div className="fixed bottom-[-100px] left-[-100px] w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
               
               <div className="relative z-10 flex flex-col min-h-screen w-full">
+                <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#111827] focus:text-white focus:rounded-md focus:font-bold">Skip to main content</a>
                 <Navbar />
 
                 {/* Floating Skyscrapers - Desktop Only */}
@@ -67,7 +68,7 @@ export default function App() {
                   <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} />
                 </div>
 
-                <main className="flex-grow">
+                <main id="main-content" className="flex-grow focus:outline-none" tabIndex={-1}>
                   <Suspense fallback={<PageLoader />}>
                     <Routes>
                       <Route path="/" element={<Home />} />

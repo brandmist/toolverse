@@ -11,9 +11,10 @@ const BASE_URL = 'https://smartools.pages.dev';
 
 function generateSitemap() {
   const urls: string[] = [];
-  const addUrl = (loc: string, priority: string = '0.8', changefreq: string = 'weekly') => {
+  const addUrl = (loc: string, priority: string = '0.8', changefreq: string = 'weekly', lastmod?: string) => {
+    const lastModStr = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : `\n    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>`;
     urls.push(`  <url>
-    <loc>${BASE_URL}${loc}</loc>
+    <loc>${BASE_URL}${loc}</loc>${lastModStr}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`);
@@ -42,7 +43,8 @@ function generateSitemap() {
 
   // Blogs
   BLOGS.forEach(blog => {
-    addUrl(`/blog/${blog.id}`, '0.7', 'monthly');
+    const blogDate = new Date(blog.date).toISOString().split('T')[0];
+    addUrl(`/blog/${blog.id}`, '0.7', 'monthly', blogDate);
   });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
