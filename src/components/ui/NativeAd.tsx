@@ -20,7 +20,7 @@ export function NativeAd({ className = '' }: { className?: string }) {
   }, []);
 
   return (
-    <div className={`flex justify-center items-center w-full my-4 ${className}`} ref={containerRef} style={{ minHeight: 280 }}>
+    <div className={`flex justify-center items-center w-full ${className}`} ref={containerRef} style={{ minHeight: 280 }}>
       <div id="container-f71075d0839b692b3cb637fedcb7baae" className="w-full"></div>
     </div>
   );

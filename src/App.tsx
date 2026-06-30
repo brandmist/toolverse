@@ -14,6 +14,7 @@ import { McpProvider } from './features/mcp/context/McpContext';
 import { useStore } from './store/useStore';
 import { NativeAd } from './components/ui/NativeAd';
 import { AdBanner } from './components/ui/AdBanner';
+import { ResponsiveAd } from './components/ui/ResponsiveAd';
 
 
 // Statically imported pages (critical for LCP and CLS)
@@ -60,12 +61,9 @@ export default function App() {
                 <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:font-bold">Skip to main content</a>
                 <Navbar />
 
-                {/* Floating Skyscrapers - Desktop Only */}
+                {/* Floating Skyscraper - Desktop Only (Right Side) */}
                 <div className="hidden xl:block fixed top-1/2 right-4 -translate-y-1/2 z-40">
-                  <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} />
-                </div>
-                <div className="hidden xl:block fixed top-1/2 left-4 -translate-y-1/2 z-40">
-                  <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} />
+                  <ResponsiveAd type="sidebar" className="!my-0" />
                 </div>
 
                 <main id="main-content" className="flex-grow focus:outline-none" tabIndex={-1}>
@@ -93,7 +91,7 @@ export default function App() {
                 <div className="w-full bg-surface border-t border-border pt-8">
                   <div className="max-w-[1280px] mx-auto px-6">
                     <p className="text-[11px] font-bold text-subtle uppercase tracking-wider mb-2 text-center">Sponsored Content</p>
-                    <NativeAd />
+                    <ResponsiveAd type="native" className="!my-0" />
                   </div>
                 </div>
                 <Footer />

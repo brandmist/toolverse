@@ -8,8 +8,7 @@ const Icon = lazy(() => import('../components/ui/icon').then(m => ({ default: m.
 import { useStore } from '../store/useStore'
 
 // Tool Implementations
-const AdBanner = lazy(() => import('../components/ui/AdBanner').then(m => ({ default: m.AdBanner })))
-const NativeAd = lazy(() => import('../components/ui/NativeAd').then(m => ({ default: m.NativeAd })))
+const ResponsiveAd = lazy(() => import('../components/ui/ResponsiveAd').then(m => ({ default: m.ResponsiveAd })))
 const CaseConverter = lazy(() => import('../components/ui/CaseConverter').then(m => ({ default: m.CaseConverter })))
 const PasswordGenerator = lazy(() => import('../components/ui/PasswordGenerator').then(m => ({ default: m.PasswordGenerator })))
 const LetterCounter = lazy(() => import('../components/ui/LetterCounter').then(m => ({ default: m.LetterCounter })))
@@ -495,9 +494,9 @@ export function ToolDetail() {
           
           {/* Top Ad Banner */}
           <div className="flex justify-center w-full">
-            <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-            <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-            <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+            <Suspense fallback={<div className="min-h-[90px] w-full" />}>
+              <ResponsiveAd type="horizontal" className="!my-0" />
+            </Suspense>
           </div>
 
           {/* The Actual Tool Interface */}
@@ -508,7 +507,9 @@ export function ToolDetail() {
           </div>
 
           <div className="flex justify-center w-full">
-            <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+            <Suspense fallback={<div className="min-h-[90px] w-full" />}>
+              <ResponsiveAd type="horizontal" className="!my-0" />
+            </Suspense>
           </div>
 
           {/* Rich Directory Content: Features & Use Cases */}

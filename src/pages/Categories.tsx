@@ -4,8 +4,7 @@ import { SEO } from '../components/ui/SEO'
 import { Link } from 'react-router-dom'
 import { CATEGORIES } from '../data/tools'
 import { CategoryCard } from '../components/ui/CategoryCard'
-import { AdBanner } from '../components/ui/AdBanner'
-import { NativeAd } from '../components/ui/NativeAd'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
 
 export function Categories() {
   const collectionSchema = {
@@ -39,9 +38,7 @@ export function Categories() {
 
         {/* ── Grid & Sidebar ── */}
         <div className="flex justify-center w-full mt-10">
-          <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-          <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-          <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+          <ResponsiveAd type="horizontal" className="!my-0" />
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 py-10 flex flex-col md:flex-row gap-8">
@@ -62,13 +59,12 @@ export function Categories() {
 
           {/* Sidebar Ads */}
           <div className="hidden lg:flex flex-col gap-6 shrink-0 w-[160px]">
-            <AdBanner adKey="81045c2de93bfbab7c8203b44ab27f1c" height={600} width={160} className="!my-0" />
-            <AdBanner adKey="345a35132c9593f18323c0c418bfe582" height={300} width={160} className="!my-0" />
+            <ResponsiveAd type="sidebar" className="!my-0" />
           </div>
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 py-8">
-          <NativeAd />
+          <ResponsiveAd type="native" className="!my-0" />
         </div>
       </div>
     </>

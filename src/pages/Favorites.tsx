@@ -5,8 +5,8 @@ import { ToolCard } from '../components/ui/ToolCard'
 import { HeartCrack } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/button'
-import { AdBanner } from '../components/ui/AdBanner'
-import { NativeAd } from '../components/ui/NativeAd'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
+import React from 'react'
 
 export function Favorites() {
   const { favorites } = useStore()
@@ -31,17 +31,22 @@ export function Favorites() {
       </div>
 
       <div className="flex justify-center w-full mb-8">
-        <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-        <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        <ResponsiveAd type="horizontal" className="!my-0" />
       </div>
 
       {favoriteTools.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {favoriteTools.map((tool, index) => (
-            <div key={tool.id} className="h-48">
-              <ToolCard tool={tool} index={index} />
-            </div>
+            <React.Fragment key={tool.id}>
+              <div className="h-48">
+                <ToolCard tool={tool} index={index} />
+              </div>
+              {index > 0 && (index + 1) % 12 === 0 && (
+                <div className="col-span-full">
+                  <ResponsiveAd type="horizontal" />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       ) : (
@@ -73,7 +78,7 @@ export function Favorites() {
       )}
 
       <div className="mt-12">
-        <NativeAd />
+        <ResponsiveAd type="native" className="!my-0" />
       </div>
     </div>
     </>

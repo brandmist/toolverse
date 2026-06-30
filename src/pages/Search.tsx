@@ -7,7 +7,8 @@ import { TOOLS, CATEGORIES } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Input } from '../components/ui/input'
 import { Badge } from '../components/ui/badge'
-import { AdBanner } from '../components/ui/AdBanner'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
+import React from 'react'
 
 export function Search() {
   const [query, setQuery] = useState('')
@@ -78,9 +79,7 @@ export function Search() {
       </div>
 
       <div className="flex justify-center w-full mt-8 mb-4">
-        <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-        <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        <ResponsiveAd type="horizontal" className="!my-0" />
       </div>
 
       <div className="mt-8 border-t border-border pt-10">
@@ -91,9 +90,16 @@ export function Search() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredTools.length > 0 ? (
             filteredTools.map((tool, index) => (
-              <div key={tool.id} className="min-h-[160px]">
-                <ToolCard tool={tool} index={index} />
-              </div>
+              <React.Fragment key={tool.id}>
+                <div className="min-h-[160px]">
+                  <ToolCard tool={tool} index={index} />
+                </div>
+                {index > 0 && (index + 1) % 12 === 0 && (
+                  <div className="col-span-full">
+                    <ResponsiveAd type="horizontal" />
+                  </div>
+                )}
+              </React.Fragment>
             ))
           ) : (
             <div className="col-span-full py-24 text-center bg-surface border border-border rounded-2xl">
@@ -112,7 +118,7 @@ export function Search() {
           )}
         </div>
         <div className="flex justify-center w-full mt-12">
-          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+          <ResponsiveAd type="horizontal" className="!my-0" />
         </div>
       </div>
     </div>

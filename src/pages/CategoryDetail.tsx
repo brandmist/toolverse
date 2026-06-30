@@ -6,8 +6,8 @@ import { CATEGORIES, TOOLS, Tool } from '../data/tools'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { useState, useMemo } from 'react'
-import { AdBanner } from '../components/ui/AdBanner'
-import { NativeAd } from '../components/ui/NativeAd'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
+import React from 'react'
 
 const getToolType = (tool: Tool) => {
   const n = tool.name.toLowerCase()
@@ -119,17 +119,22 @@ export function CategoryDetail() {
 
           {/* Top Banner Ad */}
           <div className="w-full flex flex-col items-center justify-center my-6">
-            <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-            <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-            <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+            <ResponsiveAd type="horizontal" className="!my-0" />
           </div>
 
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {categoryTools.length > 0 ? (
               categoryTools.map((tool, index) => (
-                <div key={tool.id} className="min-h-[160px]">
-                  <ToolCard tool={tool} index={index} />
-                </div>
+                <React.Fragment key={tool.id}>
+                  <div className="min-h-[160px]">
+                    <ToolCard tool={tool} index={index} />
+                  </div>
+                  {index > 0 && (index + 1) % 12 === 0 && (
+                    <div className="col-span-full">
+                      <ResponsiveAd type="horizontal" />
+                    </div>
+                  )}
+                </React.Fragment>
               ))
             ) : (
               <div className="col-span-full py-24 text-center border border-border rounded-xl bg-surface">
@@ -147,7 +152,7 @@ export function CategoryDetail() {
 
           {/* Bottom Native Ad */}
           <div className="mt-12">
-            <NativeAd />
+            <ResponsiveAd type="native" className="!my-0" />
           </div>
         </div>
       </div>

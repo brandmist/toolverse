@@ -8,8 +8,7 @@ import { SEO } from '../components/ui/SEO'
 import { ToolCard } from '../components/ui/ToolCard'
 import { Icon } from '../components/ui/icon'
 import { TOOLS, CATEGORIES } from '../data/tools'
-import { NativeAd } from '../components/ui/NativeAd'
-import { AdBanner } from '../components/ui/AdBanner'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface FAQItem { q: string; a: string }
@@ -379,10 +378,8 @@ export function Home() {
 
       {/* ── Top Ad Banner (Under Stats) ── */}
       <div className="bg-white border-b border-border py-6">
-        <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
-          <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-          <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-          <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        <div className="max-w-[1280px] mx-auto px-6">
+          <ResponsiveAd type="horizontal" className="!my-0" />
         </div>
       </div>
 
@@ -465,7 +462,7 @@ export function Home() {
       {/* ── Native Ad ── */}
       <div className="bg-white border-b border-border py-12">
         <div className="max-w-[1280px] mx-auto px-6">
-          <NativeAd />
+          <ResponsiveAd type="horizontal" className="!my-0" />
         </div>
       </div>
 
@@ -505,8 +502,8 @@ export function Home() {
 
       {/* ── Mid-page Ad Container ── */}
       <div className="bg-white border-b border-border py-12">
-        <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
-          <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+        <div className="max-w-[1280px] mx-auto px-6">
+          <ResponsiveAd type="horizontal" className="!my-0" />
         </div>
       </div>
 
@@ -657,7 +654,7 @@ export function Home() {
           TESTIMONIALS
       ══════════════════════════════════════════════ */}
       <div className="max-w-[1280px] mx-auto px-6 py-8">
-        <NativeAd />
+        <ResponsiveAd type="native" className="!my-0" />
       </div>
       <section className="py-24 bg-surface border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">

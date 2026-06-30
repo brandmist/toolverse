@@ -39,7 +39,7 @@ export function AdBanner({ adKey, height, width, format = 'iframe', className = 
   }, [adKey, height, width, format]);
 
   return (
-    <div className={`flex justify-center items-center overflow-hidden w-full my-4 ${className}`}>
+    <div className={`flex justify-center items-center overflow-hidden w-full ${className}`}>
       <div ref={bannerRef} style={{ minHeight: height, minWidth: width }} />
     </div>
   );

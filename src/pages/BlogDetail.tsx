@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Facebook, Tag } from 'lucide-react'
 import { SEO } from '../components/ui/SEO'
 import { BLOGS } from '../data/blogs'
-import { AdBanner } from '../components/ui/AdBanner'
+import { ResponsiveAd } from '../components/ui/ResponsiveAd'
 import DOMPurify from 'dompurify'
 
 export function BlogDetail() {
@@ -85,6 +85,20 @@ export function BlogDetail() {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, '_blank');
   };
 
+  const PROSE_CLASSES = "prose prose-lg max-w-none text-text-muted prose-headings:font-extrabold prose-headings:text-text-primary prose-headings:tracking-tight prose-a:text-button-primary prose-a:font-bold hover:prose-a:underline prose-strong:text-text-primary prose-blockquote:border-l-4 prose-blockquote:border-text-primary prose-blockquote:bg-card prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-text-primary prose-blockquote:shadow-sm prose-table:border-collapse prose-td:border prose-td:border-border prose-th:border prose-th:border-border prose-th:bg-surface prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-primary prose-pre:text-[#A7F3D0] prose-pre:rounded-xl prose-pre:shadow-inner";
+
+  // Split content logic
+  const sanitizedContent = DOMPurify.sanitize(post.content);
+  let topContent = sanitizedContent;
+  let bottomContent = '';
+  
+  // Find a good split point (e.g., first </p> after 400 characters)
+  const splitIndex = sanitizedContent.indexOf('</p>', 400);
+  if (splitIndex !== -1) {
+    topContent = sanitizedContent.substring(0, splitIndex + 4);
+    bottomContent = sanitizedContent.substring(splitIndex + 4);
+  }
+
   return (
     <>
       <SEO 
@@ -134,15 +148,19 @@ export function BlogDetail() {
             </header>
 
             <div className="flex justify-center w-full mb-8">
-              <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
-              <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
-              <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+              <ResponsiveAd type="horizontal" className="!my-0" />
             </div>
 
-          <div 
-            className="prose prose-lg max-w-none text-text-muted prose-headings:font-extrabold prose-headings:text-text-primary prose-headings:tracking-tight prose-a:text-button-primary prose-a:font-bold hover:prose-a:underline prose-strong:text-text-primary prose-blockquote:border-l-4 prose-blockquote:border-text-primary prose-blockquote:bg-card prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-text-primary prose-blockquote:shadow-sm prose-table:border-collapse prose-td:border prose-td:border-border prose-th:border prose-th:border-border prose-th:bg-surface prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-primary prose-pre:text-[#A7F3D0] prose-pre:rounded-xl prose-pre:shadow-inner"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
-          />
+          <div className={PROSE_CLASSES} dangerouslySetInnerHTML={{ __html: topContent }} />
+
+          {bottomContent && (
+            <>
+              <div className="w-full flex justify-center my-8">
+                 <ResponsiveAd type="horizontal" className="!my-0" />
+              </div>
+              <div className={PROSE_CLASSES} dangerouslySetInnerHTML={{ __html: bottomContent }} />
+            </>
+          )}
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
@@ -175,7 +193,7 @@ export function BlogDetail() {
             </div>
           </footer>
           <div className="flex justify-center w-full mt-12">
-            <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
+            <ResponsiveAd type="horizontal" className="!my-0" />
           </div>
         </article>
       </div>
