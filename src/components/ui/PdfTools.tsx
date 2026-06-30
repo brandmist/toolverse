@@ -43,15 +43,15 @@ function PdfDropZone({ onFiles, multiple = false, label = 'Click or drag PDF her
   }
   return (
     <div
-      className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-12 cursor-pointer transition-all ${dragging ? 'border-[#E5E7EB] bg-[#FAFAFA] border border-[#E5E7EB]' : 'border-[#E5E7EB] hover:border-white/30 bg-white/2'}`}
+      className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-12 cursor-pointer transition-all ${dragging ? 'border-border bg-surface border border-border' : 'border-border hover:border-white/30 bg-white/2'}`}
       onClick={() => inputRef.current?.click()}
       onDragOver={e => { e.preventDefault(); setDragging(true) }}
       onDragLeave={() => setDragging(false)}
       onDrop={e => { e.preventDefault(); setDragging(false); handle(e.dataTransfer.files) }}
     >
       <FileText className="w-12 h-12 text-danger mb-4" />
-      <p className="text-[#111827] font-medium mb-1">{label}</p>
-      <p className="text-[#6B7280] text-sm">{sub}</p>
+      <p className="text-primary font-medium mb-1">{label}</p>
+      <p className="text-muted text-sm">{sub}</p>
       <input ref={inputRef} type="file" accept="application/pdf,.pdf" multiple={multiple} className="hidden" onChange={e => handle(e.target.files)} />
     </div>
   )
@@ -91,40 +91,40 @@ export function PdfMerger() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {files.length === 0 ? (
         <PdfDropZone multiple onFiles={addFiles} label="Drop PDF files here to merge" sub="Select multiple PDFs — order can be adjusted below" />
       ) : (
         <>
           <div className="flex items-center justify-between">
-            <span className="text-sm text-[#6B7280]">{files.length} PDF{files.length > 1 ? 's' : ''} selected • Drag to reorder</span>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => { const i = document.createElement('input'); i.type='file'; i.accept='.pdf,application/pdf'; i.multiple=true; i.onchange=e=>addFiles(Array.from((e.target as HTMLInputElement).files||[])); i.click() }}>
+            <span className="text-sm text-muted">{files.length} PDF{files.length > 1 ? 's' : ''} selected • Drag to reorder</span>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => { const i = document.createElement('input'); i.type='file'; i.accept='.pdf,application/pdf'; i.multiple=true; i.onchange=e=>addFiles(Array.from((e.target as HTMLInputElement).files||[])); i.click() }}>
               <Plus className="w-4 h-4 mr-1" /> Add More
             </Button>
           </div>
           <div className="space-y-2 max-h-72 overflow-auto pr-1">
             {files.map((f, i) => (
-              <div key={i} className="flex items-center gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 group">
-                <span className="text-[#6B7280] text-xs font-bold w-5 text-center">{i+1}</span>
+              <div key={i} className="flex items-center gap-3 bg-white border border-border border-border rounded-xl px-4 py-3 group">
+                <span className="text-muted text-xs font-bold w-5 text-center">{i+1}</span>
                 <FileText className="w-5 h-5 text-danger flex-shrink-0" />
                 <div className="flex-grow min-w-0">
-                  <p className="text-sm text-[#111827] truncate">{f.name}</p>
-                  <p className="text-xs text-[#6B7280]">{fmtSize(f.size)}</p>
+                  <p className="text-sm text-primary truncate">{f.name}</p>
+                  <p className="text-xs text-muted">{fmtSize(f.size)}</p>
                 </div>
                 <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button onClick={() => moveUp(i)} className="p-1 rounded hover:bg-white/10 text-[#6B7280]">↑</button>
-                  <button onClick={() => moveDown(i)} className="p-1 rounded hover:bg-white/10 text-[#6B7280]">↓</button>
-                  <button onClick={() => remove(i)} className="p-1 rounded hover:bg-[#FAFAFA] border border-[#E5E7EB] text-danger"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => moveUp(i)} className="p-1 rounded hover:bg-white/10 text-muted">↑</button>
+                  <button onClick={() => moveDown(i)} className="p-1 rounded hover:bg-white/10 text-muted">↓</button>
+                  <button onClick={() => remove(i)} className="p-1 rounded hover:bg-surface border border-border text-danger"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             ))}
           </div>
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
           <div className="flex gap-3">
-            <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={merge} disabled={processing}>
+            <Button className="flex-1 bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={merge} disabled={processing}>
               {processing ? 'Merging…' : <><Download className="w-4 h-4 mr-2" /> Merge & Download</>}
             </Button>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => { setFiles([]); setError('') }}>Clear All</Button>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => { setFiles([]); setError('') }}>Clear All</Button>
           </div>
         </>
       )}
@@ -202,7 +202,7 @@ export function PdfSplitter() {
   const togglePage = (n: number) => setSelected(prev => { const s = new Set(prev); s.has(n) ? s.delete(n) : s.add(n); return s })
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file ? (
         <PdfDropZone onFiles={onFile} label="Drop a PDF to split" sub="Extract individual pages or custom ranges" />
       ) : (
@@ -211,38 +211,38 @@ export function PdfSplitter() {
             <div className="flex items-center gap-3 flex-grow min-w-0">
               <FileText className="w-8 h-8 text-danger flex-shrink-0" />
               <div className="min-w-0">
-                <p className="text-[#111827] font-medium truncate">{file.name}</p>
-                <p className="text-[#6B7280] text-xs">{pageCount} pages · {fmtSize(file.size)}</p>
+                <p className="text-primary font-medium truncate">{file.name}</p>
+                <p className="text-muted text-xs">{pageCount} pages · {fmtSize(file.size)}</p>
               </div>
             </div>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm flex-shrink-0" onClick={() => { setFile(null); setPageCount(0) }}>Change</Button>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm flex-shrink-0" onClick={() => { setFile(null); setPageCount(0) }}>Change</Button>
           </div>
 
           <div className="flex gap-2">
             {[{id:'all', label:'All Pages'},{id:'select',label:'Pick Pages'},{id:'range',label:'Page Range'}].map(m => (
-              <button key={m.id} onClick={() => setMode(m.id as any)} className={`px-4 py-2 rounded-xl text-sm border font-medium transition-colors ${mode === m.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{m.label}</button>
+              <button key={m.id} onClick={() => setMode(m.id as any)} className={`px-4 py-2 rounded-xl text-sm border font-medium transition-colors ${mode === m.id ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{m.label}</button>
             ))}
           </div>
 
           {mode === 'select' && (
             <div className="flex flex-wrap gap-3 max-h-40 overflow-auto">
               {Array.from({length: pageCount}, (_, i) => i+1).map(n => (
-                <button key={n} onClick={() => togglePage(n)} className={`w-10 h-10 rounded-xl text-sm font-bold border transition-colors ${selected.has(n) ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{n}</button>
+                <button key={n} onClick={() => togglePage(n)} className={`w-10 h-10 rounded-xl text-sm font-bold border transition-colors ${selected.has(n) ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{n}</button>
               ))}
             </div>
           )}
 
           {mode === 'range' && (
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Page Range <span className="text-[#6B7280]">(e.g. 1-3, 5, 7-9)</span></label>
-              <input type="text" value={rangeStr} onChange={e => setRangeStr(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] font-mono focus:outline-none focus:ring-2 focus:ring-rose-500/50" />
+              <label className="text-sm text-primary block mb-1">Page Range <span className="text-muted">(e.g. 1-3, 5, 7-9)</span></label>
+              <input type="text" value={rangeStr} onChange={e => setRangeStr(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl px-4 py-3 text-primary font-mono focus:outline-none focus:ring-2 focus:ring-rose-500/50" />
             </div>
           )}
 
-          {mode === 'all' && <p className="text-[#6B7280] text-sm">Each page will be downloaded as a separate PDF file.</p>}
+          {mode === 'all' && <p className="text-muted text-sm">Each page will be downloaded as a separate PDF file.</p>}
 
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
-          <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={split} disabled={processing}>
+          <Button className="bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={split} disabled={processing}>
             {processing ? 'Extracting…' : <><Download className="w-4 h-4 mr-2" /> {mode === 'all' ? `Download ${pageCount} Pages` : 'Extract & Download'}</>}
           </Button>
         </>
@@ -298,51 +298,51 @@ export function ImagesToPdf() {
   const remove = (i: number) => setImages(prev => prev.filter((_, idx) => idx !== i))
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {images.length === 0 ? (
         <div
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-12 cursor-pointer transition-all"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-12 cursor-pointer transition-all"
           onClick={() => { const i = document.createElement('input'); i.type='file'; i.accept='image/*'; i.multiple=true; i.onchange=e=>addImages(Array.from((e.target as HTMLInputElement).files||[])); i.click() }}
         >
           <Upload className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Drop images here</p>
-          <p className="text-[#6B7280] text-sm">PNG, JPG, WEBP — each image becomes one PDF page</p>
+          <p className="text-primary font-medium mb-1">Drop images here</p>
+          <p className="text-muted text-sm">PNG, JPG, WEBP — each image becomes one PDF page</p>
         </div>
       ) : (
         <>
           <div className="flex items-center justify-between">
-            <span className="text-sm text-[#6B7280]">{images.length} image{images.length > 1 ? 's' : ''} selected</span>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => { const i = document.createElement('input'); i.type='file'; i.accept='image/*'; i.multiple=true; i.onchange=e=>addImages(Array.from((e.target as HTMLInputElement).files||[])); i.click() }}>
+            <span className="text-sm text-muted">{images.length} image{images.length > 1 ? 's' : ''} selected</span>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => { const i = document.createElement('input'); i.type='file'; i.accept='image/*'; i.multiple=true; i.onchange=e=>addImages(Array.from((e.target as HTMLInputElement).files||[])); i.click() }}>
               <Plus className="w-4 h-4 mr-1" /> Add More
             </Button>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-h-64 overflow-auto">
             {images.map((img, i) => (
-              <div key={i} className="relative group rounded-xl overflow-hidden border border-[#E5E7EB] bg-white border border-[#E5E7EB]">
+              <div key={i} className="relative group rounded-xl overflow-hidden border border-border bg-white border border-border">
                 <img src={img.url} alt={img.name} className="w-full h-24 object-cover" />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button onClick={() => remove(i)} className="p-3 rounded-xl bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-white border border-[#E5E7EB] text-[#111827]"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => remove(i)} className="p-3 rounded-xl bg-surface border border-border hover:bg-white border border-border text-primary"><Trash2 className="w-4 h-4" /></button>
                 </div>
                 <div className="p-2">
-                  <p className="text-xs text-[#6B7280] truncate">{img.name}</p>
+                  <p className="text-xs text-muted truncate">{img.name}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm text-[#111827] block mb-2">Page Size</label>
+              <label className="text-sm text-primary block mb-2">Page Size</label>
               <div className="flex gap-2">
                 {(['A4', 'Letter', 'fit'] as const).map(s => (
-                  <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s === 'fit' ? 'Fit' : s}</button>
+                  <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{s === 'fit' ? 'Fit' : s}</button>
                 ))}
               </div>
             </div>
           </div>
-          <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={convert} disabled={processing}>
+          <Button className="bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={convert} disabled={processing}>
             {processing ? 'Converting…' : <><Download className="w-4 h-4 mr-2" /> Create PDF</>}
           </Button>
-          <button className="text-sm text-[#6B7280] hover:text-[#111827] transition-colors text-left" onClick={() => setImages([])}>Clear all images</button>
+          <button className="text-sm text-muted hover:text-primary transition-colors text-left" onClick={() => setImages([])}>Clear all images</button>
         </>
       )}
     </div>
@@ -419,17 +419,17 @@ export function PdfToImage({ defaultFormat }: { defaultFormat?: 'png' | 'jpeg' |
   const ext = format === 'jpeg' ? 'jpg' : format
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file || images.length === 0 ? (
         <>
           <PdfDropZone onFiles={f => convert(f[0])} label="Drop a PDF to convert to images" sub="Each page will become a separate image file" />
           {processing && (
             <div className="space-y-3">
-              <div className="flex justify-between text-sm text-[#6B7280]">
+              <div className="flex justify-between text-sm text-muted">
                 <span>Converting pages… {progress}%</span>
               </div>
-              <div className="w-full h-2 bg-white border border-[#E5E7EB] rounded-full overflow-hidden">
-                <div className="h-full bg-white border border-[#E5E7EB] rounded-full transition-all" style={{ width: `${progress}%` }} />
+              <div className="w-full h-2 bg-white border border-border rounded-full overflow-hidden">
+                <div className="h-full bg-white border border-border rounded-full transition-all" style={{ width: `${progress}%` }} />
               </div>
             </div>
           )}
@@ -437,18 +437,18 @@ export function PdfToImage({ defaultFormat }: { defaultFormat?: 'png' | 'jpeg' |
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Render Quality</label><span className="text-sm text-[#6B7280]">{scale}x scale</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Render Quality</label><span className="text-sm text-muted">{scale}x scale</span></div>
               <input type="range" min="1" max="4" step="0.5" value={scale} onChange={e => setScale(parseFloat(e.target.value))} className="w-full accent-rose-500" />
-              <div className="flex justify-between text-xs text-[#6B7280] mt-1"><span>Faster</span><span>Higher Quality</span></div>
+              <div className="flex justify-between text-xs text-muted mt-1"><span>Faster</span><span>Higher Quality</span></div>
             </div>
             <div>
-              <label className="text-sm text-[#111827] block mb-2">Image Format</label>
+              <label className="text-sm text-primary block mb-2">Image Format</label>
               <div className="grid grid-cols-3 gap-2">
                 {(['png', 'jpeg', 'webp'] as const).map(fmt => (
                   <button
                     key={fmt}
                     onClick={() => setFormat(fmt)}
-                    className={`py-2 rounded-xl text-xs font-semibold uppercase border transition-colors ${format === fmt ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                    className={`py-2 rounded-xl text-xs font-semibold uppercase border transition-colors ${format === fmt ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}
                   >
                     {fmt === 'jpeg' ? 'JPG' : fmt}
                   </button>
@@ -460,25 +460,25 @@ export function PdfToImage({ defaultFormat }: { defaultFormat?: 'png' | 'jpeg' |
       ) : (
         <>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <span className="text-sm text-[#6B7280]">
-              {images.length} pages converted to <span className="text-[#111827] font-bold uppercase">{ext}</span> from <span className="text-[#111827] font-medium truncate">{file.name}</span>
+            <span className="text-sm text-muted">
+              {images.length} pages converted to <span className="text-primary font-bold uppercase">{ext}</span> from <span className="text-primary font-medium truncate">{file.name}</span>
             </span>
             <div className="flex gap-2">
-              <Button onClick={downloadAllAsZip} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={zipping}>
+              <Button onClick={downloadAllAsZip} className="bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={zipping}>
                 {zipping ? 'Creating ZIP…' : <><Download className="w-4 h-4 mr-2" /> Download ZIP</>}
               </Button>
-              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => { setFile(null); setImages([]) }}>New File</Button>
+              <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => { setFile(null); setImages([]) }}>New File</Button>
             </div>
           </div>
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-h-[500px] overflow-auto">
             {images.map((img, i) => (
-              <div key={i} className="flex flex-col gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden">
+              <div key={i} className="flex flex-col gap-3 bg-white border border-border border-border rounded-xl overflow-hidden">
                 <img src={img} alt={`Page ${i+1}`} className="w-full object-contain bg-white" />
                 <div className="flex items-center justify-between p-3 pt-0">
-                  <span className="text-xs text-[#6B7280]">Page {i+1}</span>
+                  <span className="text-xs text-muted">Page {i+1}</span>
                   <a href={img} download={`page-${i+1}.${ext}`}>
-                    <Button className="text-xs py-1.5 px-3 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">
+                    <Button className="text-xs py-1.5 px-3 bg-white border border-border hover:bg-white-hover text-primary">
                       <Download className="w-3 h-3 mr-1" /> {ext.toUpperCase()}
                     </Button>
                   </a>
@@ -532,49 +532,49 @@ export function PdfWatermark() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file ? (
         <PdfDropZone onFiles={f => setFile(f[0])} label="Drop a PDF to add watermark" />
       ) : (
         <>
-          <div className="flex items-center gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4">
+          <div className="flex items-center gap-3 bg-white border border-border border-border rounded-xl p-4">
             <FileText className="w-8 h-8 text-danger flex-shrink-0" />
-            <div className="flex-grow min-w-0"><p className="text-[#111827] truncate font-medium">{file.name}</p><p className="text-[#6B7280] text-xs">{fmtSize(file.size)}</p></div>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm flex-shrink-0" onClick={() => setFile(null)}>Change</Button>
+            <div className="flex-grow min-w-0"><p className="text-primary truncate font-medium">{file.name}</p><p className="text-muted text-xs">{fmtSize(file.size)}</p></div>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm flex-shrink-0" onClick={() => setFile(null)}>Change</Button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Watermark Text</label>
-              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-3 text-[#111827] text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/50" />
+              <label className="text-sm text-primary block mb-1">Watermark Text</label>
+              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl px-4 py-3 text-primary text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/50" />
             </div>
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Font Size</label><span className="text-sm text-[#6B7280]">{fontSize}pt</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Font Size</label><span className="text-sm text-muted">{fontSize}pt</span></div>
               <input type="range" min="20" max="150" value={fontSize} onChange={e => setFontSize(parseInt(e.target.value))} className="w-full accent-rose-500" />
             </div>
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Opacity</label><span className="text-sm text-[#6B7280]">{Math.round(opacity * 100)}%</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Opacity</label><span className="text-sm text-muted">{Math.round(opacity * 100)}%</span></div>
               <input type="range" min="0.05" max="1" step="0.05" value={opacity} onChange={e => setOpacity(parseFloat(e.target.value))} className="w-full accent-rose-500" />
             </div>
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Angle</label><span className="text-sm text-[#6B7280]">{angle}°</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Angle</label><span className="text-sm text-muted">{angle}°</span></div>
               <input type="range" min="0" max="90" value={angle} onChange={e => setAngle(parseInt(e.target.value))} className="w-full accent-rose-500" />
             </div>
           </div>
           {/* Preview */}
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-8 flex items-center justify-center min-h-32 relative overflow-hidden">
+          <div className="bg-white border border-border border-border rounded-xl p-8 flex items-center justify-center min-h-32 relative overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <span className="font-bold text-[#6B7280] select-none whitespace-nowrap"
+              <span className="font-bold text-muted select-none whitespace-nowrap"
                 style={{ fontSize: `${Math.min(fontSize * 0.6, 60)}px`, opacity, transform: `rotate(-${angle}deg)` }}>
                 {text}
               </span>
             </div>
             <div className="relative z-10 text-center">
-              <FileText className="w-12 h-12 text-[#111827] mx-auto mb-2" />
-              <p className="text-[#6B7280] text-sm">PDF Preview</p>
+              <FileText className="w-12 h-12 text-primary mx-auto mb-2" />
+              <p className="text-muted text-sm">PDF Preview</p>
             </div>
           </div>
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
-          <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={apply} disabled={processing}>
+          <Button className="bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={apply} disabled={processing}>
             {processing ? 'Applying…' : <><Download className="w-4 h-4 mr-2" /> Apply Watermark & Download</>}
           </Button>
         </>
@@ -625,40 +625,40 @@ export function PdfRotate() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file ? (
         <PdfDropZone onFiles={onFile} label="Drop a PDF to rotate pages" />
       ) : (
         <>
-          <div className="flex items-center gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4">
+          <div className="flex items-center gap-3 bg-white border border-border border-border rounded-xl p-4">
             <FileText className="w-7 h-7 text-danger" />
-            <div className="flex-grow min-w-0"><p className="text-[#111827] truncate">{file.name}</p><p className="text-[#6B7280] text-xs">{pageCount} pages</p></div>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => setFile(null)}>Change</Button>
+            <div className="flex-grow min-w-0"><p className="text-primary truncate">{file.name}</p><p className="text-muted text-xs">{pageCount} pages</p></div>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => setFile(null)}>Change</Button>
           </div>
-          <div className="flex items-center gap-3 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4">
-            <span className="text-sm text-[#111827]">Apply to all pages:</span>
+          <div className="flex items-center gap-3 bg-surface border border-border border-border rounded-xl p-4">
+            <span className="text-sm text-primary">Apply to all pages:</span>
             <div className="flex gap-2">
               {[90, 180, 270].map(d => (
-                <button key={d} onClick={() => setGlobalRot(d)} className={`px-3 py-1.5 rounded-xl text-sm border font-medium transition-colors ${globalRot === d ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{d}°</button>
+                <button key={d} onClick={() => setGlobalRot(d)} className={`px-3 py-1.5 rounded-xl text-sm border font-medium transition-colors ${globalRot === d ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{d}°</button>
               ))}
             </div>
-            <Button className="bg-[#FAFAFA] border border-[#E5E7EB] hover:bg-[#FAFAFA] border border-[#E5E7EB] text-danger border border-[#E5E7EB] text-sm" onClick={applyAll}>Apply to All</Button>
+            <Button className="bg-surface border border-border hover:bg-surface border border-border text-danger border border-border text-sm" onClick={applyAll}>Apply to All</Button>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 max-h-56 overflow-auto">
             {Array.from({length: pageCount}, (_, i) => i+1).map(n => (
-              <div key={n} className="flex flex-col items-center gap-1 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">
-                <span className="text-xs text-[#6B7280] font-bold">P{n}</span>
-                <RotateCw className="w-5 h-5 text-[#6B7280]" style={{ transform: `rotate(${rotations[n] ?? 0}deg)` }} />
+              <div key={n} className="flex flex-col items-center gap-1 bg-white border border-border border-border rounded-xl p-3">
+                <span className="text-xs text-muted font-bold">P{n}</span>
+                <RotateCw className="w-5 h-5 text-muted" style={{ transform: `rotate(${rotations[n] ?? 0}deg)` }} />
                 <div className="flex gap-1 w-full">
                   {[90, 180, 270].map(d => (
-                    <button key={d} onClick={() => setPageRot(n, d)} className={`flex-1 py-1 rounded text-[10px] font-bold transition-colors ${rotations[n] === d ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{d}</button>
+                    <button key={d} onClick={() => setPageRot(n, d)} className={`flex-1 py-1 rounded text-[10px] font-bold transition-colors ${rotations[n] === d ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted hover:text-primary'}`}>{d}</button>
                   ))}
                 </div>
               </div>
             ))}
           </div>
           {error && <p className="text-danger text-sm">{error}</p>}
-          <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={rotate} disabled={processing}>
+          <Button className="bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={rotate} disabled={processing}>
             {processing ? 'Rotating…' : <><Download className="w-4 h-4 mr-2" /> Save Rotated PDF</>}
           </Button>
         </>
@@ -706,35 +706,35 @@ export function PdfToText() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file ? (
         <PdfDropZone onFiles={f => extract(f[0])} label="Drop a PDF to extract text" sub="Works with text-based PDFs (not scanned images)" />
       ) : (
         <>
           <div className="flex items-center gap-3">
             <FileText className="w-7 h-7 text-danger flex-shrink-0" />
-            <div className="flex-grow min-w-0"><p className="text-[#111827] truncate">{file.name}</p></div>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm flex-shrink-0" onClick={() => { setFile(null); setText('') }}>New File</Button>
+            <div className="flex-grow min-w-0"><p className="text-primary truncate">{file.name}</p></div>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm flex-shrink-0" onClick={() => { setFile(null); setText('') }}>New File</Button>
           </div>
           {processing && (
             <div className="space-y-2">
-              <div className="flex justify-between text-sm text-[#6B7280]"><span>Extracting text…</span><span>{progress}%</span></div>
-              <div className="w-full h-2 bg-white border border-[#E5E7EB] rounded-full overflow-hidden"><div className="h-full bg-white border border-[#E5E7EB] rounded-full transition-all" style={{ width: `${progress}%` }} /></div>
+              <div className="flex justify-between text-sm text-muted"><span>Extracting text…</span><span>{progress}%</span></div>
+              <div className="w-full h-2 bg-white border border-border rounded-full overflow-hidden"><div className="h-full bg-white border border-border rounded-full transition-all" style={{ width: `${progress}%` }} /></div>
             </div>
           )}
           {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
           {text && (
             <>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-[#6B7280]">{text.length.toLocaleString()} characters extracted</span>
+                <span className="text-sm text-muted">{text.length.toLocaleString()} characters extracted</span>
                 <div className="flex gap-2">
-                  <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => navigator.clipboard.writeText(text)}>Copy Text</Button>
-                  <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" onClick={downloadTxt}><Download className="w-4 h-4 mr-1" /> .txt</Button>
+                  <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => navigator.clipboard.writeText(text)}>Copy Text</Button>
+                  <Button className="bg-white border border-border hover:bg-white-hover text-primary text-sm" onClick={downloadTxt}><Download className="w-4 h-4 mr-1" /> .txt</Button>
                 </div>
               </div>
               <textarea
                 readOnly
-                className="flex-grow w-full min-h-[350px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-[#111827] font-mono text-sm leading-relaxed"
+                className="flex-grow w-full min-h-[350px] p-4 bg-white border border-border border-border rounded-xl resize-none text-primary font-mono text-sm leading-relaxed"
                 value={text}
               />
             </>
@@ -767,8 +767,8 @@ export function PdfCompressor() {
   const savings = result ? Math.max(0, Math.round((1 - result.size / (file?.size ?? 1)) * 100)) : 0
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
-      <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-warning text-sm flex gap-3 items-start">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="bg-surface border border-border border-border rounded-xl p-4 text-warning text-sm flex gap-3 items-start">
         <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
         <span>This tool re-serializes the PDF structure to reduce file size. Results vary by PDF — heavily image-laden PDFs require specialized server-side tools for deep compression.</span>
       </div>
@@ -777,25 +777,25 @@ export function PdfCompressor() {
       ) : (
         <>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5 text-center">
-              <div className="text-[#6B7280] text-xs uppercase tracking-wider mb-2">Original</div>
-              <div className="text-2xl font-bold text-[#111827]">{fmtSize(file.size)}</div>
+            <div className="bg-white border border-border border-border rounded-xl p-5 text-center">
+              <div className="text-muted text-xs uppercase tracking-wider mb-2">Original</div>
+              <div className="text-2xl font-bold text-primary">{fmtSize(file.size)}</div>
             </div>
-            <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5 text-center">
-              <div className="text-[#6B7280] text-xs uppercase tracking-wider mb-2">Compressed</div>
-              <div className={`text-2xl font-bold ${result ? (savings > 0 ? 'text-success' : 'text-warning') : 'text-[#6B7280]'}`}>
+            <div className="bg-white border border-border border-border rounded-xl p-5 text-center">
+              <div className="text-muted text-xs uppercase tracking-wider mb-2">Compressed</div>
+              <div className={`text-2xl font-bold ${result ? (savings > 0 ? 'text-success' : 'text-warning') : 'text-muted'}`}>
                 {result ? fmtSize(result.size) : processing ? '…' : '—'}
               </div>
             </div>
           </div>
           {result && savings > 0 && (
-            <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-center">
+            <div className="bg-surface border border-border border-border rounded-xl p-4 text-center">
               <span className="text-success font-bold text-lg">✓ Saved {savings}%</span>
-              <span className="text-[#6B7280] text-sm ml-2">({fmtSize(file.size - result.size)} reduced)</span>
+              <span className="text-muted text-sm ml-2">({fmtSize(file.size - result.size)} reduced)</span>
             </div>
           )}
           {result && savings === 0 && (
-            <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-center text-[#6B7280] text-sm">
+            <div className="bg-white border border-border border-border rounded-xl p-4 text-center text-muted text-sm">
               This PDF is already well-optimized. No significant reduction possible.
             </div>
           )}
@@ -803,12 +803,12 @@ export function PdfCompressor() {
           <div className="flex gap-3">
             {result && (
               <a href={result.url} download="compressed.pdf" className="flex-1">
-                <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium">
+                <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary font-medium">
                   <Download className="w-4 h-4 mr-2" /> Download Compressed PDF
                 </Button>
               </a>
             )}
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => { setFile(null); setResult(null) }}>Clear</Button>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => { setFile(null); setResult(null) }}>Clear</Button>
           </div>
         </>
       )}
@@ -884,31 +884,31 @@ export function TextToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex flex-col flex-grow gap-4">
         <textarea
-          className="flex-grow min-h-[300px] w-full bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] font-mono text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-rose-500/50 resize-none"
+          className="flex-grow min-h-[300px] w-full bg-surface border border-border border-border rounded-xl p-4 text-primary font-mono text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-rose-500/50 resize-none"
           placeholder="Type or paste your text here to convert into a PDF document..."
           value={text}
           onChange={e => setText(e.target.value)}
         />
         
-        <p className="text-xs text-[#6B7280] flex items-center gap-1.5 px-1">
+        <p className="text-xs text-muted flex items-center gap-1.5 px-1">
           <AlertCircle className="w-3.5 h-3.5" />
           Note: Emojis and complex non-Latin characters are automatically omitted to ensure PDF compatibility.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-surface border border-border p-4 rounded-xl border border-border">
           <div>
-            <label className="text-sm text-[#111827] block mb-2">Page Size</label>
+            <label className="text-sm text-primary block mb-2">Page Size</label>
             <div className="flex gap-2">
               {(['A4', 'Letter'] as const).map(s => (
-                <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{s}</button>
+                <button key={s} onClick={() => setPageSize(s)} className={`flex-1 py-2 rounded-xl text-sm border font-medium transition-colors ${pageSize === s ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{s}</button>
               ))}
             </div>
           </div>
           <div>
-            <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Font Size</label><span className="text-sm text-[#6B7280]">{fontSize}pt</span></div>
+            <div className="flex justify-between mb-1"><label className="text-sm text-primary">Font Size</label><span className="text-sm text-muted">{fontSize}pt</span></div>
             <input type="range" min="8" max="72" value={fontSize} onChange={e => setFontSize(parseInt(e.target.value))} className="w-full accent-rose-500" />
           </div>
         </div>
@@ -916,10 +916,10 @@ export function TextToPdf() {
         {error && <p className="text-danger text-sm flex items-center gap-2"><AlertCircle className="w-4 h-4" />{error}</p>}
         
         <div className="flex gap-3 mt-2">
-          <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-medium" onClick={convert} disabled={processing || !text.trim()}>
+          <Button className="flex-1 bg-white border border-border hover:bg-white-hover text-primary font-medium" onClick={convert} disabled={processing || !text.trim()}>
             {processing ? 'Generating PDF…' : <><Download className="w-4 h-4 mr-2" /> Convert to PDF</>}
           </Button>
-          <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => setText('')}>Clear Text</Button>
+          <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => setText('')}>Clear Text</Button>
         </div>
       </div>
     </div>

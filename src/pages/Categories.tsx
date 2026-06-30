@@ -27,11 +27,11 @@ export function Categories() {
 
       <div className="min-h-screen bg-white">
         {/* ── Page Header ── */}
-        <div className="bg-[#FAFAFA] border-b border-[#E5E7EB] pt-32 pb-20">
+        <div className="bg-surface border-b border-border pt-32 pb-20">
           <div className="max-w-2xl mx-auto px-6 text-center">
-            <p className="text-[13px] font-bold text-[#6B7280] uppercase tracking-wider mb-4">Browse Directory</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6">Tool Categories</h1>
-            <p className="text-lg text-[#4B5563] leading-relaxed">
+            <p className="text-[13px] font-bold text-muted uppercase tracking-wider mb-4">Browse Directory</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary tracking-tight mb-6">Tool Categories</h1>
+            <p className="text-lg text-muted leading-relaxed">
               Find the perfect tool for your workflow. Organized by category for quick discovery.
             </p>
           </div>

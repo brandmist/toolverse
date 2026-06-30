@@ -62,25 +62,25 @@ export function CategoryDetail() {
       />
       <div className="bg-white min-h-screen">
       {/* Clean Enterprise Header */}
-      <div className="pt-24 pb-12 border-b border-[#E5E7EB] bg-[#FAFAFA]">
+      <div className="pt-24 pb-12 border-b border-border bg-surface">
         <div className="max-w-[1280px] mx-auto px-6">
           <Link 
             to="/categories" 
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#6B7280] hover:text-[#111827] transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-muted hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Categories
           </Link>
 
           <div className="flex flex-col md:flex-row md:items-center gap-5">
-            <div className="w-14 h-14 bg-white border border-[#E5E7EB] rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-              <Icon name={category.icon} className="w-7 h-7 text-[#111827]" />
+            <div className="w-14 h-14 bg-white border border-border rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+              <Icon name={category.icon} className="w-7 h-7 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-extrabold text-[#111827] tracking-tight mb-2">
+              <h1 className="text-3xl font-extrabold text-primary tracking-tight mb-2">
                 {category.name}
               </h1>
-              <p className="text-[16px] text-[#4B5563] max-w-2xl">
+              <p className="text-[16px] text-muted max-w-2xl">
                 {category.description}
               </p>
             </div>
@@ -101,18 +101,18 @@ export function CategoryDetail() {
                 aria-pressed={activeFilter === opt.id}
                 className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   activeFilter === opt.id
-                    ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
-                    : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
+                    ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                    : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                 }`}
               >
-                <opt.icon className={`w-4 h-4 ${activeFilter === opt.id ? 'text-white' : 'text-[#9CA3AF]'}`} />
+                <opt.icon className={`w-4 h-4 ${activeFilter === opt.id ? 'text-white' : 'text-subtle'}`} />
                 {opt.label}
               </button>
             ))}
           </div>
 
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-[15px] font-semibold text-[#111827]">
+            <h2 className="text-[15px] font-semibold text-primary">
               {categoryTools.length} {categoryTools.length === 1 ? 'tool' : 'tools'} {activeFilter !== 'all' && 'found'}
             </h2>
           </div>
@@ -132,12 +132,12 @@ export function CategoryDetail() {
                 </div>
               ))
             ) : (
-              <div className="col-span-full py-24 text-center border border-[#E5E7EB] rounded-xl bg-[#FAFAFA]">
-                <p className="text-[18px] font-semibold text-[#374151] mb-2">No tools found</p>
-                <p className="text-[14px] text-[#6B7280]">We don't have any tools of this type in this category yet.</p>
+              <div className="col-span-full py-24 text-center border border-border rounded-xl bg-surface">
+                <p className="text-[18px] font-semibold text-secondary mb-2">No tools found</p>
+                <p className="text-[14px] text-muted">We don't have any tools of this type in this category yet.</p>
                 <button
                   onClick={() => setActiveFilter('all')}
-                  className="mt-6 inline-flex items-center gap-3 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
+                  className="mt-6 inline-flex items-center gap-3 px-5 py-2.5 bg-primary text-white text-[14px] font-semibold rounded-lg hover:bg-primary-hover transition-colors"
                 >
                   View all {category.name}
                 </button>

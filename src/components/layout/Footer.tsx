@@ -43,7 +43,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-[#FAFAFA] border-t border-[#E5E7EB]" aria-labelledby="footer-heading">
+    <footer className="bg-surface border-t border-border" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
 
       {/* ── Ads ── */}
@@ -59,30 +59,30 @@ export function Footer() {
           {/* Brand & Newsletter column */}
           <div className="lg:col-span-2 pr-0 lg:pr-12 flex flex-col">
             <Link to="/" className="inline-flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-[#111827] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-white font-bold text-sm tracking-tight">TV</span>
               </div>
-              <span className="font-bold text-[16px] text-[#111827] tracking-tight">SmarTools</span>
+              <span className="font-bold text-[16px] text-primary tracking-tight">SmarTools</span>
             </Link>
 
-            <p className="text-[14px] text-[#6B7280] leading-relaxed mb-8 max-w-sm">
+            <p className="text-[14px] text-muted leading-relaxed mb-8 max-w-sm">
               The definitive collection of 200+ free online tools for developers, designers, and creators. Fast, secure, and entirely browser-based.
             </p>
 
             {/* Newsletter */}
-            <div className="mb-8 bg-white border border-[#E5E7EB] rounded-xl p-5 shadow-sm">
-              <h3 className="text-[13px] font-semibold text-[#111827] mb-2 flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#6B7280]" />
+            <div className="mb-8 bg-white border border-border rounded-xl p-5 shadow-sm">
+              <h3 className="text-[13px] font-semibold text-primary mb-2 flex items-center gap-2">
+                <Mail className="w-4 h-4 text-muted" />
                 Stay Updated
               </h3>
-              <p className="text-[13px] text-[#6B7280] mb-4">
+              <p className="text-[13px] text-muted mb-4">
                 Get notified about new tools. No spam, ever.
               </p>
 
               {subscribed ? (
-                <div className="flex items-center gap-2 p-3 bg-[#F0FDF4] border border-[#BBF7D0] rounded-lg">
+                <div className="flex items-center gap-2 p-3 bg-[#F0FDF4] border border-success-border rounded-lg">
                   <div className="w-2 h-2 rounded-full bg-[#10B981]"></div>
-                  <span className="text-sm text-[#059669] font-medium">You're subscribed!</span>
+                  <span className="text-sm text-success font-medium">You're subscribed!</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -94,11 +94,11 @@ export function Footer() {
                     onChange={e => setEmail(e.target.value)}
                     placeholder="you@example.com"
                     required
-                    className="flex-1 h-10 px-3 text-sm bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827] transition-all"
+                    className="flex-1 h-10 px-3 text-sm bg-surface border border-border rounded-lg text-primary placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   />
                   <button
                     type="submit"
-                    className="h-10 px-4 bg-[#111827] text-white text-[13px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors whitespace-nowrap flex items-center justify-center"
+                    className="h-10 px-4 bg-primary text-white text-[13px] font-semibold rounded-lg hover:bg-primary-hover transition-colors whitespace-nowrap flex items-center justify-center"
                   >
                     Subscribe
                   </button>
@@ -116,7 +116,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg border border-[#E5E7EB] bg-white flex items-center justify-center text-[#6B7280] hover:text-[#111827] hover:border-[#D1D5DB] hover:shadow-sm transition-all"
+                  className="w-9 h-9 rounded-lg border border-border bg-white flex items-center justify-center text-muted hover:text-primary hover:border-border-hover hover:shadow-sm transition-all"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -126,11 +126,11 @@ export function Footer() {
 
           {/* Top Searches (Top Tools) */}
           <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Top Tools</h3>
+            <h3 className="text-[13px] font-semibold text-primary tracking-wider uppercase mb-5">Top Tools</h3>
             <ul className="space-y-3">
               {topSearchLinks.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
+                  <Link to={link.to} className="text-[14px] text-muted hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -140,17 +140,17 @@ export function Footer() {
 
           {/* Tools Categories (Resources) */}
           <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Resources</h3>
+            <h3 className="text-[13px] font-semibold text-primary tracking-wider uppercase mb-5">Resources</h3>
             <ul className="space-y-3">
               {toolLinks.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
+                  <Link to={link.to} className="text-[14px] text-muted hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <Link to="/tools" className="text-[14px] text-[#111827] font-semibold hover:underline inline-flex items-center gap-1">
+                <Link to="/tools" className="text-[14px] text-primary font-semibold hover:underline inline-flex items-center gap-1">
                   View all tools <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -159,11 +159,11 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Company</h3>
+            <h3 className="text-[13px] font-semibold text-primary tracking-wider uppercase mb-5">Company</h3>
             <ul className="space-y-3 mb-8">
               {companyLinks.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
+                  <Link to={link.to} className="text-[14px] text-muted hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -173,11 +173,11 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-[13px] font-semibold text-[#111827] tracking-wider uppercase mb-5">Legal</h3>
+            <h3 className="text-[13px] font-semibold text-primary tracking-wider uppercase mb-5">Legal</h3>
             <ul className="space-y-3">
               {legalLinks.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-[14px] text-[#6B7280] hover:text-[#111827] transition-colors">
+                  <Link to={link.to} className="text-[14px] text-muted hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -188,19 +188,19 @@ export function Footer() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-[#E5E7EB]">
+      <div className="border-t border-border">
         <div className="max-w-[1280px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[13px] text-[#9CA3AF]">
+          <p className="text-[13px] text-subtle">
             © {new Date().getFullYear()} SmarTools, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5 text-[13px] text-[#9CA3AF] font-medium">
+            <span className="flex items-center gap-1.5 text-[13px] text-subtle font-medium">
               <Shield className="w-4 h-4" /> 100% Private
             </span>
-            <span className="flex items-center gap-1.5 text-[13px] text-[#9CA3AF] font-medium hidden sm:flex">
+            <span className="flex items-center gap-1.5 text-[13px] text-subtle font-medium hidden sm:flex">
               <Lock className="w-4 h-4" /> Local Processing
             </span>
-            <span className="flex items-center gap-1.5 text-[13px] text-[#9CA3AF]">
+            <span className="flex items-center gap-1.5 text-[13px] text-subtle">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
               All systems operational
             </span>

@@ -121,18 +121,18 @@ const FAQS: FAQItem[] = [
 function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [open, setOpen] = useState<number | null>(null)
   return (
-    <div className="divide-y divide-[#E5E7EB] border border-[#E5E7EB] rounded-xl overflow-hidden">
+    <div className="divide-y divide-[#E5E7EB] border border-border rounded-xl overflow-hidden">
       {items.map((item, i) => (
         <div key={i}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
             aria-expanded={open === i}
-            className="w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-[#FAFAFA] transition-colors gap-4"
+            className="w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-surface transition-colors gap-4"
           >
-            <span className="text-[15px] font-semibold text-[#111827]">{item.q}</span>
+            <span className="text-[15px] font-semibold text-primary">{item.q}</span>
             {open === i
-              ? <ChevronUp className="w-4 h-4 text-[#6B7280] shrink-0" />
-              : <ChevronDown className="w-4 h-4 text-[#6B7280] shrink-0" />
+              ? <ChevronUp className="w-4 h-4 text-muted shrink-0" />
+              : <ChevronDown className="w-4 h-4 text-muted shrink-0" />
             }
           </button>
           {open === i && (
@@ -141,9 +141,9 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="px-6 pb-5 bg-[#FAFAFA]"
+              className="px-6 pb-5 bg-surface"
             >
-              <p className="text-[14px] text-[#6B7280] leading-relaxed">{item.a}</p>
+              <p className="text-[14px] text-muted leading-relaxed">{item.a}</p>
             </motion.div>
           )}
         </div>
@@ -234,7 +234,7 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           HERO
       ══════════════════════════════════════════════ */}
-      <section className="pt-24 pb-20 bg-white border-b border-[#E5E7EB]">
+      <section className="pt-24 pb-20 bg-white border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* Eyebrow badge */}
@@ -244,7 +244,7 @@ export function Home() {
             transition={{ duration: 0.4 }}
             className="flex justify-center mb-8"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#F3F4F6] border border-[#E5E7EB] rounded-full text-[13px] font-medium text-[#374151]">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-surface-hover border border-border rounded-full text-[13px] font-medium text-secondary">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
               {TOOLS.length} free tools — no sign-up required
             </div>
@@ -257,14 +257,14 @@ export function Home() {
             transition={{ duration: 0.45, delay: 0.05 }}
             className="text-center max-w-4xl mx-auto mb-8"
           >
-            <h1 className="font-extrabold text-[#111827] mb-6 leading-tight">
+            <h1 className="font-extrabold text-primary mb-6 leading-tight">
               Free Online PDF,<br />
               <span className="relative inline-block">
                 Image & Dev Tools
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-[#111827] rounded-full"></span>
+                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-primary rounded-full"></span>
               </span>
             </h1>
-            <p className="text-[18px] text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-[18px] text-muted leading-relaxed max-w-2xl mx-auto">
               {TOOLS.length} powerful utilities for developers, designers, and creators.
               All browser-based, private, and instant — no account needed.
             </p>
@@ -280,24 +280,24 @@ export function Home() {
           >
             <div className="relative flex items-center">
               <label htmlFor="hero-search" className="sr-only">Search tools</label>
-              <Search className="absolute left-4 w-5 h-5 text-[#9CA3AF] pointer-events-none" />
+              <Search className="absolute left-4 w-5 h-5 text-subtle pointer-events-none" />
               <input
                 id="hero-search"
                 type="search"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder={`Search ${TOOLS.length} tools — PDF, image, text, code…`}
-                className="w-full pl-12 pr-36 py-4 bg-white border border-[#E5E7EB] rounded-2xl text-[15px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 shadow-sm transition-all"
+                className="w-full pl-12 pr-36 py-4 bg-white border border-border rounded-2xl text-[15px] text-primary placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/8 shadow-sm transition-all"
               />
               <button
                 type="submit"
-                className="absolute right-2 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
+                className="absolute right-2 px-5 py-2.5 bg-primary text-white text-[14px] font-semibold rounded-lg hover:bg-primary-hover transition-colors"
               >
                 Search
               </button>
             </div>
             <div className="flex justify-center mt-3">
-              <Link to="/categories" className="text-sm font-semibold text-[#6B7280] hover:text-[#111827] flex items-center gap-1 transition-colors">
+              <Link to="/categories" className="text-sm font-semibold text-muted hover:text-primary flex items-center gap-1 transition-colors">
                 Or browse all categories <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -310,12 +310,12 @@ export function Home() {
             transition={{ duration: 0.4, delay: 0.15 }}
             className="flex flex-wrap items-center justify-center gap-3 mb-16 text-[13px]"
           >
-            <span className="text-[#9CA3AF]">Popular:</span>
+            <span className="text-subtle">Popular:</span>
             {TOOLS.filter(t => t.isPopular).slice(0, 5).map(t => (
               <Link
                 key={t.id}
                 to={`/tool/${t.id}`}
-                className="px-3 py-1.5 bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] rounded-lg hover:bg-white hover:border-[#D1D5DB] hover:text-[#111827] transition-all font-medium"
+                className="px-3 py-1.5 bg-surface border border-border text-secondary rounded-lg hover:bg-white hover:border-border-hover hover:text-primary transition-all font-medium"
               >
                 {t.name}
               </Link>
@@ -333,21 +333,21 @@ export function Home() {
               <Link
                 key={cat.id}
                 to={`/category/${cat.id}`}
-                className="group bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-5 hover:bg-white hover:border-[#D1D5DB] hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] transition-all duration-200 flex flex-col gap-3"
+                className="group bg-surface border border-border rounded-xl p-5 hover:bg-white hover:border-border-hover hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] transition-all duration-200 flex flex-col gap-3"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 bg-white border border-[#E5E7EB] rounded-2xl flex items-center justify-center text-[#374151] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-200">
+                  <div className="w-9 h-9 bg-white border border-border rounded-2xl flex items-center justify-center text-secondary group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-200">
                     <Icon name={cat.icon as any} className="w-4 h-4" />
                   </div>
-                  <span className="text-[11px] font-bold text-[#9CA3AF] bg-white border border-[#E5E7EB] rounded-full px-2.5 py-1">
+                  <span className="text-[11px] font-bold text-subtle bg-white border border-border rounded-full px-2.5 py-1">
                     {cat.count}
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-[14px] font-semibold text-[#111827] mb-1">{cat.name}</h3>
-                  <p className="text-[12px] text-[#9CA3AF] leading-snug line-clamp-2">{cat.desc}</p>
+                  <h3 className="text-[14px] font-semibold text-primary mb-1">{cat.name}</h3>
+                  <p className="text-[12px] text-subtle leading-snug line-clamp-2">{cat.desc}</p>
                 </div>
-                <div className="flex items-center gap-1 text-[12px] font-semibold text-[#111827] opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 mt-auto">
+                <div className="flex items-center gap-1 text-[12px] font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 mt-auto">
                   Explore <ArrowRight className="w-3 h-3" />
                 </div>
               </Link>
@@ -359,7 +359,7 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           STATS / TRUST BAR
       ══════════════════════════════════════════════ */}
-      <section className="py-12 bg-[#FAFAFA] border-b border-[#E5E7EB]">
+      <section className="py-12 bg-surface border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -369,8 +369,8 @@ export function Home() {
               { value: '100%', label: 'Browser-Based' },
             ].map(stat => (
               <div key={stat.label}>
-                <div className="text-3xl font-extrabold text-[#111827] tracking-tight mb-1">{stat.value}</div>
-                <div className="text-[13px] text-[#6B7280] font-medium">{stat.label}</div>
+                <div className="text-3xl font-extrabold text-primary tracking-tight mb-1">{stat.value}</div>
+                <div className="text-[13px] text-muted font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -378,7 +378,7 @@ export function Home() {
       </section>
 
       {/* ── Top Ad Banner (Under Stats) ── */}
-      <div className="bg-white border-b border-[#E5E7EB] py-6">
+      <div className="bg-white border-b border-border py-6">
         <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
           <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
           <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
@@ -389,15 +389,15 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           POPULAR TOOLS
       ══════════════════════════════════════════════ */}
-      <section className="py-24 bg-white border-b border-[#E5E7EB]">
+      <section className="py-24 bg-white border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Most Used</p>
-              <h2 className="text-[#111827] mb-0">Most Popular Tools</h2>
+              <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">Most Used</p>
+              <h2 className="text-primary mb-0">Most Popular Tools</h2>
             </div>
-            <Link to="/tools" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#111827] hover:text-[#374151] transition-colors shrink-0">
+            <Link to="/tools" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary hover:text-secondary transition-colors shrink-0">
               View all tools <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -409,11 +409,11 @@ export function Home() {
               aria-pressed={activeFilter === 'all'}
               className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                 activeFilter === 'all'
-                  ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
-                  : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
+                  ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                  : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
               }`}
             >
-              <Star className={`w-4 h-4 ${activeFilter === 'all' ? 'text-white' : 'text-[#9CA3AF]'}`} /> All
+              <Star className={`w-4 h-4 ${activeFilter === 'all' ? 'text-white' : 'text-subtle'}`} /> All
             </button>
             {categoriesWithPopular.map(cat => (
               <button
@@ -422,11 +422,11 @@ export function Home() {
                 aria-pressed={activeFilter === cat.id}
                 className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   activeFilter === cat.id
-                    ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
-                    : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
+                    ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                    : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                 }`}
               >
-                <Icon name={cat.icon as any} className={`w-4 h-4 ${activeFilter === cat.id ? 'text-white' : 'text-[#9CA3AF]'}`} />
+                <Icon name={cat.icon as any} className={`w-4 h-4 ${activeFilter === cat.id ? 'text-white' : 'text-subtle'}`} />
                 {cat.name}
               </button>
             ))}
@@ -442,10 +442,10 @@ export function Home() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 mb-10 border border-[#E5E7EB] rounded-xl bg-[#FAFAFA]">
-              <p className="text-[15px] font-semibold text-[#374151] mb-2">No popular tools in this category yet</p>
-              <p className="text-[13px] text-[#6B7280] mb-4">Check out our full tool directory.</p>
-              <Link to="/tools" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#111827] underline hover:no-underline">
+            <div className="text-center py-16 mb-10 border border-border rounded-xl bg-surface">
+              <p className="text-[15px] font-semibold text-secondary mb-2">No popular tools in this category yet</p>
+              <p className="text-[13px] text-muted mb-4">Check out our full tool directory.</p>
+              <Link to="/tools" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary underline hover:no-underline">
                 Browse all tools <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -454,7 +454,7 @@ export function Home() {
           <div className="text-center">
             <Link
               to="/tools"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-[#E5E7EB] text-[#374151] text-[14px] font-semibold rounded-xl hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:shadow-sm transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-border text-secondary text-[14px] font-semibold rounded-xl hover:border-border-hover hover:bg-surface hover:shadow-sm transition-all"
             >
               Browse all {TOOLS.length} tools <ArrowRight className="w-4 h-4" />
             </Link>
@@ -463,7 +463,7 @@ export function Home() {
       </section>
 
       {/* ── Native Ad ── */}
-      <div className="bg-white border-b border-[#E5E7EB] py-12">
+      <div className="bg-white border-b border-border py-12">
         <div className="max-w-[1280px] mx-auto px-6">
           <NativeAd />
         </div>
@@ -472,12 +472,12 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           FEATURES
       ══════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#FAFAFA] border-b border-[#E5E7EB]">
+      <section className="py-24 bg-surface border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Why SmarTools</p>
-            <h2 className="text-[#111827] mb-4">Built for speed and privacy</h2>
-            <p className="text-[16px] text-[#6B7280] leading-relaxed">
+            <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">Why SmarTools</p>
+            <h2 className="text-primary mb-4">Built for speed and privacy</h2>
+            <p className="text-[16px] text-muted leading-relaxed">
               No other tool suite processes your data locally, runs instantly, and offers this breadth of utilities — all for free.
             </p>
           </div>
@@ -490,13 +490,13 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-white border border-[#E5E7EB] rounded-2xl p-6 hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-200"
+                className="bg-white border border-border rounded-2xl p-6 hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] hover:border-border-hover transition-all duration-200"
               >
-                <div className="w-10 h-10 bg-[#111827] rounded-lg flex items-center justify-center text-white mb-5">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white mb-5">
                   <f.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-[15px] font-semibold text-[#111827] mb-2">{f.title}</h3>
-                <p className="text-[13px] text-[#6B7280] leading-relaxed">{f.desc}</p>
+                <h3 className="text-[15px] font-semibold text-primary mb-2">{f.title}</h3>
+                <p className="text-[13px] text-muted leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -504,7 +504,7 @@ export function Home() {
       </section>
 
       {/* ── Mid-page Ad Container ── */}
-      <div className="bg-white border-b border-[#E5E7EB] py-12">
+      <div className="bg-white border-b border-border py-12">
         <div className="max-w-[1280px] mx-auto px-6 flex justify-center">
           <AdBanner adKey="52d14c4cfc4b28a541def0f2dbd7b118" height={250} width={300} />
         </div>
@@ -513,20 +513,20 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           FEATURED TOOLS — Bento Showcase
       ══════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#FAFAFA] border-b border-[#E5E7EB]">
+      <section className="py-24 bg-surface border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-xl">
-              <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Featured</p>
-              <h2 className="text-[#111827] mb-3">Pro-grade tools. Zero cost.</h2>
-              <p className="text-[16px] text-[#6B7280] leading-relaxed">
+              <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">Featured</p>
+              <h2 className="text-primary mb-3">Pro-grade tools. Zero cost.</h2>
+              <p className="text-[16px] text-muted leading-relaxed">
                 Stop paying for subscriptions. Our most powerful tools — PDF, AI image, and developer utilities — are completely free.
               </p>
             </div>
             <Link
               to="/tools"
-              className="shrink-0 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#111827] hover:text-[#374151] transition-colors"
+              className="shrink-0 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary hover:text-secondary transition-colors"
             >
               Explore all tools <ArrowRight className="w-4 h-4" />
             </Link>
@@ -544,7 +544,7 @@ export function Home() {
               >
                 <Link
                   to={`/tool/${tool.id}`}
-                  className="group flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden hover:shadow-[0_8px_24px_rgb(0,0,0,0.08)] hover:border-[#D1D5DB] transition-all duration-200"
+                  className="group flex flex-col h-full bg-white border border-border rounded-2xl overflow-hidden hover:shadow-[0_8px_24px_rgb(0,0,0,0.08)] hover:border-border-hover transition-all duration-200"
                 >
                   {/* Tool preview area */}
                   <div
@@ -553,11 +553,11 @@ export function Home() {
                   >
                     {/* Decorative mock UI elements */}
                     <div className="absolute inset-4 bg-white/70 rounded-xl border border-white shadow-sm flex flex-col">
-                      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-[#E5E7EB]/60">
+                      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/60">
                         {['#EF4444', '#F59E0B', '#10B981'].map(c => (
                           <div key={c} className="w-2 h-2 rounded-full" style={{ background: c }} />
                         ))}
-                        <div className="ml-auto h-3 w-20 bg-[#F3F4F6] rounded-full" />
+                        <div className="ml-auto h-3 w-20 bg-surface-hover rounded-full" />
                       </div>
                       <div className="flex-1 flex items-center justify-center gap-3">
                         <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: tool.bgColor, border: `1px solid ${tool.borderColor}` }}>
@@ -565,7 +565,7 @@ export function Home() {
                         </div>
                         <div className="space-y-1.5">
                           <div className="h-2.5 w-24 bg-[#E5E7EB] rounded-full" />
-                          <div className="h-2 w-16 bg-[#F3F4F6] rounded-full" />
+                          <div className="h-2 w-16 bg-surface-hover rounded-full" />
                         </div>
                       </div>
                     </div>
@@ -582,14 +582,14 @@ export function Home() {
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="mb-1">
-                      <span className="text-[11px] font-semibold text-[#9CA3AF] uppercase tracking-wider">{tool.category}</span>
+                      <span className="text-[11px] font-semibold text-subtle uppercase tracking-wider">{tool.category}</span>
                     </div>
-                    <h3 className="text-[17px] font-bold text-[#111827] mb-1 group-hover:text-black leading-tight">
+                    <h3 className="text-[17px] font-bold text-primary mb-1 group-hover:text-black leading-tight">
                       {tool.name}
                     </h3>
-                    <p className="text-[13px] font-medium text-[#374151] mb-3">{tool.tagline}</p>
-                    <p className="text-[13px] text-[#6B7280] leading-relaxed mb-5 flex-1">{tool.desc}</p>
-                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-[#111827] mt-auto group-hover:gap-3 transition-all">
+                    <p className="text-[13px] font-medium text-secondary mb-3">{tool.tagline}</p>
+                    <p className="text-[13px] text-muted leading-relaxed mb-5 flex-1">{tool.desc}</p>
+                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-primary mt-auto group-hover:gap-3 transition-all">
                       Open tool <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -603,19 +603,19 @@ export function Home() {
       {/* ══════════════════════════════════════════════
           CTA — DARK
       ══════════════════════════════════════════════ */}
-      <section className="bg-[#111827] py-24">
+      <section className="bg-primary py-24">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6 font-extrabold">
               Start building faster today.
             </h2>
-            <p className="text-[18px] text-[#9CA3AF] leading-relaxed mb-10">
+            <p className="text-[18px] text-subtle leading-relaxed mb-10">
               Join over 1 million developers and creators who use SmarTools every day. No account required — just open a tool and go.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/tools"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#111827] text-[15px] font-bold rounded-xl hover:bg-[#F9FAFB] transition-colors shadow-lg"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-primary text-[15px] font-bold rounded-xl hover:bg-surface transition-colors shadow-lg"
               >
                 Browse all tools <ArrowRight className="w-4 h-4" />
               </Link>
@@ -636,7 +636,7 @@ export function Home() {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-[13px] text-[#6B7280]">
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-[13px] text-muted">
               {[
                 { icon: CheckCircle2, label: 'No sign-up required' },
                 { icon: Shield,       label: '100% browser-based' },
@@ -644,7 +644,7 @@ export function Home() {
                 { icon: Zap,          label: 'Instant processing' },
               ].map(({ icon: Icon2, label }) => (
                 <div key={label} className="flex items-center gap-2">
-                  <Icon2 className="w-4 h-4 text-[#4B5563]" />
+                  <Icon2 className="w-4 h-4 text-muted" />
                   <span>{label}</span>
                 </div>
               ))}
@@ -659,11 +659,11 @@ export function Home() {
       <div className="max-w-[1280px] mx-auto px-6 py-8">
         <NativeAd />
       </div>
-      <section className="py-24 bg-[#FAFAFA] border-b border-[#E5E7EB]">
+      <section className="py-24 bg-surface border-b border-border">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Testimonials</p>
-            <h2 className="text-[#111827]">Loved by builders worldwide</h2>
+            <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">Testimonials</p>
+            <h2 className="text-primary">Loved by builders worldwide</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -674,22 +674,22 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-white border border-[#E5E7EB] rounded-2xl p-6"
+                className="bg-white border border-border rounded-2xl p-6"
               >
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-[#F59E0B]" fill="#F59E0B" />
+                    <Star key={j} className="w-4 h-4 text-warning" fill="#F59E0B" />
                   ))}
                 </div>
-                <p className="text-[14px] text-[#374151] leading-relaxed mb-5">"{t.body}"</p>
+                <p className="text-[14px] text-secondary leading-relaxed mb-5">"{t.body}"</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-[#F3F4F6]">
-                  <div className="w-9 h-9 bg-[#111827] rounded-full flex items-center justify-center text-white text-[13px] font-bold">
+                  <div className="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white text-[13px] font-bold">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="text-[14px] font-semibold text-[#111827]">{t.name}</div>
-                    <div className="text-[12px] text-[#6B7280]">{t.role} · {t.company}</div>
+                    <div className="text-[14px] font-semibold text-primary">{t.name}</div>
+                    <div className="text-[12px] text-muted">{t.role} · {t.company}</div>
                   </div>
                 </div>
               </motion.div>
@@ -704,16 +704,16 @@ export function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-[720px] mx-auto px-6">
           <div className="text-center mb-12">
-            <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">FAQ</p>
-            <h2 className="text-[#111827] mb-4">Frequently asked questions</h2>
-            <p className="text-[16px] text-[#6B7280]">Everything you need to know about SmarTools.</p>
+            <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">FAQ</p>
+            <h2 className="text-primary mb-4">Frequently asked questions</h2>
+            <p className="text-[16px] text-muted">Everything you need to know about SmarTools.</p>
           </div>
 
           <FAQAccordion items={FAQS} />
 
-          <p className="text-center mt-8 text-[14px] text-[#6B7280]">
+          <p className="text-center mt-8 text-[14px] text-muted">
             Still have questions?{' '}
-            <Link to="/contact" className="text-[#111827] font-semibold underline hover:no-underline">
+            <Link to="/contact" className="text-primary font-semibold underline hover:no-underline">
               Contact us
             </Link>
           </p>

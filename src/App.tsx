@@ -57,7 +57,7 @@ export default function App() {
               <div className="fixed bottom-[-100px] left-[-100px] w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
               
               <div className="relative z-10 flex flex-col min-h-screen w-full">
-                <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#111827] focus:text-white focus:rounded-md focus:font-bold">Skip to main content</a>
+                <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:font-bold">Skip to main content</a>
                 <Navbar />
 
                 {/* Floating Skyscrapers - Desktop Only */}
@@ -90,9 +90,9 @@ export default function App() {
                     </Routes>
                   </Suspense>
                 </main>
-                <div className="w-full bg-[#FAFAFA] border-t border-[#E5E7EB] pt-8">
+                <div className="w-full bg-surface border-t border-border pt-8">
                   <div className="max-w-[1280px] mx-auto px-6">
-                    <p className="text-[11px] font-bold text-[#9CA3AF] uppercase tracking-wider mb-2 text-center">Sponsored Content</p>
+                    <p className="text-[11px] font-bold text-subtle uppercase tracking-wider mb-2 text-center">Sponsored Content</p>
                     <NativeAd />
                   </div>
                 </div>

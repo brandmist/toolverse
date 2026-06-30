@@ -31,12 +31,12 @@ export function CaseConverter() {
       {text && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {Object.entries(conversions).map(([label, convertedText]) => (
-            <div key={label} className="flex flex-col gap-1.5 p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl">
+            <div key={label} className="flex flex-col gap-1.5 p-3 bg-surface border border-border rounded-xl">
               <div className="flex items-center justify-between">
-                <span className="text-[12px] font-semibold text-[#6B7280]">{label}</span>
+                <span className="text-[12px] font-semibold text-muted">{label}</span>
                 <CopyButton text={convertedText} />
               </div>
-              <p className="text-[14px] text-[#111827] break-all font-mono">
+              <p className="text-[14px] text-primary break-all font-mono">
                 {convertedText || '\u00A0'}
               </p>
             </div>

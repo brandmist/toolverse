@@ -56,8 +56,8 @@ export function CssShadowGenerator() {
   return (
     <div className="flex flex-col md:flex-row gap-8 h-full">
       {/* Controls */}
-      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm max-h-[800px] overflow-y-auto">
-        <h3 className="text-lg font-bold text-[#111827] mb-2">Shadow Layers</h3>
+      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-border rounded-2xl p-6 shadow-sm max-h-[800px] overflow-y-auto">
+        <h3 className="text-lg font-bold text-primary mb-2">Shadow Layers</h3>
         
         {/* Layer list */}
         <div className="flex flex-col gap-2">
@@ -65,20 +65,20 @@ export function CssShadowGenerator() {
             <div 
               key={idx} 
               onClick={() => setActiveIdx(idx)}
-              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-[#FAFAFA] border-[#111827] shadow-sm' : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB]'}`}
+              className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${activeIdx === idx ? 'bg-surface border-[#111827] shadow-sm' : 'bg-white border-border hover:border-border-hover'}`}
             >
               <div className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-md shadow-sm border border-[#E5E7EB]" style={{ background: hexToRgba(s.color, s.opacity) }}></div>
-                <span className="text-sm font-medium text-[#374151]">Layer {idx + 1}</span>
-                {s.inset && <span className="text-[10px] bg-[#E5E7EB] text-[#4B5563] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wide">Inset</span>}
+                <div className="w-6 h-6 rounded-md shadow-sm border border-border" style={{ background: hexToRgba(s.color, s.opacity) }}></div>
+                <span className="text-sm font-medium text-secondary">Layer {idx + 1}</span>
+                {s.inset && <span className="text-[10px] bg-[#E5E7EB] text-muted px-1.5 py-0.5 rounded font-semibold uppercase tracking-wide">Inset</span>}
               </div>
-              <button onClick={(e) => removeShadow(e, idx)} disabled={shadows.length <= 1} className={`p-1.5 rounded-md ${shadows.length <= 1 ? 'text-[#D1D5DB]' : 'text-[#EF4444] hover:bg-[#FEE2E2]'}`}>
+              <button onClick={(e) => removeShadow(e, idx)} disabled={shadows.length <= 1} className={`p-1.5 rounded-md ${shadows.length <= 1 ? 'text-[#D1D5DB]' : 'text-danger hover:bg-[#FEE2E2]'}`}>
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
           ))}
           {shadows.length < 6 && (
-            <button onClick={addShadow} className="flex items-center justify-center gap-3 w-full p-3 mt-1 border border-dashed border-[#D1D5DB] rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#FAFAFA] hover:text-[#111827] transition-colors">
+            <button onClick={addShadow} className="flex items-center justify-center gap-3 w-full p-3 mt-1 border border-dashed border-border-hover rounded-xl text-sm font-medium text-muted hover:bg-surface hover:text-primary transition-colors">
               <Plus className="w-4 h-4" /> Add Layer
             </button>
           )}
@@ -89,10 +89,10 @@ export function CssShadowGenerator() {
         {/* Active Layer Controls */}
         <div className="space-y-5">
           <div className="flex items-center justify-between">
-            <h4 className="text-[14px] font-bold text-[#111827]">Edit Layer {activeIdx + 1}</h4>
+            <h4 className="text-[14px] font-bold text-primary">Edit Layer {activeIdx + 1}</h4>
             <label className="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" checked={activeShadow.inset} onChange={e => updateShadow('inset', e.target.checked)} className="rounded text-[#111827] focus:ring-[#111827]" />
-              <span className="text-[13px] font-medium text-[#374151]">Inset</span>
+              <input type="checkbox" checked={activeShadow.inset} onChange={e => updateShadow('inset', e.target.checked)} className="rounded text-primary focus:ring-primary" />
+              <span className="text-[13px] font-medium text-secondary">Inset</span>
             </label>
           </div>
 
@@ -105,20 +105,20 @@ export function CssShadowGenerator() {
           ].map(ctrl => (
             <div key={ctrl.key}>
               <div className="flex justify-between mb-1">
-                <span className="text-[13px] font-semibold text-[#374151]">{ctrl.label}</span>
-                <span className="text-[13px] font-medium text-[#6B7280]">{(activeShadow as any)[ctrl.key]}</span>
+                <span className="text-[13px] font-semibold text-secondary">{ctrl.label}</span>
+                <span className="text-[13px] font-medium text-muted">{(activeShadow as any)[ctrl.key]}</span>
               </div>
               <input type="range" min={ctrl.min} max={ctrl.max} value={(activeShadow as any)[ctrl.key]} onChange={e => updateShadow(ctrl.key, parseInt(e.target.value))} className="w-full accent-[#111827]" />
             </div>
           ))}
 
           <div>
-            <span className="text-[13px] font-semibold text-[#374151] block mb-2">Color</span>
-            <div className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
-              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
+            <span className="text-[13px] font-semibold text-secondary block mb-2">Color</span>
+            <div className="flex items-center gap-3 bg-surface p-3 rounded-xl border border-border">
+              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-border-hover shadow-sm">
                 <input type="color" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
               </div>
-              <input type="text" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
+              <input type="text" value={activeShadow.color} onChange={e => updateShadow('color', e.target.value)} className="w-full bg-white border border-border rounded-md px-3 py-1.5 text-primary text-sm uppercase focus:outline-none focus:border-primary" />
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export function CssShadowGenerator() {
 
       {/* Preview & Code */}
       <div className="flex-[1] flex flex-col gap-6">
-        <div className="flex-1 bg-[#FAFAFA] rounded-2xl border border-[#E5E7EB] min-h-[350px] flex items-center justify-center p-8 overflow-hidden relative radial-bg">
+        <div className="flex-1 bg-surface rounded-2xl border border-border min-h-[350px] flex items-center justify-center p-8 overflow-hidden relative radial-bg">
           {/* Subtle dotted background pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(#E5E7EB_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
           
@@ -136,12 +136,12 @@ export function CssShadowGenerator() {
             className="w-48 h-48 bg-white rounded-2xl z-10 flex items-center justify-center border border-[#F3F4F6] transition-shadow duration-200"
             style={{ boxShadow: generateBoxShadow() }}
           >
-            <span className="text-[#9CA3AF] font-medium text-sm">Preview</span>
+            <span className="text-subtle font-medium text-sm">Preview</span>
           </div>
         </div>
 
-        <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group">
-           <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
+        <div className="bg-primary rounded-xl p-4 shadow-sm relative group">
+           <span className="text-[11px] text-subtle mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
            <code className="text-[#A7F3D0] font-mono text-[13px] whitespace-pre block pr-12">
              {css}
            </code>
@@ -188,8 +188,8 @@ export function CssGlassmorphism() {
   return (
     <div className="flex flex-col md:flex-row gap-8 h-full">
       {/* Controls */}
-      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-[#111827] mb-2">Glass Settings</h3>
+      <div className="flex-[1.2] flex flex-col gap-6 bg-white border border-border rounded-2xl p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-primary mb-2">Glass Settings</h3>
         
         <div className="space-y-5">
           {[
@@ -199,20 +199,20 @@ export function CssGlassmorphism() {
           ].map(ctrl => (
             <div key={ctrl.label}>
               <div className="flex justify-between mb-1">
-                <span className="text-[13px] font-semibold text-[#374151]">{ctrl.label}</span>
-                <span className="text-[13px] font-medium text-[#6B7280]">{ctrl.val}</span>
+                <span className="text-[13px] font-semibold text-secondary">{ctrl.label}</span>
+                <span className="text-[13px] font-medium text-muted">{ctrl.val}</span>
               </div>
               <input type="range" min={ctrl.min} max={ctrl.max} value={ctrl.val} onChange={e => ctrl.set(parseInt(e.target.value))} className="w-full accent-[#111827]" />
             </div>
           ))}
 
           <div>
-            <span className="text-[13px] font-semibold text-[#374151] block mb-2">Tint Color</span>
-            <div className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
-              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
+            <span className="text-[13px] font-semibold text-secondary block mb-2">Tint Color</span>
+            <div className="flex items-center gap-3 bg-surface p-3 rounded-xl border border-border">
+              <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-border-hover shadow-sm">
                 <input type="color" value={tint} onChange={e => setTint(e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
               </div>
-              <input type="text" value={tint} onChange={e => setTint(e.target.value)} className="w-full bg-white border border-[#E5E7EB] rounded-md px-3 py-1.5 text-[#111827] text-sm uppercase focus:outline-none focus:border-[#111827]" />
+              <input type="text" value={tint} onChange={e => setTint(e.target.value)} className="w-full bg-white border border-border rounded-md px-3 py-1.5 text-primary text-sm uppercase focus:outline-none focus:border-primary" />
             </div>
           </div>
         </div>
@@ -229,7 +229,7 @@ export function CssGlassmorphism() {
 
           {/* Glass Card */}
           <div 
-            className="relative w-64 h-64 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] z-10 flex flex-col p-6 border border-[#E5E7EB] transition-all duration-300"
+            className="relative w-64 h-64 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] z-10 flex flex-col p-6 border border-border transition-all duration-300"
             style={{ background: bg, backdropFilter: `blur(${blur}px)`, WebkitBackdropFilter: `blur(${blur}px)`, borderColor: border }}
           >
             <div className="w-12 h-12 rounded-full bg-white/20 mb-4 flex items-center justify-center">
@@ -240,8 +240,8 @@ export function CssGlassmorphism() {
           </div>
         </div>
 
-        <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group">
-           <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
+        <div className="bg-primary rounded-xl p-4 shadow-sm relative group">
+           <span className="text-[11px] text-subtle mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
            <code className="text-[#A7F3D0] font-mono text-[13px] whitespace-pre block pr-12">
              {css}
            </code>
@@ -314,43 +314,43 @@ export function CssGradientGenerator() {
   return (
     <div className="flex flex-col md:flex-row gap-8 h-full">
       {/* Controls */}
-      <div className="flex-1 space-y-6 bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+      <div className="flex-1 space-y-6 bg-white border border-border rounded-2xl p-6 shadow-sm">
         
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-[#111827]">Gradient Settings</h3>
-          <button onClick={generateRandom} className="p-3 text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6] rounded-xl transition-colors" title="Randomize">
+          <h3 className="text-lg font-bold text-primary">Gradient Settings</h3>
+          <button onClick={generateRandom} className="p-3 text-muted hover:text-primary hover:bg-surface-hover rounded-xl transition-colors" title="Randomize">
             <Shuffle className="w-5 h-5" />
           </button>
         </div>
 
         <div>
-          <label className="text-[13px] font-semibold text-[#374151] block mb-2">Type</label>
-          <div className="flex bg-[#F3F4F6] p-1 rounded-xl">
-            <button onClick={() => setType('linear')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'linear' ? 'bg-white text-[#111827] shadow-sm' : 'text-[#6B7280] hover:text-[#374151]'}`}>Linear</button>
-            <button onClick={() => setType('radial')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'radial' ? 'bg-white text-[#111827] shadow-sm' : 'text-[#6B7280] hover:text-[#374151]'}`}>Radial</button>
+          <label className="text-[13px] font-semibold text-secondary block mb-2">Type</label>
+          <div className="flex bg-surface-hover p-1 rounded-xl">
+            <button onClick={() => setType('linear')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'linear' ? 'bg-white text-primary shadow-sm' : 'text-muted hover:text-secondary'}`}>Linear</button>
+            <button onClick={() => setType('radial')} className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-all ${type === 'radial' ? 'bg-white text-primary shadow-sm' : 'text-muted hover:text-secondary'}`}>Radial</button>
           </div>
         </div>
 
         {type === 'linear' ? (
           <div>
              <div className="flex justify-between mb-1">
-               <span className="text-[13px] font-semibold text-[#374151]">Angle</span>
-               <span className="text-[13px] font-medium text-[#6B7280]">{angle}°</span>
+               <span className="text-[13px] font-semibold text-secondary">Angle</span>
+               <span className="text-[13px] font-medium text-muted">{angle}°</span>
              </div>
              <input type="range" min="0" max="360" value={angle} onChange={e => setAngle(parseInt(e.target.value))} className="w-full accent-[#111827]" />
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] block mb-2">Shape</label>
-              <select value={radialShape} onChange={e => setRadialShape(e.target.value as any)} className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
+              <label className="text-[13px] font-semibold text-secondary block mb-2">Shape</label>
+              <select value={radialShape} onChange={e => setRadialShape(e.target.value as any)} className="w-full bg-surface border border-border rounded-xl px-3 py-2 text-primary text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 <option value="circle">Circle</option>
                 <option value="ellipse">Ellipse</option>
               </select>
             </div>
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] block mb-2">Position</label>
-              <select value={radialPos} onChange={e => setRadialPos(e.target.value)} className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm focus:outline-none focus:border-[#111827] focus:ring-1 focus:ring-[#111827]">
+              <label className="text-[13px] font-semibold text-secondary block mb-2">Position</label>
+              <select value={radialPos} onChange={e => setRadialPos(e.target.value)} className="w-full bg-surface border border-border rounded-xl px-3 py-2 text-primary text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 <option value="center">Center</option>
                 <option value="top left">Top Left</option>
                 <option value="top">Top</option>
@@ -367,7 +367,7 @@ export function CssGradientGenerator() {
 
         <div>
           <div className="flex items-center justify-between mb-3">
-            <label className="text-[13px] font-semibold text-[#374151]">Color Stops</label>
+            <label className="text-[13px] font-semibold text-secondary">Color Stops</label>
             {colors.length < 5 && (
               <button onClick={addColor} className="text-[12px] font-medium text-[#2563EB] hover:text-[#1D4ED8] flex items-center gap-1">
                 <Plus className="w-3 h-3" /> Add Color
@@ -377,16 +377,16 @@ export function CssGradientGenerator() {
           
           <div className="space-y-3">
             {colors.map((color, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-[#FAFAFA] p-3 rounded-xl border border-[#E5E7EB]">
-                <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-[#D1D5DB] shadow-sm">
+              <div key={idx} className="flex items-center gap-3 bg-surface p-3 rounded-xl border border-border">
+                <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 border border-border-hover shadow-sm">
                   <input type="color" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="absolute -top-3 -left-2 w-16 h-16 cursor-pointer" />
                 </div>
-                <input type="text" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="w-20 bg-white border border-[#E5E7EB] rounded-md px-2 py-1 text-[#111827] text-xs uppercase focus:outline-none focus:border-[#111827]" />
+                <input type="text" value={color.c} onChange={e => updateColor(idx, 'c', e.target.value)} className="w-20 bg-white border border-border rounded-md px-2 py-1 text-primary text-xs uppercase focus:outline-none focus:border-primary" />
                 <div className="flex-1 flex items-center gap-2">
                   <input type="range" min="0" max="100" value={color.pos} onChange={e => updateColor(idx, 'pos', parseInt(e.target.value))} className="w-full accent-[#111827]" />
-                  <span className="text-xs font-medium text-[#6B7280] w-8 text-right">{color.pos}%</span>
+                  <span className="text-xs font-medium text-muted w-8 text-right">{color.pos}%</span>
                 </div>
-                <button onClick={() => removeColor(idx)} disabled={colors.length <= 2} className={`p-1.5 rounded-md ${colors.length <= 2 ? 'text-[#D1D5DB] cursor-not-allowed' : 'text-[#EF4444] hover:bg-[#FEE2E2]'}`}>
+                <button onClick={() => removeColor(idx)} disabled={colors.length <= 2} className={`p-1.5 rounded-md ${colors.length <= 2 ? 'text-[#D1D5DB] cursor-not-allowed' : 'text-danger hover:bg-[#FEE2E2]'}`}>
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
@@ -398,12 +398,12 @@ export function CssGradientGenerator() {
 
       {/* Preview */}
       <div className="flex-[1.2] flex flex-col gap-4">
-        <div className="flex-1 rounded-2xl shadow-sm border border-[#E5E7EB] relative overflow-hidden min-h-[300px]" style={{ background: css.replace('background: ', '').replace(';', '') }}>
+        <div className="flex-1 rounded-2xl shadow-sm border border-border relative overflow-hidden min-h-[300px]" style={{ background: css.replace('background: ', '').replace(';', '') }}>
           {/* Preview canvas */}
         </div>
         
-        <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group">
-           <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
+        <div className="bg-primary rounded-xl p-4 shadow-sm relative group">
+           <span className="text-[11px] text-subtle mb-2 block font-semibold uppercase tracking-wider">CSS Output</span>
            <code className="text-[#A7F3D0] font-mono text-[13px] break-all block pr-12">
              {css}
            </code>
@@ -443,7 +443,7 @@ export function CssLoaderGenerator() {
 }`
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 space-y-4">
         {[
           { label: 'Size (px)', val: size, set: setSize, min: 20, max: 200 },
@@ -452,25 +452,25 @@ export function CssLoaderGenerator() {
         ].map(ctrl => (
           <div key={ctrl.label}>
              <div className="flex justify-between mb-1">
-               <span className="text-sm text-[#111827]">{ctrl.label}</span>
-               <span className="text-sm text-[#6B7280]">{ctrl.val}</span>
+               <span className="text-sm text-primary">{ctrl.label}</span>
+               <span className="text-sm text-muted">{ctrl.val}</span>
              </div>
              <input type="range" min={ctrl.min} max={ctrl.max} step={ctrl.step || 1} value={ctrl.val} onChange={e => ctrl.set(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
           </div>
         ))}
         <div>
-          <label className="text-sm text-[#111827] block mb-1">Loader Color</label>
+          <label className="text-sm text-primary block mb-1">Loader Color</label>
           <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
         </div>
       </div>
       <div className="flex-1 flex flex-col items-center">
-        <div className="flex-1 w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl mb-4 flex items-center justify-center border border-[#E5E7EB] min-h-[200px]">
+        <div className="flex-1 w-full bg-surface border border-border rounded-xl mb-4 flex items-center justify-center border border-border min-h-[200px]">
           <style>{css}</style>
           <div className="loader"></div>
         </div>
         <div className="w-full">
-           <span className="text-xs text-[#6B7280] mb-2 block font-semibold uppercase">CSS Code</span>
-           <pre className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer max-h-40 overflow-auto" onClick={() => navigator.clipboard.writeText(css)}>
+           <span className="text-xs text-muted mb-2 block font-semibold uppercase">CSS Code</span>
+           <pre className="p-4 bg-surface border border-border border-border rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer max-h-40 overflow-auto" onClick={() => navigator.clipboard.writeText(css)}>
              {css}
            </pre>
         </div>
@@ -500,23 +500,23 @@ export function CssTriangleGenerator() {
 }`
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 space-y-6">
         <div>
            <div className="flex justify-between mb-1">
-             <span className="text-sm text-[#111827]">Size</span>
-             <span className="text-sm text-[#6B7280]">{size}px</span>
+             <span className="text-sm text-primary">Size</span>
+             <span className="text-sm text-muted">{size}px</span>
            </div>
            <input type="range" min="10" max="250" value={size} onChange={e => setSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
         </div>
         <div>
-          <label className="text-sm text-[#111827] block mb-2">Direction</label>
+          <label className="text-sm text-primary block mb-2">Direction</label>
           <div className="grid grid-cols-2 gap-2">
             {['top', 'bottom', 'left', 'right'].map(dir => (
               <button 
                 key={dir} 
                 onClick={() => setDirection(dir as any)} 
-                className={`w-full py-2 capitalize rounded-xl border transition-colors ${direction === dir ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                className={`w-full py-2 capitalize rounded-xl border transition-colors ${direction === dir ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}
               >
                 {dir}
               </button>
@@ -524,18 +524,18 @@ export function CssTriangleGenerator() {
           </div>
         </div>
         <div>
-          <label className="text-sm text-[#111827] block mb-1">Triangle Color</label>
+          <label className="text-sm text-primary block mb-1">Triangle Color</label>
           <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
         </div>
       </div>
       <div className="flex-1 flex flex-col pt-4 items-center justify-center">
-         <div className="w-full flex-1 flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl mb-4 p-8 border border-[#E5E7EB] overflow-hidden min-h-[250px]">
+         <div className="w-full flex-1 flex items-center justify-center bg-surface border border-border rounded-xl mb-4 p-8 border border-border overflow-hidden min-h-[250px]">
            <style>{css}</style>
            <div className="triangle"></div>
          </div>
          <div className="w-full">
-           <span className="text-xs text-[#6B7280] mb-2 block font-semibold uppercase">CSS Code</span>
-           <pre className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer" onClick={() => navigator.clipboard.writeText(css)}>
+           <span className="text-xs text-muted mb-2 block font-semibold uppercase">CSS Code</span>
+           <pre className="p-4 bg-surface border border-border border-border rounded-xl text-success font-mono text-xs break-all whitespace-pre-wrap cursor-pointer" onClick={() => navigator.clipboard.writeText(css)}>
              {css}
            </pre>
         </div>
@@ -602,17 +602,17 @@ export function CssAnimationGenerator() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col gap-5">
           <div>
-            <label className="text-[13px] font-semibold text-[#374151] mb-2 block">Animation Type</label>
+            <label className="text-[13px] font-semibold text-secondary mb-2 block">Animation Type</label>
             <div className="grid grid-cols-3 gap-2">
               {Object.keys(animations).map(type => (
                 <button
                   key={type}
                   onClick={() => setAnimationType(type)}
-                  className={`py-2 rounded-xl text-[13px] font-semibold capitalize transition-all ${animationType === type ? 'bg-[#111827] text-white shadow-sm' : 'bg-[#F3F4F6] text-[#6B7280] hover:text-[#111827]'}`}
+                  className={`py-2 rounded-xl text-[13px] font-semibold capitalize transition-all ${animationType === type ? 'bg-primary text-white shadow-sm' : 'bg-surface-hover text-muted hover:text-primary'}`}
                 >
                   {type}
                 </button>
@@ -622,19 +622,19 @@ export function CssAnimationGenerator() {
           
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Duration ({duration}s)</label>
+              <label className="text-[13px] font-semibold text-secondary mb-1 block">Duration ({duration}s)</label>
               <input type="range" min="0.1" max="5" step="0.1" value={duration} onChange={e => setDuration(parseFloat(e.target.value))} className="w-full accent-[#111827]" />
             </div>
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Delay ({delay}s)</label>
+              <label className="text-[13px] font-semibold text-secondary mb-1 block">Delay ({delay}s)</label>
               <input type="range" min="0" max="5" step="0.1" value={delay} onChange={e => setDelay(parseFloat(e.target.value))} className="w-full accent-[#111827]" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Iterations</label>
-              <select value={iteration} onChange={e => setIteration(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none">
+              <label className="text-[13px] font-semibold text-secondary mb-1 block">Iterations</label>
+              <select value={iteration} onChange={e => setIteration(e.target.value)} className="w-full p-3 bg-surface border border-border rounded-xl text-[13px] outline-none">
                 <option value="infinite">Infinite</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -642,8 +642,8 @@ export function CssAnimationGenerator() {
               </select>
             </div>
             <div>
-              <label className="text-[13px] font-semibold text-[#374151] mb-1 block">Timing</label>
-              <select value={timing} onChange={e => setTiming(e.target.value)} className="w-full p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-[13px] outline-none">
+              <label className="text-[13px] font-semibold text-secondary mb-1 block">Timing</label>
+              <select value={timing} onChange={e => setTiming(e.target.value)} className="w-full p-3 bg-surface border border-border rounded-xl text-[13px] outline-none">
                 <option value="ease">ease</option>
                 <option value="linear">linear</option>
                 <option value="ease-in">ease-in</option>
@@ -662,8 +662,8 @@ export function CssAnimationGenerator() {
              <div className={`w-24 h-24 bg-white rounded-xl shadow-2xl animate-${animationType}`}></div>
           </div>
           
-          <div className="bg-[#111827] rounded-xl p-4 shadow-sm relative group min-h-[140px]">
-             <span className="text-[11px] text-[#9CA3AF] mb-2 block font-semibold uppercase tracking-wider">CSS Code</span>
+          <div className="bg-primary rounded-xl p-4 shadow-sm relative group min-h-[140px]">
+             <span className="text-[11px] text-subtle mb-2 block font-semibold uppercase tracking-wider">CSS Code</span>
              <textarea readOnly value={fullCss} className="w-full h-[120px] bg-transparent text-[#A7F3D0] font-mono text-[13px] resize-none outline-none border-none p-0 pr-8" />
              <button onClick={copy} className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-colors backdrop-blur-sm" title="Copy">
                {copied ? <Check className="w-4 h-4 text-[#34D399]" /> : <Copy className="w-4 h-4" />}

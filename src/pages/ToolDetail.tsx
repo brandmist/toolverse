@@ -421,30 +421,30 @@ export function ToolDetail() {
 
       <div className="min-h-screen bg-white">
         {/* ── Page header ── */}
-        <div className="bg-white border-b border-[#E5E7EB] pt-20 pb-8">
+        <div className="bg-white border-b border-border pt-20 pb-8">
           <div className="max-w-[960px] mx-auto px-6">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-[13px] text-[#9CA3AF] mb-6">
-              <Link to="/" className="hover:text-[#111827] transition-colors">Home</Link>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-[13px] text-subtle mb-6">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <span>/</span>
-              {category && <Link to={`/category/${category.id}`} className="hover:text-[#111827] transition-colors">{category.name}</Link>}
+              {category && <Link to={`/category/${category.id}`} className="hover:text-primary transition-colors">{category.name}</Link>}
               <span>/</span>
-              <span className="text-[#374151] font-medium">{tool.name}</span>
+              <span className="text-secondary font-medium">{tool.name}</span>
             </nav>
 
             {/* Tool header */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl flex items-center justify-center text-[#374151] shrink-0">
+                <div className="w-12 h-12 bg-surface border border-border rounded-xl flex items-center justify-center text-secondary shrink-0">
                   <Icon name={tool.icon} className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <h1 className="text-[28px] font-bold text-[#111827] tracking-tight leading-tight">{tool.name}</h1>
-                    {tool.isPopular && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#111827] text-white rounded-md">Popular</span>}
-                    {tool.isNew && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#F3F4F6] text-[#374151] border border-[#E5E7EB] rounded-md">New</span>}
+                    <h1 className="text-[28px] font-bold text-primary tracking-tight leading-tight">{tool.name}</h1>
+                    {tool.isPopular && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-primary text-white rounded-md">Popular</span>}
+                    {tool.isNew && <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-surface-hover text-secondary border border-border rounded-md">New</span>}
                   </div>
-                  <p className="text-[14px] text-[#6B7280] leading-relaxed max-w-xl">{tool.description}</p>
+                  <p className="text-[14px] text-muted leading-relaxed max-w-xl">{tool.description}</p>
                 </div>
               </div>
 
@@ -460,8 +460,8 @@ export function ToolDetail() {
                   aria-pressed={isFavorite}
                   className={`flex items-center gap-3 px-4 py-2 rounded-lg border text-[13px] font-semibold transition-all ${
                     isFavorite
-                      ? 'bg-[#FEF2F2] text-[#EF4444] border-[#FECACA]'
-                      : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827]'
+                      ? 'bg-[#FEF2F2] text-danger border-[#FECACA]'
+                      : 'bg-white text-muted border-border hover:border-border-hover hover:text-primary'
                   }`}
                 >
                   <Heart className="w-4 h-4" fill={isFavorite ? '#EF4444' : 'none'} stroke={isFavorite ? '#EF4444' : 'currentColor'} />
@@ -483,7 +483,7 @@ export function ToolDetail() {
                     }
                   }}
                   aria-label="Share tool"
-                  className="flex items-center gap-3 px-4 py-2 bg-white text-[#6B7280] border border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827] rounded-lg text-[13px] font-semibold transition-all"
+                  className="flex items-center gap-3 px-4 py-2 bg-white text-muted border border-border hover:border-border-hover hover:text-primary rounded-lg text-[13px] font-semibold transition-all"
                 >
                   <Share2 className="w-4 h-4" /> Share
                 </button>
@@ -502,7 +502,7 @@ export function ToolDetail() {
 
           {/* The Actual Tool Interface */}
           <div className="w-full">
-            <Suspense fallback={<div className="flex items-center justify-center p-12 bg-white border border-[#E5E7EB] rounded-2xl shadow-sm"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center p-12 bg-white border border-border rounded-2xl shadow-sm"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
               {renderToolInterface()}
             </Suspense>
           </div>
@@ -516,42 +516,42 @@ export function ToolDetail() {
             <div className="flex flex-col gap-12">
               
               {/* Horizontal Meta Bar */}
-              <div className="flex flex-wrap items-center gap-6 p-6 bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl">
+              <div className="flex flex-wrap items-center gap-6 p-6 bg-surface border border-border rounded-2xl">
                 <div className="flex-1 min-w-[120px]">
-                  <div className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-1">Pricing</div>
-                  <div className="text-xl font-extrabold text-[#111827]">{tool.pricing || 'Free'}</div>
+                  <div className="text-[12px] font-bold text-muted uppercase tracking-wider mb-1">Pricing</div>
+                  <div className="text-xl font-extrabold text-primary">{tool.pricing || 'Free'}</div>
                 </div>
                 {tool.rating && (
                   <div className="flex-1 min-w-[120px]">
-                    <div className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-1">Rating</div>
+                    <div className="text-[12px] font-bold text-muted uppercase tracking-wider mb-1">Rating</div>
                     <div className="flex items-center gap-1.5">
-                      <Star className="w-5 h-5 fill-[#F59E0B] text-[#F59E0B]" />
-                      <span className="text-lg font-bold text-[#111827]">{tool.rating}</span>
-                      <span className="text-[12px] text-[#6B7280] font-medium ml-1">({tool.reviews})</span>
+                      <Star className="w-5 h-5 fill-[#F59E0B] text-warning" />
+                      <span className="text-lg font-bold text-primary">{tool.rating}</span>
+                      <span className="text-[12px] text-muted font-medium ml-1">({tool.reviews})</span>
                     </div>
                   </div>
                 )}
                 <div className="flex-1 min-w-[120px]">
-                  <div className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-1">Developer</div>
-                  <div className="text-[15px] font-semibold text-[#111827] flex items-center gap-1">
+                  <div className="text-[12px] font-bold text-muted uppercase tracking-wider mb-1">Developer</div>
+                  <div className="text-[15px] font-semibold text-primary flex items-center gap-1">
                     {tool.developer || 'SmarTools Official'}
                     {tool.verified && <ShieldCheck className="w-4 h-4 text-[#3B82F6]" />}
                   </div>
                 </div>
                 <div className="flex-1 min-w-[120px]">
-                  <div className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-1">Platform</div>
-                  <div className="text-[15px] font-semibold text-[#111827]">Web Browser</div>
+                  <div className="text-[12px] font-bold text-muted uppercase tracking-wider mb-1">Platform</div>
+                  <div className="text-[15px] font-semibold text-primary">Web Browser</div>
                 </div>
               </div>
 
               {tool.features && (
                 <div>
-                  <h2 className="text-2xl font-bold text-[#111827] mb-6">Key Features</h2>
+                  <h2 className="text-2xl font-bold text-primary mb-6">Key Features</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {tool.features.map((feature, i) => (
-                      <div key={i} className="flex items-start gap-3 p-5 bg-white border border-[#E5E7EB] rounded-2xl shadow-sm">
-                        <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
-                        <span className="text-[15px] font-medium text-[#374151]">{feature}</span>
+                      <div key={i} className="flex items-start gap-3 p-5 bg-white border border-border rounded-2xl shadow-sm">
+                        <CheckCircle2 className="w-5 h-5 text-success shrink-0 mt-0.5" />
+                        <span className="text-[15px] font-medium text-secondary">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -561,7 +561,7 @@ export function ToolDetail() {
               {(tool.pros || tool.cons) && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {tool.pros && (
-                    <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-2xl p-6">
+                    <div className="bg-[#F0FDF4] border border-success-border rounded-2xl p-6">
                       <h3 className="text-[16px] font-bold text-[#166534] mb-4 flex items-center gap-2">
                         <Check className="w-5 h-5" strokeWidth={3} /> Pros
                       </h3>
@@ -595,12 +595,12 @@ export function ToolDetail() {
 
               {tool.useCases && (
                 <div>
-                  <h2 className="text-2xl font-bold text-[#111827] mb-6">Common Use Cases</h2>
-                  <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-sm">
+                  <h2 className="text-2xl font-bold text-primary mb-6">Common Use Cases</h2>
+                  <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
                     <ul className="space-y-4">
                       {tool.useCases.map((useCase, i) => (
-                        <li key={i} className="flex items-start gap-4 text-[15px] text-[#4B5563] leading-relaxed pb-4 border-b border-[#F3F4F6] last:border-0 last:pb-0">
-                          <span className="w-7 h-7 bg-[#FAFAFA] border border-[#E5E7EB] rounded-full text-[13px] font-bold text-[#111827] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">{i + 1}</span>
+                        <li key={i} className="flex items-start gap-4 text-[15px] text-muted leading-relaxed pb-4 border-b border-[#F3F4F6] last:border-0 last:pb-0">
+                          <span className="w-7 h-7 bg-surface border border-border rounded-full text-[13px] font-bold text-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">{i + 1}</span>
                           {useCase}
                         </li>
                       ))}
@@ -612,25 +612,25 @@ export function ToolDetail() {
           ) : (
             /* Fallback Content for tools not yet enriched */
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl p-6 sm:p-8">
-                <h2 className="text-[18px] font-semibold text-[#111827] mb-5 flex items-center gap-3">
-                  <HelpCircle className="w-5 h-5 text-[#6B7280]" /> How to use
+              <div className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <h2 className="text-[18px] font-semibold text-primary mb-5 flex items-center gap-3">
+                  <HelpCircle className="w-5 h-5 text-muted" /> How to use
                 </h2>
-                <p className="text-[15px] text-[#4B5563] leading-relaxed mb-6">
+                <p className="text-[15px] text-muted leading-relaxed mb-6">
                   Our {tool.name.toLowerCase()} is completely intuitive. All processing happens locally in your browser — your data never leaves your machine.
                 </p>
                 <ol className="space-y-3">
                   {['Upload or input your data', 'Adjust the available settings', 'Download or copy your result'].map((step, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[14px] text-[#6B7280]">
-                      <span className="w-6 h-6 bg-white border border-[#E5E7EB] shadow-sm rounded-full text-[12px] font-bold text-[#111827] flex items-center justify-center shrink-0">{i + 1}</span>
+                    <li key={i} className="flex items-start gap-3 text-[14px] text-muted">
+                      <span className="w-6 h-6 bg-white border border-border shadow-sm rounded-full text-[12px] font-bold text-primary flex items-center justify-center shrink-0">{i + 1}</span>
                       <span className="pt-0.5">{step}</span>
                     </li>
                   ))}
                 </ol>
               </div>
-              <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-2xl p-6 sm:p-8">
-                <h2 className="text-[18px] font-semibold text-[#111827] mb-6 flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#6B7280]" /> Why use {tool.name}?
+              <div className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <h2 className="text-[18px] font-semibold text-primary mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-muted" /> Why use {tool.name}?
                 </h2>
                 <div className="space-y-5">
                   {[
@@ -639,10 +639,10 @@ export function ToolDetail() {
                     { title: 'No Account Needed',      desc: 'Open the tool and start immediately. Zero friction.' },
                   ].map(item => (
                     <div key={item.title} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0" />
+                      <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
                       <div>
-                        <div className="text-[14px] font-bold text-[#111827] mb-1">{item.title}</div>
-                        <div className="text-[14px] text-[#6B7280] leading-relaxed">{item.desc}</div>
+                        <div className="text-[14px] font-bold text-primary mb-1">{item.title}</div>
+                        <div className="text-[14px] text-muted leading-relaxed">{item.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -653,17 +653,17 @@ export function ToolDetail() {
 
           {/* Related Tools Widget */}
           {(relatedTools.length > 0) && (
-            <div className="mt-8 pt-10 border-t border-[#E5E7EB]">
-              <h2 className="text-2xl font-bold text-[#111827] mb-6">Similar Tools</h2>
+            <div className="mt-8 pt-10 border-t border-border">
+              <h2 className="text-2xl font-bold text-primary mb-6">Similar Tools</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {relatedTools.map(rt => (
-                  <Link key={rt.id} to={`/tool/${rt.id}`} className="flex items-center gap-4 p-4 bg-white border border-[#E5E7EB] rounded-2xl hover:border-[#D1D5DB] hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] transition-all group">
-                    <div className="w-12 h-12 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl flex items-center justify-center text-[#374151] shrink-0 group-hover:bg-[#111827] group-hover:text-white transition-all">
+                  <Link key={rt.id} to={`/tool/${rt.id}`} className="flex items-center gap-4 p-4 bg-white border border-border rounded-2xl hover:border-border-hover hover:shadow-[0_4px_12px_rgb(0,0,0,0.06)] transition-all group">
+                    <div className="w-12 h-12 bg-surface border border-border rounded-xl flex items-center justify-center text-secondary shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
                       <Icon name={rt.icon} className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-[15px] font-semibold text-[#111827] group-hover:text-black leading-tight mb-1">{rt.name}</div>
-                      <div className="text-[13px] text-[#6B7280] line-clamp-1">{rt.description}</div>
+                      <div className="text-[15px] font-semibold text-primary group-hover:text-black leading-tight mb-1">{rt.name}</div>
+                      <div className="text-[13px] text-muted line-clamp-1">{rt.description}</div>
                     </div>
                   </Link>
                 ))}
@@ -676,7 +676,7 @@ export function ToolDetail() {
               href="https://www.effectivecpmnetwork.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#111827] text-white font-bold rounded-xl hover:bg-[#1F2937] transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-0.5"
             >
               Unlock Premium Features
             </a>

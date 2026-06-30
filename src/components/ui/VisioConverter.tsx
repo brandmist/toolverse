@@ -274,17 +274,17 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!file ? (
         <div 
           onClick={() => fileInputRef.current?.click()}
           onDragOver={e => e.preventDefault()}
           onDrop={e => { e.preventDefault(); if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]) }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer transition-all bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer transition-all bg-white/2"
         >
           <Upload className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click or drag & drop Visio file</p>
-          <p className="text-[#6B7280] text-xs text-center max-w-md mt-1 leading-relaxed">
+          <p className="text-primary font-medium mb-1">Click or drag & drop Visio file</p>
+          <p className="text-muted text-xs text-center max-w-md mt-1 leading-relaxed">
             Supports Microsoft Visio .vsd and .vsdx drawing files
           </p>
           <input 
@@ -297,18 +297,18 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[320px] flex flex-col justify-between">
              <div className="space-y-4">
                <div>
-                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Visio Source</h4>
-                  <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-sm text-[#111827] flex items-center justify-between">
+                  <h4 className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">Visio Source</h4>
+                  <div className="bg-white border border-border border-border rounded-xl px-3 py-2 text-sm text-primary flex items-center justify-between">
                     <span className="font-bold text-danger truncate max-w-[150px]">{file.name}</span>
-                    <span className="text-xs text-[#6B7280]">{(file.size / 1024).toFixed(1)} KB</span>
+                    <span className="text-xs text-muted">{(file.size / 1024).toFixed(1)} KB</span>
                   </div>
                </div>
                
                <div>
-                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Convert To</h4>
+                  <h4 className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">Convert To</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {([
                       { id: 'pdf', label: 'PDF Document' },
@@ -319,7 +319,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
                       <button
                         key={fmt.id}
                         onClick={() => setTargetFormat(fmt.id)}
-                        className={`py-2 px-1 rounded-xl text-xs font-bold transition-colors ${targetFormat === fmt.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}
+                        className={`py-2 px-1 rounded-xl text-xs font-bold transition-colors ${targetFormat === fmt.id ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}
                       >
                         {fmt.label}
                       </button>
@@ -329,29 +329,29 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
              </div>
 
              <div className="pt-4 space-y-2">
-               {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+               {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
                <div className="flex gap-2">
-                 <Button className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" onClick={handleConvert} disabled={isProcessing}>
+                 <Button className="flex-grow bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm" onClick={handleConvert} disabled={isProcessing}>
                    Convert & Download
                  </Button>
-                 <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={clear}>
+                 <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={clear}>
                    Clear
                  </Button>
                </div>
              </div>
           </div>
           
-          <div className="flex-[2] flex flex-col p-6 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex flex-col p-6 bg-white border border-border rounded-2xl border border-border min-h-[350px] relative">
              <div className="flex items-center gap-3 mb-4 text-success text-sm font-semibold">
                 <CheckCircle className="w-5 h-5 shrink-0" />
                 <span>{success || 'Visio document loaded successfully'}</span>
              </div>
              
              <div className="flex-grow space-y-4 overflow-auto max-h-[300px] pr-2">
-                <h5 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Extracted Text Content</h5>
-                <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 space-y-2 font-mono text-xs text-[#111827]">
+                <h5 className="text-xs font-semibold text-muted uppercase tracking-wider">Extracted Text Content</h5>
+                <div className="bg-surface border border-border border-border rounded-xl p-4 space-y-2 font-mono text-xs text-primary">
                    {extractedAssets?.text.map((t, idx) => (
-                      <div key={idx} className="border-b border-[#E5E7EB] pb-1.5 last:border-0">{t}</div>
+                      <div key={idx} className="border-b border-border pb-1.5 last:border-0">{t}</div>
                    ))}
                 </div>
              </div>
@@ -359,7 +359,7 @@ export function VisioConverter({ defaultTarget }: { defaultTarget?: 'pdf' | 'doc
              {isProcessing && (
                <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center p-6 text-center">
                  <RefreshCw className="w-8 h-8 text-danger animate-spin mb-3" />
-                 <p className="text-[#111827] font-medium text-sm">{statusText || 'Converting Visio document...'}</p>
+                 <p className="text-primary font-medium text-sm">{statusText || 'Converting Visio document...'}</p>
                </div>
              )}
           </div>

@@ -12,7 +12,7 @@ export function PercentageCalculator() {
   return (
     <div className="space-y-6">
       <div className="tool-panel">
-        <h3 className="text-lg font-semibold text-[#111827] mb-4">What is X% of Y?</h3>
+        <h3 className="text-lg font-semibold text-primary mb-4">What is X% of Y?</h3>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1 w-full">
             <label className="tool-label">Percentage (X)</label>
@@ -24,14 +24,14 @@ export function PercentageCalculator() {
             <input type="number" className="w-full" placeholder="150" value={val2} onChange={e => setVal2(e.target.value)} />
           </div>
         </div>
-        <div className="mt-4 p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl flex items-center justify-between">
+        <div className="mt-4 p-4 bg-surface border border-border rounded-xl flex items-center justify-between">
           <span className="text-sm text-gray-600 font-medium">Result:</span>
           <span className="text-2xl font-bold text-[#2563EB]">{!isNaN(calc1) ? calc1.toLocaleString() : '---'}</span>
         </div>
       </div>
 
       <div className="tool-panel">
-        <h3 className="text-lg font-semibold text-[#111827] mb-4">X is what % of Y?</h3>
+        <h3 className="text-lg font-semibold text-primary mb-4">X is what % of Y?</h3>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1 w-full">
             <label className="tool-label">Value (X)</label>
@@ -43,9 +43,9 @@ export function PercentageCalculator() {
             <input type="number" className="w-full" placeholder="150" value={val4} onChange={e => setVal4(e.target.value)} />
           </div>
         </div>
-        <div className="mt-4 p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl flex items-center justify-between">
+        <div className="mt-4 p-4 bg-surface border border-border rounded-xl flex items-center justify-between">
           <span className="text-sm text-gray-600 font-medium">Result:</span>
-          <span className="text-2xl font-bold text-[#059669]">{!isNaN(calc2) ? calc2.toLocaleString() + '%' : '---'}</span>
+          <span className="text-2xl font-bold text-success">{!isNaN(calc2) ? calc2.toLocaleString() + '%' : '---'}</span>
         </div>
       </div>
     </div>
@@ -79,9 +79,9 @@ export function BmiCalculator() {
           <input type="number" className="w-full" value={weight} onChange={e => setWeight(e.target.value)} />
         </div>
       </div>
-      <div className="p-6 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+      <div className="p-6 bg-surface border border-border rounded-xl text-center">
         <div className="text-sm text-gray-500 uppercase tracking-wider font-semibold mb-1">Your BMI</div>
-        <div className="text-5xl font-black text-[#111827] mb-2">{!isNaN(bmi) && isFinite(bmi) ? bmi.toFixed(1) : '0.0'}</div>
+        <div className="text-5xl font-black text-primary mb-2">{!isNaN(bmi) && isFinite(bmi) ? bmi.toFixed(1) : '0.0'}</div>
         <div className={`text-lg font-medium ${color}`}>{!isNaN(bmi) && isFinite(bmi) ? category : '---'}</div>
       </div>
     </div>
@@ -124,16 +124,16 @@ export function AgeCalculator() {
       
       {age && (
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-6 text-center">
-            <div className="text-4xl font-bold text-[#111827] mb-1">{age.years}</div>
+          <div className="bg-surface border border-border rounded-xl p-6 text-center">
+            <div className="text-4xl font-bold text-primary mb-1">{age.years}</div>
             <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Years</div>
           </div>
-          <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-6 text-center">
-            <div className="text-4xl font-bold text-[#111827] mb-1">{age.months}</div>
+          <div className="bg-surface border border-border rounded-xl p-6 text-center">
+            <div className="text-4xl font-bold text-primary mb-1">{age.months}</div>
             <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Months</div>
           </div>
-          <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-6 text-center">
-            <div className="text-4xl font-bold text-[#111827] mb-1">{age.days}</div>
+          <div className="bg-surface border border-border rounded-xl p-6 text-center">
+            <div className="text-4xl font-bold text-primary mb-1">{age.days}</div>
             <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Days</div>
           </div>
         </div>
@@ -171,13 +171,13 @@ export function SimpleInterestCalculator() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Interest</div>
-          <div className="text-2xl font-bold text-[#059669]">${interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-success">${interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Amount</div>
-          <div className="text-2xl font-bold text-[#111827]">${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-primary">${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -225,13 +225,13 @@ export function CompoundInterestCalculator() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Interest Earned</div>
-          <div className="text-2xl font-bold text-[#059669]">${interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-success">${interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Future Value</div>
-          <div className="text-2xl font-bold text-[#111827]">${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-primary">${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -279,17 +279,17 @@ export function LoanCalculator() {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Monthly EMI</div>
           <div className="text-2xl font-bold text-[#2563EB]">${emi.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Interest</div>
-          <div className="text-2xl font-bold text-[#EF4444]">${totalInterest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-danger">${totalInterest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Payment</div>
-          <div className="text-2xl font-bold text-[#111827]">${totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className="text-2xl font-bold text-primary">${totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -336,17 +336,17 @@ export function SipCalculator() {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Invested Amount</div>
-          <div className="text-2xl font-bold text-[#6B7280]">${investedAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+          <div className="text-2xl font-bold text-muted">${investedAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Est. Returns</div>
-          <div className="text-2xl font-bold text-[#10B981]">${estimatedReturns.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+          <div className="text-2xl font-bold text-success">${estimatedReturns.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
         </div>
-        <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+        <div className="p-4 bg-surface border border-border rounded-xl text-center">
           <div className="text-sm text-gray-500 font-semibold mb-1">Total Value</div>
-          <div className="text-2xl font-bold text-[#111827]">${futureValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+          <div className="text-2xl font-bold text-primary">${futureValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
         </div>
       </div>
     </div>
@@ -403,9 +403,9 @@ export function CurrencyConverter() {
           </select>
         </div>
       </div>
-      <div className="p-6 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl text-center">
+      <div className="p-6 bg-surface border border-border rounded-xl text-center">
         <div className="text-sm text-gray-500 font-semibold mb-1">{amount} {from} equals</div>
-        <div className="text-4xl font-bold text-[#111827]">
+        <div className="text-4xl font-bold text-primary">
           {result.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 })} {to}
         </div>
       </div>

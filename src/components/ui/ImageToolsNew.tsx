@@ -28,15 +28,15 @@ function FileDropZone({
 
   return (
     <div
-      className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-10 cursor-pointer transition-all ${dragging ? 'border-[#E5E7EB] bg-[#FAFAFA] border border-[#E5E7EB]' : 'border-[#E5E7EB] hover:border-white/30 bg-white/3'}`}
+      className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-10 cursor-pointer transition-all ${dragging ? 'border-border bg-surface border border-border' : 'border-border hover:border-white/30 bg-white/3'}`}
       onClick={() => inputRef.current?.click()}
       onDragOver={e => { e.preventDefault(); setDragging(true) }}
       onDragLeave={() => setDragging(false)}
       onDrop={e => { e.preventDefault(); setDragging(false); handle(e.dataTransfer.files) }}
     >
-      <Upload className="w-10 h-10 text-[#6B7280] mb-4" />
-      <p className="text-[#111827] font-medium mb-1">{label}</p>
-      <p className="text-[#6B7280] text-sm">{sub}</p>
+      <Upload className="w-10 h-10 text-muted mb-4" />
+      <p className="text-primary font-medium mb-1">{label}</p>
+      <p className="text-muted text-sm">{sub}</p>
       <input ref={inputRef} type="file" accept={accept} multiple={multiple} className="hidden" onChange={e => handle(e.target.files)} />
     </div>
   )
@@ -135,20 +135,20 @@ export function ImageCompressor() {
   const allDone = images.length > 0 && images.every(img => !img.processing && img.compressed)
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!images.length ? (
         <FileDropZone accept="image/*,.svg,.tiff,.tif,.heic,.avif" multiple={true} onFiles={onFiles} label="Drop images to compress" sub="Bulk compress PNG, JPG, WEBP — up to 50MB each" />
       ) : (
         <>
           <div className="flex flex-col md:flex-row gap-6">
             {/* Controls */}
-            <div className="flex-shrink-0 w-full md:w-80 space-y-5 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5">
-              <h3 className="font-semibold text-[#111827]">Compression Settings</h3>
+            <div className="flex-shrink-0 w-full md:w-80 space-y-5 bg-surface border border-border border-border rounded-xl p-5">
+              <h3 className="font-semibold text-primary">Compression Settings</h3>
               <div>
-                <label className="text-sm text-[#111827] block mb-2">Output Format</label>
+                <label className="text-sm text-primary block mb-2">Output Format</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(['image/jpeg', 'image/webp'] as const).map(f => (
-                    <button key={f} onClick={() => setFormat(f)} className={`py-2 rounded-xl text-sm border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
+                    <button key={f} onClick={() => setFormat(f)} className={`py-2 rounded-xl text-sm border font-medium transition-colors ${format === f ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>
                       {f === 'image/jpeg' ? 'JPG' : 'WEBP'}
                     </button>
                   ))}
@@ -156,33 +156,33 @@ export function ImageCompressor() {
               </div>
               <div>
                 <div className="flex justify-between mb-1">
-                  <label className="text-sm text-[#111827]">Quality</label>
-                  <span className="text-sm font-bold text-[#111827]">{Math.round(quality * 100)}%</span>
+                  <label className="text-sm text-primary">Quality</label>
+                  <span className="text-sm font-bold text-primary">{Math.round(quality * 100)}%</span>
                 </div>
                 <input type="range" min="0.1" max="1" step="0.05" value={quality} onChange={e => setQuality(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
-                <div className="flex justify-between text-xs text-[#6B7280] mt-1">
+                <div className="flex justify-between text-xs text-muted mt-1">
                   <span>Smaller</span><span>Better Quality</span>
                 </div>
               </div>
 
               {/* Stats */}
-              <div className="space-y-2 pt-2 border-t border-[#E5E7EB]">
+              <div className="space-y-2 pt-2 border-t border-border">
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#6B7280]">Files</span>
-                  <span className="text-[#111827] font-medium">{images.length} images</span>
+                  <span className="text-muted">Files</span>
+                  <span className="text-primary font-medium">{images.length} images</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#6B7280]">Original Size</span>
-                  <span className="text-[#111827] font-medium">{fmt(totalOrigSize)}</span>
+                  <span className="text-muted">Original Size</span>
+                  <span className="text-primary font-medium">{fmt(totalOrigSize)}</span>
                 </div>
                 {totalCompSize > 0 && (
                   <>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#6B7280]">Compressed Size</span>
+                      <span className="text-muted">Compressed Size</span>
                       <span className="text-success font-medium">{fmt(totalCompSize)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#6B7280]">Total Saved</span>
+                      <span className="text-muted">Total Saved</span>
                       <span className={`font-bold ${totalSavings > 0 ? 'text-success' : 'text-warning'}`}>{totalSavings}%</span>
                     </div>
                   </>
@@ -190,10 +190,10 @@ export function ImageCompressor() {
               </div>
 
               <div className="flex flex-col gap-3 pt-2">
-                <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={downloadZip} disabled={!allDone || isZipping}>
+                <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={downloadZip} disabled={!allDone || isZipping}>
                   {isZipping ? <span className="flex items-center gap-2">Zipping...</span> : <><Archive className="w-4 h-4 mr-2" /> Download All (ZIP)</>}
                 </Button>
-                <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => setImages([])}>Clear All</Button>
+                <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => setImages([])}>Clear All</Button>
               </div>
 
               <div className="pt-2">
@@ -206,23 +206,23 @@ export function ImageCompressor() {
               {images.map(img => {
                 const savings = img.compressed ? Math.max(0, Math.round((1 - img.compressed.size / img.origSize) * 100)) : 0
                 return (
-                  <div key={img.id} className="flex items-center gap-4 bg-white border border-[#E5E7EB] rounded-2xl p-3 shadow-sm border-[#E5E7EB]">
-                    <img src={img.src} alt="Preview" className="w-16 h-16 object-cover rounded-xl border border-[#E5E7EB]" />
+                  <div key={img.id} className="flex items-center gap-4 bg-white border border-border rounded-2xl p-3 shadow-sm border-border">
+                    <img src={img.src} alt="Preview" className="w-16 h-16 object-cover rounded-xl border border-border" />
                     <div className="flex-1 min-w-0">
-                       <div className="text-sm font-medium text-[#111827] truncate">{img.file.name}</div>
-                       <div className="text-xs text-[#6B7280] mt-1">
+                       <div className="text-sm font-medium text-primary truncate">{img.file.name}</div>
+                       <div className="text-xs text-muted mt-1">
                           {fmt(img.origSize)} 
                           {img.compressed && <span> → <span className="text-success font-medium">{fmt(img.compressed.size)}</span></span>}
                        </div>
                     </div>
                     <div className="flex items-center gap-3">
                        {img.processing ? (
-                         <div className="text-xs text-[#6B7280] animate-pulse">Processing...</div>
+                         <div className="text-xs text-muted animate-pulse">Processing...</div>
                        ) : img.compressed ? (
                          <>
                            <span className={`text-xs font-bold ${savings > 0 ? 'text-success' : 'text-warning'}`}>-{savings}%</span>
                            <a href={img.compressed.url} download={`${img.file.name.replace(/\.[^/.]+$/, "")}-compressed.${format === 'image/jpeg' ? 'jpg' : 'webp'}`}>
-                             <Button size="sm" variant="outline" className="p-3 border-[#E5E7EB] hover:bg-white/10 text-[#111827]">
+                             <Button size="sm" variant="outline" className="p-3 border-border hover:bg-white/10 text-primary">
                                <Download className="w-4 h-4" />
                              </Button>
                            </a>
@@ -320,43 +320,43 @@ export function ImageWatermark() {
   ]
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!src ? (
         <FileDropZone accept="image/*,.svg,.tiff,.tif,.heic,.avif" onFiles={f => { const r = new FileReader(); r.onload = e => setSrc(e.target?.result as string); r.readAsDataURL(f[0]) }} label="Drop image to watermark" />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-shrink-0 w-full md:w-72 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5">
-            <h3 className="font-semibold text-[#111827]">Watermark Settings</h3>
+          <div className="flex-shrink-0 w-full md:w-72 space-y-4 bg-surface border border-border border-border rounded-xl p-5">
+            <h3 className="font-semibold text-primary">Watermark Settings</h3>
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Watermark Text</label>
-              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
+              <label className="text-sm text-primary block mb-1">Watermark Text</label>
+              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary text-sm" />
             </div>
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Font Size</label><span className="text-sm text-[#6B7280]">{fontSize}px</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Font Size</label><span className="text-sm text-muted">{fontSize}px</span></div>
               <input type="range" min="12" max="120" value={fontSize} onChange={e => setFontSize(parseInt(e.target.value))} className="w-full accent-indigo-500" />
             </div>
             <div>
-              <div className="flex justify-between mb-1"><label className="text-sm text-[#111827]">Opacity</label><span className="text-sm text-[#6B7280]">{Math.round(opacity * 100)}%</span></div>
+              <div className="flex justify-between mb-1"><label className="text-sm text-primary">Opacity</label><span className="text-sm text-muted">{Math.round(opacity * 100)}%</span></div>
               <input type="range" min="0.05" max="1" step="0.05" value={opacity} onChange={e => setOpacity(parseFloat(e.target.value))} className="w-full accent-indigo-500" />
             </div>
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Color</label>
+              <label className="text-sm text-primary block mb-1">Color</label>
               <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-10 rounded cursor-pointer bg-transparent border-0" />
             </div>
             <div>
-              <label className="text-sm text-[#111827] block mb-2">Position</label>
+              <label className="text-sm text-primary block mb-2">Position</label>
               <div className="grid grid-cols-3 gap-1">
                 {positions.map(p => (
-                  <button key={p.id} onClick={() => setPosition(p.id as any)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${position === p.id ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>{p.label}</button>
+                  <button key={p.id} onClick={() => setPosition(p.id as any)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${position === p.id ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>{p.label}</button>
                 ))}
               </div>
             </div>
             <div className="flex gap-3 pt-2">
-              <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={download}><Download className="w-4 h-4 mr-2" /> Save</Button>
-              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => setSrc(null)}>Clear</Button>
+              <Button className="flex-1 bg-white border border-border hover:bg-white-hover text-primary" onClick={download}><Download className="w-4 h-4 mr-2" /> Save</Button>
+              <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => setSrc(null)}>Clear</Button>
             </div>
           </div>
-          <div className="flex-grow flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden p-4">
+          <div className="flex-grow flex items-center justify-center bg-surface border border-border rounded-xl border border-border min-h-[300px] overflow-hidden p-4">
             <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
@@ -402,30 +402,30 @@ export function FaviconGenerator() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!src ? (
         <FileDropZone accept="image/*,.svg,.tiff,.tif,.heic,.avif" onFiles={f => { const r = new FileReader(); r.onload = e => setSrc(e.target?.result as string); r.readAsDataURL(f[0]) }} label="Drop a square logo or icon" sub="Best results with 512×512 or larger PNG" />
       ) : (
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
-            <h3 className="font-semibold text-[#111827]">Generated Favicons</h3>
-            <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827] text-sm" onClick={() => setSrc(null)}>Change Image</Button>
+            <h3 className="font-semibold text-primary">Generated Favicons</h3>
+            <Button variant="outline" className="border-border hover:bg-white/10 text-primary text-sm" onClick={() => setSrc(null)}>Change Image</Button>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {previews.map(p => (
-              <div key={p.size} className="flex flex-col items-center gap-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 hover:border-[#E5E7EB] transition-colors">
-                <div className="w-20 h-20 flex items-center justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB]">
+              <div key={p.size} className="flex flex-col items-center gap-3 bg-white border border-border border-border rounded-xl p-4 hover:border-border transition-colors">
+                <div className="w-20 h-20 flex items-center justify-center bg-white border border-border rounded-2xl border border-border">
                   <img src={p.url} alt={`${p.size}px`} style={{ width: p.size, height: p.size, imageRendering: 'pixelated' }} />
                 </div>
-                <span className="text-xs text-[#6B7280] font-mono">{p.size}×{p.size}</span>
-                <Button className="w-full text-xs py-1.5 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={() => download(p.url, p.size)}>
+                <span className="text-xs text-muted font-mono">{p.size}×{p.size}</span>
+                <Button className="w-full text-xs py-1.5 bg-white border border-border hover:bg-white-hover text-primary" onClick={() => download(p.url, p.size)}>
                   <Download className="w-3 h-3 mr-1" /> PNG
                 </Button>
               </div>
             ))}
           </div>
-          <div className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5">
-            <h4 className="font-semibold text-[#111827] mb-3 text-sm">How to use in HTML</h4>
+          <div className="bg-surface border border-border border-border rounded-xl p-5">
+            <h4 className="font-semibold text-primary mb-3 text-sm">How to use in HTML</h4>
             <pre className="text-success font-mono text-xs overflow-auto whitespace-pre-wrap leading-relaxed">
 {`<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -507,53 +507,53 @@ export function ImagePlaceholder() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
-      <div className="flex-shrink-0 w-full md:w-72 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-5">
-        <h3 className="font-semibold text-[#111827]">Placeholder Settings</h3>
+    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-shrink-0 w-full md:w-72 space-y-4 bg-surface border border-border border-border rounded-xl p-5">
+        <h3 className="font-semibold text-primary">Placeholder Settings</h3>
         <div>
-          <label className="text-sm text-[#111827] block mb-2">Quick Presets</label>
+          <label className="text-sm text-primary block mb-2">Quick Presets</label>
           <div className="grid grid-cols-2 gap-1">
             {presets.map(p => (
-              <button key={p.label} onClick={() => { setWidth(p.w); setHeight(p.h) }} className="py-1.5 px-2 rounded-xl text-xs border font-medium transition-colors bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]">
-                {p.label}<br /><span className="text-[#6B7280]">{p.w}×{p.h}</span>
+              <button key={p.label} onClick={() => { setWidth(p.w); setHeight(p.h) }} className="py-1.5 px-2 rounded-xl text-xs border font-medium transition-colors bg-white border border-border border-border text-muted hover:text-primary hover:border-border">
+                {p.label}<br /><span className="text-muted">{p.w}×{p.h}</span>
               </button>
             ))}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Width (px)</label>
-            <input type="number" value={width} onChange={e => setWidth(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
+            <label className="text-xs text-muted block mb-1">Width (px)</label>
+            <input type="number" value={width} onChange={e => setWidth(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary text-sm" />
           </div>
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Height (px)</label>
-            <input type="number" value={height} onChange={e => setHeight(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
+            <label className="text-xs text-muted block mb-1">Height (px)</label>
+            <input type="number" value={height} onChange={e => setHeight(Math.max(1, parseInt(e.target.value) || 1))} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary text-sm" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div><label className="text-xs text-[#6B7280] block mb-1">Background</label><input type="color" value={bg} onChange={e => setBg(e.target.value)} className="w-full h-10 rounded cursor-pointer border-0 bg-transparent" /></div>
-          <div><label className="text-xs text-[#6B7280] block mb-1">Text Color</label><input type="color" value={textColor} onChange={e => setTextColor(e.target.value)} className="w-full h-10 rounded cursor-pointer border-0 bg-transparent" /></div>
+          <div><label className="text-xs text-muted block mb-1">Background</label><input type="color" value={bg} onChange={e => setBg(e.target.value)} className="w-full h-10 rounded cursor-pointer border-0 bg-transparent" /></div>
+          <div><label className="text-xs text-muted block mb-1">Text Color</label><input type="color" value={textColor} onChange={e => setTextColor(e.target.value)} className="w-full h-10 rounded cursor-pointer border-0 bg-transparent" /></div>
         </div>
         <div>
-          <label className="text-sm text-[#111827] block mb-1">Custom Label</label>
-          <input type="text" value={label} onChange={e => setLabel(e.target.value)} placeholder={`${width} × ${height}`} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827] text-sm" />
+          <label className="text-sm text-primary block mb-1">Custom Label</label>
+          <input type="text" value={label} onChange={e => setLabel(e.target.value)} placeholder={`${width} × ${height}`} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary text-sm" />
         </div>
         <div>
-          <label className="text-sm text-[#111827] block mb-2">Format</label>
+          <label className="text-sm text-primary block mb-2">Format</label>
           <div className="grid grid-cols-3 gap-1">
             {(['image/png', 'image/jpeg', 'image/webp'] as const).map(f => (
-              <button key={f} onClick={() => setFormat(f)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${format === f ? 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] border-[#E5E7EB] text-[#6B7280] hover:text-[#111827]'}`}>
+              <button key={f} onClick={() => setFormat(f)} className={`py-1.5 rounded-xl text-xs border font-medium transition-colors ${format === f ? 'bg-white border border-border border-border text-primary' : 'bg-white border border-border border-border text-muted hover:text-primary'}`}>
                 {f.split('/')[1].toUpperCase()}
               </button>
             ))}
           </div>
         </div>
-        <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={download}>
+        <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={download}>
           <Download className="w-4 h-4 mr-2" /> Download {width}×{height}
         </Button>
       </div>
-      <div className="flex-grow flex items-center justify-center bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px] overflow-hidden p-4">
-        <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl border border-[#E5E7EB]" />
+      <div className="flex-grow flex items-center justify-center bg-surface border border-border rounded-xl border border-border min-h-[300px] overflow-hidden p-4">
+        <canvas ref={canvasRef} className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl border border-border" />
       </div>
     </div>
   )

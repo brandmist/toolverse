@@ -57,8 +57,8 @@ export function ImageUploader({
         onDrop={onDrop}
         className={`relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-xl transition-all cursor-pointer overflow-hidden
           ${isDragging 
-            ? 'bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] text-[#111827]' 
-            : 'border-[#E5E7EB] hover:bg-white text-[#6B7280] hover:text-[#111827] hover:border-[#E5E7EB]'
+            ? 'bg-surface border border-border border-border text-primary' 
+            : 'border-border hover:bg-white text-muted hover:text-primary hover:border-border'
           }`}
       >
         <input 
@@ -70,12 +70,12 @@ export function ImageUploader({
         />
         <Upload className={`w-10 h-10 mb-4 transition-transform ${isDragging ? 'scale-110' : ''}`} />
         <span className="text-lg font-medium select-none pointer-events-none">{title}</span>
-        <p className="text-sm text-[#6B7280] mt-2 select-none pointer-events-none">{subtitle}</p>
+        <p className="text-sm text-muted mt-2 select-none pointer-events-none">{subtitle}</p>
       </div>
 
       {/* FileErrorToast */}
       <div 
-        className={`absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] text-danger rounded-xl shadow-xl shadow-rose-500/10 transition-all duration-300 ease-out pointer-events-auto
+        className={`absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-white border border-border border-border text-danger rounded-xl shadow-xl shadow-rose-500/10 transition-all duration-300 ease-out pointer-events-auto
           ${showToast ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}`}
       >
         <AlertCircle className="w-5 h-5 shrink-0" />
@@ -87,7 +87,7 @@ export function ImageUploader({
             setShowToast(false);
             setError(null);
           }}
-          className="p-1 hover:bg-[#FAFAFA] border border-[#E5E7EB] rounded-md transition-colors shrink-0 ml-2"
+          className="p-1 hover:bg-surface border border-border rounded-md transition-colors shrink-0 ml-2"
         >
           <X className="w-4 h-4" />
         </button>

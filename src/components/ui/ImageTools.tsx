@@ -25,17 +25,17 @@ export function ImageToBase64() {
   }, [imageSrc]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 flex flex-col gap-4">
         {!imageSrc && (
           <ImageUploader />
         )}
         {base64 && (
           <div className="relative">
-            <div className="bg-white border border-[#E5E7EB] p-3 rounded-xl flex items-center justify-center max-h-[300px] overflow-hidden border border-[#E5E7EB]">
+            <div className="bg-white border border-border p-3 rounded-xl flex items-center justify-center max-h-[300px] overflow-hidden border border-border">
               <img src={base64} alt="Preview" className="max-w-full max-h-[280px] object-contain rounded-xl" />
             </div>
-            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
+            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-border hover:bg-white/20 bg-black/50 text-primary" onClick={clearImage}>
               Clear
             </Button>
           </div>
@@ -43,16 +43,16 @@ export function ImageToBase64() {
       </div>
       <div className="flex-1 flex flex-col h-[400px] md:h-auto">
         <div className="flex justify-between items-center mb-2">
-           <span className="text-sm font-medium text-[#111827]">Base64 String</span>
+           <span className="text-sm font-medium text-primary">Base64 String</span>
            {base64 && (
-             <Button variant="ghost" size="sm" className="h-8 text-[#6B7280] hover:text-[#111827]" onClick={() => navigator.clipboard.writeText(base64)}>
+             <Button variant="ghost" size="sm" className="h-8 text-muted hover:text-primary" onClick={() => navigator.clipboard.writeText(base64)}>
                <Copy className="w-3 h-3 mr-2" /> Copy
              </Button>
            )}
         </div>
         <textarea
           readOnly
-          className="w-full flex-grow p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-success font-mono text-xs break-all"
+          className="w-full flex-grow p-4 bg-surface border border-border border-border rounded-xl resize-none text-success font-mono text-xs break-all"
           value={base64}
           placeholder={isProcessing ? "Processing..." : "Base64 output will appear here..."}
         />
@@ -111,43 +111,43 @@ export function SvgBlobGenerator() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col md:flex-row gap-8 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-1 space-y-6">
         <div>
            <div className="flex justify-between mb-1">
-             <span className="text-sm text-[#111827]">Blob Color</span>
-             <span className="text-sm text-[#6B7280] font-mono">{color}</span>
+             <span className="text-sm text-primary">Blob Color</span>
+             <span className="text-sm text-muted font-mono">{color}</span>
            </div>
            <input type="color" value={color} onChange={e => setColor(e.target.value)} className="w-full h-12 rounded cursor-pointer bg-transparent border-0" />
         </div>
         <div>
           <div className="flex justify-between mb-1">
-            <span className="text-sm text-[#111827]">Complexity</span>
-            <span className="text-sm text-[#6B7280]">{complexity} points</span>
+            <span className="text-sm text-primary">Complexity</span>
+            <span className="text-sm text-muted">{complexity} points</span>
           </div>
           <input type="range" min="3" max="12" value={complexity} onChange={e => setComplexity(parseInt(e.target.value))} className="w-full accent-indigo-500" />
         </div>
-        <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-0" onClick={generateBlob}>
+        <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary border-0" onClick={generateBlob}>
           🎲 Generate New Blob
         </Button>
         <div className="pt-2">
-           <span className="text-sm text-[#111827] mb-2 block">SVG Code</span>
+           <span className="text-sm text-primary mb-2 block">SVG Code</span>
            <textarea
              readOnly
-             className="w-full h-28 p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none text-success font-mono text-xs break-all"
+             className="w-full h-28 p-4 bg-surface border border-border border-border rounded-xl resize-none text-success font-mono text-xs break-all"
              value={blob}
            />
            <div className="grid grid-cols-2 gap-3 mt-2">
-             <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => navigator.clipboard.writeText(blob)}>
+             <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => navigator.clipboard.writeText(blob)}>
                Copy SVG Code
              </Button>
-             <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-0" onClick={downloadSvg}>
+             <Button className="bg-white border border-border hover:bg-white-hover text-primary border-0" onClick={downloadSvg}>
                Download SVG
              </Button>
            </div>
         </div>
       </div>
-      <div className="flex-[1.5] flex items-center justify-center p-8 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] min-h-[300px]">
+      <div className="flex-[1.5] flex items-center justify-center p-8 bg-surface border border-border rounded-xl border border-border min-h-[300px]">
          <div
            className="w-full max-w-[300px] aspect-square transition-all duration-500 ease-in-out"
            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blob) }}
@@ -198,35 +198,35 @@ export function ImageResizer() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB]">
-            <h3 className="font-semibold text-[#111827] mb-4">Resize Settings</h3>
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border">
+            <h3 className="font-semibold text-primary mb-4">Resize Settings</h3>
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Width (px)</label>
-              <input type="number" value={width} onChange={e => handleWidthChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827]" />
+              <label className="text-sm text-primary block mb-1">Width (px)</label>
+              <input type="number" value={width} onChange={e => handleWidthChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary" />
             </div>
             <div>
-              <label className="text-sm text-[#111827] block mb-1">Height (px)</label>
-              <input type="number" value={height} onChange={e => handleHeightChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-2 text-[#111827]" />
+              <label className="text-sm text-primary block mb-1">Height (px)</label>
+              <input type="number" value={height} onChange={e => handleHeightChange(parseInt(e.target.value) || 0)} className="w-full bg-white border border-border border-border rounded-xl px-3 py-2 text-primary" />
             </div>
-            <label className="flex items-center space-x-2 text-[#111827] cursor-pointer pt-2">
-              <input type="checkbox" checked={maintainAspect} onChange={(e) => setMaintainAspect(e.target.checked)} className="w-4 h-4 rounded border-[#E5E7EB] bg-white border border-[#E5E7EB]" />
+            <label className="flex items-center space-x-2 text-primary cursor-pointer pt-2">
+              <input type="checkbox" checked={maintainAspect} onChange={(e) => setMaintainAspect(e.target.checked)} className="w-4 h-4 rounded border-border bg-white border border-border" />
               <span className="text-sm">Maintain Aspect Ratio</span>
             </label>
             <div className="pt-4 flex gap-2">
-              <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={downloadResized}>
+              <Button className="flex-1 bg-white border border-border hover:bg-white-hover text-primary" onClick={downloadResized}>
                 <Download className="w-4 h-4 mr-2" /> Download
               </Button>
-              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={clearImage}>
+              <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={clearImage}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[1.5] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
+          <div className="flex-[1.5] flex items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[300px] overflow-hidden">
             <img src={imageSrc} alt="Original" className="max-w-full max-h-[400px] object-contain opacity-50" />
             <canvas ref={canvasRef} className="hidden" />
           </div>
@@ -281,14 +281,14 @@ export function ColorExtractor() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col md:flex-row gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex-[1.5] flex flex-col gap-4">
         {!imageSrc ? (
           <ImageUploader title="Upload image to extract colors" />
         ) : (
           <div className="relative">
-            <img src={imageSrc} alt="Preview" className="w-full rounded-xl object-contain bg-white border border-[#E5E7EB] max-h-[400px]" />
-            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-[#E5E7EB] hover:bg-white/20 bg-black/50 text-[#111827]" onClick={clearImage}>
+            <img src={imageSrc} alt="Preview" className="w-full rounded-xl object-contain bg-white border border-border max-h-[400px]" />
+            <Button variant="outline" size="sm" className="absolute top-3 right-2 border-border hover:bg-white/20 bg-black/50 text-primary" onClick={clearImage}>
               Clear
             </Button>
           </div>
@@ -296,21 +296,21 @@ export function ColorExtractor() {
         <canvas ref={canvasRef} className="hidden" />
       </div>
       <div className="flex-1 right-panel flex flex-col gap-3">
-         <h3 className="font-semibold text-[#111827] mb-2">Dominant Colors</h3>
+         <h3 className="font-semibold text-primary mb-2">Dominant Colors</h3>
          {colors.length > 0 ? (
            <div className="grid grid-cols-2 gap-3">
              {colors.map((color, idx) => (
-               <div key={idx} className="flex flex-col bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden group cursor-pointer" onClick={() => { navigator.clipboard.writeText(color); }}>
+               <div key={idx} className="flex flex-col bg-white border border-border border-border rounded-xl overflow-hidden group cursor-pointer" onClick={() => { navigator.clipboard.writeText(color); }}>
                  <div className="h-16 w-full transition-transform group-hover:scale-105" style={{ backgroundColor: color }}></div>
                  <div className="p-3 flex justify-between items-center text-sm">
-                   <span className="text-[#111827] font-mono uppercase">{color}</span>
-                   <Copy className="w-3 h-3 text-[#6B7280] group-hover:text-[#111827]" />
+                   <span className="text-primary font-mono uppercase">{color}</span>
+                   <Copy className="w-3 h-3 text-muted group-hover:text-primary" />
                  </div>
                </div>
              ))}
            </div>
          ) : (
-           <div className="flex items-center justify-center h-48 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] text-[#6B7280] text-sm p-6 text-center">
+           <div className="flex items-center justify-center h-48 bg-surface border border-border rounded-xl border border-border text-muted text-sm p-6 text-center">
              Colors will appear here once an image is processed
            </div>
          )}
@@ -348,40 +348,40 @@ export function ImageCropper() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[300px]">
-             <h3 className="font-semibold text-[#111827] mb-4">Crop Area (%)</h3>
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[300px]">
+             <h3 className="font-semibold text-primary mb-4">Crop Area (%)</h3>
              <div>
-               <label className="text-sm text-[#111827] block mb-1">X Offset: {cropBox.x}%</label>
+               <label className="text-sm text-primary block mb-1">X Offset: {cropBox.x}%</label>
                <input type="range" min="0" max="100" value={cropBox.x} onChange={e => setCropBox({...cropBox, x: parseInt(e.target.value)})} className="w-full accent-indigo-500" />
              </div>
              <div>
-               <label className="text-sm text-[#111827] block mb-1">Y Offset: {cropBox.y}%</label>
+               <label className="text-sm text-primary block mb-1">Y Offset: {cropBox.y}%</label>
                <input type="range" min="0" max="100" value={cropBox.y} onChange={e => setCropBox({...cropBox, y: parseInt(e.target.value)})} className="w-full accent-indigo-500" />
              </div>
              <div>
-               <label className="text-sm text-[#111827] block mb-1">Width: {cropBox.width}%</label>
+               <label className="text-sm text-primary block mb-1">Width: {cropBox.width}%</label>
                <input type="range" min="1" max="100" value={cropBox.width} onChange={e => setCropBox({...cropBox, width: parseInt(e.target.value)})} className="w-full accent-indigo-500" />
              </div>
              <div>
-               <label className="text-sm text-[#111827] block mb-1">Height: {cropBox.height}%</label>
+               <label className="text-sm text-primary block mb-1">Height: {cropBox.height}%</label>
                <input type="range" min="1" max="100" value={cropBox.height} onChange={e => setCropBox({...cropBox, height: parseInt(e.target.value)})} className="w-full accent-indigo-500" />
              </div>
              
              <div className="pt-4 flex gap-2">
-              <Button className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
+              <Button className="flex-1 bg-white border border-border hover:bg-white-hover text-primary" onClick={handleDownload}>
                 <Download className="w-4 h-4 mr-2" /> Crop & Save
               </Button>
-              <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={clearImage}>
+              <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={clearImage}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[300px]">
              <div className="relative inline-block max-w-full max-h-[400px]">
                 <img src={imageSrc} alt="Preview" className="max-w-full max-h-[400px] object-contain opacity-50 block" />
                 <div 

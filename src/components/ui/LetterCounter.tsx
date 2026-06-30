@@ -13,25 +13,25 @@ export function LetterCounter() {
   return (
     <div className="tool-panel">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 text-center">
-          <div className="text-3xl font-bold text-[#111827]">{chars}</div>
-          <div className="text-[11px] text-[#6B7280] uppercase tracking-wider mt-1 font-semibold">Chars</div>
+        <div className="bg-surface border border-border rounded-xl p-4 text-center">
+          <div className="text-3xl font-bold text-primary">{chars}</div>
+          <div className="text-[11px] text-muted uppercase tracking-wider mt-1 font-semibold">Chars</div>
         </div>
-        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 text-center">
-          <div className="text-3xl font-bold text-[#111827]">{charsNoSpaces}</div>
-          <div className="text-[11px] text-[#6B7280] uppercase tracking-wider mt-1 font-semibold">No Spaces</div>
+        <div className="bg-surface border border-border rounded-xl p-4 text-center">
+          <div className="text-3xl font-bold text-primary">{charsNoSpaces}</div>
+          <div className="text-[11px] text-muted uppercase tracking-wider mt-1 font-semibold">No Spaces</div>
         </div>
-        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 text-center">
-          <div className="text-3xl font-bold text-[#059669]">{words}</div>
-          <div className="text-[11px] text-[#6B7280] uppercase tracking-wider mt-1 font-semibold">Words</div>
+        <div className="bg-surface border border-border rounded-xl p-4 text-center">
+          <div className="text-3xl font-bold text-success">{words}</div>
+          <div className="text-[11px] text-muted uppercase tracking-wider mt-1 font-semibold">Words</div>
         </div>
-        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 text-center">
-          <div className="text-3xl font-bold text-[#111827]">{sentences}</div>
-          <div className="text-[11px] text-[#6B7280] uppercase tracking-wider mt-1 font-semibold">Sentences</div>
+        <div className="bg-surface border border-border rounded-xl p-4 text-center">
+          <div className="text-3xl font-bold text-primary">{sentences}</div>
+          <div className="text-[11px] text-muted uppercase tracking-wider mt-1 font-semibold">Sentences</div>
         </div>
-        <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-4 text-center">
-          <div className="text-3xl font-bold text-[#111827]">{paragraphs}</div>
-          <div className="text-[11px] text-[#6B7280] uppercase tracking-wider mt-1 font-semibold">Paragraphs</div>
+        <div className="bg-surface border border-border rounded-xl p-4 text-center">
+          <div className="text-3xl font-bold text-primary">{paragraphs}</div>
+          <div className="text-[11px] text-muted uppercase tracking-wider mt-1 font-semibold">Paragraphs</div>
         </div>
       </div>
       

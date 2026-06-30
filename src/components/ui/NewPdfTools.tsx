@@ -110,43 +110,43 @@ export function PdfOrganizer() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Upload className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to reorder/delete pages</p>
-          <p className="text-[#6B7280] text-xs">Processing runs strictly client-side</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to reorder/delete pages</p>
+          <p className="text-muted text-xs">Processing runs strictly client-side</p>
         </div>
       ) : (
         <>
           <div className="flex items-center justify-between">
-            <span className="text-sm text-[#6B7280]">{pages.length} pages in workspace from <span className="text-[#111827] font-medium">{file.name}</span></span>
+            <span className="text-sm text-muted">{pages.length} pages in workspace from <span className="text-primary font-medium">{file.name}</span></span>
             <div className="flex gap-2">
-              <Button onClick={compilePdf} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={processing}>
+              <Button onClick={compilePdf} className="bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm" disabled={processing}>
                 Save & Download PDF
               </Button>
-              <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={clear}>
+              <Button variant="outline" className="border-border text-primary text-sm" onClick={clear}>
                 Reset
               </Button>
             </div>
           </div>
           
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-surface border border-border rounded-xl border border-border">
             {pages.map((p, idx) => (
-              <div key={p.id} className="bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl overflow-hidden flex flex-col relative group">
+              <div key={p.id} className="bg-surface border border-border border-border rounded-xl overflow-hidden flex flex-col relative group">
                 <img src={p.dataUrl} alt={`Page ${idx + 1}`} className="w-full h-40 object-contain bg-white" />
-                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
-                <div className="flex items-center justify-between p-3 pt-1 border-t border-[#E5E7EB] bg-slate-950/20">
+                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-primary">Page {p.pageIndex + 1}</div>
+                <div className="flex items-center justify-between p-3 pt-1 border-t border-border bg-slate-950/20">
                   <div className="flex gap-0.5">
-                    <button onClick={() => moveLeft(idx)} className="p-1 hover:bg-white/10 rounded text-[#6B7280] hover:text-[#111827]" disabled={idx === 0}>←</button>
-                    <button onClick={() => moveRight(idx)} className="p-1 hover:bg-white/10 rounded text-[#6B7280] hover:text-[#111827]" disabled={idx === pages.length - 1}>→</button>
+                    <button onClick={() => moveLeft(idx)} className="p-1 hover:bg-white/10 rounded text-muted hover:text-primary" disabled={idx === 0}>←</button>
+                    <button onClick={() => moveRight(idx)} className="p-1 hover:bg-white/10 rounded text-muted hover:text-primary" disabled={idx === pages.length - 1}>→</button>
                   </div>
-                  <button onClick={() => removePage(idx)} className="p-1.5 hover:bg-[#FAFAFA] border border-[#E5E7EB] rounded text-danger hover:text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
+                  <button onClick={() => removePage(idx)} className="p-1.5 hover:bg-surface border border-border rounded text-danger hover:text-danger"><Trash2 className="w-3.5 h-3.5" /></button>
                 </div>
               </div>
             ))}
@@ -157,7 +157,7 @@ export function PdfOrganizer() {
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -321,32 +321,32 @@ export function PdfSigner() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUploadPDF((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <PenTool className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to sign</p>
-          <p className="text-[#6B7280] text-xs">Draw signature or upload transparent PNG</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to sign</p>
+          <p className="text-muted text-xs">Draw signature or upload transparent PNG</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
           {/* Controls */}
-          <div className="flex-1 w-full md:w-80 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] flex flex-col justify-between">
+          <div className="flex-1 w-full md:w-80 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border flex flex-col justify-between">
             <div className="space-y-4">
               <div>
-                <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Signature Mode</h4>
+                <h4 className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">Signature Mode</h4>
                 <div className="grid grid-cols-2 gap-2">
-                  <button onClick={() => { setSignatureMode('draw'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'draw' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Draw</button>
-                  <button onClick={() => { setSignatureMode('upload'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'upload' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Upload</button>
+                  <button onClick={() => { setSignatureMode('draw'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'draw' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>Draw</button>
+                  <button onClick={() => { setSignatureMode('upload'); setSignatureImg(null) }} className={`py-1.5 rounded-xl text-xs font-bold ${signatureMode === 'upload' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>Upload</button>
                 </div>
               </div>
               
               {signatureMode === 'draw' ? (
                 <div>
-                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-1">Draw Here</h4>
+                  <h4 className="text-xs font-semibold text-muted uppercase tracking-wider mb-1">Draw Here</h4>
                   <canvas 
                     ref={drawCanvasRef}
                     width={250}
@@ -358,13 +358,13 @@ export function PdfSigner() {
                     onTouchStart={startDrawing}
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
-                    className="w-full bg-white border border-[#E5E7EB] rounded-2xl cursor-crosshair"
+                    className="w-full bg-white border border-border rounded-2xl cursor-crosshair"
                   />
-                  <button onClick={clearCanvas} className="text-xs text-[#6B7280] hover:text-[#111827] mt-1">Clear Canvas</button>
+                  <button onClick={clearCanvas} className="text-xs text-muted hover:text-primary mt-1">Clear Canvas</button>
                 </div>
               ) : (
                 <div>
-                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-1">Select PNG</h4>
+                  <h4 className="text-xs font-semibold text-muted uppercase tracking-wider mb-1">Select PNG</h4>
                   <input 
                     type="file" 
                     accept="image/png"
@@ -376,24 +376,24 @@ export function PdfSigner() {
                         reader.readAsDataURL(f)
                       }
                     }}
-                    className="w-full text-xs bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#6B7280]"
+                    className="w-full text-xs bg-white border border-border border-border rounded-xl p-3 text-muted"
                   />
                 </div>
               )}
               
               {signatureImg && (
-                <div className="space-y-3 pt-2 border-t border-[#E5E7EB]">
-                  <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Placement Controls</h4>
+                <div className="space-y-3 pt-2 border-t border-border">
+                  <h4 className="text-xs font-semibold text-muted uppercase tracking-wider">Placement Controls</h4>
                   <div>
-                    <label className="text-xs text-[#6B7280] flex justify-between">X Placement: <span>{signaturePos.x}%</span></label>
+                    <label className="text-xs text-muted flex justify-between">X Placement: <span>{signaturePos.x}%</span></label>
                     <input type="range" min="0" max="100" value={signaturePos.x} onChange={e => setSignaturePos(p => ({ ...p, x: parseInt(e.target.value) }))} className="w-full accent-rose-500" />
                   </div>
                   <div>
-                    <label className="text-xs text-[#6B7280] flex justify-between">Y Placement: <span>{signaturePos.y}%</span></label>
+                    <label className="text-xs text-muted flex justify-between">Y Placement: <span>{signaturePos.y}%</span></label>
                     <input type="range" min="0" max="100" value={signaturePos.y} onChange={e => setSignaturePos(p => ({ ...p, y: parseInt(e.target.value) }))} className="w-full accent-rose-500" />
                   </div>
                   <div>
-                    <label className="text-xs text-[#6B7280] flex justify-between">Size Scale: <span>{sigScale.toFixed(2)}x</span></label>
+                    <label className="text-xs text-muted flex justify-between">Size Scale: <span>{sigScale.toFixed(2)}x</span></label>
                     <input type="range" min="0.5" max="3" step="0.1" value={sigScale} onChange={e => setSigScale(parseFloat(e.target.value))} className="w-full accent-rose-500" />
                   </div>
                 </div>
@@ -401,31 +401,31 @@ export function PdfSigner() {
             </div>
             
             <div className="space-y-2 pt-4">
-              <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" onClick={applySignature} disabled={!signatureImg}>
+              <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm" onClick={applySignature} disabled={!signatureImg}>
                 Stamp & Download
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setSignatureImg(null) }}>
+              <Button variant="outline" className="w-full border-border text-primary text-sm" onClick={() => { setFile(null); setPreviewUrl(null); setSignatureImg(null) }}>
                 Clear File
               </Button>
             </div>
           </div>
           
           {/* Preview Panel */}
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[350px] relative">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[350px] relative">
             <div className="flex justify-between items-center w-full mb-3">
-              <span className="text-xs text-[#6B7280]">Page {pageIndex + 1} of {totalPages}</span>
+              <span className="text-xs text-muted">Page {pageIndex + 1} of {totalPages}</span>
               <div className="flex gap-2">
-                <button onClick={() => changePage(-1)} disabled={pageIndex === 0} className="px-2 py-1 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded text-xs text-[#6B7280] hover:text-[#111827] disabled:opacity-50">Prev</button>
-                <button onClick={() => changePage(1)} disabled={pageIndex === totalPages - 1} className="px-2 py-1 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded text-xs text-[#6B7280] hover:text-[#111827] disabled:opacity-50">Next</button>
+                <button onClick={() => changePage(-1)} disabled={pageIndex === 0} className="px-2 py-1 bg-white border border-border border-border rounded text-xs text-muted hover:text-primary disabled:opacity-50">Prev</button>
+                <button onClick={() => changePage(1)} disabled={pageIndex === totalPages - 1} className="px-2 py-1 bg-white border border-border border-border rounded text-xs text-muted hover:text-primary disabled:opacity-50">Next</button>
               </div>
             </div>
             
             {previewUrl && (
-              <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
+              <div className="relative inline-block border border-border rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[400px] object-contain block" />
                 {signatureImg && (
                   <div 
-                    className="absolute border border-[#E5E7EB] bg-[#FAFAFA] border border-[#E5E7EB] pointer-events-none"
+                    className="absolute border border-border bg-surface border border-border pointer-events-none"
                     style={{
                       left: `${signaturePos.x}%`,
                       top: `${signaturePos.y}%`,
@@ -446,7 +446,7 @@ export function PdfSigner() {
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -593,22 +593,22 @@ export function EpubToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.epub'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <FileText className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload EPUB to PDF Converter</p>
-        <p className="text-[#6B7280] text-xs">Converts ebooks to clean formatted standard PDF layout</p>
+        <p className="text-primary font-medium mb-1">Click to upload EPUB to PDF Converter</p>
+        <p className="text-muted text-xs">Converts ebooks to clean formatted standard PDF layout</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -680,22 +680,22 @@ export function PdfGrayscale() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Upload className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to make Grayscale</p>
-        <p className="text-[#6B7280] text-xs">Converts all colored sections and images into high-contrast grayscale</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to make Grayscale</p>
+        <p className="text-muted text-xs">Converts all colored sections and images into high-contrast grayscale</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -767,50 +767,50 @@ export function PdfMetadataEditor() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <FileText className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to Edit Metadata</p>
-          <p className="text-[#6B7280] text-xs">Read, edit, or strip metadata for privacy</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to Edit Metadata</p>
+          <p className="text-muted text-xs">Read, edit, or strip metadata for privacy</p>
         </div>
       ) : (
         <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-[#111827] font-semibold">{file.name}</h3>
-            <Button variant="outline" size="sm" onClick={() => setFile(null)} className="text-[#6B7280]">Change File</Button>
+            <h3 className="text-primary font-semibold">{file.name}</h3>
+            <Button variant="outline" size="sm" onClick={() => setFile(null)} className="text-muted">Change File</Button>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {(['title', 'author', 'subject', 'creator', 'producer', 'keywords'] as const).map(key => (
               <div key={key} className="flex flex-col gap-1">
-                <label className="text-xs text-[#6B7280] uppercase font-semibold">{key}</label>
+                <label className="text-xs text-muted uppercase font-semibold">{key}</label>
                 <input 
                   type="text" 
                   value={metadata[key]}
                   onChange={e => setMetadata(prev => ({ ...prev, [key]: e.target.value }))}
-                  className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-3 text-[#111827] focus:outline-none focus:ring-1 focus:ring-danger"
+                  className="bg-surface border border-border rounded-xl p-3 text-primary focus:outline-none focus:ring-1 focus:ring-danger"
                 />
               </div>
             ))}
           </div>
           
           <div className="flex gap-4 mt-4">
-            <Button onClick={saveMetadata} disabled={isProcessing} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">Save & Download</Button>
+            <Button onClick={saveMetadata} disabled={isProcessing} className="flex-1 bg-white border border-border hover:bg-white-hover text-primary">Save & Download</Button>
             <Button onClick={clearMetadata} variant="outline" className="text-danger border-danger/20 hover:bg-danger/10">Strip All Metadata</Button>
           </div>
         </div>
       )}
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -890,41 +890,41 @@ export function ExtractPdfPages() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Copy className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF</p>
-          <p className="text-[#6B7280] text-xs">Select pages to extract into a new document</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF</p>
+          <p className="text-muted text-xs">Select pages to extract into a new document</p>
         </div>
       ) : (
         <>
           <div className="flex items-center justify-between">
-            <span className="text-sm text-[#6B7280]">Select the pages you want to keep from <span className="text-[#111827] font-medium">{file.name}</span></span>
+            <span className="text-sm text-muted">Select the pages you want to keep from <span className="text-primary font-medium">{file.name}</span></span>
             <div className="flex gap-2">
-              <Button onClick={extractPages} disabled={!pages.some(p => p.selected) || isProcessing} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">
+              <Button onClick={extractPages} disabled={!pages.some(p => p.selected) || isProcessing} className="bg-white border border-border hover:bg-white-hover text-primary">
                 Extract {pages.filter(p => p.selected).length} Pages
               </Button>
-              <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={() => setFile(null)}>
+              <Button variant="outline" className="border-border text-primary text-sm" onClick={() => setFile(null)}>
                 Change File
               </Button>
             </div>
           </div>
           
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB]">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-auto max-h-[450px] p-3 bg-surface border border-border rounded-xl border border-border">
             {pages.map((p, idx) => (
               <div 
                 key={p.id} 
                 onClick={() => togglePage(idx)}
-                className={`cursor-pointer border-2 rounded-xl overflow-hidden flex flex-col relative group transition-colors ${p.selected ? 'border-danger' : 'border-[#E5E7EB] hover:border-[#E5E7EB]'}`}
+                className={`cursor-pointer border-2 rounded-xl overflow-hidden flex flex-col relative group transition-colors ${p.selected ? 'border-danger' : 'border-border hover:border-border'}`}
               >
                 <img src={p.dataUrl} alt={`Page ${p.pageIndex + 1}`} className={`w-full h-40 object-contain bg-white ${p.selected ? 'opacity-100' : 'opacity-70'}`} />
-                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-[#111827]">Page {p.pageIndex + 1}</div>
+                <div className="absolute top-3 left-2 bg-black/75 px-2 py-0.5 rounded text-[10px] font-bold text-primary">Page {p.pageIndex + 1}</div>
                 {p.selected && (
                   <div className="absolute inset-0 bg-danger/20 flex items-center justify-center">
                     <CheckCircle className="w-10 h-10 text-danger bg-black/50 rounded-full" />
@@ -939,7 +939,7 @@ export function ExtractPdfPages() {
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>

@@ -126,12 +126,12 @@ export function JwtDecoder() {
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-center">
-              <label className="text-[13px] font-semibold text-[#059669] mb-[6px] tracking-[0.01em]">Payload (Data)</label>
+              <label className="text-[13px] font-semibold text-success mb-[6px] tracking-[0.01em]">Payload (Data)</label>
               <CopyButton text={payload} />
             </div>
             <textarea
               readOnly
-              className="min-h-[300px] font-mono !text-[#059669]"
+              className="min-h-[300px] font-mono !text-success"
               value={payload}
             />
           </div>

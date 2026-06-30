@@ -10,14 +10,14 @@ export function LoremIpsum() {
   const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ".repeat(7)
   
   return (
-    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex gap-4 mb-4 items-center">
-        <span className="text-[#111827] font-medium">Paragraphs:</span>
-        <input type="number" min="1" max="100" value={paras} onChange={e => setParas(parseInt(e.target.value) || 1)} className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-3 py-1 text-[#111827] w-24" />
+        <span className="text-primary font-medium">Paragraphs:</span>
+        <input type="number" min="1" max="100" value={paras} onChange={e => setParas(parseInt(e.target.value) || 1)} className="bg-white border border-border border-border rounded-xl px-3 py-1 text-primary w-24" />
       </div>
       <textarea
         readOnly
-        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none text-[#111827]"
+        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-border border-border rounded-xl resize-none focus:outline-none text-primary"
         value={Array.from({length: paras}).map(() => lorem.trim()).join('\n\n')}
       />
     </div>
@@ -38,12 +38,12 @@ export function BionicReading() {
   return (
     <div className="flex flex-col gap-4 h-full">
       <textarea
-        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] rounded-2xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827]  shadow-lg shadow-sm"
+        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-border rounded-2xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-primary  shadow-lg shadow-sm"
         value={text}
         onChange={(e) => { setText(e.target.value); setOutput(convert(e.target.value)); }}
       />
       <div 
-        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] rounded-2xl overflow-auto text-[#111827]  shadow-lg shadow-sm"
+        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-border rounded-2xl overflow-auto text-primary  shadow-lg shadow-sm"
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(output || convert(text)) }}
       />
     </div>
@@ -66,19 +66,19 @@ export function GenericPlaceholder({ name }: { name: string }) {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
        <textarea 
-         className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none text-[#111827] mb-4"
+         className="w-full flex-grow min-h-[150px] p-4 bg-white border border-border border-border rounded-xl resize-none focus:outline-none text-primary mb-4"
          placeholder={`Enter input for ${name}...`}
          value={input}
          onChange={(e) => setInput(e.target.value)}
        />
-       <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-0 mb-6" size="lg" onClick={process} disabled={loading}>
+       <Button className="bg-white border border-border hover:bg-white-hover text-primary border-0 mb-6" size="lg" onClick={process} disabled={loading}>
           {loading ? <Loader className="w-5 h-5 animate-spin mr-2" /> : <RefreshCw className="w-5 h-5 mr-2" />}
           Execute Function
        </Button>
        {output && (
-         <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono text-sm whitespace-pre-wrap">
+         <div className="p-4 bg-surface border border-border border-border rounded-xl text-success font-mono text-sm whitespace-pre-wrap">
            {output}
          </div>
        )}
@@ -89,16 +89,16 @@ export function GenericPlaceholder({ name }: { name: string }) {
 export function Base64Encoder() {
   const [text, setText] = useState('')
   return (
-    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <textarea
-        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827] font-mono text-sm"
+        className="w-full flex-grow min-h-[200px] p-4 bg-white border border-border border-border rounded-xl mb-4 resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-primary font-mono text-sm"
         placeholder="Type or paste string here..."
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <div className="grid grid-cols-2 gap-4">
-        <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover border-0 text-[#111827]" onClick={() => { try { setText(btoa(text)) } catch(e) {} }}>Encode Base64</Button>
-        <Button variant="outline" className="border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={() => { try { setText(atob(text)) } catch(e) {} }}>Decode Base64</Button>
+        <Button className="bg-white border border-border hover:bg-white-hover border-0 text-primary" onClick={() => { try { setText(btoa(text)) } catch(e) {} }}>Encode Base64</Button>
+        <Button variant="outline" className="border-border hover:bg-white/10 text-primary" onClick={() => { try { setText(atob(text)) } catch(e) {} }}>Decode Base64</Button>
       </div>
     </div>
   )
@@ -117,15 +117,15 @@ export function Md5Generator() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <textarea
-        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl mb-4 resize-none text-[#111827]"
+        className="w-full flex-grow min-h-[150px] p-4 bg-white border border-border border-border rounded-xl mb-4 resize-none text-primary"
         placeholder="Enter string..."
         value={text}
         onChange={(e) => { setText(e.target.value); setHash(''); }}
       />
-      <Button size="lg" className="mb-6 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-0" onClick={generateHash}>Generate Hash (SHA-256)</Button>
-      <div className="p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl text-success font-mono break-all min-h-[80px] flex items-center">
+      <Button size="lg" className="mb-6 bg-white border border-border hover:bg-white-hover text-primary border-0" onClick={generateHash}>Generate Hash (SHA-256)</Button>
+      <div className="p-4 bg-surface border border-border border-border rounded-xl text-success font-mono break-all min-h-[80px] flex items-center">
         {hash || 'Output will appear here...'}
       </div>
     </div>
@@ -140,16 +140,16 @@ export function UUIDGenerator() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
-      <Button size="lg" className="mb-6 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-0" onClick={generate}>Generate UUIDv4</Button>
+    <div className="flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
+      <Button size="lg" className="mb-6 bg-white border border-border hover:bg-white-hover text-primary border-0" onClick={generate}>Generate UUIDv4</Button>
       <div className="flex-grow space-y-2 overflow-auto">
         {uuids.map((id, i) => (
-          <div key={i} className="flex justify-between items-center p-3 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl">
-            <span className="font-mono text-[#111827]">{id}</span>
-            <Button variant="ghost" size="icon" onClick={() => navigator.clipboard.writeText(id)}><Copy className="w-4 h-4 text-[#6B7280]" /></Button>
+          <div key={i} className="flex justify-between items-center p-3 bg-white border border-border border-border rounded-xl">
+            <span className="font-mono text-primary">{id}</span>
+            <Button variant="ghost" size="icon" onClick={() => navigator.clipboard.writeText(id)}><Copy className="w-4 h-4 text-muted" /></Button>
           </div>
         ))}
-        {uuids.length === 0 && <div className="text-[#6B7280] text-center mt-10">Click generate to create UUIDs</div>}
+        {uuids.length === 0 && <div className="text-muted text-center mt-10">Click generate to create UUIDs</div>}
       </div>
     </div>
   )
@@ -177,21 +177,21 @@ export function JsonFormatter() {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 h-full">
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">Input JSON</span>
-          <Button size="sm" onClick={format} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">Format & Validate</Button>
+          <span className="text-primary font-medium">Input JSON</span>
+          <Button size="sm" onClick={format} className="bg-white border border-border hover:bg-white-hover text-primary">Format & Validate</Button>
         </div>
         <textarea
-          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827] font-mono text-sm"
+          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-border border-border rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-primary font-mono text-sm"
           placeholder="Paste messy JSON here..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">Output</span>
+          <span className="text-primary font-medium">Output</span>
           <Button size="sm" variant="ghost" onClick={() => navigator.clipboard.writeText(output)}><Copy className="w-4 h-4 mr-2"/> Copy</Button>
         </div>
         {error ? (
@@ -201,7 +201,7 @@ export function JsonFormatter() {
         ) : (
           <textarea
             readOnly
-            className="w-full flex-grow min-h-[200px] p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
+            className="w-full flex-grow min-h-[200px] p-4 bg-surface border border-border border-border rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
             value={output}
             placeholder="Formatted JSON will appear here..."
           />
@@ -243,26 +243,26 @@ export function SvgToJsx() {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 h-full">
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">Raw SVG</span>
-          <Button size="sm" onClick={convert} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]">Convert to JSX</Button>
+          <span className="text-primary font-medium">Raw SVG</span>
+          <Button size="sm" onClick={convert} className="bg-white border border-border hover:bg-white-hover text-primary">Convert to JSX</Button>
         </div>
         <textarea
-          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827] font-mono text-sm"
+          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-border border-border rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-primary font-mono text-sm"
           placeholder="<svg>...</svg>"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">React Component</span>
+          <span className="text-primary font-medium">React Component</span>
           <Button size="sm" variant="ghost" onClick={() => navigator.clipboard.writeText(output)}><Copy className="w-4 h-4 mr-2"/> Copy</Button>
         </div>
         <textarea
           readOnly
-          className="w-full flex-grow min-h-[200px] p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
+          className="w-full flex-grow min-h-[200px] p-4 bg-surface border border-border border-border rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
           value={output}
           placeholder="JSX will appear here..."
         />
@@ -281,24 +281,24 @@ export function MarkdownToHtml() {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 h-full">
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">Markdown</span>
+          <span className="text-primary font-medium">Markdown</span>
         </div>
         <textarea
-          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-[#111827] font-mono text-sm"
+          className="w-full flex-grow min-h-[200px] p-4 bg-white border border-border border-border rounded-xl resize-none focus:outline-none focus:ring-1 focus:ring-text-primary text-primary font-mono text-sm"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[#111827] font-medium">HTML Output</span>
+          <span className="text-primary font-medium">HTML Output</span>
           <Button size="sm" variant="ghost" onClick={() => navigator.clipboard.writeText(output)}><Copy className="w-4 h-4 mr-2"/> Copy</Button>
         </div>
         <textarea
           readOnly
-          className="w-full flex-grow min-h-[200px] p-4 bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
+          className="w-full flex-grow min-h-[200px] p-4 bg-surface border border-border border-border rounded-xl resize-none focus:outline-none text-success font-mono text-sm"
           value={output}
         />
       </div>

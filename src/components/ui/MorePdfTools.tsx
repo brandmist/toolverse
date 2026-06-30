@@ -46,32 +46,32 @@ export function PdfUnlock() {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-5 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) setFile((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Unlock className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload password-protected PDF to unlock</p>
-          <p className="text-[#6B7280] text-xs">Requires the original password to decrypt and strip restriction settings</p>
+          <p className="text-primary font-medium mb-1">Click to upload password-protected PDF to unlock</p>
+          <p className="text-muted text-xs">Requires the original password to decrypt and strip restriction settings</p>
         </div>
       ) : (
         <div className="space-y-4 max-w-md mx-auto w-full">
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-center">
+          <div className="bg-white border border-border border-border rounded-xl p-4 text-center">
             <span className="text-sm font-semibold text-danger">{file.name}</span>
           </div>
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Document Password</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter PDF password" className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm" />
+            <label className="text-xs text-muted block mb-1">Document Password</label>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter PDF password" className="w-full bg-white border border-border border-border rounded-xl px-4 py-2 text-primary font-mono text-sm" />
           </div>
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
-          {success && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">✓ PDF unlocked and downloaded successfully!</div>}
+          {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
+          {success && <div className="text-xs text-success bg-surface border border-border border-border rounded-xl p-3">✓ PDF unlocked and downloaded successfully!</div>}
           <div className="flex gap-2">
-            <Button onClick={handleUnlock} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" disabled={processing || !password}>
+            <Button onClick={handleUnlock} className="flex-1 bg-white border border-border hover:bg-white-hover text-primary" disabled={processing || !password}>
               {processing ? 'Decrypting...' : 'Remove Password Protection'}
             </Button>
-            <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPassword(''); setError(''); setSuccess(false) }}>
+            <Button variant="outline" className="border-border text-primary text-sm" onClick={() => { setFile(null); setPassword(''); setError(''); setSuccess(false) }}>
               Clear
             </Button>
           </div>
@@ -134,22 +134,22 @@ export function PdfToWord() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <FileText className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to convert to Word (DOCX)</p>
-        <p className="text-[#6B7280] text-xs">Runs locally, preserving all page layouts and textual margins</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to convert to Word (DOCX)</p>
+        <p className="text-muted text-xs">Runs locally, preserving all page layouts and textual margins</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -208,22 +208,22 @@ export function PdfToPptx() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <FileText className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to convert to PowerPoint (PPTX)</p>
-        <p className="text-[#6B7280] text-xs">Stitches page graphics onto individual widescreen presentation slides</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to convert to PowerPoint (PPTX)</p>
+        <p className="text-muted text-xs">Stitches page graphics onto individual widescreen presentation slides</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -314,22 +314,22 @@ export function DocxToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.docx'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <FileText className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload Word (DOCX) to convert to PDF</p>
-        <p className="text-[#6B7280] text-xs">Extracts structural text elements and wraps into clean formatted PDF sheets</p>
+        <p className="text-primary font-medium mb-1">Click to upload Word (DOCX) to convert to PDF</p>
+        <p className="text-muted text-xs">Extracts structural text elements and wraps into clean formatted PDF sheets</p>
       </div>
       
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -388,20 +388,20 @@ export function PdfExtractImages() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleExtract((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Upload className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to extract images</p>
-        <p className="text-[#6B7280] text-xs">Stitches and packages pages/drawings into a standalone ZIP containing high-resolution PNGs</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to extract images</p>
+        <p className="text-muted text-xs">Stitches and packages pages/drawings into a standalone ZIP containing high-resolution PNGs</p>
       </div>
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -445,54 +445,54 @@ export function PdfCrop() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) setFile((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Crop className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to crop bounds</p>
-          <p className="text-[#6B7280] text-xs">Set page margins to crop out unwanted empty white borders natively</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to crop bounds</p>
+          <p className="text-muted text-xs">Set page margins to crop out unwanted empty white borders natively</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Crop Margins (pt)</h4>
+              <h4 className="text-xs font-semibold text-muted uppercase tracking-wider">Crop Margins (pt)</h4>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-xs text-[#6B7280]">Top</label>
-                  <input type="number" value={margins.top} onChange={e => setMargins({...margins, top: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
+                  <label className="text-xs text-muted">Top</label>
+                  <input type="number" value={margins.top} onChange={e => setMargins({...margins, top: parseInt(e.target.value) || 0})} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary" />
                 </div>
                 <div>
-                  <label className="text-xs text-[#6B7280]">Bottom</label>
-                  <input type="number" value={margins.bottom} onChange={e => setMargins({...margins, bottom: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
+                  <label className="text-xs text-muted">Bottom</label>
+                  <input type="number" value={margins.bottom} onChange={e => setMargins({...margins, bottom: parseInt(e.target.value) || 0})} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary" />
                 </div>
                 <div>
-                  <label className="text-xs text-[#6B7280]">Left</label>
-                  <input type="number" value={margins.left} onChange={e => setMargins({...margins, left: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
+                  <label className="text-xs text-muted">Left</label>
+                  <input type="number" value={margins.left} onChange={e => setMargins({...margins, left: parseInt(e.target.value) || 0})} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary" />
                 </div>
                 <div>
-                  <label className="text-xs text-[#6B7280]">Right</label>
-                  <input type="number" value={margins.right} onChange={e => setMargins({...margins, right: parseInt(e.target.value) || 0})} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827]" />
+                  <label className="text-xs text-muted">Right</label>
+                  <input type="number" value={margins.right} onChange={e => setMargins({...margins, right: parseInt(e.target.value) || 0})} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary" />
                 </div>
               </div>
             </div>
             
             <div className="space-y-2 pt-4">
-              <Button onClick={handleCrop} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={processing}>
+              <Button onClick={handleCrop} className="w-full bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={processing}>
                 {processing ? 'Trimming border margins...' : 'Apply Crop & Download'}
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => setFile(null)}>
+              <Button variant="outline" className="w-full border-border text-primary text-sm" onClick={() => setFile(null)}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex flex-col justify-center items-center p-6 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB]">
-             <FileText className="w-16 h-16 text-[#111827] mb-2" />
-             <span className="text-xs text-[#6B7280]">Page Borders Crop Preview</span>
-             <div className="mt-4 border-2 border-dashed border-[#E5E7EB] p-4 bg-slate-950/40 text-center text-xs text-[#6B7280]">
+          <div className="flex-[2] flex flex-col justify-center items-center p-6 bg-white border border-border rounded-2xl border border-border">
+             <FileText className="w-16 h-16 text-primary mb-2" />
+             <span className="text-xs text-muted">Page Borders Crop Preview</span>
+             <div className="mt-4 border-2 border-dashed border-border p-4 bg-slate-950/40 text-center text-xs text-muted">
                Crop boundaries will be applied to page properties on export.
              </div>
           </div>
@@ -539,20 +539,20 @@ export function PdfAddNumbers() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) setFile((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Upload className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to add page numbers</p>
-        <p className="text-[#6B7280] text-xs">Draws standard "Page X of Y" index numbers dynamically on the page footer blocks</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to add page numbers</p>
+        <p className="text-muted text-xs">Draws standard "Page X of Y" index numbers dynamically on the page footer blocks</p>
       </div>
       
       {file && (
         <div className="max-w-md mx-auto w-full text-center space-y-3">
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-danger text-xs font-semibold">{file.name}</div>
-          <Button onClick={applyNumbers} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={processing}>
+          <div className="bg-white border border-border border-border rounded-xl p-3 text-danger text-xs font-semibold">{file.name}</div>
+          <Button onClick={applyNumbers} className="w-full bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={processing}>
             {processing ? 'Applying page numbering...' : 'Stamp Page Numbers & Download'}
           </Button>
         </div>
@@ -606,20 +606,20 @@ export function PdfToTiff() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Upload className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to convert to TIFF</p>
-        <p className="text-[#6B7280] text-xs">Converts and packs PDF page canvases into a standard TIFF container</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to convert to TIFF</p>
+        <p className="text-muted text-xs">Converts and packs PDF page canvases into a standard TIFF container</p>
       </div>
       
       {isProcessing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -694,53 +694,53 @@ export function PdfEdit() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Upload className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to annotate/edit</p>
-          <p className="text-[#6B7280] text-xs">Write custom text labels and place them anywhere on your document pages</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to annotate/edit</p>
+          <p className="text-muted text-xs">Write custom text labels and place them anywhere on your document pages</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Annotation Text</h4>
-              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-mono" />
+              <h4 className="text-xs font-semibold text-muted uppercase tracking-wider">Annotation Text</h4>
+              <input type="text" value={text} onChange={e => setText(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary text-xs font-mono" />
               
               <div>
-                <label className="text-xs text-[#6B7280] flex justify-between">X Placement: <span>{pos.x}%</span></label>
+                <label className="text-xs text-muted flex justify-between">X Placement: <span>{pos.x}%</span></label>
                 <input type="range" min="0" max="100" value={pos.x} onChange={e => setPos({ ...pos, x: parseInt(e.target.value) })} className="w-full accent-rose-500" />
               </div>
               <div>
-                <label className="text-xs text-[#6B7280] flex justify-between">Y Placement: <span>{pos.y}%</span></label>
+                <label className="text-xs text-muted flex justify-between">Y Placement: <span>{pos.y}%</span></label>
                 <input type="range" min="0" max="100" value={pos.y} onChange={e => setPos({ ...pos, y: parseInt(e.target.value) })} className="w-full accent-rose-500" />
               </div>
               <div>
-                <label className="text-xs text-[#6B7280] flex justify-between">Font Size: <span>{fontSize}px</span></label>
+                <label className="text-xs text-muted flex justify-between">Font Size: <span>{fontSize}px</span></label>
                 <input type="range" min="10" max="72" value={fontSize} onChange={e => setFontSize(parseInt(e.target.value))} className="w-full accent-rose-500" />
               </div>
             </div>
             
             <div className="space-y-2 pt-4">
-              <Button onClick={applyAnnotation} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={processing}>
+              <Button onClick={applyAnnotation} className="w-full bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={processing}>
                 Apply Text & Download
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => setFile(null)}>
+              <Button variant="outline" className="w-full border-border text-primary text-sm" onClick={() => setFile(null)}>
                 Clear
               </Button>
             </div>
           </div>
           
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] relative min-h-[350px]">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border relative min-h-[350px]">
             {previewUrl && (
-              <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
+              <div className="relative inline-block border border-border rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block" />
                 <span 
-                  className="absolute pointer-events-none text-danger font-bold bg-white/70 px-1 border border-[#E5E7EB]"
+                  className="absolute pointer-events-none text-danger font-bold bg-white/70 px-1 border border-border"
                   style={{
                     left: `${pos.x}%`,
                     top: `${pos.y}%`,
@@ -818,29 +818,29 @@ export function PdfProtect() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) setFile((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Lock className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to protect</p>
-          <p className="text-[#6B7280] text-xs">Wraps your PDF file in a secure password-protected local container sheet</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to protect</p>
+          <p className="text-muted text-xs">Wraps your PDF file in a secure password-protected local container sheet</p>
         </div>
       ) : (
         <div className="space-y-4 max-w-md mx-auto w-full">
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center text-danger text-xs font-semibold">{file.name}</div>
+          <div className="bg-white border border-border border-border rounded-xl p-3 text-center text-danger text-xs font-semibold">{file.name}</div>
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Set Password Protection</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Type encryption password" className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-mono text-sm text-center" />
+            <label className="text-xs text-muted block mb-1">Set Password Protection</label>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Type encryption password" className="w-full bg-white border border-border border-border rounded-xl px-4 py-2 text-primary font-mono text-sm text-center" />
           </div>
-          {isDone && <div className="text-xs text-success bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center">✓ Protected HTML-PDF wrapper downloaded successfully!</div>}
+          {isDone && <div className="text-xs text-success bg-surface border border-border border-border rounded-xl p-3 text-center">✓ Protected HTML-PDF wrapper downloaded successfully!</div>}
           <div className="flex gap-2">
-            <Button onClick={handleProtect} className="flex-grow bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={!password}>
+            <Button onClick={handleProtect} className="flex-grow bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm" disabled={!password}>
               Generate Protected Wrapper
             </Button>
-            <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPassword(''); setIsDone(false) }}>
+            <Button variant="outline" className="border-border text-primary text-sm" onClick={() => { setFile(null); setPassword(''); setIsDone(false) }}>
               Clear
             </Button>
           </div>

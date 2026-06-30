@@ -35,8 +35,8 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-200 ${
         scrolled
-          ? 'bg-white border-b border-[#E5E7EB] shadow-[0_1px_3px_0_rgb(0,0,0,0.06)]'
-          : 'bg-white/95 border-b border-[#E5E7EB]'
+          ? 'bg-white border-b border-border shadow-[0_1px_3px_0_rgb(0,0,0,0.06)]'
+          : 'bg-white/95 border-b border-border'
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-6">
@@ -44,10 +44,10 @@ export function Navbar() {
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="SmarTools Home">
-            <div className="w-8 h-8 rounded-lg bg-[#111827] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-white font-bold text-sm tracking-tight">TV</span>
             </div>
-            <span className="font-bold text-[15px] text-[#111827] tracking-tight hidden sm:block">
+            <span className="font-bold text-[15px] text-primary tracking-tight hidden sm:block">
               SmarTools
             </span>
           </Link>
@@ -67,8 +67,8 @@ export function Navbar() {
                 to={link.to}
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                   location.pathname === link.to
-                    ? 'text-[#111827] bg-[#F3F4F6]'
-                    : 'text-[#6B7280] hover:text-[#111827] hover:bg-[#F9FAFB]'
+                    ? 'text-primary bg-surface-hover'
+                    : 'text-muted hover:text-primary hover:bg-surface'
                 }`}
               >
                 {link.label}
@@ -82,18 +82,18 @@ export function Navbar() {
             <button
               onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
               aria-label="Search tools"
-              className="hidden md:flex items-center gap-2 px-3 py-2 text-sm text-[#6B7280] bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg hover:border-[#D1D5DB] hover:bg-white transition-all w-48"
+              className="hidden md:flex items-center gap-2 px-3 py-2 text-sm text-muted bg-surface border border-border rounded-lg hover:border-border-hover hover:bg-white transition-all w-48"
             >
               <Search className="w-4 h-4 shrink-0" />
               <span className="flex-1 text-left">Search tools…</span>
-              <kbd className="text-[10px] font-mono bg-white border border-[#E5E7EB] rounded px-1.5 py-0.5 text-[#9CA3AF]">⌘K</kbd>
+              <kbd className="text-[10px] font-mono bg-white border border-border rounded px-1.5 py-0.5 text-subtle">⌘K</kbd>
             </button>
 
             {/* Search icon — mobile */}
             <button
               onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
               aria-label="Search"
-              className="md:hidden p-2 text-[#6B7280] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors"
+              className="md:hidden p-2 text-muted hover:text-primary hover:bg-surface rounded-lg transition-colors"
             >
               <Search className="w-5 h-5" />
             </button>
@@ -102,11 +102,11 @@ export function Navbar() {
             <Link
               to="/favorites"
               aria-label={`Favorites (${favorites.length})`}
-              className="relative p-2 text-[#6B7280] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors"
+              className="relative p-2 text-muted hover:text-primary hover:bg-surface rounded-lg transition-colors"
             >
               <Heart className="w-5 h-5" fill={favorites.length > 0 ? '#EF4444' : 'none'} stroke={favorites.length > 0 ? '#EF4444' : 'currentColor'} />
               {favorites.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#111827] text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">
                   {favorites.length > 9 ? '9+' : favorites.length}
                 </span>
               )}
@@ -117,7 +117,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              className="lg:hidden p-2 text-[#6B7280] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors"
+              className="lg:hidden p-2 text-muted hover:text-primary hover:bg-surface rounded-lg transition-colors"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -133,22 +133,22 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="lg:hidden bg-white border-t border-[#E5E7EB] overflow-hidden"
+            className="lg:hidden bg-white border-t border-border overflow-hidden"
             aria-label="Mobile navigation"
           >
             <div className="px-6 py-4 space-y-1">
-              <Link to="/tools" className="block px-3 py-2.5 text-sm font-medium text-[#374151] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors">All Tools</Link>
-              <Link to="/categories" className="block px-3 py-2.5 text-sm font-medium text-[#374151] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors">Categories</Link>
-              <Link to="/blog" className="block px-3 py-2.5 text-sm font-medium text-[#374151] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors">Blog</Link>
+              <Link to="/tools" className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-surface rounded-lg transition-colors">All Tools</Link>
+              <Link to="/categories" className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-surface rounded-lg transition-colors">Categories</Link>
+              <Link to="/blog" className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-surface rounded-lg transition-colors">Blog</Link>
 
               <div className="pt-3 pb-1 border-t border-[#F3F4F6] mt-3">
-                <p className="px-3 text-[11px] font-semibold text-[#9CA3AF] uppercase tracking-wider mb-2">Browse by Category</p>
+                <p className="px-3 text-[11px] font-semibold text-subtle uppercase tracking-wider mb-2">Browse by Category</p>
                 <div className="grid grid-cols-2 gap-1">
                   {CATEGORIES.map(cat => (
                     <Link
                       key={cat.id}
                       to={`/category/${cat.id}`}
-                      className="px-3 py-2 text-sm text-[#374151] hover:text-[#111827] hover:bg-[#F9FAFB] rounded-lg transition-colors font-medium"
+                      className="px-3 py-2 text-sm text-secondary hover:text-primary hover:bg-surface rounded-lg transition-colors font-medium"
                     >
                       {cat.name}
                     </Link>

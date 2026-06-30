@@ -56,12 +56,12 @@ export function AllTools() {
 
       <div className="min-h-screen bg-white">
         {/* ── Page Header ── */}
-        <div className="bg-white border-b border-[#E5E7EB] pt-24 pb-12">
+        <div className="bg-white border-b border-border pt-24 pb-12">
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="max-w-2xl">
-              <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-wider mb-3">All Tools</p>
-              <h1 className="text-[#111827] mb-4">Tool Directory</h1>
-              <p className="text-[16px] text-[#6B7280] leading-relaxed">
+              <p className="text-[13px] font-semibold text-muted uppercase tracking-wider mb-3">All Tools</p>
+              <h1 className="text-primary mb-4">Tool Directory</h1>
+              <p className="text-[16px] text-muted leading-relaxed">
                 Browse our complete collection of 200+ free utilities. All browser-based, private, and instant.
               </p>
             </div>
@@ -74,7 +74,7 @@ export function AllTools() {
             {/* Search input */}
             <div className="relative max-w-xl">
               <label htmlFor="tools-search" className="sr-only">Search tools</label>
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF] pointer-events-none" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-subtle pointer-events-none" />
               <input
                 id="tools-search"
                 type="search"
@@ -82,13 +82,13 @@ export function AllTools() {
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Search tools by name or category…"
-                className="w-full pl-10 pr-10 py-3 bg-white border border-[#E5E7EB] rounded-2xl text-[14px] text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#111827] focus:ring-2 focus:ring-[#111827]/8 transition-all"
+                className="w-full pl-10 pr-10 py-3 bg-white border border-border rounded-2xl text-[14px] text-primary placeholder-[#9CA3AF] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/8 transition-all"
               />
               {query && (
                 <button
                   onClick={() => setQuery('')}
                   aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[#9CA3AF] hover:text-[#374151] rounded-md hover:bg-[#F3F4F6] transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-subtle hover:text-secondary rounded-md hover:bg-surface-hover transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -99,7 +99,7 @@ export function AllTools() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               {/* Type filters */}
               <div className="flex items-center gap-3 flex-wrap" role="group" aria-label="Filter by type">
-                <span className="flex items-center gap-1.5 text-[12px] font-semibold text-[#9CA3AF] uppercase tracking-wider">
+                <span className="flex items-center gap-1.5 text-[12px] font-semibold text-subtle uppercase tracking-wider">
                   <SlidersHorizontal className="w-3.5 h-3.5" /> Filter
                 </span>
                 {(['all', 'popular', 'new', 'favorites'] as const).map(type => (
@@ -108,8 +108,8 @@ export function AllTools() {
                     onClick={() => setFilterType(type)}
                     className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-[13px] font-semibold border transition-all ${
                       filterType === type
-                        ? 'bg-[#111827] text-white border-[#111827]'
-                        : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:text-[#111827]'
+                        ? 'bg-primary text-white border-[#111827]'
+                        : 'bg-white text-muted border-border hover:border-border-hover hover:text-primary'
                     }`}
                   >
                     {type === 'favorites' && <Heart className="w-3 h-3" />}
@@ -121,12 +121,12 @@ export function AllTools() {
               {/* Sort — pushed right */}
               <div className="sm:ml-auto flex items-center gap-2">
                 <label htmlFor="sort-select" className="sr-only">Sort tools</label>
-                <ArrowUpDown className="w-4 h-4 text-[#9CA3AF]" />
+                <ArrowUpDown className="w-4 h-4 text-subtle" />
                 <select
                   id="sort-select"
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value as typeof sortBy)}
-                  className="bg-white border border-[#E5E7EB] text-[13px] font-medium text-[#374151] rounded-lg px-3 py-1.5 focus:outline-none focus:border-[#111827] transition-colors appearance-none cursor-pointer"
+                  className="bg-white border border-border text-[13px] font-medium text-secondary rounded-lg px-3 py-1.5 focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
                 >
                   <option value="popularity">Sort: Popular</option>
                   <option value="newest">Sort: Newest</option>
@@ -142,11 +142,11 @@ export function AllTools() {
                 onClick={() => setSelectedCategory(null)}
                 className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                   !selectedCategory
-                    ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
-                    : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
+                    ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                    : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                 }`}
               >
-                <SlidersHorizontal className={`w-4 h-4 ${!selectedCategory ? 'text-white' : 'text-[#9CA3AF]'}`} /> All Categories
+                <SlidersHorizontal className={`w-4 h-4 ${!selectedCategory ? 'text-white' : 'text-subtle'}`} /> All Categories
               </button>
               {CATEGORIES.map(cat => (
                 <button
@@ -154,11 +154,11 @@ export function AllTools() {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`shrink-0 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl text-[14px] font-semibold border transition-all ${
                     selectedCategory === cat.id
-                      ? 'bg-[#111827] text-white border-[#111827] shadow-md shadow-black/10'
-                      : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:border-[#D1D5DB] hover:bg-[#FAFAFA] hover:text-[#111827]'
+                      ? 'bg-primary text-white border-[#111827] shadow-md shadow-black/10'
+                      : 'bg-white text-muted border-border hover:border-border-hover hover:bg-surface hover:text-primary'
                   }`}
                 >
-                  <Icon name={cat.icon as any} className={`w-4 h-4 ${selectedCategory === cat.id ? 'text-white' : 'text-[#9CA3AF]'}`} />
+                  <Icon name={cat.icon as any} className={`w-4 h-4 ${selectedCategory === cat.id ? 'text-white' : 'text-subtle'}`} />
                   {cat.name}
                 </button>
               ))}
@@ -167,12 +167,12 @@ export function AllTools() {
 
           {/* ── Results header ── */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-[15px] font-semibold text-[#111827]">
+            <h2 className="text-[15px] font-semibold text-primary">
               {filteredTools.length} {filteredTools.length === 1 ? 'tool' : 'tools'}
-              {hasFilters && <span className="text-[#9CA3AF] font-normal"> found</span>}
+              {hasFilters && <span className="text-subtle font-normal"> found</span>}
             </h2>
             {hasFilters && (
-              <button onClick={clearAll} className="text-[13px] text-[#6B7280] hover:text-[#111827] font-medium flex items-center gap-1.5 transition-colors">
+              <button onClick={clearAll} className="text-[13px] text-muted hover:text-primary font-medium flex items-center gap-1.5 transition-colors">
                 <X className="w-3.5 h-3.5" /> Clear filters
               </button>
             )}
@@ -198,12 +198,12 @@ export function AllTools() {
               ))}
             </motion.div>
           ) : (
-            <div className="py-24 text-center border border-[#E5E7EB] rounded-xl bg-[#FAFAFA]">
-              <p className="text-[18px] font-semibold text-[#374151] mb-2">No tools found</p>
-              <p className="text-[14px] text-[#6B7280] mb-6">Try adjusting your search or clearing the filters.</p>
+            <div className="py-24 text-center border border-border rounded-xl bg-surface">
+              <p className="text-[18px] font-semibold text-secondary mb-2">No tools found</p>
+              <p className="text-[14px] text-muted mb-6">Try adjusting your search or clearing the filters.</p>
               <button
                 onClick={clearAll}
-                className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#111827] text-white text-[14px] font-semibold rounded-lg hover:bg-[#1F2937] transition-colors"
+                className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary text-white text-[14px] font-semibold rounded-lg hover:bg-primary-hover transition-colors"
               >
                 <X className="w-4 h-4" /> Clear all filters
               </button>

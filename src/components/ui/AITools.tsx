@@ -53,31 +53,31 @@ export function AIImageGenerator() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[350px] flex flex-col">
-          <h3 className="font-semibold text-[#111827] flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-[#111827]" />
+        <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[350px] flex flex-col">
+          <h3 className="font-semibold text-primary flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-primary" />
             AI Generator
           </h3>
-          <p className="text-sm text-[#6B7280]">Describe what you want to see, and AI will generate it for free.</p>
+          <p className="text-sm text-muted">Describe what you want to see, and AI will generate it for free.</p>
           
           <div className="space-y-4 flex-1">
             <div>
-              <label className="text-sm text-[#111827] block mb-2">Prompt</label>
+              <label className="text-sm text-primary block mb-2">Prompt</label>
               <textarea 
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="e.g. A cyberpunk city at night with neon lights..."
-                className="w-full bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-sm text-[#111827] focus:outline-none focus:border-[#E5E7EB] min-h-[120px] resize-none"
+                className="w-full bg-surface border border-border border-border rounded-xl p-3 text-sm text-primary focus:outline-none focus:border-border min-h-[120px] resize-none"
               />
             </div>
             <div>
-              <label className="text-sm text-[#111827] block mb-2">Size</label>
+              <label className="text-sm text-primary block mb-2">Size</label>
               <select 
                 value={size} 
                 onChange={(e) => setSize(e.target.value)}
-                className="w-full bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-sm text-[#111827] focus:outline-none focus:border-[#E5E7EB]"
+                className="w-full bg-surface border border-border border-border rounded-xl p-3 text-sm text-primary focus:outline-none focus:border-border"
               >
                 <option value="1024x1024">Square (1024x1024)</option>
                 <option value="1024x576">Landscape (16:9)</option>
@@ -87,7 +87,7 @@ export function AIImageGenerator() {
           </div>
 
           <Button 
-            className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] mt-auto" 
+            className="w-full bg-white border border-border hover:bg-white-hover text-primary mt-auto" 
             onClick={handleGenerate}
             disabled={!prompt.trim() || isGenerating}
           >
@@ -99,23 +99,23 @@ export function AIImageGenerator() {
           </Button>
         </div>
 
-        <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[400px]">
+        <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[400px]">
           {isGenerating ? (
-            <div className="flex flex-col items-center gap-4 text-[#6B7280]">
-              <Loader2 className="w-12 h-12 animate-spin text-[#111827]" />
+            <div className="flex flex-col items-center gap-4 text-muted">
+              <Loader2 className="w-12 h-12 animate-spin text-primary" />
               <p>Creating your image...</p>
             </div>
           ) : generatedImgUrl ? (
             <div className="relative group w-full h-full flex items-center justify-center">
               <img src={generatedImgUrl} alt="Generated UI" className="max-w-full max-h-[500px] object-contain rounded-xl shadow-2xl" />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center gap-4">
-                <Button className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
+                <Button className="bg-white border border-border hover:bg-white-hover text-primary" onClick={handleDownload}>
                   <Download className="w-4 h-4 mr-2" /> Download
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center text-[#6B7280] gap-4">
+            <div className="flex flex-col items-center justify-center text-muted gap-4">
               <ImageIcon className="w-16 h-16 opacity-20" />
               <p className="max-w-xs text-center text-sm">Your generated image will appear here.</p>
             </div>
@@ -168,24 +168,24 @@ export function RemoveBackground() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader title="Upload image to remove background" subtitle="Models run locally in your browser for privacy." />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[300px]">
-            <h3 className="font-semibold text-[#111827] flex items-center gap-2">
-              <Scissors className="w-5 h-5 text-[#111827]" />
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[300px]">
+            <h3 className="font-semibold text-primary flex items-center gap-2">
+              <Scissors className="w-5 h-5 text-primary" />
               Background Remover
             </h3>
-            <p className="text-sm text-[#6B7280] mb-6">
+            <p className="text-sm text-muted mb-6">
               Automatically remove the background from your images. First run might take longer to download models.
             </p>
             
             <div className="pt-4 flex flex-col gap-3">
               {!processedUrl ? (
                 <Button 
-                  className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" 
+                  className="w-full bg-white border border-border hover:bg-white-hover text-primary" 
                   onClick={processImage}
                   disabled={isProcessing}
                 >
@@ -196,16 +196,16 @@ export function RemoveBackground() {
                   )}
                 </Button>
               ) : (
-                <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
+                <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={handleDownload}>
                   <Download className="w-4 h-4 mr-2" /> Download Transparent Image
                 </Button>
               )}
-              <Button variant="outline" className="w-full border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={handleClear} disabled={isProcessing}>
+              <Button variant="outline" className="w-full border-border hover:bg-white/10 text-primary" onClick={handleClear} disabled={isProcessing}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[300px] overflow-hidden bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYGAQYcAP3uCTZvQAw8gAAQMDwzyUog+S1AwybAAx6oZRMwyDQeQAAwMAXgEHB60tE7EAAAAASUVORK5CYII=')]">
             <img 
               src={processedUrl || imageSrc} 
               alt="Preview" 
@@ -264,47 +264,47 @@ export function ImageToText() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader title="Upload image with text" subtitle="Extract text seamlessly in your browser using OCR." />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-[1] flex flex-col gap-4">
-             <div className="bg-white border border-[#E5E7EB] p-3 rounded-xl flex items-center justify-center overflow-hidden border border-[#E5E7EB] h-[300px]">
+             <div className="bg-white border border-border p-3 rounded-xl flex items-center justify-center overflow-hidden border border-border h-[300px]">
                <img src={imageSrc} alt="Preview" className="max-w-full max-h-full object-contain rounded-xl" />
              </div>
              
              {!text && !isProcessing && (
-               <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={processImage}>
+               <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={processImage}>
                  <ScanText className="w-4 h-4 mr-2" /> Extract Text
                </Button>
              )}
              {isProcessing && (
-                <div className="flex items-center justify-center p-3 text-[#111827] bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] gap-2">
+                <div className="flex items-center justify-center p-3 text-primary bg-surface border border-border rounded-xl border border-border gap-2">
                    <Loader2 className="w-4 h-4 animate-spin" />
                    <span className="text-sm font-medium">{progressMsg}</span>
                 </div>
              )}
-             <Button variant="outline" className="w-full border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={handleClear} disabled={isProcessing}>
+             <Button variant="outline" className="w-full border-border hover:bg-white/10 text-primary" onClick={handleClear} disabled={isProcessing}>
                Clear Image
              </Button>
           </div>
           
-          <div className="flex-[1.5] bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl border border-[#E5E7EB] p-4 flex flex-col relative min-h-[300px]">
+          <div className="flex-[1.5] bg-surface border border-border rounded-xl border border-border p-4 flex flex-col relative min-h-[300px]">
              {text ? (
                <>
                  <textarea 
                    readOnly 
-                   className="w-full flex-1 bg-transparent resize-none text-[#111827] text-sm focus:outline-none" 
+                   className="w-full flex-1 bg-transparent resize-none text-primary text-sm focus:outline-none" 
                    value={text} 
                  />
-                 <Button size="sm" className="absolute top-4 right-4 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] border-[#E5E7EB]" onClick={handleCopy}>
+                 <Button size="sm" className="absolute top-4 right-4 bg-white border border-border hover:bg-white-hover text-primary border-border" onClick={handleCopy}>
                    {copied ? <CheckCircle className="w-4 h-4 mr-2 text-success" /> : <RefreshCcw className="w-4 h-4 mr-2" />} 
                    {copied ? 'Copied' : 'Copy Text'}
                  </Button>
                </>
              ) : (
-               <div className="flex-1 flex flex-col items-center justify-center text-[#6B7280] gap-4">
+               <div className="flex-1 flex flex-col items-center justify-center text-muted gap-4">
                  <ScanText className="w-12 h-12 opacity-20" />
                  <p className="text-sm">Extracted text will appear here</p>
                </div>
@@ -381,27 +381,27 @@ export function UnblurImage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader title="Upload blurry image" subtitle="Applies a local sharpening filter to improve clarity." />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[300px]">
-            <h3 className="font-semibold text-[#111827] flex items-center gap-2">
-              <Activity className="w-5 h-5 text-[#111827]" />
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[300px]">
+            <h3 className="font-semibold text-primary flex items-center gap-2">
+              <Activity className="w-5 h-5 text-primary" />
               Sharpen / Unblur
             </h3>
             
             <div className="pt-2 flex flex-col gap-4">
                <div>
                  <div className="flex justify-between mb-1">
-                   <label className="text-sm text-[#111827]">Upscale (Resolution)</label>
-                   <span className="text-sm text-[#6B7280]">{scale}x</span>
+                   <label className="text-sm text-primary">Upscale (Resolution)</label>
+                   <span className="text-sm text-muted">{scale}x</span>
                  </div>
                  <select 
                    value={scale} 
                    onChange={(e) => setScale(parseFloat(e.target.value))}
-                   className="w-full bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg p-2 text-sm"
+                   className="w-full bg-surface border border-border rounded-lg p-2 text-sm"
                  >
                    <option value="1">1x (Original)</option>
                    <option value="1.5">1.5x</option>
@@ -411,8 +411,8 @@ export function UnblurImage() {
                </div>
                <div>
                  <div className="flex justify-between mb-1">
-                   <label className="text-sm text-[#111827]">Sharpen Intensity</label>
-                   <span className="text-sm text-[#6B7280]">{intensity}x</span>
+                   <label className="text-sm text-primary">Sharpen Intensity</label>
+                   <span className="text-sm text-muted">{intensity}x</span>
                  </div>
                  <input 
                    type="range" 
@@ -421,20 +421,20 @@ export function UnblurImage() {
                    onChange={(e) => setIntensity(parseFloat(e.target.value))} 
                    className="w-full accent-indigo-500" 
                  />
-                 <p className="text-xs text-[#6B7280] mt-2">Increase to add edge contrast.</p>
+                 <p className="text-xs text-muted mt-2">Increase to add edge contrast.</p>
                </div>
             </div>
             
             <div className="pt-4 flex flex-col gap-3">
-              <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload} disabled={!processed}>
+              <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={handleDownload} disabled={!processed}>
                 <Download className="w-4 h-4 mr-2" /> Download Result
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={clearImage}>
+              <Button variant="outline" className="w-full border-border hover:bg-white/10 text-primary" onClick={clearImage}>
                 Clear
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] min-h-[300px] overflow-hidden">
+          <div className="flex-[2] flex items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border min-h-[300px] overflow-hidden">
             <canvas ref={canvasRef} className="max-w-full max-h-[400px] object-contain rounded-xl shadow-2xl" />
           </div>
         </div>
@@ -509,25 +509,25 @@ export function CleanupPicture() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6  shadow-lg shadow-sm">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6  shadow-lg shadow-sm">
       {!imageSrc ? (
         <ImageUploader title="Upload image to cleanup" subtitle="Use our manual smudge/blur brush to hide sensitive info or dust." />
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[300px]">
-            <h3 className="font-semibold text-[#111827] flex items-center gap-2">
-              <Eraser className="w-5 h-5 text-[#111827]" />
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[300px]">
+            <h3 className="font-semibold text-primary flex items-center gap-2">
+              <Eraser className="w-5 h-5 text-primary" />
               Cleanup / Blur Brush
             </h3>
             
-            <p className="text-sm text-[#6B7280] mb-4">
+            <p className="text-sm text-muted mb-4">
                Click and drag over the image to smudge and hide objects or blemishes.
             </p>
 
             <div className="pt-2">
                <div className="flex justify-between mb-1">
-                 <label className="text-sm text-[#111827]">Brush Size</label>
-                 <span className="text-sm text-[#6B7280]">{brushSize}px</span>
+                 <label className="text-sm text-primary">Brush Size</label>
+                 <span className="text-sm text-muted">{brushSize}px</span>
                </div>
                <input 
                  type="range" 
@@ -539,18 +539,18 @@ export function CleanupPicture() {
             </div>
             
             <div className="pt-4 flex flex-col gap-3">
-              <Button className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827]" onClick={handleDownload}>
+              <Button className="w-full bg-white border border-border hover:bg-white-hover text-primary" onClick={handleDownload}>
                 <Download className="w-4 h-4 mr-2" /> Download
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] hover:bg-white/10 text-[#111827]" onClick={resetCanvas}>
+              <Button variant="outline" className="w-full border-border hover:bg-white/10 text-primary" onClick={resetCanvas}>
                 Undo All
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] hover:bg-[#FAFAFA] border border-[#E5E7EB] text-danger" onClick={clearImage}>
+              <Button variant="outline" className="w-full border-border hover:bg-surface border border-border text-danger" onClick={clearImage}>
                 Choose New Image
               </Button>
             </div>
           </div>
-          <div className="flex-[2] flex justify-center bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] overflow-hidden touch-none relative">
+          <div className="flex-[2] flex justify-center bg-white border border-border rounded-2xl border border-border overflow-hidden touch-none relative">
             <canvas 
               ref={canvasRef} 
               onMouseDown={() => setIsDrawing(true)}

@@ -82,7 +82,7 @@ export function DuplicateRemover() {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-4 flex-wrap">
-        <label className="flex items-center gap-3 cursor-pointer text-[14px] text-[#374151] font-medium select-none">
+        <label className="flex items-center gap-3 cursor-pointer text-[14px] text-secondary font-medium select-none">
           <input
             type="checkbox"
             checked={caseSensitive}
@@ -91,7 +91,7 @@ export function DuplicateRemover() {
           />
           Case Sensitive
         </label>
-        <label className="flex items-center gap-3 cursor-pointer text-[14px] text-[#374151] font-medium select-none">
+        <label className="flex items-center gap-3 cursor-pointer text-[14px] text-secondary font-medium select-none">
           <input
             type="checkbox"
             checked={trimLines}
@@ -101,7 +101,7 @@ export function DuplicateRemover() {
           Trim Whitespace
         </label>
         {duplicatesRemoved > 0 && (
-          <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#059669] bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl px-3 py-1">
+          <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-success bg-[#ECFDF5] border border-[#A7F3D0] rounded-xl px-3 py-1">
             <Check className="w-3.5 h-3.5" />
             {duplicatesRemoved} duplicate{duplicatesRemoved > 1 ? 's' : ''} removed
           </span>
@@ -169,22 +169,22 @@ export function TextDiff() {
     removed: 'bg-[#FEF2F2]',
   }
   const rowTextL: Record<string, string> = {
-    same:    'text-[#374151]',
+    same:    'text-secondary',
     changed: 'text-[#D97706]',
-    added:   'text-[#6B7280]',
+    added:   'text-muted',
     removed: 'text-[#DC2626]',
   }
   const rowTextR: Record<string, string> = {
-    same:    'text-[#374151]',
+    same:    'text-secondary',
     changed: 'text-[#D97706]',
-    added:   'text-[#059669]',
-    removed: 'text-[#6B7280]',
+    added:   'text-success',
+    removed: 'text-muted',
   }
 
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-[13px] text-[#6B7280]">Paste two texts to see differences highlighted line by line.</span>
+        <span className="text-[13px] text-muted">Paste two texts to see differences highlighted line by line.</span>
         {changedCount > 0 && (
           <span className="inline-flex items-center text-[13px] font-semibold text-[#D97706] bg-[#FFFBEB] border border-[#FDE68A] rounded-xl px-3 py-1">
             {changedCount} difference{changedCount > 1 ? 's' : ''} found
@@ -216,10 +216,10 @@ export function TextDiff() {
       </div>
 
       {(left || right) && (
-        <div className="border border-[#E5E7EB] rounded-xl overflow-auto max-h-[320px] bg-white">
+        <div className="border border-border rounded-xl overflow-auto max-h-[320px] bg-white">
           <div className="grid grid-cols-2 divide-x divide-[#E5E7EB] text-xs font-mono">
             <div>
-              <div className="sticky top-0 px-3 py-2 bg-[#FAFAFA] border-b border-[#E5E7EB] text-[11px] font-bold text-[#6B7280] uppercase tracking-wider">
+              <div className="sticky top-0 px-3 py-2 bg-surface border-b border-border text-[11px] font-bold text-muted uppercase tracking-wider">
                 Original
               </div>
               {diff.map((row, i) => (
@@ -229,7 +229,7 @@ export function TextDiff() {
               ))}
             </div>
             <div>
-              <div className="sticky top-0 px-3 py-2 bg-[#FAFAFA] border-b border-[#E5E7EB] text-[11px] font-bold text-[#6B7280] uppercase tracking-wider">
+              <div className="sticky top-0 px-3 py-2 bg-surface border-b border-border text-[11px] font-bold text-muted uppercase tracking-wider">
                 Modified
               </div>
               {diff.map((row, i) => (

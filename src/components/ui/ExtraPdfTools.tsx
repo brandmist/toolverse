@@ -107,41 +107,41 @@ function PdfDataConverter({ defaultFormat }: { defaultFormat: 'xlsx' | 'csv' }) 
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <FileSpreadsheet className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to extract to Table</p>
-          <p className="text-[#6B7280] text-xs">Parses rows and columns to generate clean spreadsheets (.csv / .xlsx)</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to extract to Table</p>
+          <p className="text-muted text-xs">Parses rows and columns to generate clean spreadsheets (.csv / .xlsx)</p>
         </div>
       ) : (
         <div className="space-y-4 w-full">
           <div className="flex items-center justify-between border-b border-white/15 pb-4">
             <div>
-              <h3 className="font-semibold text-[#111827] truncate max-w-sm">{file.name}</h3>
-              <p className="text-xs text-[#6B7280]">Heuristically parsing table cells</p>
+              <h3 className="font-semibold text-primary truncate max-w-sm">{file.name}</h3>
+              <p className="text-xs text-muted">Heuristically parsing table cells</p>
             </div>
             <div className="flex gap-2">
-              <button onClick={() => setFormat('csv')} className={`px-3 py-1 rounded text-xs font-bold ${format === 'csv' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>CSV</button>
-              <button onClick={() => setFormat('xlsx')} className={`px-3 py-1 rounded text-xs font-bold ${format === 'xlsx' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Excel (XLSX)</button>
+              <button onClick={() => setFormat('csv')} className={`px-3 py-1 rounded text-xs font-bold ${format === 'csv' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>CSV</button>
+              <button onClick={() => setFormat('xlsx')} className={`px-3 py-1 rounded text-xs font-bold ${format === 'xlsx' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>Excel (XLSX)</button>
             </div>
           </div>
 
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
           {preview.length > 0 && (
             <div className="space-y-2">
-              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Spreadsheet Preview (First 10 Rows)</h4>
-              <div className="overflow-x-auto border border-[#E5E7EB] rounded-xl bg-[#FAFAFA] border border-[#E5E7EB]">
-                <table className="min-w-full divide-y divide-white/10 text-left text-xs text-[#111827]">
+              <h4 className="text-xs font-semibold text-muted uppercase tracking-wider">Spreadsheet Preview (First 10 Rows)</h4>
+              <div className="overflow-x-auto border border-border rounded-xl bg-surface border border-border">
+                <table className="min-w-full divide-y divide-white/10 text-left text-xs text-primary">
                   <tbody className="divide-y divide-white/5 font-mono">
                     {preview.map((row, i) => (
                       <tr key={i} className="hover:bg-white">
                         {row.map((cell, j) => (
-                          <td key={j} className="px-4 py-2 border-r border-[#E5E7EB] whitespace-nowrap">{cell}</td>
+                          <td key={j} className="px-4 py-2 border-r border-border whitespace-nowrap">{cell}</td>
                         ))}
                       </tr>
                     ))}
@@ -152,10 +152,10 @@ function PdfDataConverter({ defaultFormat }: { defaultFormat: 'xlsx' | 'csv' }) 
           )}
 
           <div className="flex gap-2">
-            <Button onClick={() => handleConvert(file)} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={processing}>
+            <Button onClick={() => handleConvert(file)} className="flex-1 bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={processing}>
               Re-Convert & Download
             </Button>
-            <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setPreview([]) }}>
+            <Button variant="outline" className="border-border text-primary text-sm" onClick={() => { setFile(null); setPreview([]) }}>
               Clear
             </Button>
           </div>
@@ -165,7 +165,7 @@ function PdfDataConverter({ defaultFormat }: { defaultFormat: 'xlsx' | 'csv' }) 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -288,25 +288,25 @@ export function PdfTranslator() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) setFile((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Languages className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to Translate</p>
-          <p className="text-[#6B7280] text-xs">Extracts text and generates a fully translated version of the layout sheets</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to Translate</p>
+          <p className="text-muted text-xs">Extracts text and generates a fully translated version of the layout sheets</p>
         </div>
       ) : (
         <div className="space-y-4 max-w-md mx-auto w-full">
-          <div className="bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center text-danger text-xs font-semibold">{file.name}</div>
+          <div className="bg-white border border-border border-border rounded-xl p-3 text-center text-danger text-xs font-semibold">{file.name}</div>
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Select Target Translation Language</label>
+            <label className="text-xs text-muted block mb-1">Select Target Translation Language</label>
             <select 
               value={targetLang} 
               onChange={e => setTargetLang(e.target.value)}
-              className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2.5 text-[#111827] text-sm"
+              className="w-full bg-white border border-border border-border rounded-xl px-4 py-2.5 text-primary text-sm"
             >
               {languages.map(l => (
                 <option key={l.code} value={l.code}>{l.label}</option>
@@ -314,13 +314,13 @@ export function PdfTranslator() {
             </select>
           </div>
 
-          {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+          {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
           <div className="flex gap-2">
-            <Button onClick={handleTranslate} className="flex-1 bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm" disabled={processing}>
+            <Button onClick={handleTranslate} className="flex-1 bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm" disabled={processing}>
               Translate PDF
             </Button>
-            <Button variant="outline" className="border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setError('') }}>
+            <Button variant="outline" className="border-border text-primary text-sm" onClick={() => { setFile(null); setError('') }}>
               Clear
             </Button>
           </div>
@@ -330,7 +330,7 @@ export function PdfTranslator() {
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -456,22 +456,22 @@ export function PdfToEpub() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <BookOpen className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to convert to EPUB</p>
-        <p className="text-[#6B7280] text-xs">Packs structural page contents into fully compliant reflowable .epub format</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to convert to EPUB</p>
+        <p className="text-muted text-xs">Packs structural page contents into fully compliant reflowable .epub format</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -594,22 +594,22 @@ export function MobiToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.mobi'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <BookOpen className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload MOBI to convert to PDF</p>
-        <p className="text-[#6B7280] text-xs">Unpacks Mobipocket eBooks and renders textual streams to PDF format</p>
+        <p className="text-primary font-medium mb-1">Click to upload MOBI to convert to PDF</p>
+        <p className="text-muted text-xs">Unpacks Mobipocket eBooks and renders textual streams to PDF format</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -670,22 +670,22 @@ export function PdfToMobi() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <BookOpen className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PDF to convert to MOBI</p>
-        <p className="text-[#6B7280] text-xs">Packs page textual layouts into a standard Mobipocket eBook wrapper</p>
+        <p className="text-primary font-medium mb-1">Click to upload PDF to convert to MOBI</p>
+        <p className="text-muted text-xs">Packs page textual layouts into a standard Mobipocket eBook wrapper</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -797,22 +797,22 @@ export function Azw3ToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.azw3'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <BookOpen className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload AZW3 to convert to PDF</p>
-        <p className="text-[#6B7280] text-xs">Decodes Kindle KF8 layout structures and layouts text nodes to PDF</p>
+        <p className="text-primary font-medium mb-1">Click to upload AZW3 to convert to PDF</p>
+        <p className="text-muted text-xs">Decodes Kindle KF8 layout structures and layouts text nodes to PDF</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -952,22 +952,22 @@ export function PptxToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pptx'; i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }; i.click() }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Presentation className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload PowerPoint (PPTX) to convert to PDF</p>
-        <p className="text-[#6B7280] text-xs">Unzips presentations and lays out text placeholders to landscape PDF sheets</p>
+        <p className="text-primary font-medium mb-1">Click to upload PowerPoint (PPTX) to convert to PDF</p>
+        <p className="text-muted text-xs">Unzips presentations and lays out text placeholders to landscape PDF sheets</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -1085,12 +1085,12 @@ export function UrlToPdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <form onSubmit={handleConvert} className="space-y-4 max-w-lg mx-auto w-full">
         <div className="text-center">
           <Globe className="w-12 h-12 text-danger mx-auto mb-4" />
-          <h3 className="text-[#111827] font-medium mb-1">Convert URL to PDF</h3>
-          <p className="text-[#6B7280] text-xs">Enter a website URL link to scrape main contents and compile into a PDF layout</p>
+          <h3 className="text-primary font-medium mb-1">Convert URL to PDF</h3>
+          <p className="text-muted text-xs">Enter a website URL link to scrape main contents and compile into a PDF layout</p>
         </div>
 
         <div className="flex gap-2">
@@ -1100,20 +1100,20 @@ export function UrlToPdf() {
             onChange={e => setUrl(e.target.value)}
             placeholder="https://example.com/article" 
             required
-            className="flex-grow bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2.5 text-[#111827] text-sm"
+            className="flex-grow bg-white border border-border border-border rounded-xl px-4 py-2.5 text-primary text-sm"
           />
-          <Button type="submit" className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm">
+          <Button type="submit" className="bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm">
             Generate PDF
           </Button>
         </div>
 
-        {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-center">{error}</div>}
+        {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3 text-center">{error}</div>}
       </form>
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>
@@ -1211,36 +1211,36 @@ export function PdfWatermarkRemover() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       {!file ? (
         <div 
           onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.pdf'; i.onchange = e => { if ((e.target as any).files?.[0]) handleUpload((e.target as any).files[0]) }; i.click() }}
-          className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+          className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
         >
           <Trash2 className="w-12 h-12 text-danger mb-4" />
-          <p className="text-[#111827] font-medium mb-1">Click to upload PDF to remove Watermarks</p>
-          <p className="text-[#6B7280] text-xs">Stamps opaque mask structures to white out layout watermarks locally</p>
+          <p className="text-primary font-medium mb-1">Click to upload PDF to remove Watermarks</p>
+          <p className="text-muted text-xs">Stamps opaque mask structures to white out layout watermarks locally</p>
         </div>
       ) : (
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 space-y-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB] max-w-[320px] flex flex-col justify-between">
+          <div className="flex-1 space-y-4 bg-surface border border-border p-4 rounded-xl border border-border max-w-[320px] flex flex-col justify-between">
             <div className="space-y-4">
-              <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Watermark Stripper</h4>
+              <h4 className="text-xs font-semibold text-muted uppercase tracking-wider">Watermark Stripper</h4>
               <div>
-                <label className="text-xs text-[#6B7280] block mb-1">Watermark Keyword Target</label>
-                <input type="text" value={matchText} onChange={e => setMatchText(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3 text-[#111827] text-xs font-mono" />
+                <label className="text-xs text-muted block mb-1">Watermark Keyword Target</label>
+                <input type="text" value={matchText} onChange={e => setMatchText(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl p-3 text-primary text-xs font-mono" />
               </div>
 
               <div className="space-y-1">
                 <button 
                   onClick={() => setWhiteAreas([...whiteAreas, { x: 25, y: 25, w: 50, h: 10 }])}
-                  className="w-full py-1.5 bg-white border border-[#E5E7EB] hover:bg-slate-950 text-[#111827] border border-[#E5E7EB] rounded-xl text-xs font-semibold"
+                  className="w-full py-1.5 bg-white border border-border hover:bg-slate-950 text-primary border border-border rounded-xl text-xs font-semibold"
                 >
                   + Add Custom Eraser Box
                 </button>
                 <div className="max-h-24 overflow-y-auto space-y-1 pt-2">
                   {whiteAreas.map((area, idx) => (
-                    <div key={idx} className="flex justify-between items-center bg-white border border-[#E5E7EB] p-3 rounded text-[10px] text-[#6B7280]">
+                    <div key={idx} className="flex justify-between items-center bg-white border border-border p-3 rounded text-[10px] text-muted">
                       <span>Area {idx + 1} (x: {area.x}%, y: {area.y}%)</span>
                       <button onClick={() => setWhiteAreas(whiteAreas.filter((_, i) => i !== idx))} className="text-danger">Remove</button>
                     </div>
@@ -1250,29 +1250,29 @@ export function PdfWatermarkRemover() {
             </div>
 
             <div className="space-y-2 pt-4">
-              <Button onClick={handleStrip} className="w-full bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] text-sm" disabled={processing}>
+              <Button onClick={handleStrip} className="w-full bg-white border border-border hover:bg-white-hover text-primary text-sm" disabled={processing}>
                 Remove Watermarks & Save
               </Button>
-              <Button variant="outline" className="w-full border-[#E5E7EB] text-[#111827] text-sm" onClick={() => { setFile(null); setWhiteAreas([]) }}>
+              <Button variant="outline" className="w-full border-border text-primary text-sm" onClick={() => { setFile(null); setWhiteAreas([]) }}>
                 Clear
               </Button>
             </div>
           </div>
 
-          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-[#E5E7EB] rounded-2xl border border-[#E5E7EB] relative min-h-[350px]">
+          <div className="flex-[2] flex flex-col items-center justify-center p-4 bg-white border border-border rounded-2xl border border-border relative min-h-[350px]">
             {previewUrl && (
-              <div className="relative inline-block border border-[#E5E7EB] rounded overflow-hidden">
+              <div className="relative inline-block border border-border rounded overflow-hidden">
                 <img src={previewUrl} alt="Preview" className="max-w-full max-h-[380px] object-contain block" />
                 
                 {/* Visual cover representations */}
-                <div className="absolute top-[45%] left-[28%] w-[45%] h-[10%] border-2 border-dashed border-[#E5E7EB] bg-white/70 backdrop-blur-sm pointer-events-none flex items-center justify-center">
+                <div className="absolute top-[45%] left-[28%] w-[45%] h-[10%] border-2 border-dashed border-border bg-white/70 backdrop-blur-sm pointer-events-none flex items-center justify-center">
                   <span className="text-[10px] font-bold text-danger uppercase tracking-wide">Stripping Overlay Mask</span>
                 </div>
                 
                 {whiteAreas.map((area, idx) => (
                   <div 
                     key={idx}
-                    className="absolute border border-[#E5E7EB] bg-[#FAFAFA] border border-[#E5E7EB]"
+                    className="absolute border border-border bg-surface border border-border"
                     style={{
                       left: `${area.x}%`,
                       top: `${area.y}%`,
@@ -1375,35 +1375,35 @@ export function CreatePdf() {
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div className="space-y-4 max-w-xl mx-auto w-full">
         <div>
-          <label className="text-xs text-[#6B7280] block mb-1">Document Title</label>
-          <input type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] font-semibold text-sm" />
+          <label className="text-xs text-muted block mb-1">Document Title</label>
+          <input type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl px-4 py-2 text-primary font-semibold text-sm" />
         </div>
         <div>
-          <label className="text-xs text-[#6B7280] block mb-1">Subtitle / Author Description</label>
-          <input type="text" value={subtitle} onChange={e => setSubtitle(e.target.value)} className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl px-4 py-2 text-[#111827] text-sm" />
+          <label className="text-xs text-muted block mb-1">Subtitle / Author Description</label>
+          <input type="text" value={subtitle} onChange={e => setSubtitle(e.target.value)} className="w-full bg-white border border-border border-border rounded-xl px-4 py-2 text-primary text-sm" />
         </div>
         <div>
-          <label className="text-xs text-[#6B7280] block mb-1">Document Body Text</label>
+          <label className="text-xs text-muted block mb-1">Document Body Text</label>
           <textarea 
             rows={8}
             value={content} 
             onChange={e => setContent(e.target.value)}
-            className="w-full bg-white border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-4 text-[#111827] text-sm font-mono leading-relaxed"
+            className="w-full bg-white border border-border border-border rounded-xl p-4 text-primary text-sm font-mono leading-relaxed"
           />
         </div>
 
-        <div className="flex justify-between items-center gap-4 bg-[#FAFAFA] border border-[#E5E7EB] p-4 rounded-xl border border-[#E5E7EB]">
+        <div className="flex justify-between items-center gap-4 bg-surface border border-border p-4 rounded-xl border border-border">
           <div>
-            <label className="text-xs text-[#6B7280] block mb-1">Page Sheet Configuration</label>
+            <label className="text-xs text-muted block mb-1">Page Sheet Configuration</label>
             <div className="flex gap-2">
-              <button onClick={() => setPageSize('A4')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'A4' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>A4 Size</button>
-              <button onClick={() => setPageSize('Letter')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'Letter' ? 'bg-white border border-[#E5E7EB] text-[#111827]' : 'bg-white border border-[#E5E7EB] text-[#6B7280]'}`}>Letter</button>
+              <button onClick={() => setPageSize('A4')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'A4' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>A4 Size</button>
+              <button onClick={() => setPageSize('Letter')} className={`px-4 py-1.5 rounded-xl text-xs font-bold ${pageSize === 'Letter' ? 'bg-white border border-border text-primary' : 'bg-white border border-border text-muted'}`}>Letter</button>
             </div>
           </div>
-          <Button onClick={handleCreate} className="bg-white border border-[#E5E7EB] hover:bg-white-hover text-[#111827] font-semibold text-sm px-6 h-10" disabled={processing}>
+          <Button onClick={handleCreate} className="bg-white border border-border hover:bg-white-hover text-primary font-semibold text-sm px-6 h-10" disabled={processing}>
             {processing ? 'Compiling...' : 'Create PDF'}
           </Button>
         </div>
@@ -1470,7 +1470,7 @@ export function ImageSpecificToPdf({ targetType }: { targetType: 'heic' | 'tiff'
   }
 
   return (
-    <div className="flex flex-col gap-6 h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 ">
+    <div className="flex flex-col gap-6 h-full bg-white border border-border rounded-2xl p-6 ">
       <div 
         onClick={() => { 
           const i = document.createElement('input')
@@ -1479,19 +1479,19 @@ export function ImageSpecificToPdf({ targetType }: { targetType: 'heic' | 'tiff'
           i.onchange = e => { if ((e.target as any).files?.[0]) handleConvert((e.target as any).files[0]) }
           i.click() 
         }}
-        className="flex flex-col items-center justify-center border-2 border-dashed border-[#E5E7EB] hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
+        className="flex flex-col items-center justify-center border-2 border-dashed border-border hover:border-white/30 rounded-2xl p-14 cursor-pointer bg-white/2"
       >
         <Plus className="w-12 h-12 text-danger mb-4" />
-        <p className="text-[#111827] font-medium mb-1">Click to upload {targetType.toUpperCase()} file</p>
-        <p className="text-[#6B7280] text-xs">Instantly formats and renders your image into a standard page-compatible PDF</p>
+        <p className="text-primary font-medium mb-1">Click to upload {targetType.toUpperCase()} file</p>
+        <p className="text-muted text-xs">Instantly formats and renders your image into a standard page-compatible PDF</p>
       </div>
 
-      {error && <div className="text-xs text-danger bg-[#FAFAFA] border border-[#E5E7EB] border-[#E5E7EB] rounded-xl p-3">{error}</div>}
+      {error && <div className="text-xs text-danger bg-surface border border-border border-border rounded-xl p-3">{error}</div>}
 
       {processing && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center">
           <RefreshCw className="w-10 h-10 text-danger animate-spin mb-3" />
-          <p className="text-[#111827] font-medium">{statusText}</p>
+          <p className="text-primary font-medium">{statusText}</p>
         </div>
       )}
     </div>

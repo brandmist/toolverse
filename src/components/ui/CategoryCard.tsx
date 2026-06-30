@@ -22,29 +22,29 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, index = 0 
     >
       <Link
         to={`/category/${category.id}`}
-        className="group flex flex-col h-full bg-white border border-[#E5E7EB] rounded-2xl p-6 hover:border-[#D1D5DB] hover:shadow-[0_4px_12px_rgb(0,0,0,0.08)] transition-all duration-200"
+        className="group flex flex-col h-full bg-white border border-border rounded-2xl p-6 hover:border-border-hover hover:shadow-[0_4px_12px_rgb(0,0,0,0.08)] transition-all duration-200"
       >
         {/* Icon */}
-        <div className="w-11 h-11 bg-[#FAFAFA] border border-[#E5E7EB] rounded-xl flex items-center justify-center text-[#374151] mb-5 group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-200">
+        <div className="w-11 h-11 bg-surface border border-border rounded-xl flex items-center justify-center text-secondary mb-5 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-200">
           <Icon name={category.icon} className="w-5 h-5" />
         </div>
 
         {/* Content */}
         <div className="flex-1">
-          <h3 className="text-[15px] font-semibold text-[#111827] mb-2 group-hover:text-black transition-colors">
+          <h3 className="text-[15px] font-semibold text-primary mb-2 group-hover:text-black transition-colors">
             {category.name}
           </h3>
-          <p className="text-[13px] text-[#4B5563] leading-relaxed line-clamp-3 mb-4">
+          <p className="text-[13px] text-muted leading-relaxed line-clamp-3 mb-4">
             {category.description}
           </p>
         </div>
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-[#F3F4F6]">
-          <span className="text-[13px] font-semibold text-[#6B7280]">
+          <span className="text-[13px] font-semibold text-muted">
             {toolCount} tools
           </span>
-          <span className="flex items-center gap-1 text-[13px] font-semibold text-[#111827] opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200">
+          <span className="flex items-center gap-1 text-[13px] font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200">
             Browse <ArrowRight className="w-3.5 h-3.5" />
           </span>
         </div>
