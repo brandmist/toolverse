@@ -622,14 +622,7 @@ export function Home() {
               >
                 <Search className="w-4 h-4" /> Search tools
               </Link>
-              <a 
-                href="https://expulsiondatabaseinnocent.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 border border-amber-500 text-amber-950 font-bold rounded-xl hover:from-amber-500 hover:to-amber-600 hover:shadow-lg transition-all text-[14px]"
-              >
-                <Star className="w-4 h-4" /> Unlock Premium Features
-              </a>
+
             </div>
 
             {/* Trust indicators */}

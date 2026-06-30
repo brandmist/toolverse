@@ -672,16 +672,7 @@ export function ToolDetail() {
             </div>
           )}
 
-          <div className="flex justify-center w-full py-8">
-            <a 
-              href="https://expulsiondatabaseinnocent.com/jaj11f6qd?key=4fb306169b7dffbec2b625cff9337f14" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-0.5"
-            >
-              Unlock Premium Features
-            </a>
-          </div>
+
         </div>        </div>
       </div>
     </>
