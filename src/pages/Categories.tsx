@@ -39,7 +39,13 @@ export function Categories() {
         </div>
 
         {/* ── Grid & Sidebar ── */}
-        <div className="max-w-[1280px] mx-auto px-6 py-16 flex flex-col md:flex-row gap-8">
+        <div className="flex justify-center w-full mt-10">
+          <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+          <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+          <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-6 py-10 flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <motion.div
               initial="hidden"

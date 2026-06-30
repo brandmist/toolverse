@@ -14,7 +14,7 @@ import { McpProvider } from './features/mcp/context/McpContext';
 import { useStore } from './store/useStore';
 import { NativeAd } from './components/ui/NativeAd';
 import { AdBanner } from './components/ui/AdBanner';
-import { PopunderManager } from './components/ui/PopunderManager';
+
 
 // Statically imported pages (critical for LCP and CLS)
 import { Home } from './pages/Home';
@@ -50,7 +50,7 @@ export default function App() {
               <Toaster position="bottom-right" />
               <CommandPalette />
               <BackToTop />
-              <PopunderManager />
+
             <div className="min-h-screen flex flex-col relative overflow-x-hidden">
               {/* Subtle mesh gradients that adapt to light/dark themes via opacity and color vars */}
               <div className="fixed top-[-100px] right-[-100px] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>

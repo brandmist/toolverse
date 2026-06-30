@@ -4,6 +4,8 @@ import { ToolCard } from '../components/ui/ToolCard'
 import { HeartCrack } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/button'
+import { AdBanner } from '../components/ui/AdBanner'
+import { NativeAd } from '../components/ui/NativeAd'
 
 export function Favorites() {
   const { favorites } = useStore()
@@ -19,6 +21,12 @@ export function Favorites() {
         <p className="text-xl text-text-muted leading-relaxed">
           Tools you've saved for quick access. Stored securely on your device.
         </p>
+      </div>
+
+      <div className="flex justify-center w-full mb-8">
+        <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+        <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+        <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
       </div>
 
       {favoriteTools.length > 0 ? (
@@ -56,6 +64,10 @@ export function Favorites() {
           </div>
         </div>
       )}
+
+      <div className="mt-12">
+        <NativeAd />
+      </div>
     </div>
   )
 }

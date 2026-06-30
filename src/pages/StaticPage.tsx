@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Mail, MessageSquare, HelpCircle, Shield, FileText, Lock, Users, Zap, Globe } from 'lucide-react';
 import { BLOGS } from '../data/blogs';
+import { AdBanner } from '../components/ui/AdBanner';
+import { NativeAd } from '../components/ui/NativeAd';
 
 const AboutPage = () => (
   <div className="space-y-24">
@@ -503,7 +505,15 @@ export function StaticPage() {
       </Helmet>
       
       <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen bg-surface">
+        <div className="flex justify-center w-full mb-8">
+          <AdBanner adKey="1026c12149117e16c7ccce72edad6371" height={90} width={728} className="hidden md:flex" />
+          <AdBanner adKey="820ae9a9c66d98143fc406aca9ac626f" height={60} width={468} className="hidden sm:flex md:hidden" />
+          <AdBanner adKey="bab1185fa7522837a82e6dbf5c6015d5" height={50} width={320} className="sm:hidden" />
+        </div>
         {renderContent()}
+        <div className="mt-12">
+          <NativeAd />
+        </div>
       </div>
     </>
   );

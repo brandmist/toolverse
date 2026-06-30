@@ -464,6 +464,13 @@ export function Home() {
         </div>
       </section>
 
+      {/* ── Native Ad ── */}
+      <div className="bg-white border-b border-[#E5E7EB] py-12">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <NativeAd />
+        </div>
+      </div>
+
       {/* ══════════════════════════════════════════════
           FEATURES
       ══════════════════════════════════════════════ */}
